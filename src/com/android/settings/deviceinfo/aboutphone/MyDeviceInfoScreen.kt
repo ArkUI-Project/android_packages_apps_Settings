@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2024 The Android Open Source Project
+ * Copyright (C) 2026 The ArkUI Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,6 +40,7 @@ import com.android.settingslib.metadata.PreferenceMetadata
 import com.android.settingslib.metadata.PreferenceSummaryProvider
 import com.android.settingslib.metadata.ProvidePreferenceScreen
 import com.android.settingslib.metadata.preferenceHierarchy
+import com.android.settingslib.preference.PreferenceCategoryBinding
 import com.android.settingslib.widget.SettingsThemeHelper.isExpressiveTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -77,20 +79,12 @@ open class MyDeviceInfoScreen :
 
     override fun getPreferenceHierarchy(context: Context, coroutineScope: CoroutineScope) =
         preferenceHierarchy(context) {
-            if (Flags.catalystAboutPhoneDeviceName()) {
-                +PreferenceCategory(
-                    BASIC_INFO_CATEGORY,
-                    R.string.my_device_info_basic_info_category_title,
-                ) +=
-                    {
-                        +DeviceNamePreference(context) order 1
-                    }
-            }
-            +PreferenceCategory(
-                DEVICE_DETAIL_CATEGORY,
-                R.string.my_device_info_device_details_category_title,
+            addGroup(
+                AboutCategory(DEVICE_DETAIL_CATEGORY, R.string.arkui_about_device_category),
+                order = 0,
             ) +=
                 {
+                    if (Flags.catalystAboutPhoneDeviceName()) +DeviceNamePreference(context) order 1
                     if (Flags.catalystDeviceModel()) +HardwareInfoScreen.KEY order 30
                     addAsync(coroutineScope, Dispatchers.Default) {
                         +SimEidPreference(context) order 31
@@ -99,15 +93,26 @@ open class MyDeviceInfoScreen :
                     for (i in 0 until activeModemCount) {
                         +ImeiPreference(context, i, activeModemCount) order (i + 33)
                     }
+                }
+            addGroup(
+                AboutCategory(SYSTEM_INFO_CATEGORY, R.string.arkui_about_system_category),
+                order = 1,
+            ) +=
+                {
                     if (Flags.catalystFirmwareVersion()) +FirmwareVersionScreen.KEY order 42
                 }
         }
 
     override fun hasCompleteHierarchy() = false
 
+    private class AboutCategory(key: String, title: Int) :
+        PreferenceCategory(key, title), PreferenceCategoryBinding {
+        override fun createWidget(context: Context) = ArkuiAboutPreferenceCategory(context)
+    }
+
     companion object {
         const val KEY = "my_device_info_pref_screen"
-        internal const val BASIC_INFO_CATEGORY = "basic_info_category"
         internal const val DEVICE_DETAIL_CATEGORY = "device_detail_category"
+        internal const val SYSTEM_INFO_CATEGORY = "arkui_system_info_category"
     }
 }

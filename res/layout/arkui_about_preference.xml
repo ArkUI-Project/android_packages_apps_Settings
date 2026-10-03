@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<com.android.settingslib.widget.DrawableStateLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="72dp"
+    android:paddingHorizontal="32dp"
+    android:gravity="center_vertical"
+    android:baselineAligned="false"
+    android:background="@drawable/settingslib_round_background_stateful">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="16dp"
+        android:gravity="center_vertical"
+        android:baselineAligned="false">
+
+        <FrameLayout
+            android:id="@android:id/icon_frame"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+            <ImageView
+                android:id="@android:id/icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:importantForAccessibility="no"/>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@android:id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:textSize="16sp"
+                android:textColor="?android:attr/textColorPrimary"/>
+
+            <TextView
+                android:id="@android:id/summary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="14sp"
+                android:textColor="?android:attr/textColorSecondary"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@android:id/widget_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_vertical"/>
+    </LinearLayout>
+</com.android.settingslib.widget.DrawableStateLinearLayout>

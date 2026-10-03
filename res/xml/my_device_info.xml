@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   Copyright (C) 2018 The Android Open Source Project
+  Copyright (C) 2026 The ArkUI Project
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -21,16 +22,17 @@
     android:key="my_device_info_pref_screen"
     android:title="@string/about_settings">
 
-    <com.android.settingslib.widget.LayoutPreference
-        android:key="my_device_info_header"
-        android:layout="@layout/settings_entity_header"
-        android:selectable="false"
-        settings:isPreferenceVisible="false"/>
+    <com.android.settings.deviceinfo.aboutphone.ArkuiAboutOverviewPreference
+        android:key="arkui_about_overview"
+        android:order="-2"
+        android:layout="@layout/arkui_about_overview"
+        android:selectable="false"/>
 
-    <PreferenceCategory
-        android:key="basic_info_category"
+    <com.android.settings.deviceinfo.aboutphone.ArkuiAboutPreferenceCategory
+        android:key="device_detail_category"
+        android:order="0"
         android:selectable="false"
-        android:title="@string/my_device_info_basic_info_category_title">
+        android:title="@string/arkui_about_device_category">
 
         <!-- Device name -->
         <com.android.settings.widget.ValidatedEditTextPreference
@@ -59,39 +61,6 @@
             settings:isPreferenceVisible="@bool/config_show_sim_info"
             settings:controller="com.android.settings.deviceinfo.PhoneNumberPreferenceController"
             settings:enableCopying="true"/>
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="legal_category"
-        android:title="@string/my_device_info_legal_category_title">
-
-        <!-- Legal information -->
-        <Preference
-            android:key="legal_container"
-            android:order="15"
-            android:title="@string/legal_information"
-            android:fragment="com.android.settings.LegalSettings"/>
-
-        <!-- Regulatory labels -->
-        <Preference
-            android:key="regulatory_info"
-            android:order="16"
-            android:title="@string/regulatory_labels">
-            <intent android:action="android.settings.SHOW_REGULATORY_INFO"
-                    android:targetPackage="${applicationId}"/>
-        </Preference>
-
-        <!-- Safety & regulatory manual -->
-        <Preference
-            android:key="safety_info"
-            android:order="18"
-            android:title="@string/safety_and_regulatory_info"/>
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="device_detail_category"
-        android:selectable="false"
-        android:title="@string/my_device_info_device_details_category_title">
 
         <!-- SIM status -->
         <Preference
@@ -135,6 +104,12 @@
             settings:enableCopying="true"
             settings:isPreferenceVisible="@bool/config_show_sim_info"
             settings:controller="com.android.settings.deviceinfo.imei.ImeiInfoPreferenceController"/>
+    </com.android.settings.deviceinfo.aboutphone.ArkuiAboutPreferenceCategory>
+
+    <com.android.settings.deviceinfo.aboutphone.ArkuiAboutPreferenceCategory
+        android:key="arkui_system_info_category"
+        android:order="1"
+        android:title="@string/arkui_about_system_category">
 
         <!-- Android version -->
         <Preference
@@ -153,10 +128,28 @@
             android:summary="@string/summary_placeholder"
             settings:enableCopying="true"
             settings:controller="com.android.settings.deviceinfo.firmwareversion.LineageVersionDetailPreferenceController"/>
-    </PreferenceCategory>
 
-    <PreferenceCategory
+        <!-- Build number: retain the developer-options gesture. -->
+        <Preference
+            android:key="build_number"
+            android:order="53"
+            android:title="@string/build_number"
+            android:summary="@string/summary_placeholder"
+            settings:enableCopying="true"
+            settings:controller="com.android.settings.deviceinfo.BuildNumberPreferenceController"/>
+
+        <!-- Device up time -->
+        <Preference
+            android:key="up_time"
+            android:order="54"
+            android:title="@string/status_up_time"
+            android:summary="@string/summary_placeholder"
+            android:selectable="false"/>
+    </com.android.settings.deviceinfo.aboutphone.ArkuiAboutPreferenceCategory>
+
+    <com.android.settings.deviceinfo.aboutphone.ArkuiAboutPreferenceCategory
         android:key="device_identifiers_category"
+        android:order="2"
         android:title="@string/my_device_info_device_identifiers_category_title">
 
         <!--IP address -->
@@ -195,13 +188,40 @@
             android:selectable="false"
             settings:enableCopying="true"/>
 
-        <!-- Device up time -->
+        <!-- Device FCC equipment id -->
         <Preference
-            android:key="up_time"
-            android:order="48"
-            android:title="@string/status_up_time"
-            android:summary="@string/summary_placeholder"
-            android:selectable="false"/>
+            android:key="fcc_equipment_id"
+            android:order="52"
+            android:title="@string/fcc_equipment_id"
+            android:summary="@string/summary_placeholder"/>
+    </com.android.settings.deviceinfo.aboutphone.ArkuiAboutPreferenceCategory>
+
+    <com.android.settings.deviceinfo.aboutphone.ArkuiAboutPreferenceCategory
+        android:key="legal_category"
+        android:order="3"
+        android:title="@string/arkui_about_support_category">
+
+        <!-- Legal information -->
+        <Preference
+            android:key="legal_container"
+            android:order="15"
+            android:title="@string/legal_information"
+            android:fragment="com.android.settings.LegalSettings"/>
+
+        <!-- Regulatory labels -->
+        <Preference
+            android:key="regulatory_info"
+            android:order="16"
+            android:title="@string/regulatory_labels">
+            <intent android:action="android.settings.SHOW_REGULATORY_INFO"
+                    android:targetPackage="${applicationId}"/>
+        </Preference>
+
+        <!-- Safety & regulatory manual -->
+        <Preference
+            android:key="safety_info"
+            android:order="18"
+            android:title="@string/safety_and_regulatory_info"/>
 
         <!-- Manual -->
         <Preference
@@ -218,22 +238,6 @@
             android:order="51"
             android:title="@string/device_feedback"
             settings:keywords="@string/keywords_device_feedback"/>
-
-        <!-- Device FCC equipment id -->
-        <Preference
-            android:key="fcc_equipment_id"
-            android:order="52"
-            android:title="@string/fcc_equipment_id"
-            android:summary="@string/summary_placeholder"/>
-
-        <!-- Build number -->
-        <Preference
-            android:key="build_number"
-            android:order="53"
-            android:title="@string/build_number"
-            android:summary="@string/summary_placeholder"
-            settings:enableCopying="true"
-            settings:controller="com.android.settings.deviceinfo.BuildNumberPreferenceController"/>
-    </PreferenceCategory>
+    </com.android.settings.deviceinfo.aboutphone.ArkuiAboutPreferenceCategory>
 
 </PreferenceScreen>

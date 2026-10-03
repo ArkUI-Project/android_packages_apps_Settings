@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2017 The Android Open Source Project
+ * Copyright (C) 2026 The ArkUI Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +40,8 @@ import java.util.List;
 public class PhoneNumberPreferenceController extends BasePreferenceController {
 
     private static final String KEY_PHONE_NUMBER = "phone_number";
-    private static final String KEY_PREFERENCE_CATEGORY = "basic_info_category";
+    // ArkUI groups phone numbers with the other device details, including multi-SIM rows.
+    private static final String KEY_PREFERENCE_CATEGORY = "device_detail_category";
 
     private final TelephonyManager mTelephonyManager;
     private final SubscriptionManager mSubscriptionManager;

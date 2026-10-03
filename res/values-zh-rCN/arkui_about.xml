@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_about_system_label">操作系统</string>
+    <string name="arkui_about_lineage_base">基于 LineageOS %1$s</string>
+    <string name="arkui_about_device_category">此设备</string>
+    <string name="arkui_about_system_category">系统信息</string>
+    <string name="arkui_about_support_category">法律与支持</string>
+</resources>

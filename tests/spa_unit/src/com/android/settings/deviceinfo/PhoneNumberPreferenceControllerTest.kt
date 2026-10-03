@@ -85,7 +85,7 @@ class PhoneNumberPreferenceControllerTest {
         preference.setKey(controller.preferenceKey)
         preference.isVisible = true
         preferenceScreen.addPreference(preference)
-        category.key = "basic_info_category"
+        category.key = "device_detail_category"
         preferenceScreen.addPreference(category)
 
         doReturn(secondPreference).whenever(controller).createNewPreference(context)

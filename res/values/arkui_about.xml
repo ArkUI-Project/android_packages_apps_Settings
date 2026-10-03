@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_about_brand" translatable="false">ArkUI 1.0</string>
+    <string name="arkui_about_system_label">Operating system</string>
+    <string name="arkui_about_lineage_base">Based on LineageOS %1$s</string>
+    <string name="arkui_about_device_category">This device</string>
+    <string name="arkui_about_system_category">System information</string>
+    <string name="arkui_about_support_category">Legal &amp; support</string>
+</resources>

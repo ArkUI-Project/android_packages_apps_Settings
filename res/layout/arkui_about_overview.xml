@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="0dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/arkui_about_hero"
+        android:clipToOutline="true"
+        android:screenReaderFocusable="true">
+
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="-48dp"
+            android:src="@drawable/arkui_about_orbit"
+            android:alpha="0.16"
+            android:importantForAccessibility="no"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/arkui_about_system_label"
+                android:textSize="14sp"
+                android:textColor="@color/settingslib_materialColorOnPrimaryContainer"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/arkui_about_brand"
+                android:textSize="56sp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="-0.04"
+                android:textColor="@color/settingslib_materialColorOnPrimaryContainer"/>
+
+            <TextView
+                android:id="@+id/arkui_about_base_version"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                android:textColor="@color/settingslib_materialColorOnPrimaryContainer"/>
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/arkui_about_cards"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:id="@+id/arkui_about_android_card"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="6dp"
+            android:minHeight="132dp"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:background="@drawable/arkui_home_android_card"
+            android:clipToOutline="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:screenReaderFocusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_android"
+                    android:tint="@color/settingslib_materialColorOnTertiaryContainer"
+                    android:importantForAccessibility="no"/>
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"/>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_arrow_forward"
+                    android:tint="@color/settingslib_materialColorOnTertiaryContainer"
+                    android:importantForAccessibility="no"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/arkui_home_android_label"
+                android:textSize="14sp"
+                android:textColor="@color/settingslib_materialColorOnTertiaryContainer"/>
+
+            <TextView
+                android:id="@+id/arkui_about_android_version"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="42sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/settingslib_materialColorOnTertiaryContainer"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/arkui_about_model_card"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:minHeight="132dp"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:background="@drawable/arkui_home_card"
+            android:clipToOutline="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:screenReaderFocusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_devices_other"
+                    android:tint="@color/settingslib_materialColorOnSecondaryContainer"
+                    android:importantForAccessibility="no"/>
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"/>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_arrow_forward"
+                    android:tint="@color/settingslib_materialColorOnSecondaryContainer"
+                    android:importantForAccessibility="no"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/model_info"
+                android:textSize="14sp"
+                android:textColor="@color/settingslib_materialColorOnSecondaryContainer"/>
+
+            <TextView
+                android:id="@+id/arkui_about_model"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/settingslib_materialColorOnSecondaryContainer"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
