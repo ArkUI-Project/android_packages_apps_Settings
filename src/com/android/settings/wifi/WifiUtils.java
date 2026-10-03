@@ -331,14 +331,20 @@ public class WifiUtils extends com.android.settingslib.wifi.WifiUtils {
         final TypedValue typedValue = new TypedValue();
         if (activity.getTheme().resolveAttribute(
                 com.android.internal.R.attr.actionBarSize, typedValue, true)) {
+            final int bottomSpacing = activity.getResources().getDimensionPixelSize(
+                    R.dimen.settings_bottom_safe_spacing);
             ViewCompat.setOnApplyWindowInsetsListener(activity.findViewById(android.R.id.content),
                     (v, windowInsets) -> {
                         Insets insets = windowInsets.getInsets(
                                 WindowInsetsCompat.Type.systemBars() |
-                                WindowInsetsCompat.Type.ime());
+                                WindowInsetsCompat.Type.ime() |
+                                WindowInsetsCompat.Type.displayCutout());
+                        final int bottomInset = Math.max(insets.bottom, windowInsets.getInsets(
+                                WindowInsetsCompat.Type.mandatorySystemGestures()).bottom);
 
                         // Apply the insets paddings to the view.
-                        v.setPadding(insets.left, insets.top, insets.right, insets.bottom);
+                        v.setPadding(insets.left, insets.top, insets.right,
+                                bottomInset + bottomSpacing);
 
                         // Return CONSUMED if you don't want the window insets to keep being
                         // passed down to descendant views.

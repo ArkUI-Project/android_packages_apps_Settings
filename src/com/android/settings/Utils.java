@@ -1535,6 +1535,8 @@ public final class Utils extends com.android.settingslib.Utils {
      * @param activity the Activity need to setup the edge to edge feature.
      */
     public static void setupEdgeToEdge(@NonNull FragmentActivity activity) {
+        final int bottomSpacing = activity.getResources().getDimensionPixelSize(
+                R.dimen.settings_bottom_safe_spacing);
         ViewCompat.setOnApplyWindowInsetsListener(activity.findViewById(android.R.id.content),
                 (v, windowInsets) -> {
                     final Insets insets = windowInsets.getInsets(
@@ -1544,8 +1546,12 @@ public final class Utils extends com.android.settingslib.Utils {
                             .getInsets(WindowInsetsCompat.Type.statusBars()
                                     | WindowInsetsCompat.Type.captionBar()).top;
 
+                    final int bottomInset = Math.max(insets.bottom, windowInsets.getInsets(
+                            WindowInsetsCompat.Type.mandatorySystemGestures()).bottom);
+
                     // Apply the insets paddings to the view.
-                    v.setPadding(insets.left, newInsetsTop, insets.right, insets.bottom);
+                    v.setPadding(insets.left, newInsetsTop, insets.right,
+                            bottomInset + bottomSpacing);
 
                     // Return CONSUMED if you don't want the window insets to keep being
                     // passed down to descendant views.

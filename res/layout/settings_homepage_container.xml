@@ -20,43 +20,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/settings_homepage_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground">
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/main_content_scrollable_container"
+    <FrameLayout
+        android:id="@+id/arkui_home_overview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_behavior="com.android.settings.widget.HomepageAppBarScrollingViewBehavior">
-
-        <LinearLayout
-            android:id="@+id/homepage_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-8dp"
-            android:orientation="vertical">
-
-            <FrameLayout
-                android:id="@+id/suggestion_content"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="?android:attr/listPreferredItemPaddingStart"
-                android:layout_marginEnd="?android:attr/listPreferredItemPaddingEnd" />
-
-            <FrameLayout
-                android:id="@+id/contextual_cards_content"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/contextual_card_side_margin"
-                android:layout_marginEnd="@dimen/contextual_card_side_margin"/>
-
-            <FrameLayout
-                android:id="@+id/main_content"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:animateLayoutChanges="true"/>
-
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+        <include layout="@layout/arkui_home_summary"/>
+    </FrameLayout>
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
@@ -74,10 +47,110 @@
             android:paddingBottom="@dimen/settingslib_expressive_space_extrasmall4"
             android:paddingStart="?android:attr/listPreferredItemPaddingStart"
             android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+            android:gravity="center_vertical"
             android:background="?android:attr/colorBackground">
 
-            <include layout="@layout/search_bar"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/settings_label"
+                android:textSize="28sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/settingslib_text_color_primary"
+                android:accessibilityHeading="true"/>
+            <FrameLayout
+                android:layout_width="48dp"
+                android:layout_height="48dp">
+                <ImageButton
+                    android:id="@+id/search_action_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="14dp"
+                    android:background="@drawable/arkui_home_search_background"
+                    android:src="@drawable/ic_homepage_search"
+                    android:tint="@color/settingslib_text_color_primary"
+                    android:contentDescription="@string/homepage_search"/>
+            </FrameLayout>
 
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:id="@+id/arkui_home_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@null"
+        android:clipChildren="true"
+        android:clipToPadding="true"
+        app:layout_behavior="com.android.settings.homepage.ArkuiHomepageSheetBehavior"
+        app:behavior_fitToContents="true"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="320dp"
+        app:gestureInsetBottomIgnored="true"
+        app:paddingTopSystemWindowInsets="false"
+        app:paddingBottomSystemWindowInsets="false">
+
+        <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+            android:id="@+id/arkui_home_drawer_handle"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:padding="0dp"
+            android:background="@null"
+            android:scaleType="center"
+            android:src="@drawable/arkui_home_drag_handle"
+            app:tint="@color/settingslib_materialColorOnSurfaceVariant"/>
+
+        <FrameLayout
+            android:id="@+id/arkui_home_drawer_viewport"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/arkui_home_sheet"
+            android:clipToOutline="true"
+            android:clipChildren="true"
+            android:clipToPadding="true">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/main_content_scrollable_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:clipChildren="true"
+                android:clipToPadding="true"
+                android:overScrollMode="never">
+
+                <LinearLayout
+                    android:id="@+id/homepage_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/arkui_home_bottom_spacing"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:id="@+id/suggestion_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="?android:attr/listPreferredItemPaddingStart"
+                        android:layout_marginEnd="?android:attr/listPreferredItemPaddingEnd"/>
+
+                    <FrameLayout
+                        android:id="@+id/contextual_cards_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/contextual_card_side_margin"
+                        android:layout_marginEnd="@dimen/contextual_card_side_margin"/>
+
+                    <FrameLayout
+                        android:id="@+id/main_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:animateLayoutChanges="true"/>
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </FrameLayout>
+    </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

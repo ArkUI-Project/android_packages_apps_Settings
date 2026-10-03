@@ -20,7 +20,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.annotation.VisibleForTesting
+import com.android.settings.R
 import com.android.settings.spa.app.appinfo.AppInfoSettingsProvider
 import com.android.settingslib.core.lifecycle.HideNonSystemOverlayMixin
 import com.android.settingslib.spa.framework.BrowseActivity
@@ -35,6 +37,16 @@ class SpaActivity : BrowseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // SPA scaffolds already apply WindowInsets.safeDrawing. Keep those insets and add the
+        // same breathing room below the page as the View-based settings activities.
+        findViewById<View>(android.R.id.content).apply {
+            setPadding(
+                paddingLeft,
+                paddingTop,
+                paddingRight,
+                paddingBottom + resources.getDimensionPixelSize(R.dimen.settings_bottom_safe_spacing),
+            )
+        }
         lifecycle.addObserver(HideNonSystemOverlayMixin(this))
     }
 

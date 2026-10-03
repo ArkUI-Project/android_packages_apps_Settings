@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?android:attr/colorControlHighlight"
+    android:paddingStart="16dp" android:paddingEnd="16dp">
+    <item android:start="16dp" android:end="16dp" android:top="1dp" android:bottom="1dp">
+        <shape>
+            <solid android:color="@color/settingslib_materialColorSurfaceBright"/>
+            <corners android:topLeftRadius="28dp" android:bottomLeftRadius="28dp"
+                android:topRightRadius="28dp" android:bottomRightRadius="28dp"/>
+        </shape>
+    </item>
+</ripple>

@@ -32,6 +32,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.hardware.usb.UsbManager;
 import android.net.ConnectivityManager;
 import android.net.EthernetManager;
@@ -192,9 +193,7 @@ public class TetherSettings extends RestrictedDashboardFragment
         mDataSaverBackend.addListener(this);
 
         mCm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        // Some devices do not have available EthernetManager. In that case getSystemService will
-        // return null.
-        mEm = mContext.getSystemService(EthernetManager.class);
+        mEm = getEthernetManager(mContext);
 
         mUsbRegexs = mTm.getTetherableUsbRegexs();
         mBluetoothRegexs = mTm.getTetherableBluetoothRegexs();
@@ -649,6 +648,18 @@ public class TetherSettings extends RestrictedDashboardFragment
                 public void onServiceDisconnected(int profile) { /* Do nothing */ }
             };
 
+    @Nullable
+    private static EthernetManager getEthernetManager(Context context) {
+        final PackageManager pm = context.getPackageManager();
+        // Match ConnectivityService's Ethernet support check. Querying an unpublished service
+        // logs a fatal error for Settings' system UID.
+        if (!pm.hasSystemFeature(PackageManager.FEATURE_ETHERNET)
+                && !pm.hasSystemFeature(PackageManager.FEATURE_USB_HOST)) {
+            return null;
+        }
+        return context.getSystemService(EthernetManager.class);
+    }
+
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider() {
                 @Override
@@ -685,8 +696,7 @@ public class TetherSettings extends RestrictedDashboardFragment
                         keys.add(KEY_ENABLE_BLUETOOTH_TETHERING);
                     }
 
-                    final EthernetManager em =
-                            context.getSystemService(EthernetManager.class);
+                    final EthernetManager em = getEthernetManager(context);
                     final boolean ethernetAvailable = (em != null);
                     if (!ethernetAvailable) {
                         keys.add(KEY_ENABLE_ETHERNET_TETHERING);

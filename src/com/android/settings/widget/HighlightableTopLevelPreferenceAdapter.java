@@ -27,20 +27,23 @@ import android.widget.TextView;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.widget.NestedScrollView;
 import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceViewHolder;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.window.embedding.ActivityEmbeddingController;
 
-import com.android.settings.core.RoundCornerPreferenceAdapter;
+import com.android.settings.homepage.ArkuiHomepagePreferenceAdapter;
 import com.android.settings.homepage.SettingsHomepageActivity;
 import com.android.settingslib.widget.SettingsThemeHelper;
 import com.android.settingslib.widget.theme.R;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+
 /**
  *  Adapter for highlighting top level preferences
  */
-public class HighlightableTopLevelPreferenceAdapter extends RoundCornerPreferenceAdapter implements
+public class HighlightableTopLevelPreferenceAdapter extends ArkuiHomepagePreferenceAdapter implements
         SettingsHomepageActivity.HomepageLoadedListener {
 
     private static final String TAG = "HighlightableTopLevelAdapter";
@@ -179,8 +182,11 @@ public class HighlightableTopLevelPreferenceAdapter extends RoundCornerPreferenc
             return;
         }
 
-        // Only when the recyclerView is loaded, it can be scrolled
-        final View view = mRecyclerView.getChildAt(mScrollPosition);
+        // The homepage list is measured inside the outer scroll view. Look up the adapter
+        // position through its layout manager rather than treating it as a child index.
+        final RecyclerView.LayoutManager layoutManager = mRecyclerView.getLayoutManager();
+        final View view = layoutManager == null ? null
+                : layoutManager.findViewByPosition(mScrollPosition);
         if (view == null) {
             mRecyclerView.postDelayed(() -> scroll(), DELAY_HIGHLIGHT_DURATION_MILLIS);
             return;
@@ -188,20 +194,17 @@ public class HighlightableTopLevelPreferenceAdapter extends RoundCornerPreferenc
 
         mScrolled = true;
         Log.d(TAG, "Scroll to position " + mScrollPosition);
-        // Scroll to the top to reset the position.
-        mRecyclerView.nestedScrollBy(0, -mRecyclerView.getHeight());
+        final View drawer = mHomepageActivity.findViewById(
+                com.android.settings.R.id.arkui_home_drawer);
+        BottomSheetBehavior.from(drawer).setState(BottomSheetBehavior.STATE_EXPANDED);
 
-        // get the visible area of the recycler view
-        Rect rvRect = new Rect();
-        mRecyclerView.getGlobalVisibleRect(rvRect);
-        if (view.getBottom() <= rvRect.height()) {
-            // the request position already fully visible in the visible area
-            return;
-        }
-
-        final int scrollY = view.getTop();
-        if (scrollY > 0) {
-            mRecyclerView.nestedScrollBy(0, scrollY);
+        final NestedScrollView scrollView = mHomepageActivity.findViewById(
+                com.android.settings.R.id.main_content_scrollable_container);
+        scrollView.scrollTo(0, 0);
+        final Rect bounds = new Rect(0, 0, view.getWidth(), view.getHeight());
+        scrollView.offsetDescendantRectToMyCoords(view, bounds);
+        if (bounds.bottom > scrollView.getHeight() - scrollView.getPaddingBottom()) {
+            scrollView.scrollTo(0, bounds.top);
         }
     }
 

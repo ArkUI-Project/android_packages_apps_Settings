@@ -258,6 +258,8 @@ public class SettingsHomepageActivity extends FragmentActivity implements
         mLoadedListeners = new ArraySet<>();
 
         initSearchBarView();
+        getLifecycle().addObserver(new ArkuiHomepageSummary(this));
+        new ArkuiHomepageDrawer(this);
 
         getLifecycle().addObserver(new HideNonSystemOverlayMixin(this));
         mCategoryMixin = new CategoryMixin(this);
@@ -390,15 +392,27 @@ public class SettingsHomepageActivity extends FragmentActivity implements
                     Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars()
                             | WindowInsetsCompat.Type.displayCutout());
                     // Apply the insets paddings to the view.
-                    v.setPadding(insets.left, 0, insets.right, insets.bottom);
+                    v.setPadding(insets.left, 0, insets.right, 0);
+                    // Keep the safe area at the end of the content so it scrolls with the list.
+                    final View content = findViewById(R.id.homepage_container);
+                    if (content != null) {
+                        final int bottomSpacing = getResources().getDimensionPixelSize(
+                                R.dimen.arkui_home_bottom_spacing);
+                        final int bottomInset = Math.max(insets.bottom, windowInsets.getInsets(
+                                WindowInsetsCompat.Type.mandatorySystemGestures()).bottom);
+                        content.setPadding(content.getPaddingLeft(), content.getPaddingTop(),
+                                content.getPaddingRight(), bottomInset + bottomSpacing);
+                    }
 
                     // reset the top padding of search bar container to original top padding
                     // plus insets top.
                     View container = findViewById(R.id.app_bar_container);
                     final int top_padding = getResources().getDimensionPixelSize(
                             R.dimen.search_bar_container_top_padding);
-                    container.setPadding(container.getPaddingLeft(), top_padding + insets.top,
-                            container.getPaddingRight(), container.getPaddingBottom());
+                    if (container != null) {
+                        container.setPadding(container.getPaddingLeft(), top_padding + insets.top,
+                                container.getPaddingRight(), container.getPaddingBottom());
+                    }
 
                     // Return CONSUMED if you don't want the window insets to keep being
                     // passed down to descendant views.

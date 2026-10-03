@@ -28,6 +28,7 @@ import android.provider.SearchIndexableResource;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
@@ -45,7 +46,6 @@ import androidx.window.embedding.ActivityEmbeddingController;
 import com.android.settings.R;
 import com.android.settings.activityembedding.ActivityEmbeddingRulesController;
 import com.android.settings.activityembedding.ActivityEmbeddingUtils;
-import com.android.settings.core.RoundCornerPreferenceAdapter;
 import com.android.settings.core.SubSettingLauncher;
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.overlay.FeatureFactory;
@@ -246,6 +246,10 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
             Bundle savedInstanceState) {
         RecyclerView recyclerView = super.onCreateRecyclerView(inflater, parent,
                 savedInstanceState);
+        // The outer NestedScrollView owns the drawer's scroll and fling gesture. Keeping a
+        // second nested-scrolling child here splits the gesture between two scroll containers.
+        recyclerView.setNestedScrollingEnabled(false);
+        recyclerView.setOverScrollMode(View.OVER_SCROLL_NEVER);
         recyclerView.setVerticalScrollBarEnabled(false);
         recyclerView.setHorizontalScrollBarEnabled(false);
         recyclerView.setPadding(mPaddingHorizontal, 0, mPaddingHorizontal, 0);
@@ -311,7 +315,7 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
             return mHighlightMixin.onCreateAdapter(this, preferenceScreen, mScrollNeeded);
         }
 
-        return new RoundCornerPreferenceAdapter(preferenceScreen);
+        return new ArkuiHomepagePreferenceAdapter(preferenceScreen);
     }
 
     @Override

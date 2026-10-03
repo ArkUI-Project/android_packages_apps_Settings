@@ -22,12 +22,19 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.android.settings.R;
+
 public class InsetUtils {
     public static void applyWindowInsetsListener(final View rootView) {
+        final int bottomSpacing = rootView.getResources().getDimensionPixelSize(
+                R.dimen.settings_bottom_safe_spacing);
         ViewCompat.setOnApplyWindowInsetsListener(rootView, (view, windowInsets) -> {
-            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars()
+                    | WindowInsetsCompat.Type.ime() | WindowInsetsCompat.Type.displayCutout());
+            final int bottomInset = Math.max(insets.bottom, windowInsets.getInsets(
+                    WindowInsetsCompat.Type.mandatorySystemGestures()).bottom);
 
-            view.setPadding(insets.left, insets.top, insets.right, insets.bottom);
+            view.setPadding(insets.left, insets.top, insets.right, bottomInset + bottomSpacing);
 
             return WindowInsetsCompat.CONSUMED;
         });
