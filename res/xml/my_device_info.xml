@@ -120,10 +120,19 @@
             android:fragment="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionSettings"
             settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionPreferenceController"/>
 
+        <!-- ArkUI version -->
+        <Preference
+            android:key="arkui_version"
+            android:order="43"
+            android:title="@string/arkui_version_title"
+            android:summary="@string/arkui_version_name"
+            android:selectable="false"
+            settings:enableCopying="true"/>
+
         <!-- Lineage version -->
         <Preference
             android:key="lineage_os_version"
-            android:order="43"
+            android:order="44"
             android:title="@*lineageos.platform:string/lineage_version"
             android:summary="@string/summary_placeholder"
             settings:enableCopying="true"

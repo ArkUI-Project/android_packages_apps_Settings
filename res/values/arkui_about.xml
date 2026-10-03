@@ -3,6 +3,8 @@
      SPDX-License-Identifier: Apache-2.0 -->
 <resources>
     <string name="arkui_about_brand" translatable="false">ArkUI 1.0</string>
+    <string name="arkui_version_title">ArkUI version</string>
+    <string name="arkui_version_name" translatable="false">1.0</string>
     <string name="arkui_about_system_label">Operating system</string>
     <string name="arkui_about_lineage_base">Based on LineageOS %1$s</string>
     <string name="arkui_about_device_category">This device</string>

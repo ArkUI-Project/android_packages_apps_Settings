@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   Copyright (C) 2019 The Android Open Source Project
+  Copyright (C) 2026 The ArkUI Project
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -29,6 +30,24 @@
         settings:enableCopying="true"
         settings:searchable="false"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionDetailPreferenceController"/>
+
+    <!-- ArkUI version -->
+    <Preference
+        android:key="arkui_version"
+        android:title="@string/arkui_version_title"
+        android:summary="@string/arkui_version_name"
+        android:selectable="false"
+        settings:enableCopying="true"
+        settings:searchable="false"/>
+
+    <!-- Lineage version -->
+    <Preference
+        android:key="lineage_version"
+        android:title="@*lineageos.platform:string/lineage_version"
+        android:summary="@string/summary_placeholder"
+        settings:enableCopying="true"
+        settings:searchable="false"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.LineageVersionDetailPreferenceController"/>
 
     <!-- Security patch -->
     <Preference
