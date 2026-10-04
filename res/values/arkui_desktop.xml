@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_desktop_title">Home screen</string>
+    <string name="arkui_desktop_summary">Layout, app drawer, gestures and animations</string>
+    <string name="arkui_features_summary">Small windows</string>
+    <string name="menu_key_arkui_desktop" translatable="false">top_level_arkui_desktop</string>
+    <string name="arkui_desktop_layout">Home screen layout</string>
+    <string name="arkui_desktop_drawer">App drawer</string>
+    <string name="arkui_desktop_gestures">Gestures and animations</string>
+    <string name="arkui_desktop_lock">Lock layout</string>
+    <string name="arkui_desktop_lock_summary">Prevent changes to home screen icons and widgets</string>
+    <string name="arkui_desktop_add_icons">Add new apps to the home screen</string>
+    <string name="arkui_desktop_rotation">Allow home screen rotation</string>
+    <string name="arkui_desktop_labels">Show home screen icon labels</string>
+    <string name="arkui_desktop_drawer_labels">Show app drawer icon labels</string>
+    <string name="arkui_desktop_themed_icons">Use themed icons in the app drawer</string>
+    <string name="arkui_desktop_themed_icons_summary">Follow the icon theme used on the home screen</string>
+    <string name="arkui_desktop_keyboard">Open the keyboard in the app drawer</string>
+    <string name="arkui_desktop_keyboard_summary">Start searching when the app drawer opens</string>
+    <string name="arkui_desktop_sleep">Double tap to sleep</string>
+    <string name="arkui_desktop_sleep_summary">Double tap an empty area of the home screen to turn off the screen</string>
+    <string name="arkui_desktop_google">Show Google app</string>
+    <string name="arkui_desktop_trust">Hidden and protected apps</string>
+    <string name="arkui_desktop_suggestions">App suggestions</string>
+    <string name="arkui_desktop_notification_dots">Notification dots</string>
+    <string name="arkui_desktop_notification_access">Allow notification access to show dots</string>
+    <string name="arkui_desktop_landscape_animation">Landscape app animation</string>
+    <string name="arkui_desktop_landscape_animation_summary">Rotate and expand landscape apps from their icons, then fold them back when returning home</string>
+    <string name="arkui_desktop_stacked_recents">Stacked recent apps</string>
+    <string name="arkui_desktop_stacked_recents_summary">Swipe through overlapping app cards in recent apps</string>
+    <string name="arkui_desktop_swipe_unavailable">Turn on Small windows to use this gesture</string>
+    <string name="arkui_desktop_loading">Loading home screen settings…</string>
+    <string name="arkui_desktop_unavailable">Home screen settings are unavailable. Tap to retry.</string>
+    <string name="arkui_desktop_save_error">Could not save home screen settings</string>
+    <string name="arkui_motion_timing">Animation durations</string>
+    <string name="arkui_motion_open_curve">Launch position and width curve</string>
+    <string name="arkui_motion_height_curve">Launch height curve</string>
+    <string name="arkui_motion_home_curve">Return position curve</string>
+    <string name="arkui_motion_size_curve">Return size curve</string>
+    <string name="arkui_motion_home_height_duration">Height settling duration</string>
+    <string name="arkui_motion_home_height_duration_summary">Percentage of the closing duration used to shrink height; lower values round the window into its icon sooner</string>
+    <string name="arkui_motion_open_duration">Launch duration</string>
+    <string name="arkui_motion_open_duration_summary">Time to open an app from its home screen icon</string>
+    <string name="arkui_motion_recents_duration">Recent app launch duration</string>
+    <string name="arkui_motion_recents_duration_summary">Time to expand a recent app card to fullscreen</string>
+    <string name="arkui_motion_home_duration">App closing duration</string>
+    <string name="arkui_motion_home_duration_summary">Time from release to rest; position, size and blur follow separate curves within this duration</string>
+    <string name="arkui_motion_curve_x1">Curve start control X</string>
+    <string name="arkui_motion_curve_x1_summary">Smaller values start acceleration earlier</string>
+    <string name="arkui_motion_curve_y1">Curve start control Y</string>
+    <string name="arkui_motion_curve_y1_summary">Larger values advance this part of the animation faster at the start</string>
+    <string name="arkui_motion_curve_x2">Curve end control X</string>
+    <string name="arkui_motion_curve_x2_summary">Smaller values begin settling earlier</string>
+    <string name="arkui_motion_curve_y2">Curve end control Y</string>
+    <string name="arkui_motion_curve_y2_summary" formatted="false">Use 100% to settle with zero final speed</string>
+    <string name="arkui_motion_spring">Interruption handoff and window shape</string>
+    <string name="arkui_motion_position_stiffness">Position spring stiffness</string>
+    <string name="arkui_motion_position_stiffness_summary">Higher values rejoin the curve faster after release, interruption or an icon position change</string>
+    <string name="arkui_motion_position_damping">Position spring damping</string>
+    <string name="arkui_motion_position_damping_summary" formatted="false">Controls handoff momentum; below 100% allows bounce; 100% is critical damping</string>
+    <string name="arkui_motion_size_stiffness">Size spring stiffness</string>
+    <string name="arkui_motion_size_stiffness_summary">Higher values rejoin the resizing curve faster after release or interruption</string>
+    <string name="arkui_motion_size_damping">Size spring damping</string>
+    <string name="arkui_motion_size_damping_summary">Controls resizing momentum after interruption; size stays between the icon and fullscreen</string>
+    <string name="arkui_motion_rotation_response">Rotation response</string>
+    <string name="arkui_motion_rotation_response_summary" formatted="false">100% follows resizing; higher values straighten opening windows earlier and rotate closing windows later</string>
+    <string name="arkui_motion_corner_start">Corner morph start</string>
+    <string name="arkui_motion_corner_start_summary">Return progress at which the window starts rounding into the icon</string>
+    <string name="arkui_motion_fade_start">Window fade start</string>
+    <string name="arkui_motion_fade_start_summary">Return progress at which the window fades into its icon</string>
+    <string name="arkui_motion_icon_fade_duration">Launch icon fade duration</string>
+    <string name="arkui_motion_icon_fade_duration_summary">Crossfade duration between the launch icon and app window</string>
+    <string name="arkui_motion_background">Home screen and blur</string>
+    <string name="arkui_motion_workspace_scale">Background home screen scale</string>
+    <string name="arkui_motion_workspace_scale_summary">Home screen scale behind an opening app</string>
+    <string name="arkui_motion_blur_radius">Background blur radius</string>
+    <string name="arkui_motion_blur_radius_summary">Blur strength for the home screen and stacked recents; 0 disables blur</string>
+    <string name="arkui_motion_blur_enter_duration">Launch blur duration</string>
+    <string name="arkui_motion_blur_enter_duration_summary">Time for the background blur to reach full strength after launch</string>
+    <string name="arkui_motion_blur_exit_start">Return blur recovery start</string>
+    <string name="arkui_motion_blur_exit_start_summary">Percentage of elapsed closing time before the background starts clearing</string>
+    <string name="arkui_motion_blur_recovery">Blur recovery after interruption</string>
+    <string name="arkui_motion_blur_recovery_summary">Time to clear the blur when no new animation takes over</string>
+    <string name="arkui_motion_swipe_targets">Swipe-up split screen and small window targets</string>
+    <string name="arkui_motion_swipe_target_start">Target appearance threshold</string>
+    <string name="arkui_motion_swipe_target_start_summary">Upward swipe distance as a percentage of screen height before the targets appear</string>
+    <string name="arkui_motion_swipe_target_range">Target reveal distance</string>
+    <string name="arkui_motion_swipe_target_range_summary">Additional swipe distance as a percentage of screen height to reveal the targets fully</string>
+    <string name="arkui_motion_swipe_target_fade">Target fade duration</string>
+    <string name="arkui_motion_swipe_target_fade_summary">Time to fade the targets after releasing to home; the app returns immediately</string>
+    <string name="arkui_motion_stack">Stacked recent apps</string>
+    <string name="arkui_motion_stack_spacing">Card spread</string>
+    <string name="arkui_motion_stack_spacing_summary">Maximum exposed width of rear cards as a percentage of card width</string>
+    <string name="arkui_motion_stack_scale_step">Card scale step</string>
+    <string name="arkui_motion_stack_scale_step_summary" formatted="false">Scale reduction per layer; 25‰ equals 2.5%</string>
+    <string name="arkui_desktop_advanced_title">Advanced settings</string>
+    <string name="arkui_desktop_advanced_summary">Animation timing, curves, springs, blur and card spacing</string>
+    <string name="arkui_motion_reset">Restore animation defaults</string>
+    <string name="arkui_motion_reset_summary">Reset these parameters to the reference preset</string>
+    <string name="arkui_motion_value">%1$d%2$s · Default %3$d%2$s\n%4$s</string>
+    <string name="arkui_motion_saved">Animation defaults restored</string>
+</resources>

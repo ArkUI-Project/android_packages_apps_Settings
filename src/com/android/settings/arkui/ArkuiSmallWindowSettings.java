@@ -49,7 +49,6 @@ public class ArkuiSmallWindowSettings extends DashboardFragment
     private static final String ENABLED = Settings.System.ARKUI_SMALL_WINDOW_ENABLED;
     private static final String[] SWITCH_KEYS = {
             Settings.System.ARKUI_SMALL_WINDOW_RECENTS,
-            Settings.System.ARKUI_SMALL_WINDOW_SWIPE_UP,
             Settings.System.ARKUI_SMALL_WINDOW_NOTIFICATION_DRAG,
             Settings.System.POP_UP_NOTIFICATION_JUMP_PORTRAIT,
             Settings.System.POP_UP_NOTIFICATION_JUMP_LANDSCAPE,
@@ -57,7 +56,7 @@ public class ArkuiSmallWindowSettings extends DashboardFragment
             Settings.System.ARKUI_SMALL_WINDOW_EDGE_DOCK_FOREGROUND,
             Settings.System.ARKUI_SMALL_WINDOW_HAPTICS,
     };
-    private static final int[] SWITCH_DEFAULTS = {1, 0, 0, 0, 0, 1, 1, 1};
+    private static final int[] SWITCH_DEFAULTS = {1, 0, 0, 0, 1, 1, 1};
     private static final String[] CHOICE_KEYS = {
             Settings.System.ARKUI_SMALL_WINDOW_SIZE,
             Settings.System.ARKUI_SMALL_WINDOW_PINNED_SIZE,

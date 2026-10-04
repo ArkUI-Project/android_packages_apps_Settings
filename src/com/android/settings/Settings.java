@@ -1,4 +1,5 @@
 /*
+ * Modified by the ArkUI Project in 2026 to host desktop settings.
  * Copyright (C) 2008 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -71,6 +72,7 @@ public class Settings extends SettingsActivity {
     */
 
     public static class MemtagPageActivity extends SettingsActivity { /* empty */}
+    public static class ArkuiDesktopSettingsActivity extends SettingsActivity { /* empty */ }
     public static class BluetoothSettingsActivity extends SettingsActivity { /* empty */ }
     public static class BluetoothDashboardActivity extends SettingsActivity { /* empty */ }
     public static class CreateShortcutActivity extends SettingsActivity { /* empty */ }

@@ -57,10 +57,21 @@
             android:fragment="com.android.settings.arkui.ArkuiFeaturesSettings"
             android:icon="@drawable/ic_homepage_arkui_features"
             android:key="top_level_arkui_features"
+            android:order="-20"
             android:title="@string/arkui_features_title"
-            android:summary="@string/arkui_small_window_title"
+            android:summary="@string/arkui_features_summary"
             settings:highlightableMenuKey="@string/menu_key_arkui_features"
-            settings:controller="com.android.settings.arkui.SmallWindowPreferenceController"/>
+            settings:controller="com.android.settings.arkui.ArkuiFeaturesPreferenceController"/>
+
+        <com.android.settings.widget.HomepagePreference
+            android:fragment="com.android.settings.arkui.ArkuiDesktopSettings"
+            android:icon="@drawable/ic_homepage_arkui_desktop"
+            android:key="top_level_arkui_desktop"
+            android:order="-10"
+            android:title="@string/arkui_desktop_title"
+            android:summary="@string/arkui_desktop_summary"
+            settings:highlightableMenuKey="@string/menu_key_arkui_desktop"
+            settings:controller="com.android.settings.arkui.DesktopPreferenceController"/>
     </com.android.settingslib.widget.UntitledPreferenceCategory>
 
     <com.android.settingslib.widget.UntitledPreferenceCategory

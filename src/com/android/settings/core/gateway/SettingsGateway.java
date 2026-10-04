@@ -1,5 +1,5 @@
 /*
- * Modified by the ArkUI Project in 2026 to expose feature and small-window settings.
+ * Modified by the ArkUI Project in 2026 to expose feature, desktop and small-window settings.
  * Copyright (C) 2016 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -366,6 +366,8 @@ public class SettingsGateway {
             StorageDashboardFragment.class.getName(),
             SystemDashboardFragment.class.getName(),
             com.android.settings.arkui.ArkuiFeaturesSettings.class.getName(),
+            com.android.settings.arkui.ArkuiDesktopSettings.class.getName(),
+            com.android.settings.arkui.ArkuiDesktopAdvancedSettings.class.getName(),
             com.android.settings.arkui.ArkuiSecurityPrivacySettings.class.getName(),
             com.android.settings.arkui.ArkuiSmallWindowSettings.class.getName(),
             NetworkDashboardFragment.class.getName(),

@@ -22,10 +22,6 @@
             android:dialogTitle="@string/arkui_small_window_exceptions"
             android:dialogMessage="@string/arkui_small_window_exceptions_description"
             android:persistent="false" />
-        <SwitchPreferenceCompat android:key="arkui_small_window_swipe_up"
-            android:title="@string/arkui_small_window_swipe_up"
-            android:summary="@string/arkui_small_window_swipe_up_summary"
-            android:persistent="false" />
         <SwitchPreferenceCompat android:key="arkui_small_window_notification_drag"
             android:title="@string/arkui_small_window_notification_drag"
             android:summary="@string/arkui_small_window_notification_drag_summary"

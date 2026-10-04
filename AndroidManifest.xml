@@ -4,6 +4,7 @@
           coreApp="true"
           android:sharedUserId="android.uid.system">
 
+    <!-- Modified by the ArkUI Project in 2026 to expose the desktop settings activity. -->
     <original-package android:name="com.android.settings"/>
 
     <!-- Permissions for reading or writing battery-related data. -->
@@ -1666,6 +1667,18 @@
             <meta-data android:name="com.android.settings.dismiss"
                        android:value="3,7,30" />
             <meta-data android:name="com.android.settings.icon_tintable" android:value="true" />
+        </activity>
+
+        <activity
+            android:name="Settings$ArkuiDesktopSettingsActivity"
+            android:label="@string/arkui_desktop_title"
+            android:exported="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.arkui.ArkuiDesktopSettings" />
+            <meta-data android:name="com.android.settings.HIGHLIGHT_MENU_KEY"
+                android:value="@string/menu_key_arkui_desktop" />
+            <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
+                android:value="true" />
         </activity>
 
         <activity

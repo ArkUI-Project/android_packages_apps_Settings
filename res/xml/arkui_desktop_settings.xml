@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="arkui_desktop_settings"
+    android:title="@string/arkui_desktop_title">
+
+    <Preference android:key="desktop_status"
+        android:title="@string/arkui_desktop_loading" />
+
+    <PreferenceCategory android:key="desktop_layout"
+        android:title="@string/arkui_desktop_layout">
+        <SwitchPreferenceCompat android:key="pref_workspace_lock"
+            android:title="@string/arkui_desktop_lock"
+            android:summary="@string/arkui_desktop_lock_summary"
+            android:persistent="false" />
+        <SwitchPreferenceCompat android:key="pref_add_icon_to_home"
+            android:title="@string/arkui_desktop_add_icons"
+            android:persistent="false" />
+        <SwitchPreferenceCompat android:key="pref_allowRotation"
+            android:title="@string/arkui_desktop_rotation"
+            android:persistent="false" />
+        <SwitchPreferenceCompat android:key="pref_desktop_show_labels"
+            android:title="@string/arkui_desktop_labels"
+            android:persistent="false" />
+        <Preference android:key="pref_icon_badging"
+            android:title="@string/arkui_desktop_notification_dots" />
+        <SwitchPreferenceCompat android:key="pref_enable_minus_one"
+            android:title="@string/arkui_desktop_google"
+            android:persistent="false" />
+        <Preference android:key="pref_suggestions"
+            android:title="@string/arkui_desktop_suggestions">
+            <intent android:action="android.settings.ACTION_CONTENT_SUGGESTIONS_SETTINGS" />
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="desktop_drawer"
+        android:title="@string/arkui_desktop_drawer">
+        <SwitchPreferenceCompat android:key="pref_drawer_open_keyboard"
+            android:title="@string/arkui_desktop_keyboard"
+            android:summary="@string/arkui_desktop_keyboard_summary"
+            android:persistent="false" />
+        <SwitchPreferenceCompat android:key="pref_allapps_themed_icons"
+            android:title="@string/arkui_desktop_themed_icons"
+            android:summary="@string/arkui_desktop_themed_icons_summary"
+            android:persistent="false" />
+        <SwitchPreferenceCompat android:key="pref_drawer_show_labels"
+            android:title="@string/arkui_desktop_drawer_labels"
+            android:persistent="false" />
+        <Preference android:key="pref_trust_apps"
+            android:title="@string/arkui_desktop_trust">
+            <intent android:action="com.android.launcher3.action.TRUST_APPS"
+                android:targetPackage="com.android.launcher3"
+                android:targetClass="com.android.launcher3.settings.SettingsActivity" />
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="desktop_gestures"
+        android:title="@string/arkui_desktop_gestures">
+        <SwitchPreferenceCompat android:key="pref_sleep_gesture"
+            android:title="@string/arkui_desktop_sleep"
+            android:summary="@string/arkui_desktop_sleep_summary"
+            android:persistent="false" />
+        <SwitchPreferenceCompat android:key="arkui_small_window_swipe_up"
+            android:title="@string/arkui_small_window_swipe_up"
+            android:summary="@string/arkui_small_window_swipe_up_summary"
+            android:persistent="false" />
+        <SwitchPreferenceCompat android:key="pref_landscape_app_animation"
+            android:title="@string/arkui_desktop_landscape_animation"
+            android:summary="@string/arkui_desktop_landscape_animation_summary"
+            android:persistent="false" />
+        <SwitchPreferenceCompat android:key="pref_stacked_recents"
+            android:title="@string/arkui_desktop_stacked_recents"
+            android:summary="@string/arkui_desktop_stacked_recents_summary"
+            android:persistent="false" />
+    </PreferenceCategory>
+    <com.android.settingslib.widget.UntitledPreferenceCategory
+        android:key="desktop_advanced_category">
+        <Preference android:key="desktop_advanced"
+            android:title="@string/arkui_desktop_advanced_title"
+            android:summary="@string/arkui_desktop_advanced_summary"
+            android:fragment="com.android.settings.arkui.ArkuiDesktopAdvancedSettings" />
+    </com.android.settingslib.widget.UntitledPreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/arkui_desktop_advanced_title">
+    <Preference android:key="motion_status" android:title="@string/arkui_desktop_loading" />
+    <PreferenceCategory android:key="motion_timing" android:title="@string/arkui_motion_timing">
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_open_duration"
+            android:title="@string/arkui_motion_open_duration"
+            android:summary="@string/arkui_motion_open_duration_summary"
+            android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_recents_duration"
+            android:title="@string/arkui_motion_recents_duration"
+            android:summary="@string/arkui_motion_recents_duration_summary"
+            android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_home_duration"
+            android:title="@string/arkui_motion_home_duration"
+            android:summary="@string/arkui_motion_home_duration_summary"
+            android:persistent="false" />
+    </PreferenceCategory>
+    <PreferenceCategory android:key="motion_open_curve" android:title="@string/arkui_motion_open_curve">
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_curve_x1"
+            android:title="@string/arkui_motion_curve_x1"
+            android:summary="@string/arkui_motion_curve_x1_summary"
+            android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_curve_y1"
+            android:title="@string/arkui_motion_curve_y1"
+            android:summary="@string/arkui_motion_curve_y1_summary"
+            android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_curve_x2"
+            android:title="@string/arkui_motion_curve_x2"
+            android:summary="@string/arkui_motion_curve_x2_summary"
+            android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_curve_y2"
+            android:title="@string/arkui_motion_curve_y2"
+            android:summary="@string/arkui_motion_curve_y2_summary"
+            android:persistent="false" />
+    </PreferenceCategory>
+    <PreferenceCategory android:key="motion_height_curve" android:title="@string/arkui_motion_height_curve">
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_height_curve_x1"
+            android:title="@string/arkui_motion_curve_x1"
+            android:summary="@string/arkui_motion_curve_x1_summary" android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_height_curve_y1"
+            android:title="@string/arkui_motion_curve_y1"
+            android:summary="@string/arkui_motion_curve_y1_summary" android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_height_curve_x2"
+            android:title="@string/arkui_motion_curve_x2"
+            android:summary="@string/arkui_motion_curve_x2_summary" android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_height_curve_y2"
+            android:title="@string/arkui_motion_curve_y2"
+            android:summary="@string/arkui_motion_curve_y2_summary" android:persistent="false" />
+    </PreferenceCategory>
+    <PreferenceCategory android:key="motion_home_curve" android:title="@string/arkui_motion_home_curve">
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_home_curve_x1"
+            android:title="@string/arkui_motion_curve_x1"
+            android:summary="@string/arkui_motion_curve_x1_summary" android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_home_curve_y1"
+            android:title="@string/arkui_motion_curve_y1"
+            android:summary="@string/arkui_motion_curve_y1_summary" android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_home_curve_x2"
+            android:title="@string/arkui_motion_curve_x2"
+            android:summary="@string/arkui_motion_curve_x2_summary" android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_home_curve_y2"
+            android:title="@string/arkui_motion_curve_y2"
+            android:summary="@string/arkui_motion_curve_y2_summary" android:persistent="false" />
+    </PreferenceCategory>
+    <PreferenceCategory android:key="motion_size_curve" android:title="@string/arkui_motion_size_curve">
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_size_curve_x1"
+            android:title="@string/arkui_motion_curve_x1"
+            android:summary="@string/arkui_motion_curve_x1_summary" android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_size_curve_y1"
+            android:title="@string/arkui_motion_curve_y1"
+            android:summary="@string/arkui_motion_curve_y1_summary" android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_size_curve_x2"
+            android:title="@string/arkui_motion_curve_x2"
+            android:summary="@string/arkui_motion_curve_x2_summary" android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_size_curve_y2"
+            android:title="@string/arkui_motion_curve_y2"
+            android:summary="@string/arkui_motion_curve_y2_summary" android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_home_height_duration"
+            android:title="@string/arkui_motion_home_height_duration"
+            android:summary="@string/arkui_motion_home_height_duration_summary"
+            android:persistent="false" />
+    </PreferenceCategory>
+    <PreferenceCategory android:key="motion_spring" android:title="@string/arkui_motion_spring">
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_position_stiffness"
+            android:title="@string/arkui_motion_position_stiffness"
+            android:summary="@string/arkui_motion_position_stiffness_summary"
+            android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_position_damping"
+            android:title="@string/arkui_motion_position_damping"
+            android:summary="@string/arkui_motion_position_damping_summary"
+            android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_size_stiffness"
+            android:title="@string/arkui_motion_size_stiffness"
+            android:summary="@string/arkui_motion_size_stiffness_summary"
+            android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_size_damping"
+            android:title="@string/arkui_motion_size_damping"
+            android:summary="@string/arkui_motion_size_damping_summary"
+            android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_rotation_response"
+            android:title="@string/arkui_motion_rotation_response"
+            android:summary="@string/arkui_motion_rotation_response_summary"
+            android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_corner_start"
+            android:title="@string/arkui_motion_corner_start"
+            android:summary="@string/arkui_motion_corner_start_summary"
+            android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_fade_start"
+            android:title="@string/arkui_motion_fade_start"
+            android:summary="@string/arkui_motion_fade_start_summary"
+            android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_icon_fade_duration"
+            android:title="@string/arkui_motion_icon_fade_duration"
+            android:summary="@string/arkui_motion_icon_fade_duration_summary"
+            android:persistent="false" />
+    </PreferenceCategory>
+    <PreferenceCategory android:key="motion_background" android:title="@string/arkui_motion_background">
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_workspace_scale"
+            android:title="@string/arkui_motion_workspace_scale"
+            android:summary="@string/arkui_motion_workspace_scale_summary"
+            android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_blur_radius"
+            android:title="@string/arkui_motion_blur_radius"
+            android:summary="@string/arkui_motion_blur_radius_summary"
+            android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_blur_enter_duration"
+            android:title="@string/arkui_motion_blur_enter_duration"
+            android:summary="@string/arkui_motion_blur_enter_duration_summary"
+            android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_blur_exit_start"
+            android:title="@string/arkui_motion_blur_exit_start"
+            android:summary="@string/arkui_motion_blur_exit_start_summary"
+            android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_blur_recovery"
+            android:title="@string/arkui_motion_blur_recovery"
+            android:summary="@string/arkui_motion_blur_recovery_summary"
+            android:persistent="false" />
+    </PreferenceCategory>
+    <PreferenceCategory android:key="motion_swipe_targets" android:title="@string/arkui_motion_swipe_targets">
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_swipe_target_start"
+            android:title="@string/arkui_motion_swipe_target_start"
+            android:summary="@string/arkui_motion_swipe_target_start_summary"
+            android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_swipe_target_range"
+            android:title="@string/arkui_motion_swipe_target_range"
+            android:summary="@string/arkui_motion_swipe_target_range_summary"
+            android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_swipe_target_fade"
+            android:title="@string/arkui_motion_swipe_target_fade"
+            android:summary="@string/arkui_motion_swipe_target_fade_summary"
+            android:persistent="false" />
+    </PreferenceCategory>
+    <PreferenceCategory android:key="motion_stack" android:title="@string/arkui_motion_stack">
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_stack_spacing"
+            android:title="@string/arkui_motion_stack_spacing"
+            android:summary="@string/arkui_motion_stack_spacing_summary"
+            android:persistent="false" />
+        <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_stack_scale_step"
+            android:title="@string/arkui_motion_stack_scale_step"
+            android:summary="@string/arkui_motion_stack_scale_step_summary"
+            android:persistent="false" />
+    </PreferenceCategory>
+    <com.android.settingslib.widget.UntitledPreferenceCategory
+        android:key="motion_reset_category">
+        <Preference android:key="motion_reset" android:title="@string/arkui_motion_reset"
+            android:summary="@string/arkui_motion_reset_summary" />
+    </com.android.settingslib.widget.UntitledPreferenceCategory>
+</PreferenceScreen>

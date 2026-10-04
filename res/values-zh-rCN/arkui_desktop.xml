@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_desktop_title">桌面</string>
+    <string name="arkui_desktop_summary">桌面布局、应用抽屉、手势与动画</string>
+    <string name="arkui_features_summary">小窗</string>
+    <string name="arkui_desktop_layout">桌面布局</string>
+    <string name="arkui_desktop_drawer">应用抽屉</string>
+    <string name="arkui_desktop_gestures">手势与动画</string>
+    <string name="arkui_desktop_lock">锁定布局</string>
+    <string name="arkui_desktop_lock_summary">禁止添加、删除或移动桌面图标和小部件</string>
+    <string name="arkui_desktop_add_icons">将新应用图标添加到桌面</string>
+    <string name="arkui_desktop_rotation">允许旋转桌面</string>
+    <string name="arkui_desktop_labels">显示桌面图标名称</string>
+    <string name="arkui_desktop_drawer_labels">显示抽屉图标名称</string>
+    <string name="arkui_desktop_themed_icons">在抽屉中使用主题图标</string>
+    <string name="arkui_desktop_themed_icons_summary">跟随桌面使用的图标主题</string>
+    <string name="arkui_desktop_keyboard">打开抽屉时弹出键盘</string>
+    <string name="arkui_desktop_keyboard_summary">进入应用抽屉后立即开始搜索</string>
+    <string name="arkui_desktop_sleep">双击休眠</string>
+    <string name="arkui_desktop_sleep_summary">双击桌面空白处关闭屏幕</string>
+    <string name="arkui_desktop_google">显示 Google 应用</string>
+    <string name="arkui_desktop_trust">隐藏和保护应用</string>
+    <string name="arkui_desktop_suggestions">应用建议</string>
+    <string name="arkui_desktop_notification_dots">通知圆点</string>
+    <string name="arkui_desktop_notification_access">允许通知使用权后显示通知圆点</string>
+    <string name="arkui_desktop_landscape_animation">横屏应用打开与退出动画</string>
+    <string name="arkui_desktop_landscape_animation_summary">横屏应用从图标旋转展开，返回桌面时反向旋转收回图标</string>
+    <string name="arkui_desktop_stacked_recents">堆叠后台</string>
+    <string name="arkui_desktop_stacked_recents_summary">以层叠卡片显示最近任务，左右滑动切换应用</string>
+    <string name="arkui_desktop_swipe_unavailable">开启“小窗”后可使用此手势</string>
+    <string name="arkui_desktop_loading">正在加载桌面设置…</string>
+    <string name="arkui_desktop_unavailable">暂时无法读取桌面设置，点按重试</string>
+    <string name="arkui_desktop_save_error">无法保存桌面设置</string>
+    <string name="arkui_motion_timing">动画时长</string>
+    <string name="arkui_motion_open_curve">打开时的位置与宽度曲线</string>
+    <string name="arkui_motion_height_curve">打开时的高度曲线</string>
+    <string name="arkui_motion_home_curve">退出时的位置曲线</string>
+    <string name="arkui_motion_size_curve">退出时的尺寸曲线</string>
+    <string name="arkui_motion_home_height_duration">高度收缩时长比例</string>
+    <string name="arkui_motion_home_height_duration_summary">高度收缩占退出总时长的比例；减小时更早收拢成图标</string>
+    <string name="arkui_motion_open_duration">桌面启动时长</string>
+    <string name="arkui_motion_open_duration_summary">从桌面图标打开应用的总时长</string>
+    <string name="arkui_motion_recents_duration">多任务进入时长</string>
+    <string name="arkui_motion_recents_duration_summary">从最近任务卡片进入应用的总时长</string>
+    <string name="arkui_motion_home_duration">退出应用时长</string>
+    <string name="arkui_motion_home_duration_summary">松手到动画停稳的总时长；位置、尺寸和模糊按各自曲线变化</string>
+    <string name="arkui_motion_curve_x1">曲线起点横坐标</string>
+    <string name="arkui_motion_curve_x1_summary">起步阶段的时间分配，数值越小越早加速</string>
+    <string name="arkui_motion_curve_y1">曲线起点纵坐标</string>
+    <string name="arkui_motion_curve_y1_summary">此阶段的变化幅度，数值越大起步越快</string>
+    <string name="arkui_motion_curve_x2">曲线终点横坐标</string>
+    <string name="arkui_motion_curve_x2_summary">收尾阶段的时间分配，数值越小越早减速</string>
+    <string name="arkui_motion_curve_y2">曲线终点纵坐标</string>
+    <string name="arkui_motion_curve_y2_summary" formatted="false">收尾阶段的变化幅度，100% 时平滑停稳</string>
+    <string name="arkui_motion_spring">打断衔接与窗口形状</string>
+    <string name="arkui_motion_position_stiffness">位置弹簧刚度</string>
+    <string name="arkui_motion_position_stiffness_summary">松手、打断或图标位置变化后，数值越大越快接回主曲线</string>
+    <string name="arkui_motion_position_damping">位置弹簧阻尼</string>
+    <string name="arkui_motion_position_damping_summary" formatted="false">控制打断后的惯性衔接；低于 100% 有回弹，100% 临界阻尼</string>
+    <string name="arkui_motion_size_stiffness">尺寸弹簧刚度</string>
+    <string name="arkui_motion_size_stiffness_summary">松手或打断后，数值越大越快接回尺寸变化曲线</string>
+    <string name="arkui_motion_size_damping">尺寸弹簧阻尼</string>
+    <string name="arkui_motion_size_damping_summary">控制打断后的缩放惯性；尺寸限制在图标与全屏之间</string>
+    <string name="arkui_motion_rotation_response">旋转响应</string>
+    <string name="arkui_motion_rotation_response_summary" formatted="false">100% 跟随缩放；增大时打开转正更快、退出旋转更晚</string>
+    <string name="arkui_motion_corner_start">圆角收拢起点</string>
+    <string name="arkui_motion_corner_start_summary">返回进度达到此比例后，窗口开始收拢成图标圆角</string>
+    <string name="arkui_motion_fade_start">窗口淡出起点</string>
+    <string name="arkui_motion_fade_start_summary">返回进度达到此比例后，窗口淡出并交接给图标</string>
+    <string name="arkui_motion_icon_fade_duration">启动图标淡出时长</string>
+    <string name="arkui_motion_icon_fade_duration_summary">启动时图标与应用窗口交接的时长</string>
+    <string name="arkui_motion_background">桌面与模糊</string>
+    <string name="arkui_motion_workspace_scale">背景桌面缩放</string>
+    <string name="arkui_motion_workspace_scale_summary">应用打开后桌面的缩放比例</string>
+    <string name="arkui_motion_blur_radius">背景模糊半径</string>
+    <string name="arkui_motion_blur_radius_summary">桌面与堆叠后台的模糊强度，0 为关闭</string>
+    <string name="arkui_motion_blur_enter_duration">打开时的模糊建立时长</string>
+    <string name="arkui_motion_blur_enter_duration_summary">从启动开始到背景达到完整模糊强度的时长</string>
+    <string name="arkui_motion_blur_exit_start">退出时的模糊恢复起点</string>
+    <string name="arkui_motion_blur_exit_start_summary">退出已用时间达到总时长的此比例后，背景开始变清晰</string>
+    <string name="arkui_motion_blur_recovery">打断后的模糊恢复时长</string>
+    <string name="arkui_motion_blur_recovery_summary">没有新动画接续时，模糊恢复清晰的时长</string>
+    <string name="arkui_motion_swipe_targets">上滑分屏与小窗提示</string>
+    <string name="arkui_motion_swipe_target_start">提示出现距离</string>
+    <string name="arkui_motion_swipe_target_start_summary">上滑距离达到屏幕高度的此比例后，开始显示两个操作提示</string>
+    <string name="arkui_motion_swipe_target_range">提示展开距离</string>
+    <string name="arkui_motion_swipe_target_range_summary">提示从出现到完全显示，还需上滑的距离占屏幕高度的比例</string>
+    <string name="arkui_motion_swipe_target_fade">松手后提示淡出时长</string>
+    <string name="arkui_motion_swipe_target_fade_summary">松手回桌面时两个操作提示的淡出时长；应用立即开始收回</string>
+    <string name="arkui_motion_stack">堆叠后台</string>
+    <string name="arkui_motion_stack_spacing">卡片展开间距</string>
+    <string name="arkui_motion_stack_spacing_summary">后方卡片露出的总宽度占卡片宽度的比例</string>
+    <string name="arkui_motion_stack_scale_step">每层卡片缩小幅度</string>
+    <string name="arkui_motion_stack_scale_step_summary" formatted="false">每向后一层缩小的比例，25‰ 即 2.5%</string>
+    <string name="arkui_desktop_advanced_title">高级设置</string>
+    <string name="arkui_desktop_advanced_summary">动画时长、曲线、弹簧、模糊与卡片间距</string>
+    <string name="arkui_motion_reset">恢复动画默认参数</string>
+    <string name="arkui_motion_reset_summary">将本页参数恢复为参考视频预设</string>
+    <string name="arkui_motion_value">%1$d%2$s · 默认 %3$d%2$s\n%4$s</string>
+    <string name="arkui_motion_saved">已恢复动画默认参数</string>
+</resources>
