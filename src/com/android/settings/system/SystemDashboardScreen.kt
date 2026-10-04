@@ -1,4 +1,5 @@
 /*
+ * Modified by the ArkUI Project in 2026 to use the More settings page title.
  * Copyright (C) 2025 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -38,7 +39,7 @@ open class SystemDashboardScreen : PreferenceScreenMixin, PreferenceIconProvider
         get() = KEY
 
     override val title: Int
-        get() = R.string.header_category_system
+        get() = R.string.arkui_more_settings_title
 
     override val summary: Int
         get() = R.string.system_dashboard_summary

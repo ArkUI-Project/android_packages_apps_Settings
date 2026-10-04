@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:key="arkui_security_privacy_settings"
+    android:title="@string/arkui_security_privacy_title">
+
+    <Preference
+        android:key="top_level_security"
+        android:title="@string/security_settings_title"
+        android:summary="@string/security_dashboard_summary"
+        android:icon="@drawable/ic_settings_security_filled"
+        android:fragment="com.android.settings.security.SecuritySettings"
+        settings:controller="com.android.settings.security.TopLevelSecurityEntryPreferenceController"/>
+
+    <Preference
+        android:key="top_level_privacy"
+        android:title="@string/privacy_dashboard_title"
+        android:summary="@string/privacy_dashboard_summary"
+        android:icon="@drawable/ic_settings_privacy_filled"
+        android:fragment="com.android.settings.privacy.PrivacyDashboardFragment"
+        settings:controller="com.android.settings.privacy.TopLevelPrivacyEntryPreferenceController"/>
+</PreferenceScreen>

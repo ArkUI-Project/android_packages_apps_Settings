@@ -1,4 +1,5 @@
 /*
+ * Modified by the ArkUI Project in 2026 to use the About page title.
  * Copyright (C) 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -46,7 +47,7 @@ object AboutPhonePageProvider : SettingsPageProvider {
     }
 
     override fun getTitle(arguments: Bundle?): String =
-        SpaEnvironmentFactory.instance.appContext.getString(R.string.about_settings)
+        SpaEnvironmentFactory.instance.appContext.getString(R.string.arkui_about_title)
 
     fun buildInjectEntry(): SettingsEntryBuilder {
         return SettingsEntryBuilder.createInject(owner = owner)
@@ -54,7 +55,7 @@ object AboutPhonePageProvider : SettingsPageProvider {
                 val context = LocalContext.current
                 val deviceNamePresenter = remember { DeviceNamePresenter(context) }
                 Preference(object : PreferenceModel {
-                    override val title = stringResource(R.string.about_settings)
+                    override val title = stringResource(R.string.arkui_about_title)
                     override val summary = { deviceNamePresenter.deviceName }
                     override val onClick = navigator(name)
                     override val icon = @Composable {

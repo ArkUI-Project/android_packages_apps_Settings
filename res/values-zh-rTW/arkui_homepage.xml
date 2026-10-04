@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_features_title">特色功能</string>
+    <string name="arkui_more_settings_title">更多設定</string>
+    <string name="arkui_about_title">關於</string>
+    <string name="arkui_wallpaper_style_title">桌布與風格</string>
+    <string name="arkui_security_privacy_title">安全性與隱私權</string>
+</resources>

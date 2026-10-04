@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified by the ArkUI Project in 2026 to use the About page title. -->
 <!--
   Copyright (C) 2018 The Android Open Source Project
   Copyright (C) 2026 The ArkUI Project
@@ -20,7 +21,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:key="my_device_info_pref_screen"
-    android:title="@string/about_settings">
+    android:title="@string/arkui_about_title">
 
     <com.android.settings.deviceinfo.aboutphone.ArkuiAboutOverviewPreference
         android:key="arkui_about_overview"

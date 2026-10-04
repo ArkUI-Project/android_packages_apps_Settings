@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified by the ArkUI Project in 2026 to host additional settings under More settings. -->
 <!-- Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,7 +19,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:key="system_dashboard_screen"
-    android:title="@string/header_category_system">
+    android:title="@string/arkui_more_settings_title">
 
     <Preference
         android:key="language_settings"
@@ -91,6 +92,23 @@
         android:fragment="com.android.settings.datetime.DateTimeSettings"
         settings:controller="com.android.settings.datetime.DateTimePreferenceController"/>
 
+    <Preference
+        android:key="top_level_communal"
+        android:title="@string/communal_settings_title"
+        android:summary="@string/communal_settings_summary"
+        android:icon="@drawable/ia_settings_communal"
+        android:order="-230"
+        android:fragment="com.android.settings.communal.CommunalDashboardFragment"
+        settings:controller="com.android.settings.communal.CommunalPreferenceController"/>
+
+    <Preference
+        android:key="top_level_supervision"
+        android:title="@string/supervision_settings_title"
+        android:summary="@string/supervision_settings_summary"
+        android:icon="@drawable/ic_account_child_invert"
+        android:order="-220"
+        settings:controller="com.android.settings.supervision.TopLevelSupervisionPreferenceController"/>
+
     <!-- System updates -->
     <Preference
         android:key="additional_system_update_settings"
@@ -140,4 +158,12 @@
         android:order="-30"
         android:fragment="com.android.settings.system.ResetDashboardFragment"
         settings:controller="com.android.settings.system.ResetPreferenceController"/>
+
+    <Preference
+        android:key="top_level_support"
+        android:title="@string/page_tab_title_support"
+        android:summary="@string/support_summary"
+        android:icon="@drawable/ic_help_filled"
+        android:order="-20"
+        settings:controller="com.android.settings.support.SupportPreferenceController"/>
 </PreferenceScreen>

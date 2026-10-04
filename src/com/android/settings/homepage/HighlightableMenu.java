@@ -1,4 +1,5 @@
 /*
+ * Modified by the ArkUI Project in 2026 to map relocated homepage entries.
  * Copyright (C) 2021 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,6 +27,7 @@ import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.Log;
 
+import com.android.settings.R;
 import com.android.settings.core.PreferenceXmlParserUtils;
 import com.android.settings.core.PreferenceXmlParserUtils.MetadataFlag;
 
@@ -57,8 +59,11 @@ public class HighlightableMenu {
         MENU_TO_PREFERENCE_KEY_MAP = new ArrayMap<>();
         MENU_KEY_COMPAT_MAP = new ArrayMap<>();
 
-        // Manual mapping for platform compatibility, e.g.
-        //  MENU_KEY_COMPAT_MAP.put("top_level_apps_and_notifs", R.string.menu_key_apps);
+        MENU_KEY_COMPAT_MAP.put("top_level_security", R.string.menu_key_safety_center);
+        MENU_KEY_COMPAT_MAP.put("top_level_privacy", R.string.menu_key_safety_center);
+        MENU_KEY_COMPAT_MAP.put("top_level_communal", R.string.menu_key_system);
+        MENU_KEY_COMPAT_MAP.put("top_level_supervision", R.string.menu_key_system);
+        MENU_KEY_COMPAT_MAP.put("top_level_support", R.string.menu_key_system);
     }
 
     /** Parses the highlightable menu keys from xml */

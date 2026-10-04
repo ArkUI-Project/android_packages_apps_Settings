@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:title="@string/arkui_small_window_title"
+    android:key="arkui_small_window_screen">
+
+    <com.android.settings.widget.SettingsMainSwitchPreference
+        android:key="arkui_small_window_enabled"
+        android:title="@string/arkui_small_window_enable"
+        android:persistent="false" />
+
+    <PreferenceCategory android:key="small_window_launch"
+        android:title="@string/arkui_small_window_launch">
+        <SwitchPreferenceCompat android:key="arkui_small_window_recents"
+            android:title="@string/arkui_small_window_recents"
+            android:summary="@string/arkui_small_window_recents_summary"
+            android:persistent="false" />
+        <MultiSelectListPreference android:key="arkui_small_window_exceptions"
+            android:title="@string/arkui_small_window_exceptions"
+            android:dialogTitle="@string/arkui_small_window_exceptions"
+            android:dialogMessage="@string/arkui_small_window_exceptions_description"
+            android:persistent="false" />
+        <SwitchPreferenceCompat android:key="arkui_small_window_swipe_up"
+            android:title="@string/arkui_small_window_swipe_up"
+            android:summary="@string/arkui_small_window_swipe_up_summary"
+            android:persistent="false" />
+        <SwitchPreferenceCompat android:key="arkui_small_window_notification_drag"
+            android:title="@string/arkui_small_window_notification_drag"
+            android:summary="@string/arkui_small_window_notification_drag_summary"
+            android:persistent="false" />
+        <SwitchPreferenceCompat android:key="arkui_small_window_notification_portrait"
+            android:title="@string/arkui_small_window_notification_portrait"
+            android:summary="@string/arkui_small_window_notification_summary"
+            android:persistent="false" />
+        <SwitchPreferenceCompat android:key="arkui_small_window_notification_landscape"
+            android:title="@string/arkui_small_window_notification_landscape"
+            android:summary="@string/arkui_small_window_notification_summary"
+            android:persistent="false" />
+        <MultiSelectListPreference android:key="arkui_small_window_notification_exceptions"
+            android:title="@string/arkui_small_window_notification_exceptions"
+            android:dialogTitle="@string/arkui_small_window_notification_exceptions"
+            android:dialogMessage="@string/arkui_small_window_notification_exceptions_description"
+            android:persistent="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="small_window_appearance"
+        android:title="@string/arkui_small_window_appearance">
+        <ListPreference android:key="arkui_small_window_size"
+            android:title="@string/arkui_small_window_size"
+            android:entries="@array/arkui_small_window_sizes"
+            android:entryValues="@array/arkui_small_window_three_values"
+            android:persistent="false" />
+        <ListPreference android:key="arkui_small_window_pinned_size"
+            android:title="@string/arkui_small_window_pinned_size"
+            android:entries="@array/arkui_small_window_pinned_sizes"
+            android:entryValues="@array/arkui_small_window_two_values"
+            android:persistent="false" />
+        <Preference android:key="small_window_size_help"
+            android:summary="@string/arkui_small_window_size_summary"
+            android:selectable="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="small_window_interaction"
+        android:title="@string/arkui_small_window_interaction">
+        <ListPreference android:key="arkui_small_window_single_tap"
+            android:title="@string/arkui_small_window_single_tap"
+            android:entries="@array/arkui_small_window_tap_actions"
+            android:entryValues="@array/arkui_small_window_tap_values"
+            android:persistent="false" />
+        <ListPreference android:key="arkui_small_window_double_tap"
+            android:title="@string/arkui_small_window_double_tap"
+            android:entries="@array/arkui_small_window_tap_actions"
+            android:entryValues="@array/arkui_small_window_tap_values"
+            android:persistent="false" />
+        <SwitchPreferenceCompat android:key="arkui_small_window_edge_dock"
+            android:title="@string/arkui_small_window_edge_dock"
+            android:summary="@string/arkui_small_window_edge_dock_summary"
+            android:persistent="false" />
+        <SwitchPreferenceCompat android:key="arkui_small_window_edge_dock_foreground"
+            android:title="@string/arkui_small_window_edge_dock_foreground"
+            android:summary="@string/arkui_small_window_edge_dock_foreground_summary"
+            android:dependency="arkui_small_window_edge_dock"
+            android:persistent="false" />
+        <SwitchPreferenceCompat android:key="arkui_small_window_haptics"
+            android:title="@string/arkui_small_window_haptics"
+            android:summary="@string/arkui_small_window_haptics_summary"
+            android:persistent="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="small_window_reset_category"
+        android:title="@string/arkui_small_window_reset_category">
+        <Preference android:key="small_window_reset"
+            android:title="@string/arkui_small_window_reset"
+            android:summary="@string/arkui_small_window_reset_summary" />
+    </PreferenceCategory>
+    <com.android.settingslib.widget.FooterPreference android:key="small_window_help"
+        android:title="@string/arkui_small_window_help"
+        android:selectable="false" />
+</PreferenceScreen>

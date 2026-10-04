@@ -1,4 +1,5 @@
 /*
+ * Modified by the ArkUI Project in 2026 to include support in More settings.
  * Copyright (C) 2016 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,6 +29,7 @@ import androidx.preference.PreferenceScreen;
 import com.android.settings.R;
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.support.SupportPreferenceController;
 import com.android.settingslib.search.SearchIndexable;
 
 // LINT.IfChange
@@ -35,6 +37,12 @@ import com.android.settingslib.search.SearchIndexable;
 public class SystemDashboardFragment extends DashboardFragment {
 
     private static final String TAG = "SystemDashboardFrag";
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        use(SupportPreferenceController.class).setActivity(getActivity());
+    }
 
     @Override
     public void onCreate(Bundle icicle) {

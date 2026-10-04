@@ -1,4 +1,5 @@
 /*
+ * Modified by the ArkUI Project in 2026 to move support into More settings.
  * Copyright (C) 2018 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -50,7 +51,6 @@ import com.android.settings.core.SubSettingLauncher;
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.overlay.FeatureFactory;
 import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.support.SupportPreferenceController;
 import com.android.settings.widget.HomepagePreference;
 import com.android.settings.widget.HomepagePreferenceLayoutHelper.HomepagePreferenceLayout;
 import com.android.settingslib.core.instrumentation.Instrumentable;
@@ -66,7 +66,6 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
 
     private static final String TAG = "TopLevelSettings";
     private static final String SAVED_HIGHLIGHT_MIXIN = "highlight_mixin";
-    private static final String PREF_KEY_SUPPORT = "top_level_support";
 
     private boolean mIsEmbeddingActivityEnabled;
     private TopLevelHighlightMixin mHighlightMixin;
@@ -108,7 +107,6 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
     public void onAttach(Context context) {
         super.onAttach(context);
         HighlightableMenu.fromXml(context, getPreferenceScreenResId());
-        use(SupportPreferenceController.class).setActivity(getActivity());
     }
 
     @Override
@@ -272,8 +270,7 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
 
     /** Highlight a preference with specified preference key */
     public void setHighlightPreferenceKey(String prefKey) {
-        // Skip Tips & support since it's full screen
-        if (mHighlightMixin != null && !TextUtils.equals(prefKey, PREF_KEY_SUPPORT)) {
+        if (mHighlightMixin != null) {
             mHighlightMixin.setHighlightPreferenceKey(prefKey);
         }
     }

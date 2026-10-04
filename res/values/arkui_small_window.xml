@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_small_window_title">Small windows</string>
+    <string name="arkui_small_window_summary">Open apps in movable windows and keep them within reach</string>
+    <string name="arkui_small_window_enable">Use small windows</string>
+    <string name="arkui_small_window_launch">Opening apps</string>
+    <string name="arkui_small_window_recents">Recent apps shortcut</string>
+    <string name="arkui_small_window_recents_summary">Show Small window in the recent app menu</string>
+    <string name="arkui_small_window_exceptions">Always open full screen</string>
+    <string name="arkui_small_window_exceptions_description">Selected apps always open full screen, including from recent apps and notifications. An existing small window returns to full screen when its app is selected.</string>
+    <string name="arkui_small_window_notification_portrait">From notifications in portrait</string>
+    <string name="arkui_small_window_notification_landscape">From notifications in landscape</string>
+    <string name="arkui_small_window_notification_summary">Tap a supported notification to open its app in a small window after unlocking</string>
+    <string name="arkui_small_window_notification_exceptions">Notification exceptions</string>
+    <string name="arkui_small_window_notification_exceptions_description">Selected apps open normally from notifications. Their recent apps shortcut remains available unless they are also set to always open full screen.</string>
+    <string name="arkui_small_window_appearance">Window sizes</string>
+    <string name="arkui_small_window_size">Initial window size</string>
+    <string name="arkui_small_window_pinned_size">Initial minimized size</string>
+    <string name="arkui_small_window_size_summary">Size defaults apply to newly created windows. Existing windows keep their current size.</string>
+    <string name="arkui_small_window_interaction">Gestures and feedback</string>
+    <string name="arkui_small_window_single_tap">Tap outside the window</string>
+    <string name="arkui_small_window_double_tap">Double tap outside the window</string>
+    <string name="arkui_small_window_edge_dock">Tuck previews against the edge</string>
+    <string name="arkui_small_window_edge_dock_summary">Drag a minimized preview toward either screen edge to tuck it away; tap the edge tab to restore it</string>
+    <string name="arkui_small_window_edge_dock_foreground">Keep edge-docked windows in the foreground</string>
+    <string name="arkui_small_window_edge_dock_foreground_summary">Keep apps active while tucked against the edge. When off, tucked apps move to the background and videos or games may pause. Tap the edge tab to restore.</string>
+    <string name="arkui_small_window_haptics">Gesture vibration</string>
+    <string name="arkui_small_window_haptics_summary">Vibrate at gesture thresholds when system touch vibration is enabled</string>
+    <string name="arkui_small_window_reset">Restore defaults</string>
+    <string name="arkui_small_window_reset_summary">Reset small-window options and clear app exceptions</string>
+    <string name="arkui_small_window_reset_message">Restore all small-window defaults and clear both app exception lists? Small windows and the recent apps shortcut will be enabled, and edge-docked windows will stay in the foreground. Swipe up to preview, notification dragging, and opening from notifications will be disabled.</string>
+    <string name="arkui_small_window_help">Open the recent apps screen, tap an app menu and choose Small window. Hold the window handle, then drag to move. Drag the handle directly to resize; shrink past the vibration to minimize, or enlarge past it to go full screen. Drag a preview to move it, tap to return, double tap for full screen, or hold for app mute and size controls. Muting lasts while the app stays in a small window. Drag the preview to the bottom close area to dismiss it. Turning this feature off restores windows to full screen. For apps that display incorrectly, use Always open full screen.</string>
+    <string name="arkui_small_window_apps_loading">Loading apps…</string>
+    <string name="arkui_small_window_apps_none">No apps selected</string>
+    <string name="arkui_small_window_save_error">Could not save small-window settings</string>
+    <string-array name="arkui_small_window_sizes">
+        <item>Compact</item>
+        <item>Standard</item>
+        <item>Large</item>
+    </string-array>
+    <string-array name="arkui_small_window_pinned_sizes">
+        <item>Compact</item>
+        <item>Large</item>
+    </string-array>
+    <string-array name="arkui_small_window_tap_actions">
+        <item>Minimize to a preview</item>
+        <item>Return to full screen</item>
+        <item>Do nothing</item>
+        <item>Close small window</item>
+    </string-array>
+    <string-array name="arkui_small_window_tap_values" translatable="false">
+        <item>0</item><item>1</item><item>2</item><item>3</item>
+    </string-array>
+    <string-array name="arkui_small_window_three_values" translatable="false">
+        <item>0</item><item>1</item><item>2</item>
+    </string-array>
+    <string-array name="arkui_small_window_two_values" translatable="false">
+        <item>0</item><item>1</item>
+    </string-array>
+    <plurals name="arkui_small_window_apps_selected">
+        <item quantity="one">%d app selected</item>
+        <item quantity="other">%d apps selected</item>
+    </plurals>
+    <string name="arkui_small_window_swipe_up">Swipe up for split screen or small window</string>
+    <string name="arkui_small_window_swipe_up_summary">Swipe up from an app, then drag toward the left target for split screen or the right target for a small window. Release to confirm or drag back to cancel. No pause in overview is needed.</string>
+    <string name="arkui_small_window_notification_drag">Pull down a notification to a small window</string>
+    <string name="arkui_small_window_notification_drag_summary">Show a bottom handle on eligible notifications. Pull down and release to open an interactive small window; drag back to cancel.</string>
+    <string name="arkui_small_window_reset_category">Reset</string>
+</resources>

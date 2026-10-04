@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_small_window_title">小窗</string>
+    <string name="arkui_small_window_summary">以可移动的小窗打开应用，随时切换使用</string>
+    <string name="arkui_small_window_enable">使用小窗</string>
+    <string name="arkui_small_window_launch">打开方式</string>
+    <string name="arkui_small_window_recents">最近任务入口</string>
+    <string name="arkui_small_window_recents_summary">在最近任务的应用菜单中显示“小窗”</string>
+    <string name="arkui_small_window_exceptions">始终全屏的应用</string>
+    <string name="arkui_small_window_exceptions_description">选中的应用始终全屏打开，包括从最近任务和通知打开。已在小窗中的应用被选中后会恢复全屏。</string>
+    <string name="arkui_small_window_notification_portrait">竖屏时从通知打开</string>
+    <string name="arkui_small_window_notification_landscape">横屏时从通知打开</string>
+    <string name="arkui_small_window_notification_summary">解锁后，点击支持的通知时以小窗打开应用</string>
+    <string name="arkui_small_window_notification_exceptions">通知启动例外</string>
+    <string name="arkui_small_window_notification_exceptions_description">选中的应用从通知打开时使用正常方式；若未设为始终全屏，仍可通过最近任务进入小窗。</string>
+    <string name="arkui_small_window_appearance">窗口大小</string>
+    <string name="arkui_small_window_size">初始小窗大小</string>
+    <string name="arkui_small_window_pinned_size">初始悬浮预览大小</string>
+    <string name="arkui_small_window_size_summary">默认大小用于新创建的小窗，已打开的窗口保留当前大小。</string>
+    <string name="arkui_small_window_interaction">手势与反馈</string>
+    <string name="arkui_small_window_single_tap">单击小窗外部</string>
+    <string name="arkui_small_window_double_tap">双击小窗外部</string>
+    <string name="arkui_small_window_edge_dock">悬浮预览贴边收起</string>
+    <string name="arkui_small_window_edge_dock_summary">将悬浮预览拖向屏幕左右边缘以收起，点击边缘标签可恢复</string>
+    <string name="arkui_small_window_edge_dock_foreground">贴边小窗视为前台</string>
+    <string name="arkui_small_window_edge_dock_foreground_summary">开启后，贴边收起的应用保持活动状态。关闭后，收起的应用转入后台，视频或游戏可能暂停；点击边缘标签可恢复。</string>
+    <string name="arkui_small_window_haptics">手势振动</string>
+    <string name="arkui_small_window_haptics_summary">系统触摸振动开启时，在手势触发位置提供振动反馈</string>
+    <string name="arkui_small_window_reset">恢复默认设置</string>
+    <string name="arkui_small_window_reset_summary">重置小窗选项并清空应用例外</string>
+    <string name="arkui_small_window_reset_message">要恢复全部小窗默认设置并清空两类应用例外吗？小窗、最近任务入口及贴边小窗视为前台将开启；上滑进入悬浮预览、通知下拉小窗和点击通知打开小窗将关闭。</string>
+    <string name="arkui_small_window_help">打开最近任务，点按应用菜单并选择“小窗”。长按窗口操作条后拖动可移动窗口，直接拖动操作条可调整大小；缩小或放大越过振动提示位置，可分别最小化或恢复全屏。悬浮预览可拖动，单击返回小窗，双击全屏，长按显示应用静音和大小切换按钮。静音在应用处于小窗期间生效。将预览拖到底部关闭区域可收起。关闭本功能时，已有小窗恢复全屏。显示异常的应用可加入“始终全屏的应用”。</string>
+    <string name="arkui_small_window_apps_loading">正在加载应用…</string>
+    <string name="arkui_small_window_apps_none">未选择应用</string>
+    <string name="arkui_small_window_save_error">无法保存小窗设置</string>
+    <string-array name="arkui_small_window_sizes">
+        <item>紧凑</item>
+        <item>标准</item>
+        <item>较大</item>
+    </string-array>
+    <string-array name="arkui_small_window_pinned_sizes">
+        <item>紧凑</item>
+        <item>较大</item>
+    </string-array>
+    <string-array name="arkui_small_window_tap_actions">
+        <item>最小化为悬浮预览</item>
+        <item>恢复全屏</item>
+        <item>无操作</item>
+        <item>关闭小窗</item>
+    </string-array>
+    <plurals name="arkui_small_window_apps_selected">
+        <item quantity="other">已选择 %d 个应用</item>
+    </plurals>
+    <string name="arkui_small_window_swipe_up">上滑分屏与小窗</string>
+    <string name="arkui_small_window_swipe_up_summary">从应用底部上滑，拖向左侧入口进入分屏，拖向右侧入口进入小窗。松手确认，往回拖动取消，无需先在多任务停留。</string>
+    <string name="arkui_small_window_notification_drag">通知下拉小窗</string>
+    <string name="arkui_small_window_notification_drag_summary">在支持的通知底部显示手柄，下拉并松手可打开可交互小窗；往回拖动可取消。</string>
+    <string name="arkui_small_window_reset_category">重置</string>
+</resources>

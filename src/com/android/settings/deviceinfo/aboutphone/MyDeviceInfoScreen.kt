@@ -1,4 +1,5 @@
 /*
+ * Modified by the ArkUI Project in 2026 to use the About page title.
  * Copyright (C) 2024 The Android Open Source Project
  * Copyright (C) 2026 The ArkUI Project
  *
@@ -52,7 +53,7 @@ open class MyDeviceInfoScreen :
         get() = KEY
 
     override val title: Int
-        get() = R.string.about_settings
+        get() = R.string.arkui_about_title
 
     override fun getSummary(context: Context): CharSequence? {
         return Settings.Global.getString(context.contentResolver, Settings.Global.DEVICE_NAME)

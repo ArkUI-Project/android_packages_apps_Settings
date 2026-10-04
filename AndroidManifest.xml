@@ -1777,8 +1777,9 @@
                        android:value="@string/menu_key_display"/>
         </activity>
 
+        <!-- ArkUI: keep the activity title consistent with the About homepage entry. -->
         <activity android:name=".Settings$MyDeviceInfoActivity"
-                  android:label="@string/about_settings"
+                  android:label="@string/arkui_about_title"
                   android:exported="true"
                   android:icon="@drawable/ic_homepage_about">
             <intent-filter android:priority="1">
@@ -5126,9 +5127,10 @@
             </intent-filter>
         </activity>
 
+        <!-- ArkUI: the System dashboard is exposed as More settings. -->
         <activity
             android:name=".Settings$SystemDashboardActivity"
-            android:label="@string/header_category_system"
+            android:label="@string/arkui_more_settings_title"
             android:exported="true"
             android:icon="@drawable/ic_homepage_system_dashboard">
             <intent-filter android:priority="70">

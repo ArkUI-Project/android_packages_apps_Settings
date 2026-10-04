@@ -15,4 +15,10 @@
     <dimen name="arkui_home_drawer_min_peek_height">180dp</dimen>
     <string name="arkui_home_storage_usage">%1$s / %2$s</string>
     <string name="arkui_home_android_label" translatable="false">Android</string>
+    <string name="arkui_features_title">Special features</string>
+    <string name="arkui_more_settings_title">More settings</string>
+    <string name="arkui_about_title">About</string>
+    <string name="arkui_wallpaper_style_title">@string/style_and_wallpaper_settings_title</string>
+    <string name="arkui_security_privacy_title">@string/safety_center_title</string>
+    <string name="menu_key_arkui_features" translatable="false">top_level_arkui_features</string>
 </resources>

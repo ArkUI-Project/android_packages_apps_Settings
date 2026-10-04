@@ -1,4 +1,5 @@
 /*
+ * Modified by the ArkUI Project in 2026 to use the About page title in search.
  * Copyright (C) 2017 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -199,7 +200,7 @@ public class SimStatusPreferenceController extends BasePreferenceController {
         SearchIndexableRaw data = new SearchIndexableRaw(mContext);
         data.key = getPreferenceKey();
         data.title = getPreferenceTitle(simSlot);
-        data.screenTitle = mContext.getString(R.string.about_settings);
+        data.screenTitle = mContext.getString(R.string.arkui_about_title);
         data.keywords = mContext.getString(keywordId).toString();
         rawData.add(data);
     }

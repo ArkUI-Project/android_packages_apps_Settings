@@ -1,4 +1,5 @@
 /*
+ * Modified by the ArkUI Project in 2026 to use the More settings page title.
  * Copyright (C) 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -46,7 +47,7 @@ object SystemMainPageProvider : SettingsPageProvider {
     }
 
     override fun getTitle(arguments: Bundle?): String {
-        return SpaEnvironmentFactory.instance.appContext.getString(R.string.header_category_system)
+        return SpaEnvironmentFactory.instance.appContext.getString(R.string.arkui_more_settings_title)
     }
 
     fun buildInjectEntry(): SettingsEntryBuilder {
@@ -54,7 +55,7 @@ object SystemMainPageProvider : SettingsPageProvider {
             .setUiLayoutFn {
                 val summary = stringResource(R.string.system_dashboard_summary)
                 Preference(object : PreferenceModel {
-                    override val title = stringResource(R.string.header_category_system)
+                    override val title = stringResource(R.string.arkui_more_settings_title)
                     override val summary = { summary }
                     override val onClick = navigator(name)
                     override val icon = @Composable {

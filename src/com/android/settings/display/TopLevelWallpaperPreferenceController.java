@@ -1,4 +1,5 @@
 /*
+ * Modified by the ArkUI Project in 2026 to name the wallpaper and style homepage entry.
  * Copyright (C) 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -70,7 +71,7 @@ public class TopLevelWallpaperPreferenceController extends BasePreferenceControl
 
     public String getTitle() {
         return mContext.getString(areStylesAvailable()
-                ? R.string.style_and_wallpaper_settings_title : R.string.wallpaper_settings_title);
+                ? R.string.arkui_wallpaper_style_title : R.string.wallpaper_settings_title);
     }
 
     public ComponentName getComponentName() {
