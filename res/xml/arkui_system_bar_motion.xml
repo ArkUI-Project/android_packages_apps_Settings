@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/arkui_system_bar_motion_title">
+    <com.android.settingslib.widget.TopIntroPreference
+        android:title="@string/arkui_system_bar_motion_intro" />
+    <com.android.settingslib.widget.AppSwitchPreference
+        android:key="arkui_status_bar_follow"
+        android:title="@string/arkui_status_bar_follow_title"
+        android:summary="@string/arkui_status_bar_follow_summary"
+        android:persistent="false" />
+    <com.android.settingslib.widget.AppSwitchPreference
+        android:key="arkui_navigation_bar_follow"
+        android:title="@string/arkui_navigation_bar_follow_title"
+        android:summary="@string/arkui_navigation_bar_follow_summary"
+        android:persistent="false" />
+    <com.android.settingslib.widget.SliderPreference
+        android:key="arkui_navigation_bar_fade"
+        android:title="@string/arkui_navigation_bar_fade_title"
+        android:persistent="false" />
+</PreferenceScreen>

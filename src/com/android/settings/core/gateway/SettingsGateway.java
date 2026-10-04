@@ -370,6 +370,7 @@ public class SettingsGateway {
             com.android.settings.arkui.ArkuiDesktopAdvancedSettings.class.getName(),
             com.android.settings.arkui.ArkuiSecurityPrivacySettings.class.getName(),
             com.android.settings.arkui.ArkuiSmallWindowSettings.class.getName(),
+            com.android.settings.arkui.ArkuiSystemBarMotionSettings.class.getName(),
             NetworkDashboardFragment.class.getName(),
             ConnectedDeviceDashboardFragment.class.getName(),
             UsbDetailsFragment.class.getName(),

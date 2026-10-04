@@ -30,6 +30,13 @@
     </Preference>
 
     <Preference
+        android:key="arkui_system_bar_motion"
+        android:title="@string/arkui_system_bar_motion_title"
+        android:summary="@string/arkui_system_bar_motion_summary"
+        android:icon="@drawable/ic_settings_system_bar_motion"
+        android:fragment="com.android.settings.arkui.ArkuiSystemBarMotionSettings" />
+
+    <Preference
         android:key="arkui_small_window_settings"
         android:title="@string/arkui_small_window_title"
         android:summary="@string/arkui_small_window_summary"

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_system_bar_motion_title">System bar motion</string>
+    <string name="arkui_system_bar_motion_summary">Follow app animations, fade the gesture handle</string>
+    <string name="arkui_system_bar_motion_intro">The system bars move and scale with apps as they open, close, and switch. The gesture handle appears during these transitions and gently fades away afterward.</string>
+    <string name="arkui_status_bar_follow_title">Status bar follows apps</string>
+    <string name="arkui_status_bar_follow_summary">Keep the time and status icons attached to the moving app window</string>
+    <string name="arkui_navigation_bar_follow_title">Gesture handle follows apps</string>
+    <string name="arkui_navigation_bar_follow_summary">Show only during app animations, then fade without reserving screen space. Swipe gestures remain available.</string>
+    <string name="arkui_navigation_bar_follow_requires_gestures">Available with gesture navigation</string>
+    <string name="arkui_navigation_bar_fade_title">Handle fade duration</string>
+    <string name="arkui_navigation_bar_fade_value">%1$d ms</string>
+</resources>

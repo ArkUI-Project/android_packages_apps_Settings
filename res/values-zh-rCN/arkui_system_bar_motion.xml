@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_system_bar_motion_title">系统栏跟随</string>
+    <string name="arkui_system_bar_motion_summary">状态栏、小白条跟随动画与渐隐</string>
+    <string name="arkui_system_bar_motion_intro">打开、关闭或切换应用时，系统栏随应用窗口一起移动和缩放。小白条仅在这些动画中出现，动画结束后缓缓隐藏。</string>
+    <string name="arkui_status_bar_follow_title">状态栏跟随</string>
+    <string name="arkui_status_bar_follow_summary">时间与状态图标跟随应用窗口移动和缩放</string>
+    <string name="arkui_navigation_bar_follow_title">小白条跟随</string>
+    <string name="arkui_navigation_bar_follow_summary">仅在应用动画中显示，结束后渐隐，不占屏幕空间。上滑与返回手势仍可使用。</string>
+    <string name="arkui_navigation_bar_follow_requires_gestures">使用手势导航时可开启</string>
+    <string name="arkui_navigation_bar_fade_title">小白条渐隐时长</string>
+    <string name="arkui_navigation_bar_fade_value">%1$d 毫秒</string>
+</resources>
