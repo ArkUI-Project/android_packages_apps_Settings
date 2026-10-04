@@ -19,6 +19,17 @@
     </Preference>
 
     <Preference
+        android:key="arkui_wheel_settings"
+        android:title="@string/arkui_wheel_title"
+        android:summary="@string/arkui_wheel_summary"
+        android:icon="@drawable/ic_settings_wheel"
+        settings:controller="com.android.settings.arkui.WheelPreferenceController">
+        <intent android:action="org.arkui.wheel.SETTINGS"
+            android:targetPackage="org.arkui.wheel"
+            android:targetClass="org.arkui.wheel.WheelSettingsActivity" />
+    </Preference>
+
+    <Preference
         android:key="arkui_small_window_settings"
         android:title="@string/arkui_small_window_title"
         android:summary="@string/arkui_small_window_summary"

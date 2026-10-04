@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_wheel_title">快捷輪盤</string>
+    <string name="arkui_wheel_summary">底角喚出、浮動視窗應用程式與快捷功能</string>
+</resources>
