@@ -37,6 +37,13 @@
         android:fragment="com.android.settings.arkui.ArkuiSystemBarMotionSettings" />
 
     <Preference
+        android:key="shade_panels_settings"
+        android:title="@string/shade_panels_title"
+        android:icon="@drawable/ic_settings_shade_panels"
+        android:fragment="com.android.settings.system.ShadePanelsFragment"
+        settings:controller="com.android.settings.system.ShadePanelsPreferenceController" />
+
+    <Preference
         android:key="arkui_small_window_settings"
         android:title="@string/arkui_small_window_title"
         android:summary="@string/arkui_small_window_summary"

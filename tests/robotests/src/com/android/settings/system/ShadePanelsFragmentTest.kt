@@ -130,7 +130,7 @@ class ShadePanelsFragmentTest {
 
     @Test
     @DisableFlags(Flags.FLAG_SCENE_CONTAINER)
-    fun searchIndexProvider_sceneContainerDisabled_isNotIndexed() {
+    fun searchIndexProvider_sceneContainerDisabled_isIndexed() {
         val allKeys =
             ShadePanelsFragment.SEARCH_INDEX_DATA_PROVIDER.getRawDataToIndex(
                 /* context = */ context,
@@ -140,7 +140,7 @@ class ShadePanelsFragmentTest {
             ShadePanelsFragment.SEARCH_INDEX_DATA_PROVIDER.getNonIndexableKeys(context)
 
         assertThat(allKeys).isNotEmpty()
-        assertThat(nonIndexableKeys).containsAtLeastElementsIn(allKeys)
+        assertThat(nonIndexableKeys).isEmpty()
     }
 
     private fun assertDualShadeEnabled(isEnabled: Boolean) {

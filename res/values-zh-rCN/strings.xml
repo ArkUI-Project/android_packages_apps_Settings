@@ -4822,11 +4822,11 @@
     <string name="system_navigation_title" msgid="4890381153527184636">"导航模式"</string>
     <string name="swipe_up_to_switch_apps_title" msgid="6677266952021118342">"“双按钮”导航"</string>
     <string name="swipe_up_to_switch_apps_summary" msgid="1415457307836359560">"在主屏幕按钮上向上滑动，可切换应用；再次向上滑动，可查看所有应用；点按返回按钮，可返回上一个屏幕。"</string>
-    <string name="shade_panels_title" msgid="6816157397029469997">"通知和快捷设置"</string>
+    <string name="shade_panels_title">控制中心与通知中心</string>
     <string name="keywords_shade_panels" msgid="6181844937287087945">"通知栏, 面板, 通知, 快捷设置, 快捷设置栏, 分隔, 合并, 双, 单, shade, panels, notifications, quick settings, qs, separate, combined, dual, single"</string>
     <string name="shade_panels_category" msgid="3262351355390846546">"面板"</string>
-    <string name="shade_panels_separate_title" msgid="7839124123668116363">"分隔"</string>
-    <string name="shade_panels_separate_summary" msgid="4879360492042964895">"从右上方向下滑动可打开快捷设置。从左上方向下滑动可打开通知栏。"</string>
+    <string name="shade_panels_separate_title">分离</string>
+    <string name="shade_panels_separate_summary">从屏幕右上方向下滑动打开控制中心，从左上方向下滑动打开通知中心。</string>
     <string name="shade_panels_combined_title" msgid="2812149031368941984">"合并（传统）"</string>
     <string name="shade_panels_combined_summary" msgid="5884627562590432068">"从屏幕顶部向下滑动即可访问将通知和快捷设置合在一起的传统面板。"</string>
     <string name="shade_panels_foldables_footer_message" msgid="3974376428811063936">"合并（传统）视图仅适用于可折叠设备的外屏"</string>

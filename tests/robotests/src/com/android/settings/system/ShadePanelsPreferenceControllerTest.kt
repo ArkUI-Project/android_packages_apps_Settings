@@ -17,13 +17,13 @@
 package com.android.settings.system
 
 import android.content.Context
+import android.provider.Settings
 import android.platform.test.annotations.DisableFlags
 import android.platform.test.annotations.EnableFlags
 import android.platform.test.flag.junit.SetFlagsRule
 import androidx.test.core.app.ApplicationProvider
 import com.android.settings.R
 import com.android.settings.core.BasePreferenceController.AVAILABLE
-import com.android.settings.core.BasePreferenceController.CONDITIONALLY_UNAVAILABLE
 import com.android.settings.core.BasePreferenceController.UNSUPPORTED_ON_DEVICE
 import com.android.settings.system.ShadePanelsPreferenceController.Companion.setDualShadeEnabled
 import com.android.systemui.Flags
@@ -68,8 +68,8 @@ class ShadePanelsPreferenceControllerTest {
     @Test
     @DisableFlags(Flags.FLAG_SCENE_CONTAINER)
     @Config(qualifiers = "w360dp-h640dp")
-    fun getAvailabilityStatus_sceneContainerDisabled_onPhone_isConditionallyUnavailable() {
-        assertThat(controller.availabilityStatus).isEqualTo(CONDITIONALLY_UNAVAILABLE)
+    fun getAvailabilityStatus_sceneContainerDisabled_onPhone_isAvailable() {
+        assertThat(controller.availabilityStatus).isEqualTo(AVAILABLE)
     }
 
     @Test
@@ -99,10 +99,19 @@ class ShadePanelsPreferenceControllerTest {
 
     @Test
     @DisableFlags(Flags.FLAG_SCENE_CONTAINER)
+    @Config(qualifiers = "w1200dp-h800dp")
     fun getSummary_dualShadeUnavailable_null() {
         context.contentResolver.setDualShadeEnabled(enable = true)
 
         assertThat(controller.summary).isNull()
+    }
+
+    @Test
+    @Config(qualifiers = "w360dp-h640dp")
+    fun getSummary_unsetSetting_defaultsToCombined() {
+        Settings.Secure.putString(context.contentResolver, Settings.Secure.DUAL_SHADE, null)
+
+        assertThat(controller.summary).isEqualTo(singleShadePreferenceTitle)
     }
 
     @Test

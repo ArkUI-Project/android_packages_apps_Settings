@@ -24,7 +24,6 @@ import android.util.DisplayMetrics
 import android.util.Log
 import com.android.settings.R
 import com.android.settings.core.BasePreferenceController
-import com.android.systemui.Flags
 import kotlin.math.min
 
 /**
@@ -61,7 +60,7 @@ class ShadePanelsPreferenceController(
 
         /** Retrieve the preference value from secure settings. */
         fun ContentResolver.isDualShadeEnabled(): Boolean {
-            return Settings.Secure.getInt(this, Settings.Secure.DUAL_SHADE, ON) == ON
+            return Settings.Secure.getInt(this, Settings.Secure.DUAL_SHADE, OFF) == ON
         }
 
         /** Persist the preference value to secure settings. */
@@ -81,11 +80,6 @@ class ShadePanelsPreferenceController(
 
         @AvailabilityStatus
         internal fun getDualShadeAvailability(context: Context): Int {
-            if (!Flags.sceneContainer()) {
-                Log.i(TAG, "Scene container is disabled")
-                return CONDITIONALLY_UNAVAILABLE
-            }
-
             val deviceHasCompactScreen =
                 hasAnyDisplayWithSmallestWidthLessThan(context, MIN_LARGE_SCREEN_WIDTH_DP)
 
