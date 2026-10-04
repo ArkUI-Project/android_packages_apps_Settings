@@ -16,7 +16,8 @@ public class ArkuiFeaturesPreferenceController extends BasePreferenceController 
 
     @Override
     public int getAvailabilityStatus() {
-        return ArkuiSmallWindowSettings.isAvailable(mContext)
+        return (ArkuiSmallWindowSettings.isAvailable(mContext)
+                || SidebarPreferenceController.isAvailable(mContext))
                 ? AVAILABLE : UNSUPPORTED_ON_DEVICE;
     }
 

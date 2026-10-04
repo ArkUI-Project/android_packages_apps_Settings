@@ -4,7 +4,7 @@
 <resources>
     <string name="arkui_desktop_title">Home screen</string>
     <string name="arkui_desktop_summary">Layout, app drawer, gestures and animations</string>
-    <string name="arkui_features_summary">Small windows</string>
+    <string name="arkui_features_summary">Sidebar, small windows</string>
     <string name="menu_key_arkui_desktop" translatable="false">top_level_arkui_desktop</string>
     <string name="arkui_desktop_layout">Home screen layout</string>
     <string name="arkui_desktop_drawer">App drawer</string>

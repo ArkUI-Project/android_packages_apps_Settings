@@ -8,6 +8,17 @@
     android:title="@string/arkui_features_title">
 
     <Preference
+        android:key="arkui_sidebar_settings"
+        android:title="@string/arkui_sidebar_title"
+        android:summary="@string/arkui_sidebar_summary"
+        android:icon="@drawable/ic_settings_sidebar"
+        settings:controller="com.android.settings.arkui.SidebarPreferenceController">
+        <intent android:action="org.arkui.sidebar.SETTINGS"
+            android:targetPackage="org.arkui.sidebar"
+            android:targetClass="org.arkui.sidebar.SidebarSettingsActivity" />
+    </Preference>
+
+    <Preference
         android:key="arkui_small_window_settings"
         android:title="@string/arkui_small_window_title"
         android:summary="@string/arkui_small_window_summary"

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_sidebar_title">侧边栏</string>
+    <string name="arkui_sidebar_summary">快捷应用、常驻侧边条、侧滑停顿</string>
+</resources>

@@ -34,7 +34,8 @@ public class ArkuiFeaturesSettings extends DashboardFragment {
             new BaseSearchIndexProvider(R.xml.arkui_features_settings) {
                 @Override
                 protected boolean isPageSearchEnabled(Context context) {
-                    return ArkuiSmallWindowSettings.isAvailable(context);
+                    return ArkuiSmallWindowSettings.isAvailable(context)
+                            || SidebarPreferenceController.isAvailable(context);
                 }
             };
 }
