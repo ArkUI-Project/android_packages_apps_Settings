@@ -5,6 +5,13 @@
     <string name="arkui_small_window_title">小視窗</string>
     <string name="arkui_small_window_summary">以可移動的小視窗開啟應用程式，隨時切換使用</string>
     <string name="arkui_small_window_enable">使用小視窗</string>
+    <string name="arkui_small_window_mode">小視窗模式</string>
+    <string name="arkui_small_window_mode_summary">Flyme 模式保留原有小視窗的手勢與樣式；澎湃模式支援多個獨立小視窗，並使用獨立的操作列與手勢。切換模式時，現有小視窗恢復全螢幕，應用程式例外及其他設定會保留。</string>
+    <string name="arkui_small_window_hyperos_help">開啟最近使用的應用程式選單並選擇「小視窗」，可同時保留多個獨立視窗。拖曳頂部三點操作列可移動小視窗；拖向螢幕頂部顯示全螢幕預覽，放開確認，往回拖曳取消。輕觸頂部操作列可顯示視窗控制。拖曳底部任一角可調整大小，縮小至提示位置可最小化。向上滑動底部中間操作列可關閉小視窗，向下拉動可預覽全螢幕並放開確認。輕觸浮動預覽可恢復小視窗；開啟貼邊收起後，將預覽拖出螢幕邊緣可收起為應用程式圖示標籤，輕觸標籤即可找回。切換模式或關閉小視窗功能時，現有小視窗恢復全螢幕。</string>
+    <string-array name="arkui_small_window_modes">
+        <item>Flyme 模式</item>
+        <item>澎湃模式</item>
+    </string-array>
     <string name="arkui_small_window_launch">開啟方式</string>
     <string name="arkui_small_window_recents">最近使用的應用程式入口</string>
     <string name="arkui_small_window_recents_summary">在最近使用的應用程式選單中顯示「小視窗」</string>
@@ -30,7 +37,7 @@
     <string name="arkui_small_window_haptics_summary">系統觸控震動開啟時，在手勢觸發位置提供震動回饋</string>
     <string name="arkui_small_window_reset">還原預設設定</string>
     <string name="arkui_small_window_reset_summary">重設小視窗選項並清除應用程式例外</string>
-    <string name="arkui_small_window_reset_message">要還原所有小視窗預設設定並清除兩類應用程式例外嗎？小視窗、最近使用的應用程式入口及貼邊小視窗視為前景將開啟；上滑進入浮動預覽、通知下拉小視窗及點擊通知開啟小視窗將關閉。</string>
+    <string name="arkui_small_window_reset_message">要還原小視窗預設設定並清除兩類應用程式例外嗎？小視窗模式將還原為 Flyme 模式。小視窗、最近使用的應用程式入口及貼邊小視窗視為前景將開啟；通知下拉小視窗及點擊通知開啟小視窗將關閉。主畫面設定中的上滑手勢選項將保留。</string>
     <string name="arkui_small_window_help">開啟最近使用的應用程式，輕觸應用程式選單並選擇「小視窗」。長按視窗操作列後拖曳可移動視窗，直接拖曳操作列可調整大小；縮小或放大超過震動提示位置，可分別最小化或恢復全螢幕。浮動預覽可拖曳，輕觸返回小視窗，輕觸兩下全螢幕，長按顯示應用程式靜音及大小切換按鈕。靜音在應用程式處於小視窗期間生效。將預覽拖到底部關閉區域即可收起。關閉此功能時，現有小視窗恢復全螢幕。顯示異常的應用程式可加入「一律以全螢幕開啟」。</string>
     <string name="arkui_small_window_apps_loading">正在載入應用程式…</string>
     <string name="arkui_small_window_apps_none">未選取應用程式</string>

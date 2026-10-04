@@ -5,6 +5,13 @@
     <string name="arkui_small_window_title">小窗</string>
     <string name="arkui_small_window_summary">以可移动的小窗打开应用，随时切换使用</string>
     <string name="arkui_small_window_enable">使用小窗</string>
+    <string name="arkui_small_window_mode">小窗模式</string>
+    <string name="arkui_small_window_mode_summary">Flyme 模式保留原有小窗的手势和样式；澎湃模式支持多个独立小窗，并使用独立的操作条和手势。切换模式时，已有小窗恢复全屏，应用例外及其他设置会保留。</string>
+    <string name="arkui_small_window_hyperos_help">打开最近任务的应用菜单并选择“小窗”，可同时保留多个独立窗口。拖动顶部三点操作条可移动小窗；拖向屏幕顶部显示全屏预览，松手确认，往回拖动取消。点击顶部操作条可显示窗口控制。拖动底部任一角可调整大小，缩小到提示位置可最小化。向上滑动底部中间操作条可关闭小窗，向下拉动可预览全屏并松手确认。点击悬浮预览可恢复小窗；开启贴边收起后，将预览拖出屏幕边缘可收起为应用图标标签，点击标签可找回。切换模式或关闭小窗功能时，已有小窗恢复全屏。</string>
+    <string-array name="arkui_small_window_modes">
+        <item>Flyme 模式</item>
+        <item>澎湃模式</item>
+    </string-array>
     <string name="arkui_small_window_launch">打开方式</string>
     <string name="arkui_small_window_recents">最近任务入口</string>
     <string name="arkui_small_window_recents_summary">在最近任务的应用菜单中显示“小窗”</string>
@@ -30,7 +37,7 @@
     <string name="arkui_small_window_haptics_summary">系统触摸振动开启时，在手势触发位置提供振动反馈</string>
     <string name="arkui_small_window_reset">恢复默认设置</string>
     <string name="arkui_small_window_reset_summary">重置小窗选项并清空应用例外</string>
-    <string name="arkui_small_window_reset_message">要恢复小窗默认设置并清空两类应用例外吗？小窗、最近任务入口及贴边小窗视为前台将开启；通知下拉小窗和点击通知打开小窗将关闭。桌面设置中的上滑手势选项将保留。</string>
+    <string name="arkui_small_window_reset_message">要恢复小窗默认设置并清空两类应用例外吗？小窗模式将恢复为 Flyme 模式。小窗、最近任务入口及贴边小窗视为前台将开启；通知下拉小窗和点击通知打开小窗将关闭。桌面设置中的上滑手势选项将保留。</string>
     <string name="arkui_small_window_help">打开最近任务，点按应用菜单并选择“小窗”。长按窗口操作条后拖动可移动窗口，直接拖动操作条可调整大小；缩小或放大越过振动提示位置，可分别最小化或恢复全屏。悬浮预览可拖动，单击返回小窗，双击全屏，长按显示应用静音和大小切换按钮。静音在应用处于小窗期间生效。将预览拖到底部关闭区域可收起。关闭本功能时，已有小窗恢复全屏。显示异常的应用可加入“始终全屏的应用”。</string>
     <string name="arkui_small_window_apps_loading">正在加载应用…</string>
     <string name="arkui_small_window_apps_none">未选择应用</string>

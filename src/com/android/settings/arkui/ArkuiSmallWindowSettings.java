@@ -58,12 +58,15 @@ public class ArkuiSmallWindowSettings extends DashboardFragment
     };
     private static final int[] SWITCH_DEFAULTS = {1, 0, 0, 0, 1, 1, 1};
     private static final String[] CHOICE_KEYS = {
+            Settings.System.ARKUI_SMALL_WINDOW_MODE,
             Settings.System.ARKUI_SMALL_WINDOW_SIZE,
             Settings.System.ARKUI_SMALL_WINDOW_PINNED_SIZE,
             Settings.System.POP_UP_SINGLE_TAP_ACTION,
             Settings.System.POP_UP_DOUBLE_TAP_ACTION,
     };
-    private static final int[] CHOICE_DEFAULTS = {1, 0, 0, 1};
+    private static final int[] CHOICE_DEFAULTS = {
+            SmallWindowSettings.MODE_FLYME, 1, 0, 0, 1,
+    };
     private static final String[] APP_KEYS = {
             Settings.System.ARKUI_SMALL_WINDOW_BLACKLIST,
             Settings.System.POP_UP_NOTIFICATION_BLACKLIST,
@@ -216,6 +219,14 @@ public class ArkuiSmallWindowSettings extends DashboardFragment
                 }
                 preference.setValue(value);
             }
+            final ListPreference mode = findPreference(Settings.System.ARKUI_SMALL_WINDOW_MODE);
+            final boolean hyperOs = Integer.toString(SmallWindowSettings.MODE_HYPEROS)
+                    .equals(mode.getValue());
+            findPreference(Settings.System.POP_UP_SINGLE_TAP_ACTION).setVisible(!hyperOs);
+            findPreference(Settings.System.POP_UP_DOUBLE_TAP_ACTION).setVisible(!hyperOs);
+            findPreference("small_window_help").setTitle(hyperOs
+                    ? R.string.arkui_small_window_hyperos_help
+                    : R.string.arkui_small_window_help);
             for (String key : APP_KEYS) {
                 updateAppPreference(key);
             }
@@ -362,6 +373,11 @@ public class ArkuiSmallWindowSettings extends DashboardFragment
                     keys.add("small_window_reset");
                     keys.add("small_window_help");
                     keys.add("small_window_size_help");
+                    keys.add("small_window_mode_help");
+                    if (SmallWindowSettings.isHyperOsMode(context)) {
+                        keys.add(Settings.System.POP_UP_SINGLE_TAP_ACTION);
+                        keys.add(Settings.System.POP_UP_DOUBLE_TAP_ACTION);
+                    }
                     return keys;
                 }
             };

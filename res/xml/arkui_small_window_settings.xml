@@ -11,6 +11,17 @@
         android:title="@string/arkui_small_window_enable"
         android:persistent="false" />
 
+    <ListPreference android:key="arkui_small_window_mode"
+        android:title="@string/arkui_small_window_mode"
+        android:dialogTitle="@string/arkui_small_window_mode"
+        android:entries="@array/arkui_small_window_modes"
+        android:entryValues="@array/arkui_small_window_two_values"
+        android:persistent="false" />
+
+    <Preference android:key="small_window_mode_help"
+        android:summary="@string/arkui_small_window_mode_summary"
+        android:selectable="false" />
+
     <PreferenceCategory android:key="small_window_launch"
         android:title="@string/arkui_small_window_launch">
         <SwitchPreferenceCompat android:key="arkui_small_window_recents"
