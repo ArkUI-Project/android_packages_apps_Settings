@@ -5140,6 +5140,39 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".Settings$AppTwinsActivity"
+            android:label="@string/app_twins_title" android:exported="true">
+            <intent-filter>
+                <action android:name="org.arkui.settings.APP_TWINS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.arkui.twins.AppTwinsSettings" />
+            <meta-data android:name="com.android.settings.HIGHLIGHT_MENU_KEY"
+                android:value="@string/menu_key_arkui_features" />
+        </activity>
+        <activity android:name=".arkui.twins.AppTwinLaunchActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="true" android:excludeFromRecents="true" />
+        <activity android:name=".arkui.twins.AppTwinShareActivity"
+            android:label="@string/app_twin_share" android:exported="true"
+            android:theme="@style/Theme.Settings" android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="*/*" />
+            </intent-filter>
+        </activity>
+        <receiver android:name=".arkui.twins.AppTwinReceiver" android:exported="false">
+            <intent-filter><action android:name="android.intent.action.BOOT_COMPLETED" /></intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
         <!-- ArkUI: the System dashboard is exposed as More settings. -->
         <activity
             android:name=".Settings$SystemDashboardActivity"

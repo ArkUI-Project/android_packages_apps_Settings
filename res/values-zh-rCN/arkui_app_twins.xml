@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="app_twins_title">应用分身</string>
+    <string name="app_twins_summary">多账号共存，独立应用空间</string>
+    <string name="app_twins_intro">同一应用可创建多个分身，账号、数据、联系人和文件相互独立。每个分身拥有自己的名称、图标标记和通知。应用更新会同步到所有分身；卸载原应用也会删除它的分身。部分应用可能限制多账号或多空间使用。</string>
+    <string name="app_twin_add">创建应用分身</string>
+    <string name="app_twin_count">已使用 %1$d / %2$d 个空间</string>
+    <string name="app_twin_working">正在处理…</string>
+    <string name="app_twin_unavailable">可用空间已用尽，或管理员限制了应用分身。</string>
+    <string name="app_twin_name">分身名称</string>
+    <string name="app_twin_name_error">请输入 1 至 24 个字符的名称，不能包含控制字符。</string>
+    <string name="app_twin_name_taken">此应用的另一个分身已使用这个名称。</string>
+    <string name="app_twin_default_name">分身 %1$d</string>
+    <string name="app_twin_empty">让不同账号各有空间</string>
+    <string name="app_twin_empty_hint">选择已安装的应用，创建第一个独立分身。</string>
+    <string name="app_twin_choose">选择应用</string>
+    <string name="app_twin_search">搜索应用或包名</string>
+    <string name="app_twin_search_count">搜索 %1$d 个应用</string>
+    <string name="app_twin_help">关于应用分身</string>
+    <string name="app_twin_recommended">推荐分身</string>
+    <string name="app_twin_available_apps">可用应用</string>
+    <string name="app_twin_not_enabled">未开启分身</string>
+    <string name="app_twin_enabled_count">已创建 %1$d 个分身 · 点按管理</string>
+    <string name="app_twin_no_results">没有匹配的应用</string>
+    <string name="app_twin_other_instances">其他分身</string>
+    <string name="app_twin_disable">关闭并删除</string>
+    <string name="app_twin_disable_title">关闭 %1$s 的分身？</string>
+    <string name="app_twin_disable_confirm">此应用的全部 %1$d 个分身及其账号、应用数据和文件将永久删除，原应用不受影响。如果需要保留数据，可以在管理页单独暂停分身。</string>
+    <string name="app_twin_active">运行中</string>
+    <string name="app_twin_paused">已暂停</string>
+    <string name="app_twin_incomplete">分身不可用，可以删除后重新创建。</string>
+    <string name="app_twin_open">打开分身</string>
+    <string name="app_twin_rename">重命名</string>
+    <string name="app_twin_pin">添加到桌面</string>
+    <string name="app_twin_pin_failed">当前桌面无法添加此快捷方式。</string>
+    <string name="app_twin_pause">暂停分身</string>
+    <string name="app_twin_pause_hint">停止此分身及其通知，打开或恢复后继续运行。</string>
+    <string name="app_twin_unlock">请先解锁设备，再恢复此分身。</string>
+    <string name="app_twin_app_info">权限与存储空间</string>
+    <string name="app_twin_app_info_hint">管理权限、电池使用或清除此分身的数据。</string>
+    <string name="app_twin_notifications">分身通知</string>
+    <string name="app_twin_keyboard">主空间输入法</string>
+    <string name="app_twin_keyboard_hint">所有分身统一使用主空间启用和选择的输入法。</string>
+    <string name="app_twin_delete">删除分身</string>
+    <string name="app_twin_delete_hint">仅删除此分身及其数据</string>
+    <string name="app_twin_delete_title">删除“%1$s”？</string>
+    <string name="app_twin_delete_confirm">此分身的账号、应用数据和文件将永久删除，原应用及其他分身不受影响。</string>
+    <string name="app_twin_removed">此分身已不可用。</string>
+    <string name="app_twin_error">操作未完成：%1$s</string>
+    <string name="app_twin_share">在应用分身之间分享</string>
+    <string name="app_twin_original">原空间</string>
+    <string name="app_twin_no_share_targets">没有正在运行的分身可以接收此内容。请在应用分身设置中恢复分身后重试。</string>
+    <string name="app_twin_share_failed">无法分享此内容，附件可能已无法访问。</string>
+</resources>

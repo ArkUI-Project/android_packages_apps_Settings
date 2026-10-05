@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="arkui_app_twins" android:title="@string/app_twins_title">
+    <Preference android:key="app_twins_intro" android:title="@string/app_twins_title"
+        android:summary="@string/app_twins_summary" />
+</PreferenceScreen>

@@ -109,7 +109,7 @@ public class SettingsInitialize extends BroadcastReceiver {
     }
 
     private void cloneProfileSetup(Context context, PackageManager pm, UserInfo userInfo) {
-        if (userInfo == null || !userInfo.isCloneProfile()) {
+        if (userInfo == null || (!userInfo.isCloneProfile() && !userInfo.isAppTwinProfile())) {
             return;
         }
 

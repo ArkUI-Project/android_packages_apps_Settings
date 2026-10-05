@@ -41,6 +41,14 @@
     </Preference>
 
     <Preference
+        android:key="arkui_app_twins"
+        android:title="@string/app_twins_title"
+        android:summary="@string/app_twins_summary"
+        android:icon="@drawable/ic_settings_app_twins"
+        android:fragment="com.android.settings.arkui.twins.AppTwinsSettings"
+        settings:controller="com.android.settings.arkui.twins.AppTwinsPreferenceController" />
+
+    <Preference
         android:key="arkui_system_bar_motion"
         android:title="@string/arkui_system_bar_motion_title"
         android:summary="@string/arkui_system_bar_motion_summary"

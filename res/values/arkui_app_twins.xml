@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="app_twins_title">App twins</string>
+    <string name="app_twins_summary">Multiple accounts, independent app instances</string>
+    <string name="app_twins_intro">Create multiple instances of an app with separate accounts, data, contacts and files. Each has its own name, icon badge and notifications. App updates apply to every instance. Removing the original also removes its twins. Some apps may restrict multiple accounts or profiles.</string>
+    <string name="app_twin_add">Create app twin</string>
+    <string name="app_twin_count">%1$d of %2$d spaces in use</string>
+    <string name="app_twin_working">Working…</string>
+    <string name="app_twin_unavailable">No more spaces are available, or your administrator has restricted app twins.</string>
+    <string name="app_twin_name">Instance name</string>
+    <string name="app_twin_name_error">Enter a name of 1–24 characters without control characters.</string>
+    <string name="app_twin_name_taken">Another instance of this app already uses that name.</string>
+    <string name="app_twin_default_name">Twin %1$d</string>
+    <string name="app_twin_empty">Your other accounts, together</string>
+    <string name="app_twin_empty_hint">Choose an installed app to create your first independent instance.</string>
+    <string name="app_twin_choose">Choose an app</string>
+    <string name="app_twin_search">Search apps or packages</string>
+    <string name="app_twin_search_count">Search %1$d apps</string>
+    <string name="app_twin_help">About app twins</string>
+    <string name="app_twin_recommended">Recommended apps</string>
+    <string name="app_twin_available_apps">Available apps</string>
+    <string name="app_twin_not_enabled">Not enabled</string>
+    <string name="app_twin_enabled_count">%1$d instances · Tap to manage</string>
+    <string name="app_twin_no_results">No matching apps</string>
+    <string name="app_twin_other_instances">Other instances</string>
+    <string name="app_twin_disable">Turn off and delete</string>
+    <string name="app_twin_disable_title">Turn off twins for %1$s?</string>
+    <string name="app_twin_disable_confirm">All %1$d instances of this app and their accounts, app data and files will be permanently deleted. The original app is unaffected. To keep the data, pause individual instances instead.</string>
+    <string name="app_twin_active">Active</string>
+    <string name="app_twin_paused">Paused</string>
+    <string name="app_twin_incomplete">Instance unavailable. You can delete it and create another.</string>
+    <string name="app_twin_open">Open instance</string>
+    <string name="app_twin_rename">Rename</string>
+    <string name="app_twin_pin">Add to home screen</string>
+    <string name="app_twin_pin_failed">Your home app could not add this shortcut.</string>
+    <string name="app_twin_pause">Pause instance</string>
+    <string name="app_twin_pause_hint">Stop this instance and its notifications until you open or resume it.</string>
+    <string name="app_twin_unlock">Unlock the device to resume this instance.</string>
+    <string name="app_twin_app_info">Permissions and storage</string>
+    <string name="app_twin_app_info_hint">Manage permissions, battery use or clear this instance’s data.</string>
+    <string name="app_twin_notifications">Instance notifications</string>
+    <string name="app_twin_keyboard">Main-space keyboard</string>
+    <string name="app_twin_keyboard_hint">All instances use the keyboards enabled and selected in the main space.</string>
+    <string name="app_twin_delete">Delete instance</string>
+    <string name="app_twin_delete_hint">Remove only this instance and its data</string>
+    <string name="app_twin_delete_title">Delete “%1$s”?</string>
+    <string name="app_twin_delete_confirm">This permanently removes this instance’s accounts, app data and files. The original and other instances are unaffected.</string>
+    <string name="app_twin_removed">This instance is no longer available.</string>
+    <string name="app_twin_error">Could not complete the operation: %1$s</string>
+    <string name="app_twin_share">Share between app twins</string>
+    <string name="app_twin_original">Original space</string>
+    <string name="app_twin_no_share_targets">No active instance can receive this content. Resume an instance in App twins and try again.</string>
+    <string name="app_twin_share_failed">Could not share this content. The attachment may no longer be accessible.</string>
+</resources>

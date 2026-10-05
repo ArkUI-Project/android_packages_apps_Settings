@@ -366,6 +366,7 @@ public class SettingsGateway {
             StorageDashboardFragment.class.getName(),
             SystemDashboardFragment.class.getName(),
             com.android.settings.arkui.ArkuiFeaturesSettings.class.getName(),
+            com.android.settings.arkui.twins.AppTwinsSettings.class.getName(),
             com.android.settings.arkui.ArkuiDesktopSettings.class.getName(),
             com.android.settings.arkui.ArkuiDesktopAdvancedSettings.class.getName(),
             com.android.settings.arkui.ArkuiSecurityPrivacySettings.class.getName(),
