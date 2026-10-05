@@ -30,6 +30,17 @@
     </Preference>
 
     <Preference
+        android:key="arkui_game_settings"
+        android:title="@string/arkui_game_title"
+        android:summary="@string/arkui_game_summary"
+        android:icon="@drawable/ic_settings_game"
+        settings:controller="com.android.settings.arkui.GamePreferenceController">
+        <intent android:action="org.arkui.game.SETTINGS"
+            android:targetPackage="org.arkui.game"
+            android:targetClass="org.arkui.game.GameActivity" />
+    </Preference>
+
+    <Preference
         android:key="arkui_system_bar_motion"
         android:title="@string/arkui_system_bar_motion_title"
         android:summary="@string/arkui_system_bar_motion_summary"

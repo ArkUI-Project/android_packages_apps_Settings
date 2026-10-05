@@ -1,0 +1,4 @@
+<resources>
+    <string name="arkui_game_title">游戏助手</string>
+    <string name="arkui_game_summary">游戏管理、弹幕通知和游戏内侧边栏工具</string>
+</resources>
