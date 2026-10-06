@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/credential_prompt"
+    android:importantForAccessibility="yes"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:fillViewport="true">
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:fillViewport="true" android:filterTouchesWhenObscured="true">
+    <LinearLayout android:id="@+id/credential_content"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
         android:orientation="vertical" android:gravity="center"
         android:paddingHorizontal="28dp" android:paddingVertical="24dp">
         <ImageView android:id="@+id/app_lock_icon"
@@ -19,6 +23,27 @@
             android:layout_marginTop="12dp" android:gravity="center"
             android:text="@string/arkui_app_lock_auth_description"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium" />
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/privacy_type_group"
+            android:theme="@style/Theme.Material3Expressive.DynamicColors.DayNight"
+            style="@style/Widget.Material3Expressive.MaterialButtonGroup.Connected"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="28dp" android:visibility="gone"
+            app:singleSelection="true" app:selectionRequired="true"
+            app:checkedButton="@id/privacy_pin_type">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/privacy_pin_type"
+                style="@style/SettingsLibButtonStyle.Expressive.Tonal.Large"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:minHeight="56dp"
+                android:text="@string/arkui_privacy_password_pin" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/privacy_custom_type"
+                style="@style/SettingsLibButtonStyle.Expressive.Tonal.Large"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:minHeight="56dp"
+                android:text="@string/arkui_privacy_password_custom" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
         <FrameLayout android:id="@+id/app_lock_password_container"
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="24dp" android:visibility="gone" />
@@ -28,6 +53,20 @@
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="32dp" android:filterTouchesWhenObscured="true"
             android:text="@string/arkui_app_lock_auth_button" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/privacy_apps"
+            style="@style/SettingsLibButtonStyle.Expressive.Tonal.Large"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:visibility="gone"
+            android:text="@string/arkui_app_lock_title"
+            android:filterTouchesWhenObscured="true" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/privacy_disable"
+            style="@style/SettingsLibButtonStyle.Expressive.Tonal.Large"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:visibility="gone"
+            android:text="@string/arkui_privacy_password_disable"
+            android:filterTouchesWhenObscured="true" />
         <com.google.android.material.button.MaterialButton
             android:id="@+id/app_lock_cancel"
             style="@style/SettingsLibButtonStyle.Expressive.Tonal.Large"

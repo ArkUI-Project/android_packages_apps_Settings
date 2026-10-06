@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +43,7 @@ public final class PrivacyPasswordActivity extends FragmentActivity {
     private IBinder mAuthorization;
     private ResultReceiver mCallback;
     private PrivacyPasswordInput mInput;
+    private FrameLayout mInputContainer;
     private ViewGroup mContent;
     private TextView mTitle;
     private TextView mDescription;
@@ -73,21 +75,26 @@ public final class PrivacyPasswordActivity extends FragmentActivity {
         mConfirmOnly = PrivacyPasswordManager.ACTION_CONFIRM.equals(getIntent().getAction());
         mCallback = getIntent().getParcelableExtra(PrivacyPasswordManager.EXTRA_CALLBACK,
                 ResultReceiver.class);
-        mContent = findViewById(R.id.privacy_content);
-        mTitle = findViewById(R.id.privacy_title);
-        mDescription = findViewById(R.id.privacy_description);
+        mContent = findViewById(R.id.credential_content);
+        mTitle = findViewById(R.id.app_lock_message);
+        mDescription = findViewById(R.id.app_lock_subtitle);
+        ((ImageView) findViewById(R.id.app_lock_icon))
+                .setImageResource(R.drawable.ic_settings_privacy_filled);
         mTypes = findViewById(R.id.privacy_type_group);
-        mPrimary = findViewById(R.id.privacy_primary);
+        mPrimary = findViewById(R.id.app_lock_verify);
+        mPrimary.setId(R.id.privacy_primary);
         mApps = findViewById(R.id.privacy_apps);
         mDisable = findViewById(R.id.privacy_disable);
         mInput = new PrivacyPasswordInput(this, mType, this::submit);
-        ((FrameLayout) findViewById(R.id.privacy_input_container)).addView(mInput,
-                new FrameLayout.LayoutParams(-1, -2));
+        mInputContainer = findViewById(R.id.app_lock_password_container);
+        mInputContainer.addView(mInput, new FrameLayout.LayoutParams(-1, -2));
         mPrimary.setOnClickListener(view -> submit());
         mApps.setOnClickListener(view -> startActivity(new Intent("org.arkui.settings.APP_LOCK")
                 .setPackage(getPackageName())));
         mDisable.setOnClickListener(view -> confirmDisable());
-        findViewById(R.id.privacy_cancel).setOnClickListener(view -> cancelOrBack());
+        View cancel = findViewById(R.id.app_lock_cancel);
+        cancel.setId(R.id.privacy_cancel);
+        cancel.setOnClickListener(view -> cancelOrBack());
         mTypes.addOnButtonCheckedListener((group, checked, selected) -> {
             if (!selected || mStage != NEW || mBusy) return;
             mType = checked == R.id.privacy_pin_type ? PrivacyPasswordManager.TYPE_PIN
@@ -154,7 +161,7 @@ public final class PrivacyPasswordActivity extends FragmentActivity {
         mTypes.setVisibility(stage == NEW ? View.VISIBLE : View.GONE);
         mTypes.check(mType == PrivacyPasswordManager.TYPE_PIN
                 ? R.id.privacy_pin_type : R.id.privacy_custom_type);
-        mInput.setVisibility(stage == MANAGE ? View.GONE : View.VISIBLE);
+        mInputContainer.setVisibility(stage == MANAGE ? View.GONE : View.VISIBLE);
         mInput.setType(mType);
         setBusy(false);
         mApps.setVisibility(stage == MANAGE ? View.VISIBLE : View.GONE);
@@ -181,6 +188,9 @@ public final class PrivacyPasswordActivity extends FragmentActivity {
         mDescription.setText(description);
         mPrimary.setText(primary);
         if (stage == MANAGE) mInput.hideKeyboard();
+        else mInput.post(() -> {
+            if (mVisible && !mCompleted && mStage != MANAGE) mInput.showKeyboard();
+        });
     }
 
     private void submit() {
