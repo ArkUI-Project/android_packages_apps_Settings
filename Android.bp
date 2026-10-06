@@ -80,6 +80,7 @@ android_library {
         "guava",
 
         // Android internal dependencies
+        "ArkuiStartupAnimation",
         "BiometricsSharedLib",
         "SystemUIUnfoldLib",
         "WifiTrackerLib",

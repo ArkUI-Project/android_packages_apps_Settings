@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2015 The Android Open Source Project
+ * Copyright (C) 2026 The ArkUI Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,8 +36,11 @@ import android.os.UserManager;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowInsets;
+import android.view.WindowInsetsController;
 import android.view.WindowManager.LayoutParams;
-import android.view.animation.AnimationUtils;
+
+import com.android.settings.widget.StartupAnimationView;
 
 import java.util.Objects;
 
@@ -46,25 +50,25 @@ public class FallbackHome extends Activity {
 
     private boolean mProvisioned;
     private WallpaperManager mWallManager;
+    private StartupAnimationView mStartupView;
 
     private final Runnable mProgressTimeoutRunnable = () -> {
-        View v = getLayoutInflater().inflate(
-                R.layout.fallback_home_finishing_boot, null /* root */);
-        setContentView(v);
-        v.setAlpha(0f);
-        v.animate()
-                .alpha(1f)
-                .setDuration(500)
-                .setInterpolator(AnimationUtils.loadInterpolator(
-                        this, android.R.interpolator.fast_out_slow_in))
-                .start();
+        if (mStartupView != null) return;
+        setContentView(R.layout.fallback_home_finishing_boot);
+        mStartupView = findViewById(R.id.startup_animation);
+        getWindow().clearFlags(LayoutParams.FLAG_SHOW_WALLPAPER);
+        getWindow().setDecorFitsSystemWindows(false);
+        final WindowInsetsController controller = getWindow().getInsetsController();
+        controller.setSystemBarsBehavior(
+                WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+        controller.hide(WindowInsets.Type.systemBars());
         getWindow().addFlags(LayoutParams.FLAG_KEEP_SCREEN_ON);
     };
 
     private final OnColorsChangedListener mColorsChangedListener = new OnColorsChangedListener() {
         @Override
         public void onColorsChanged(WallpaperColors colors, int which) {
-            if (colors != null) {
+            if (colors != null && mStartupView == null) {
                 final View decorView = getWindow().getDecorView();
                 decorView.setSystemUiVisibility(
                         updateVisibilityFlagsFromColors(colors, decorView.getSystemUiVisibility()));
@@ -113,7 +117,11 @@ public class FallbackHome extends Activity {
     protected void onResume() {
         super.onResume();
         if (mProvisioned) {
-            mHandler.postDelayed(mProgressTimeoutRunnable, mProgressTimeout);
+            if (mStartupView != null) {
+                mStartupView.setRunning(true);
+            } else {
+                mHandler.postDelayed(mProgressTimeoutRunnable, mProgressTimeout);
+            }
         }
     }
 
@@ -121,6 +129,7 @@ public class FallbackHome extends Activity {
     protected void onPause() {
         super.onPause();
         mHandler.removeCallbacks(mProgressTimeoutRunnable);
+        if (mStartupView != null) mStartupView.setRunning(false);
     }
 
     protected void onDestroy() {
@@ -156,7 +165,7 @@ public class FallbackHome extends Activity {
 
             @Override
             protected void onPostExecute(Integer flagsToUpdate) {
-                if (flagsToUpdate == null) {
+                if (flagsToUpdate == null || mStartupView != null || isDestroyed()) {
                     return;
                 }
                 getWindow().getDecorView().setSystemUiVisibility(flagsToUpdate);

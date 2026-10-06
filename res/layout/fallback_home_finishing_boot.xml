@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Copyright (C) 2016 The Android Open Source Project
+  ~ Copyright (C) 2026 The ArkUI Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -15,35 +16,12 @@
   ~ limitations under the License
   -->
 
-<FrameLayout
+<com.android.settings.widget.StartupAnimationView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/startup_animation"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#80000000"
-    android:forceHasOverlappingRendering="false">
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textColor="?android:attr/textColorPrimary"
-            android:text="@*android:string/android_start_title"/>
-
-        <ProgressBar
-            style="@android:style/Widget.Material.ProgressBar.Horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12.75dp"
-            android:colorControlActivated="?android:attr/textColorPrimary"
-            android:indeterminate="true"/>
-
-    </LinearLayout>
-</FrameLayout>
+    android:background="@android:color/black"
+    android:contentDescription="@*android:string/android_start_title"
+    android:importantForAccessibility="yes"
+    android:forceHasOverlappingRendering="false"/>
