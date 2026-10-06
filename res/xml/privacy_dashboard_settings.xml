@@ -56,6 +56,12 @@
         android:summary="@string/runtime_permissions_summary_control_app_access"
         settings:controller="com.android.settings.privacy.ManagePermissionsPreferenceController"/>
 
+    <!-- Device motion and orientation -->
+    <Preference android:key="arkui_motion_sensor"
+        android:title="@string/arkui_motion_sensor_title"
+        android:summary="@string/arkui_motion_sensor_summary"
+        android:fragment="com.android.settings.arkui.ArkuiMotionSensorSettings" />
+
     <!-- App Function access -->
     <Preference
         android:key="privacy_app_function_access"

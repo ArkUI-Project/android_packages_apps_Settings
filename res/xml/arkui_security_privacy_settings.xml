@@ -7,6 +7,12 @@
     android:key="arkui_security_privacy_settings"
     android:title="@string/arkui_security_privacy_title">
 
+    <Preference android:key="arkui_motion_sensor"
+        android:title="@string/arkui_motion_sensor_title"
+        android:summary="@string/arkui_motion_sensor_summary"
+        android:icon="@drawable/ic_arkui_motion_sensor"
+        android:fragment="com.android.settings.arkui.ArkuiMotionSensorSettings" />
+
     <Preference android:key="arkui_privacy_password"
         android:title="@string/arkui_privacy_password_title"
         android:summary="@string/arkui_privacy_password_summary"

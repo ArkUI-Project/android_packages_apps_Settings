@@ -171,6 +171,7 @@ public class AppInfoDashboardFragment extends DashboardFragment
                 .setParentFragment(this);
 
         use(AppPermissionPreferenceController.class).setParentFragment(this);
+        use(ArkuiMotionSensorPreferenceController.class).setParentFragment(this);
         use(AppPermissionPreferenceController.class).setPackageName(packageName);
         use(ManageAgentAppFunctionAccessPreferenceController.class).setParentFragment(this);
         use(ManageTargetAppFunctionAccessPreferenceController.class).setParentFragment(this);

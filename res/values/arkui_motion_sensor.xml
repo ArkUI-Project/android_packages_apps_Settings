@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_motion_sensor_title">Device motion and orientation</string>
+    <string name="arkui_motion_sensor_summary">Control motion sensors and block access during app opening</string>
+    <string name="arkui_motion_sensor_description">Prevent shake-triggered ad redirects by blocking device motion during the first 6 seconds of opening an app.</string>
+    <string name="arkui_motion_sensor_access">Access to device motion</string>
+    <string name="arkui_motion_sensor_allow">Allow</string>
+    <string name="arkui_motion_sensor_open">Block for 6 seconds after opening</string>
+    <string name="arkui_motion_sensor_deny">Don’t allow</string>
+    <string name="arkui_motion_sensor_allow_description">Allow the app to read device motion and orientation.</string>
+    <string name="arkui_motion_sensor_open_description">Block each time you enter the app. Access resumes automatically after 6 seconds.</string>
+    <string name="arkui_motion_sensor_deny_description">Always block the app from reading device motion and orientation.</string>
+    <string name="arkui_motion_sensor_note">Applies to acceleration, gyroscope, compass and related motion sensors. Switching pages within the app does not restart the timer. Screen rotation, light and proximity sensors remain available.</string>
+    <string name="arkui_motion_sensor_shared_uid">Apps sharing this app’s system identity use the same access setting.</string>
+    <string name="arkui_motion_sensor_apps">Apps</string>
+    <string name="arkui_motion_sensor_empty">No apps available</string>
+    <string name="arkui_motion_sensor_save_error">Couldn’t save device motion access</string>
+</resources>

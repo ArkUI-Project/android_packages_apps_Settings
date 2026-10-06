@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_motion_sensor_title">获取设备动作与方向</string>
+    <string name="arkui_motion_sensor_summary">管理动作传感器，拦截开屏阶段的访问</string>
+    <string name="arkui_motion_sensor_description">禁止应用在开屏后的前 6 秒获取设备动作，减少晃动手机触发的广告跳转。</string>
+    <string name="arkui_motion_sensor_access">访问设备动作与方向</string>
+    <string name="arkui_motion_sensor_allow">允许</string>
+    <string name="arkui_motion_sensor_open">开屏后 6 秒内禁止</string>
+    <string name="arkui_motion_sensor_deny">禁止</string>
+    <string name="arkui_motion_sensor_allow_description">允许应用正常获取设备动作与方向。</string>
+    <string name="arkui_motion_sensor_open_description">每次进入应用时拦截，6 秒后自动恢复。</string>
+    <string name="arkui_motion_sensor_deny_description">始终禁止应用获取设备动作与方向。</string>
+    <string name="arkui_motion_sensor_note">作用于加速度、陀螺仪、指南针及相关动作传感器。应用内切换页面不会重新计时，不影响系统屏幕旋转、光线和距离传感器。</string>
+    <string name="arkui_motion_sensor_shared_uid">与此应用共用系统身份的应用，将使用相同的权限设置。</string>
+    <string name="arkui_motion_sensor_apps">应用</string>
+    <string name="arkui_motion_sensor_empty">暂无可管理的应用</string>
+    <string name="arkui_motion_sensor_save_error">无法保存设备动作权限设置</string>
+</resources>

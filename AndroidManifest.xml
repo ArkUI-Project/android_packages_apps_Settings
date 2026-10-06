@@ -1670,6 +1670,14 @@
             <meta-data android:name="com.android.settings.icon_tintable" android:value="true" />
         </activity>
 
+        <activity android:name="Settings$ArkuiMotionSensorSettingsActivity"
+            android:label="@string/arkui_motion_sensor_title" android:exported="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.arkui.ArkuiMotionSensorSettings" />
+            <meta-data android:name="com.android.settings.HIGHLIGHT_MENU_KEY"
+                android:value="@string/menu_key_privacy" />
+        </activity>
+
         <activity
             android:name="Settings$ArkuiDesktopSettingsActivity"
             android:label="@string/arkui_desktop_title"
