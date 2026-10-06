@@ -75,6 +75,9 @@ public class Settings extends SettingsActivity {
     public static class ArkuiDesktopSettingsActivity extends SettingsActivity { /* empty */ }
     public static class ArkuiMotionSensorSettingsActivity extends SettingsActivity { /* empty */ }
     public static class ArkuiDepthWallpaperSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class ArkuiIntelligenceSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class ArkuiSmsCodeSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class ArkuiLyricsSettingsActivity extends SettingsActivity { /* empty */ }
     public static class AppTwinsActivity extends SettingsActivity { /* empty */ }
     public static class AppLockSettingsActivity extends SettingsActivity { /* empty */ }
     public static class BluetoothSettingsActivity extends SettingsActivity { /* empty */ }

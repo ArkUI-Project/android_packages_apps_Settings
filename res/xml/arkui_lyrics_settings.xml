@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:title="@string/arkui_lyrics_title">
+    <com.android.settings.widget.SettingsMainSwitchPreference android:key="arkui_status_bar_lyrics" android:title="@string/arkui_lyrics_enable" android:persistent="false" />
+    <com.android.settingslib.widget.TopIntroPreference android:title="@string/arkui_lyrics_intro" />
+    <PreferenceCategory android:title="@string/arkui_lyrics_playback">
+        <com.android.settingslib.widget.AppSwitchPreference android:key="arkui_lyrics_title_fallback" android:title="@string/arkui_lyrics_fallback" android:summary="@string/arkui_lyrics_fallback_summary" android:persistent="false" />
+        <com.android.settingslib.widget.SliderPreference android:key="arkui_lyrics_offset" android:title="@string/arkui_lyrics_offset" android:persistent="false" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/arkui_lyrics_appearance">
+        <com.android.settingslib.widget.AppSwitchPreference android:key="arkui_lyrics_marquee" android:title="@string/arkui_lyrics_marquee" android:persistent="false" />
+        <com.android.settingslib.widget.AppSwitchPreference android:key="arkui_lyrics_animate" android:title="@string/arkui_lyrics_animate" android:persistent="false" />
+        <com.android.settingslib.widget.SliderPreference android:key="arkui_lyrics_width" android:title="@string/arkui_lyrics_width" android:persistent="false" />
+        <com.android.settingslib.widget.SliderPreference android:key="arkui_lyrics_text_size" android:title="@string/arkui_lyrics_text_size" android:persistent="false" />
+    </PreferenceCategory>
+    <com.android.settingslib.widget.FooterPreference android:title="@string/arkui_lyrics_attribution" />
+</PreferenceScreen>

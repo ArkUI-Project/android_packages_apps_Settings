@@ -1693,6 +1693,24 @@
             <meta-data android:name="com.android.settings.HIGHLIGHT_MENU_KEY"
                 android:value="@string/menu_key_wallpaper" />
         </activity>
+        <activity android:name="Settings$ArkuiIntelligenceSettingsActivity"
+            android:label="@string/arkui_intelligence_title" android:exported="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.arkui.intelligence.ArkuiIntelligenceSettings" />
+            <meta-data android:name="com.android.settings.HIGHLIGHT_MENU_KEY" android:value="@string/menu_key_arkui_features" />
+        </activity>
+        <activity android:name="Settings$ArkuiSmsCodeSettingsActivity"
+            android:label="@string/arkui_sms_code_title" android:exported="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.arkui.intelligence.ArkuiSmsCodeSettings" />
+            <meta-data android:name="com.android.settings.HIGHLIGHT_MENU_KEY" android:value="@string/menu_key_arkui_features" />
+        </activity>
+        <activity android:name="Settings$ArkuiLyricsSettingsActivity"
+            android:label="@string/arkui_lyrics_title" android:exported="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.arkui.intelligence.ArkuiLyricsSettings" />
+            <meta-data android:name="com.android.settings.HIGHLIGHT_MENU_KEY" android:value="@string/menu_key_arkui_features" />
+        </activity>
         <activity android:name=".arkui.depth.DepthWallpaperEditorActivity"
             android:label="@string/arkui_depth_edit" android:exported="false"
             android:theme="@style/Theme.Arkui.DepthWallpaperEditor" />

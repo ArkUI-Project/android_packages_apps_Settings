@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_intelligence_title">主动智能</string>
+    <string name="arkui_intelligence_summary">根据复制内容、耳机连接和屏幕使用提供快捷建议</string>
+    <string name="arkui_intelligence_enable">使用主动智能</string>
+    <string name="arkui_intelligence_intro">在合适的时机提供建议，点击执行，也可直接忽略。内容识别在本机完成。</string>
+    <string name="arkui_intelligence_clipboard">复制内容建议</string>
+    <string name="arkui_intelligence_app_links">打开对应应用</string>
+    <string name="arkui_intelligence_app_links_summary">识别购物、视频、社交和网盘链接，也支持淘口令。</string>
+    <string name="arkui_intelligence_web_links">快捷打开网址</string>
+    <string name="arkui_intelligence_web_links_summary">没有匹配应用时，提供浏览器打开建议。</string>
+    <string name="arkui_intelligence_delivery">快递查询建议</string>
+    <string name="arkui_intelligence_delivery_summary">识别复制的快递单号。点击建议后才会打开查询网站。</string>
+    <string name="arkui_intelligence_device">设备场景建议</string>
+    <string name="arkui_intelligence_headphones">连接耳机时建议音乐应用</string>
+    <string name="arkui_intelligence_headphones_summary">耳机连接且没有播放音乐时，建议打开选定的应用。</string>
+    <string name="arkui_intelligence_music_app">建议打开的音乐应用</string>
+    <string name="arkui_intelligence_music_none">选择已安装的应用</string>
+    <string name="arkui_intelligence_torch">手电筒关闭提醒</string>
+    <string name="arkui_intelligence_torch_summary">手电筒开启 15 秒后，提供一键关闭建议。</string>
+    <string name="arkui_intelligence_keep_awake">临时屏幕常亮建议</string>
+    <string name="arkui_intelligence_keep_awake_summary">触碰变暗的屏幕后，可选择保持常亮直到手动熄屏。也可随时从通知结束常亮。</string>
+    <string name="arkui_intelligence_duration">建议展示时长</string>
+    <string name="arkui_intelligence_seconds">%1$d 秒</string>
+    <string name="arkui_intelligence_ms">%1$d 毫秒</string>
+    <string name="arkui_intelligence_dp">%1$d dp</string>
+    <string name="arkui_intelligence_sp">%1$d sp</string>
+    <string name="arkui_intelligence_attribution">参考 AviumUseful © 2025–2026 The AviumUI Project，采用 Apache 2.0 许可证。ArkUI 系统集成与修改 © 2026 The ArkUI Project。建议不会自动打开应用或上传复制内容。</string>
+    <string name="arkui_sms_code_title">短信验证码建议</string>
+    <string name="arkui_sms_code_summary">本地识别短信验证码，点击即可复制</string>
+    <string name="arkui_sms_code_enable">使用短信验证码建议</string>
+    <string name="arkui_sms_code_intro">收到包含验证码语义的短信后，提供复制建议。锁屏时隐藏内容，建议过期后自动消失。</string>
+    <string name="arkui_sms_code_options">验证码建议</string>
+    <string name="arkui_sms_code_duration">建议有效时长</string>
+    <string name="arkui_sms_code_clear">自动清除已复制的验证码</string>
+    <string name="arkui_sms_code_clear_summary">复制 2 分钟后，如果剪贴板仍是这条验证码则自动清除，保留之后复制的其他内容。</string>
+    <string name="arkui_lyrics_title">状态栏歌词</string>
+    <string name="arkui_lyrics_summary">跟随音乐显示歌词，调整样式与同步效果</string>
+    <string name="arkui_lyrics_enable">显示状态栏歌词</string>
+    <string name="arkui_lyrics_intro">跟随播放器提供的歌词，支持带时间轴的 LRC 和蓝牙歌词标题。支持的播放器需开启蓝牙或车载歌词；暂停时隐藏，并优先显示通话、录屏和系统指示。</string>
+    <string name="arkui_lyrics_playback">播放与同步</string>
+    <string name="arkui_lyrics_fallback">没有歌词时显示媒体标题</string>
+    <string name="arkui_lyrics_fallback_summary">兼容通过蓝牙媒体标题逐句发送歌词的播放器。</string>
+    <string name="arkui_lyrics_offset">歌词同步偏移</string>
+    <string name="arkui_lyrics_appearance">显示样式</string>
+    <string name="arkui_lyrics_marquee">滚动显示较长歌词</string>
+    <string name="arkui_lyrics_animate">歌词切换动画</string>
+    <string name="arkui_lyrics_width">歌词最大宽度</string>
+    <string name="arkui_lyrics_text_size">歌词字号</string>
+    <string name="arkui_lyrics_attribution">参考 AviumLyricBarCore © 2026 The AviumUI Project，采用 Apache 2.0 许可证。ArkUI 原生显示与本地时间轴 © 2026 The ArkUI Project。歌词由播放器提供，版权归原作者及提供方所有。</string>
+</resources>

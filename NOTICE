@@ -1,4 +1,13 @@
 
+ArkUI native intelligence, SMS suggestion and lyrics controls
+Feature reference: AviumUseful and AviumLyricBarCore (AviumUI, avium-16.2).
+https://github.com/AviumUI/android_packages_apps_AviumUseful
+https://github.com/AviumUI/android_packages_apps_AviumLyricBarCore
+Copyright (C) 2025-2026 The AviumUI Project (upstream feature implementations)
+Copyright (C) 2026 The ArkUI Project (native settings and integration)
+Apache License, Version 2.0, reproduced below. Upstream source and adaptation
+notices for runtime code are retained in SystemUI/NOTICE.
+
 ArkUI depth wallpaper
 Offline DeepLab v3 model: Copyright 2020 The TensorFlow Authors. All rights reserved.
 Source: tensorflow/tflite-support, revision 522a02b47444e6016d5a0d4d1388b522bc2529f2

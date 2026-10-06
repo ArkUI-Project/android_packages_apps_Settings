@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:title="@string/arkui_intelligence_title">
+    <com.android.settings.widget.SettingsMainSwitchPreference android:key="arkui_intelligence_enabled" android:title="@string/arkui_intelligence_enable" android:persistent="false" />
+    <com.android.settingslib.widget.TopIntroPreference android:title="@string/arkui_intelligence_intro" />
+    <PreferenceCategory android:title="@string/arkui_intelligence_clipboard">
+        <com.android.settingslib.widget.AppSwitchPreference android:key="arkui_intelligence_app_links" android:title="@string/arkui_intelligence_app_links" android:summary="@string/arkui_intelligence_app_links_summary" android:persistent="false" />
+        <com.android.settingslib.widget.AppSwitchPreference android:key="arkui_intelligence_web_links" android:title="@string/arkui_intelligence_web_links" android:summary="@string/arkui_intelligence_web_links_summary" android:persistent="false" />
+        <com.android.settingslib.widget.AppSwitchPreference android:key="arkui_intelligence_delivery" android:title="@string/arkui_intelligence_delivery" android:summary="@string/arkui_intelligence_delivery_summary" android:persistent="false" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/arkui_intelligence_device">
+        <com.android.settingslib.widget.AppSwitchPreference android:key="arkui_intelligence_headphones" android:title="@string/arkui_intelligence_headphones" android:summary="@string/arkui_intelligence_headphones_summary" android:persistent="false" />
+        <ListPreference android:key="arkui_intelligence_music_app" android:title="@string/arkui_intelligence_music_app" android:persistent="false" />
+        <com.android.settingslib.widget.AppSwitchPreference android:key="arkui_intelligence_torch" android:title="@string/arkui_intelligence_torch" android:summary="@string/arkui_intelligence_torch_summary" android:persistent="false" />
+        <com.android.settingslib.widget.AppSwitchPreference android:key="arkui_intelligence_keep_awake" android:title="@string/arkui_intelligence_keep_awake" android:summary="@string/arkui_intelligence_keep_awake_summary" android:persistent="false" />
+        <com.android.settingslib.widget.SliderPreference android:key="arkui_intelligence_duration" android:title="@string/arkui_intelligence_duration" android:persistent="false" />
+    </PreferenceCategory>
+    <com.android.settingslib.widget.FooterPreference android:title="@string/arkui_intelligence_attribution" />
+</PreferenceScreen>

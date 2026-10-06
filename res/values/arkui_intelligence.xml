@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_intelligence_title">Proactive intelligence</string>
+    <string name="arkui_intelligence_summary">Helpful actions for copied content, headphones and screen use</string>
+    <string name="arkui_intelligence_enable">Use proactive intelligence</string>
+    <string name="arkui_intelligence_intro">Suggestions appear when useful. Tap an action to accept it or dismiss it. Content recognition stays on this device.</string>
+    <string name="arkui_intelligence_clipboard">Copied content</string>
+    <string name="arkui_intelligence_app_links">Open matching app</string>
+    <string name="arkui_intelligence_app_links_summary">Suggest apps for shopping, video, social and cloud links, including Taobao share tokens.</string>
+    <string name="arkui_intelligence_web_links">Open web links</string>
+    <string name="arkui_intelligence_web_links_summary">Offer a browser action when no matching app is available.</string>
+    <string name="arkui_intelligence_delivery">Track parcels</string>
+    <string name="arkui_intelligence_delivery_summary">Recognize copied tracking numbers. Open the tracking website only when you tap the suggestion.</string>
+    <string name="arkui_intelligence_device">Device suggestions</string>
+    <string name="arkui_intelligence_headphones">Music on headphone connection</string>
+    <string name="arkui_intelligence_headphones_summary">Suggest your chosen app when headphones connect and music is idle.</string>
+    <string name="arkui_intelligence_music_app">Music app to suggest</string>
+    <string name="arkui_intelligence_music_none">Choose an installed app</string>
+    <string name="arkui_intelligence_torch">Flashlight reminder</string>
+    <string name="arkui_intelligence_torch_summary">Offer to turn off the flashlight after 15 seconds.</string>
+    <string name="arkui_intelligence_keep_awake">Temporary screen-on suggestion</string>
+    <string name="arkui_intelligence_keep_awake_summary">When you touch a dimmed screen, offer to keep it on until manual screen-off. End it from the notification at any time.</string>
+    <string name="arkui_intelligence_duration">Suggestion display time</string>
+    <string name="arkui_intelligence_seconds">%1$d seconds</string>
+    <string name="arkui_intelligence_ms">%1$d ms</string>
+    <string name="arkui_intelligence_dp">%1$d dp</string>
+    <string name="arkui_intelligence_sp">%1$d sp</string>
+    <string name="arkui_intelligence_attribution">Inspired by AviumUseful © 2025–2026 The AviumUI Project (Apache 2.0). ArkUI native integration and changes © 2026 The ArkUI Project. Suggestions never open apps or upload copied content automatically.</string>
+    <string name="arkui_sms_code_title">SMS code suggestions</string>
+    <string name="arkui_sms_code_summary">Recognize verification codes locally and tap to copy</string>
+    <string name="arkui_sms_code_enable">Suggest SMS verification codes</string>
+    <string name="arkui_sms_code_intro">Incoming SMS messages with verification-code wording can offer a copy action. Suggestions stay hidden while the screen is locked and expire automatically.</string>
+    <string name="arkui_sms_code_options">Code suggestions</string>
+    <string name="arkui_sms_code_duration">Suggestion validity</string>
+    <string name="arkui_sms_code_clear">Clear copied code automatically</string>
+    <string name="arkui_sms_code_clear_summary">Clear it after 2 minutes if the clipboard still contains that copied code. Other copied content is kept.</string>
+    <string name="arkui_lyrics_title">Status bar lyrics</string>
+    <string name="arkui_lyrics_summary">Follow music lyrics and adjust their appearance</string>
+    <string name="arkui_lyrics_enable">Show status bar lyrics</string>
+    <string name="arkui_lyrics_intro">Follow lyrics supplied by the active player, including timed LRC and Bluetooth lyric titles. Enable Bluetooth/car lyrics in compatible players. Lyrics hide on pause and give calls, recording and system indicators priority.</string>
+    <string name="arkui_lyrics_playback">Playback</string>
+    <string name="arkui_lyrics_fallback">Show media title when lyrics are unavailable</string>
+    <string name="arkui_lyrics_fallback_summary">Also supports players that send each lyric line as the Bluetooth media title.</string>
+    <string name="arkui_lyrics_offset">Lyric timing offset</string>
+    <string name="arkui_lyrics_appearance">Appearance</string>
+    <string name="arkui_lyrics_marquee">Scroll long lyrics</string>
+    <string name="arkui_lyrics_animate">Animate lyric changes</string>
+    <string name="arkui_lyrics_width">Maximum lyric width</string>
+    <string name="arkui_lyrics_text_size">Lyric text size</string>
+    <string name="arkui_lyrics_attribution">Adapted from AviumLyricBarCore © 2026 The AviumUI Project (Apache 2.0). ArkUI native rendering and local timing © 2026 The ArkUI Project. Lyrics are provided by the player; rights remain with their authors and providers.</string>
+</resources>
