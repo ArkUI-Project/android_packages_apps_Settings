@@ -93,6 +93,7 @@ public class ArkuiDesktopSettings extends DashboardFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mResolver = requireContext().getContentResolver();
+        findPreference("pref_standard_desktop").setOnPreferenceChangeListener(this);
         for (String key : LAUNCHER_SWITCHES) {
             findPreference(key).setOnPreferenceChangeListener(this);
         }
@@ -188,6 +189,11 @@ public class ArkuiDesktopSettings extends DashboardFragment
                 for (String optionalKey : OPTIONAL_PREFERENCES) {
                     findPreference(optionalKey).setVisible(available.getBoolean(optionalKey));
                 }
+                final boolean standard = values.getBoolean("pref_standard_desktop");
+                final ArkuiDesktopModePreference mode = findPreference("pref_standard_desktop");
+                mode.setStandard(standard);
+                findPreference("desktop_drawer").setVisible(!standard);
+                findPreference("pref_add_icon_to_home").setVisible(!standard);
                 mLoaded = true;
                 status.setVisible(false);
                 setLauncherPreferencesEnabled(true);
@@ -197,6 +203,7 @@ public class ArkuiDesktopSettings extends DashboardFragment
     }
 
     private void setLauncherPreferencesEnabled(boolean enabled) {
+        findPreference("pref_standard_desktop").setEnabled(enabled);
         findPreference("desktop_layout").setEnabled(enabled);
         findPreference("desktop_drawer").setEnabled(enabled);
         findPreference("pref_sleep_gesture").setEnabled(enabled);

@@ -3,6 +3,11 @@
      SPDX-License-Identifier: Apache-2.0 -->
 <resources>
     <string name="arkui_desktop_title">Home screen</string>
+    <string name="arkui_desktop_mode">Home screen mode</string>
+    <string name="arkui_desktop_standard">Standard</string>
+    <string name="arkui_desktop_drawer_mode">Drawer</string>
+    <string name="arkui_desktop_standard_summary">All apps appear on the home screen or in folders. New apps are added automatically.</string>
+    <string name="arkui_desktop_drawer_mode_summary">Swipe up to see all apps. Keep your favourite apps on the home screen.</string>
     <string name="arkui_desktop_summary">Layout, app drawer, gestures and animations</string>
     <string name="arkui_features_summary">Sidebar, quick wheel, small windows</string>
     <string name="menu_key_arkui_desktop" translatable="false">top_level_arkui_desktop</string>

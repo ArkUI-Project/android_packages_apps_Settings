@@ -8,6 +8,11 @@
     <Preference android:key="desktop_status"
         android:title="@string/arkui_desktop_loading" />
 
+    <com.android.settings.arkui.ArkuiDesktopModePreference
+        android:key="pref_standard_desktop"
+        android:title="@string/arkui_desktop_mode"
+        android:persistent="false" />
+
     <PreferenceCategory android:key="desktop_layout"
         android:title="@string/arkui_desktop_layout">
         <SwitchPreferenceCompat android:key="pref_workspace_lock"
@@ -32,6 +37,12 @@
             android:title="@string/arkui_desktop_suggestions">
             <intent android:action="android.settings.ACTION_CONTENT_SUGGESTIONS_SETTINGS" />
         </Preference>
+        <Preference android:key="pref_trust_apps"
+            android:title="@string/arkui_desktop_trust">
+            <intent android:action="com.android.launcher3.action.TRUST_APPS"
+                android:targetPackage="com.android.launcher3"
+                android:targetClass="com.android.launcher3.settings.SettingsActivity" />
+        </Preference>
     </PreferenceCategory>
 
     <PreferenceCategory android:key="desktop_drawer"
@@ -47,12 +58,6 @@
         <SwitchPreferenceCompat android:key="pref_drawer_show_labels"
             android:title="@string/arkui_desktop_drawer_labels"
             android:persistent="false" />
-        <Preference android:key="pref_trust_apps"
-            android:title="@string/arkui_desktop_trust">
-            <intent android:action="com.android.launcher3.action.TRUST_APPS"
-                android:targetPackage="com.android.launcher3"
-                android:targetClass="com.android.launcher3.settings.SettingsActivity" />
-        </Preference>
     </PreferenceCategory>
 
     <PreferenceCategory android:key="desktop_gestures"

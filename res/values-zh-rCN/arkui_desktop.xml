@@ -3,6 +3,11 @@
      SPDX-License-Identifier: Apache-2.0 -->
 <resources>
     <string name="arkui_desktop_title">桌面</string>
+    <string name="arkui_desktop_mode">桌面模式</string>
+    <string name="arkui_desktop_standard">标准模式</string>
+    <string name="arkui_desktop_drawer_mode">抽屉模式</string>
+    <string name="arkui_desktop_standard_summary">所有应用显示在桌面或文件夹中，新安装的应用自动添加到桌面。</string>
+    <string name="arkui_desktop_drawer_mode_summary">上滑查看全部应用，桌面保留常用应用。</string>
     <string name="arkui_desktop_summary">桌面布局、应用抽屉、手势与动画</string>
     <string name="arkui_features_summary">侧边栏、快捷轮盘、小窗</string>
     <string name="arkui_desktop_layout">桌面布局</string>
