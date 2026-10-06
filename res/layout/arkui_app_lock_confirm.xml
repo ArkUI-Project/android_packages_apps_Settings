@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:fillViewport="true">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:gravity="center"
+        android:paddingHorizontal="28dp" android:paddingVertical="24dp">
+        <ImageView android:id="@+id/app_lock_icon"
+            android:layout_width="88dp" android:layout_height="88dp"
+            android:importantForAccessibility="no" android:scaleType="fitCenter"
+            android:src="@drawable/ic_settings_security_filled" />
+        <TextView android:id="@+id/app_lock_message"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="28dp" android:gravity="center"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Headline" />
+        <TextView android:id="@+id/app_lock_subtitle"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:gravity="center"
+            android:text="@string/arkui_app_lock_auth_description"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/app_lock_verify"
+            style="@style/SettingsLibButtonStyle.Expressive.Filled.Large"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="32dp" android:filterTouchesWhenObscured="true"
+            android:text="@string/arkui_app_lock_auth_button" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/app_lock_cancel"
+            style="@style/SettingsLibButtonStyle.Expressive.Tonal.Large"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:filterTouchesWhenObscured="true"
+            android:text="@android:string/cancel" />
+    </LinearLayout>
+</ScrollView>

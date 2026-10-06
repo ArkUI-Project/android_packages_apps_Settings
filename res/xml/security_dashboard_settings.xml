@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   Copyright (C) 2018 The Android Open Source Project
+  Modified by the ArkUI Project in 2026 to add authenticated app lock settings.
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -36,6 +37,14 @@
         android:order="10"
         android:key="security_category"
         android:title="@string/lock_settings_title">
+
+        <Preference
+            android:key="arkui_app_lock"
+            android:title="@string/arkui_app_lock_title"
+            android:summary="@string/arkui_app_lock_summary"
+            android:icon="@drawable/ic_settings_security_filled"
+            android:fragment="com.android.settings.arkui.applock.AppLockSettings"
+            settings:controller="com.android.settings.arkui.applock.AppLockPreferenceController" />
 
         <com.android.settings.widget.GearPreference
             android:key="unlock_set_or_change"

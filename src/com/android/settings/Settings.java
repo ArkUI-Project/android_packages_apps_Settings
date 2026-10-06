@@ -74,6 +74,7 @@ public class Settings extends SettingsActivity {
     public static class MemtagPageActivity extends SettingsActivity { /* empty */}
     public static class ArkuiDesktopSettingsActivity extends SettingsActivity { /* empty */ }
     public static class AppTwinsActivity extends SettingsActivity { /* empty */ }
+    public static class AppLockSettingsActivity extends SettingsActivity { /* empty */ }
     public static class BluetoothSettingsActivity extends SettingsActivity { /* empty */ }
     public static class BluetoothDashboardActivity extends SettingsActivity { /* empty */ }
     public static class CreateShortcutActivity extends SettingsActivity { /* empty */ }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_app_lock_title">App lock</string>
+    <string name="arkui_app_lock_summary">Protect apps, notifications, and recent previews</string>
+    <string name="arkui_app_lock_intro">Use your screen lock or strong biometrics to open protected apps. Manage these settings after verifying your identity.</string>
+    <string name="arkui_app_lock_enable">Use app lock</string>
+    <string name="arkui_app_lock_apps">Protected apps</string>
+    <string name="arkui_app_lock_apps_count">%1$d apps selected</string>
+    <string name="arkui_app_lock_choose_first">Choose at least one app to protect</string>
+    <string name="arkui_app_lock_privacy">Privacy</string>
+    <string name="arkui_app_lock_hide_notifications">Hide notifications while locked</string>
+    <string name="arkui_app_lock_hide_notifications_summary">Keep protected notifications out of the shade, lock screen, and connected notification services until the app is unlocked.</string>
+    <string name="arkui_app_lock_relock">Lock again</string>
+    <string name="arkui_app_lock_screen_off">Lock when the screen turns off</string>
+    <string name="arkui_app_lock_screen_off_summary">Immediately lock all protected apps when the screen turns off.</string>
+    <string name="arkui_app_lock_mode">After leaving an app</string>
+    <string name="arkui_app_lock_mode_immediate">Lock immediately in the background</string>
+    <string name="arkui_app_lock_mode_timeout">Lock after a delay in the background</string>
+    <string name="arkui_app_lock_mode_screen_off">Stay unlocked until the screen turns off</string>
+    <string name="arkui_app_lock_timeout">Background delay</string>
+    <string name="arkui_app_lock_timeout_summary">%1$d minutes after the app enters the background</string>
+    <string name="arkui_app_lock_timeout_hint">Minutes (1–1440)</string>
+    <string name="arkui_app_lock_timeout_error">Enter a number from 1 to 1440</string>
+    <string name="arkui_app_lock_lock_now">Lock all protected apps now</string>
+    <string name="arkui_app_lock_locked_now">Protected apps locked</string>
+    <string name="arkui_app_lock_auth_title">Verify your identity</string>
+    <string name="arkui_app_lock_manage_subtitle">Manage app lock</string>
+    <string name="arkui_app_lock_auth_description">Use your screen lock or strong biometrics.</string>
+    <string name="arkui_app_lock_unlock_title">Unlock %1$s</string>
+    <string name="arkui_app_lock_unlock_subtitle">This app is protected by app lock.</string>
+    <string name="arkui_app_lock_auth_button">Verify and continue</string>
+    <string name="arkui_app_lock_auth_retry">Verify again</string>
+    <string name="arkui_app_lock_credential_needed">Set a screen lock first</string>
+    <string name="arkui_app_lock_credential_summary">A PIN, pattern, or password is required to protect apps. After setting one, return here to verify your identity.</string>
+    <string name="arkui_app_lock_set_credential">Set screen lock</string>
+    <string name="arkui_app_lock_session_expired">Verify your identity again to continue</string>
+    <string name="arkui_app_lock_failed">Could not update app lock. Try again.</string>
+    <string name="arkui_app_lock_loading">Loading apps…</string>
+    <string name="arkui_app_lock_search">Search apps</string>
+    <string name="arkui_app_lock_no_results">No matching apps</string>
+    <string name="arkui_app_lock_unavailable_app">Not currently installed</string>
+    <string-array name="arkui_app_lock_modes">
+        <item>@string/arkui_app_lock_mode_immediate</item>
+        <item>@string/arkui_app_lock_mode_timeout</item>
+        <item>@string/arkui_app_lock_mode_screen_off</item>
+    </string-array>
+    <string-array name="arkui_app_lock_mode_values">
+        <item>0</item><item>1</item><item>2</item>
+    </string-array>
+</resources>

@@ -151,6 +151,7 @@
     <uses-permission android:name="android.permission.SATELLITE_COMMUNICATION" />
     <uses-permission android:name="android.permission.READ_SYSTEM_GRAMMATICAL_GENDER" />
     <uses-permission android:name="android.permission.MANAGE_COMPANION_DEVICES" />
+    <uses-permission android:name="android.permission.MANAGE_APP_LOCK" />
 
     <application
             android:name=".SettingsApplication"
@@ -5139,6 +5140,25 @@
                 <data android:scheme="package" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".Settings$AppLockSettingsActivity"
+            android:label="@string/arkui_app_lock_title" android:exported="true">
+            <intent-filter>
+                <action android:name="org.arkui.settings.APP_LOCK" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.arkui.applock.AppLockSettings" />
+            <meta-data android:name="com.android.settings.HIGHLIGHT_MENU_KEY"
+                android:value="@string/menu_key_security" />
+        </activity>
+        <activity android:name=".arkui.applock.AppLockConfirmActivity"
+            android:label="@string/arkui_app_lock_title" android:exported="false"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.Settings.Expressive.NoActionBar"
+            android:taskAffinity="com.android.settings.applock"
+            android:excludeFromRecents="true"
+            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|keyboard|keyboardHidden|uiMode|fontScale" />
 
         <activity android:name=".Settings$AppTwinsActivity"
             android:label="@string/app_twins_title" android:exported="true">

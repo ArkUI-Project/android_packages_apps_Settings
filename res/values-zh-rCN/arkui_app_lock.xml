@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_app_lock_title">应用锁</string>
+    <string name="arkui_app_lock_summary">保护应用、通知和多任务预览</string>
+    <string name="arkui_app_lock_intro">使用锁屏密码或高安全级别的生物识别打开受保护的应用。管理应用锁前，需要先验证身份。</string>
+    <string name="arkui_app_lock_enable">使用应用锁</string>
+    <string name="arkui_app_lock_apps">受保护的应用</string>
+    <string name="arkui_app_lock_apps_count">已选择 %1$d 个应用</string>
+    <string name="arkui_app_lock_choose_first">请先选择至少一个受保护的应用</string>
+    <string name="arkui_app_lock_privacy">隐私保护</string>
+    <string name="arkui_app_lock_hide_notifications">锁定时隐藏通知</string>
+    <string name="arkui_app_lock_hide_notifications_summary">应用锁定时，对通知栏、锁屏和已连接的通知服务隐藏通知；解锁后恢复显示。</string>
+    <string name="arkui_app_lock_relock">重新锁定</string>
+    <string name="arkui_app_lock_screen_off">息屏后锁定</string>
+    <string name="arkui_app_lock_screen_off_summary">屏幕关闭时，立即锁定所有受保护的应用。</string>
+    <string name="arkui_app_lock_mode">进入后台后</string>
+    <string name="arkui_app_lock_mode_immediate">进入后台立即锁定</string>
+    <string name="arkui_app_lock_mode_timeout">进入后台延时锁定</string>
+    <string name="arkui_app_lock_mode_screen_off">保持解锁，直到屏幕关闭</string>
+    <string name="arkui_app_lock_timeout">后台锁定延时</string>
+    <string name="arkui_app_lock_timeout_summary">应用进入后台 %1$d 分钟后锁定</string>
+    <string name="arkui_app_lock_timeout_hint">分钟数（1–1440）</string>
+    <string name="arkui_app_lock_timeout_error">请输入 1 到 1440 之间的整数</string>
+    <string name="arkui_app_lock_lock_now">立即锁定所有受保护的应用</string>
+    <string name="arkui_app_lock_locked_now">受保护的应用已锁定</string>
+    <string name="arkui_app_lock_auth_title">验证身份</string>
+    <string name="arkui_app_lock_manage_subtitle">管理应用锁</string>
+    <string name="arkui_app_lock_auth_description">使用锁屏密码或高安全级别的生物识别。</string>
+    <string name="arkui_app_lock_unlock_title">解锁 %1$s</string>
+    <string name="arkui_app_lock_unlock_subtitle">此应用受到应用锁保护。</string>
+    <string name="arkui_app_lock_auth_button">验证并继续</string>
+    <string name="arkui_app_lock_auth_retry">重新验证</string>
+    <string name="arkui_app_lock_credential_needed">先设置屏幕锁定</string>
+    <string name="arkui_app_lock_credential_summary">保护应用需要锁屏 PIN、图案或密码。设置完成后，返回此处验证身份。</string>
+    <string name="arkui_app_lock_set_credential">设置屏幕锁定</string>
+    <string name="arkui_app_lock_session_expired">请重新验证身份后继续</string>
+    <string name="arkui_app_lock_failed">无法更新应用锁，请重试。</string>
+    <string name="arkui_app_lock_loading">正在加载应用…</string>
+    <string name="arkui_app_lock_search">搜索应用</string>
+    <string name="arkui_app_lock_no_results">没有匹配的应用</string>
+    <string name="arkui_app_lock_unavailable_app">当前未安装</string>
+</resources>
