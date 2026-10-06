@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <style name="Theme.ArkUI.PrivacyPassword.Input" parent="Theme.Material3.DynamicColors.DayNight">
+        <item name="textInputStyle">@style/Widget.Material3.TextInputLayout.FilledBox</item>
+    </style>
+</resources>

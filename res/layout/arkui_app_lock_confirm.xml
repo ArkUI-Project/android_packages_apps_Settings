@@ -19,6 +19,9 @@
             android:layout_marginTop="12dp" android:gravity="center"
             android:text="@string/arkui_app_lock_auth_description"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium" />
+        <FrameLayout android:id="@+id/app_lock_password_container"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="24dp" android:visibility="gone" />
         <com.google.android.material.button.MaterialButton
             android:id="@+id/app_lock_verify"
             style="@style/SettingsLibButtonStyle.Expressive.Filled.Large"

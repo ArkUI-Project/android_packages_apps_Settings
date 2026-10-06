@@ -5141,6 +5141,17 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".arkui.privacy.PrivacyPasswordActivity"
+            android:label="@string/arkui_privacy_password_title" android:exported="true"
+            android:theme="@style/Theme.Settings.Expressive.NoActionBar"
+            android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="org.arkui.settings.PRIVACY_PASSWORD" />
+                <action android:name="org.arkui.settings.CONFIRM_PRIVACY_PASSWORD" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".Settings$AppLockSettingsActivity"
             android:label="@string/arkui_app_lock_title" android:exported="true">
             <intent-filter>

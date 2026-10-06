@@ -7,6 +7,16 @@
     android:key="arkui_features_settings"
     android:title="@string/arkui_features_title">
 
+    <Preference android:key="arkui_privacy_password"
+        android:title="@string/arkui_privacy_password_title"
+        android:summary="@string/arkui_privacy_password_summary"
+        android:icon="@drawable/ic_settings_privacy_filled"
+        settings:controller="com.android.settings.arkui.privacy.PrivacyPasswordPreferenceController">
+        <intent android:action="org.arkui.settings.PRIVACY_PASSWORD"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.arkui.privacy.PrivacyPasswordActivity" />
+    </Preference>
+
     <Preference
         android:key="arkui_app_lock"
         android:title="@string/arkui_app_lock_title"

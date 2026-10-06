@@ -2,6 +2,7 @@
 package com.android.settings.arkui.applock;
 
 import android.app.AppLockManager;
+import android.app.PrivacyPasswordManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.biometrics.BiometricManager;
@@ -11,6 +12,8 @@ import android.os.CancellationSignal;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.WindowManager;
+import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +23,10 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.android.settings.R;
 import com.android.settings.Utils;
+import com.android.settings.arkui.privacy.PrivacyPasswordInput;
+import com.android.settingslib.utils.ThreadUtils;
+
+import java.util.Arrays;
 
 /** Redeems a system-owned, single-use app-lock challenge only after real authentication. */
 public final class AppLockConfirmActivity extends FragmentActivity {
@@ -35,6 +42,9 @@ public final class AppLockConfirmActivity extends FragmentActivity {
     private int mUserId;
     private CharSequence mLabel;
     private int mAuthenticationGeneration;
+    private int mAuthMethod;
+    private PrivacyPasswordInput mPasswordInput;
+    private boolean mPasswordVerifying;
 
     @Override public void onCreate(Bundle state) {
         setTheme(R.style.Theme_Settings_Expressive_NoActionBar);
@@ -69,6 +79,8 @@ public final class AppLockConfirmActivity extends FragmentActivity {
             return;
         }
         ++mAuthenticationGeneration;
+        mPasswordVerifying = false;
+        if (mPasswordInput != null) mPasswordInput.clear();
         if (mCancellation != null) { mCancellation.cancel(); mCancellation = null; }
         try { mManager.cancelAuthentication(mChallenge); }
         catch (RuntimeException e) { Log.w(TAG, "Previous challenge already unavailable", e); }
@@ -85,6 +97,7 @@ public final class AppLockConfirmActivity extends FragmentActivity {
             if (info == null) { finish(); return; }
             mUserId = info.getInt(AppLockManager.KEY_USER_ID, -1);
             mManagement = info.getBoolean(AppLockManager.KEY_MANAGEMENT);
+            mAuthMethod = info.getInt(AppLockManager.KEY_AUTH_METHOD);
             if (mUserId < 0) { cancel(); return; }
             String packageName = info.getString(AppLockManager.KEY_PACKAGE_NAME);
             mLabel = getString(R.string.arkui_app_lock_title);
@@ -109,7 +122,19 @@ public final class AppLockConfirmActivity extends FragmentActivity {
                     : R.string.arkui_app_lock_unlock_subtitle);
             findViewById(R.id.app_lock_verify).setOnClickListener(v -> authenticate());
             findViewById(R.id.app_lock_cancel).setOnClickListener(v -> cancel());
-            findViewById(R.id.app_lock_verify).post(this::authenticate);
+            if (mAuthMethod == AppLockManager.AUTH_PRIVACY_PASSWORD) {
+                ((TextView) findViewById(R.id.app_lock_subtitle))
+                        .setText(R.string.arkui_privacy_password_verify_summary);
+                FrameLayout container = findViewById(R.id.app_lock_password_container);
+                container.setVisibility(View.VISIBLE);
+                mPasswordInput = new PrivacyPasswordInput(this,
+                        info.getInt(PrivacyPasswordManager.KEY_TYPE), this::authenticate);
+                container.addView(mPasswordInput, new FrameLayout.LayoutParams(-1, -2));
+                mPasswordInput.post(mPasswordInput::showKeyboard);
+            } else {
+                mPasswordInput = null;
+                findViewById(R.id.app_lock_verify).post(this::authenticate);
+            }
         } catch (RuntimeException e) {
             Log.w(TAG, "App-lock challenge is no longer available", e);
             cancel();
@@ -118,6 +143,10 @@ public final class AppLockConfirmActivity extends FragmentActivity {
 
     private void authenticate() {
         if (mCompleted || isFinishing() || mCancellation != null) return;
+        if (mAuthMethod == AppLockManager.AUTH_PRIVACY_PASSWORD) {
+            verifyPrivacyPassword();
+            return;
+        }
         try {
             // Recheck the challenge after returning from screen lock, user switching, or sleep.
             if (mManager.getAuthenticationInfo(mChallenge) == null) { cancel(); return; }
@@ -175,6 +204,53 @@ public final class AppLockConfirmActivity extends FragmentActivity {
         }
     }
 
+    private void verifyPrivacyPassword() {
+        if (mPasswordVerifying || mPasswordInput == null) return;
+        final IBinder challenge = mChallenge;
+        final int generation = ++mAuthenticationGeneration;
+        byte[] password = mPasswordInput.takeCredential();
+        mPasswordVerifying = true;
+        mPasswordInput.setBusy(true);
+        findViewById(R.id.app_lock_verify).setEnabled(false);
+        ThreadUtils.postOnBackgroundThread(() -> {
+            Bundle result;
+            try { result = mManager.verifyPrivacyPassword(challenge, password); }
+            catch (RuntimeException error) { result = null; }
+            finally { Arrays.fill(password, (byte) 0); }
+            final Bundle response = result;
+            ThreadUtils.postOnMainThread(() -> {
+                if (mCompleted || isFinishing() || generation != mAuthenticationGeneration
+                        || challenge != mChallenge) return;
+                mPasswordVerifying = false;
+                mPasswordInput.setBusy(false);
+                findViewById(R.id.app_lock_verify).setEnabled(true);
+                if (response == null) { cancel(); return; }
+                if (!response.getBoolean(PrivacyPasswordManager.KEY_MATCHED)) {
+                    mPasswordInput.showFailure(response.getLong(PrivacyPasswordManager.KEY_RETRY_MILLIS));
+                    return;
+                }
+                try {
+                    IBinder token = mManager.completeAuthentication(challenge);
+                    if (mManagement && token == null) { cancel(); return; }
+                    mCompleted = true;
+                    mPasswordInput.hideKeyboard();
+                    mPasswordInput.clear();
+                    if (mManagement) {
+                        Bundle extras = new Bundle();
+                        extras.putBinder(EXTRA_MANAGEMENT_TOKEN, token);
+                        setResult(RESULT_OK, new Intent().putExtras(extras));
+                    }
+                    finish();
+                } catch (RuntimeException error) { cancel(); }
+            });
+        });
+    }
+
+    @Override protected void onStop() {
+        if (mAuthMethod == AppLockManager.AUTH_PRIVACY_PASSWORD && !mCompleted) cancel(false);
+        super.onStop();
+    }
+
     private void cancel() {
         cancel(true);
     }
@@ -183,6 +259,7 @@ public final class AppLockConfirmActivity extends FragmentActivity {
         if (mCompleted) return;
         mCompleted = true;
         ++mAuthenticationGeneration;
+        if (mPasswordInput != null) { mPasswordInput.clear(); mPasswordInput.hideKeyboard(); }
         if (mCancellation != null) {
             mCancellation.cancel();
             mCancellation = null;

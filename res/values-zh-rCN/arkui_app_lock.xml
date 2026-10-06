@@ -3,7 +3,7 @@
 <resources>
     <string name="arkui_app_lock_title">应用锁</string>
     <string name="arkui_app_lock_summary">保护应用、通知和多任务预览</string>
-    <string name="arkui_app_lock_intro">使用锁屏密码或高安全级别的生物识别打开受保护的应用。管理应用锁前，需要先验证身份。</string>
+    <string name="arkui_app_lock_intro">可选择隐私密码或锁屏密码打开受保护的应用。管理应用锁前，需使用所选方式验证身份。</string>
     <string name="arkui_app_lock_enable">使用应用锁</string>
     <string name="arkui_app_lock_apps">受保护的应用</string>
     <string name="arkui_app_lock_apps_count">已选择 %1$d 个应用</string>
@@ -26,13 +26,13 @@
     <string name="arkui_app_lock_locked_now">受保护的应用已锁定</string>
     <string name="arkui_app_lock_auth_title">验证身份</string>
     <string name="arkui_app_lock_manage_subtitle">管理应用锁</string>
-    <string name="arkui_app_lock_auth_description">使用锁屏密码或高安全级别的生物识别。</string>
+    <string name="arkui_app_lock_auth_description">使用为应用锁选择的密码进行验证。</string>
     <string name="arkui_app_lock_unlock_title">解锁 %1$s</string>
     <string name="arkui_app_lock_unlock_subtitle">此应用受到应用锁保护。</string>
     <string name="arkui_app_lock_auth_button">验证并继续</string>
     <string name="arkui_app_lock_auth_retry">重新验证</string>
-    <string name="arkui_app_lock_credential_needed">先设置屏幕锁定</string>
-    <string name="arkui_app_lock_credential_summary">保护应用需要锁屏 PIN、图案或密码。设置完成后，返回此处验证身份。</string>
+    <string name="arkui_app_lock_credential_needed">先设置密码</string>
+    <string name="arkui_app_lock_credential_summary">设置隐私密码或屏幕锁定后，返回此处选择保护应用的方式。</string>
     <string name="arkui_app_lock_set_credential">设置屏幕锁定</string>
     <string name="arkui_app_lock_session_expired">请重新验证身份后继续</string>
     <string name="arkui_app_lock_failed">无法更新应用锁，请重试。</string>

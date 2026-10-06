@@ -3,6 +3,7 @@ package com.android.settings.arkui.applock;
 
 import android.app.AppLockManager;
 import android.app.KeyguardManager;
+import android.app.PrivacyPasswordManager;
 import android.app.admin.DevicePolicyManager;
 import android.app.settings.SettingsEnums;
 import android.content.BroadcastReceiver;
@@ -47,6 +48,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.widget.SettingsMainSwitchPreference;
+import com.android.settings.arkui.privacy.PrivacyPasswordDialog;
 import com.android.settingslib.search.SearchIndexable;
 import com.android.settingslib.utils.ThreadUtils;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -165,7 +167,18 @@ public final class AppLockSettings extends SettingsPreferenceFragment {
     }
 
     private boolean hasCredential() {
+        return hasScreenCredential() || hasPrivacyCredential();
+    }
+
+    private boolean hasScreenCredential() {
         return requireContext().getSystemService(KeyguardManager.class).isDeviceSecure();
+    }
+
+    private boolean hasPrivacyCredential() {
+        try {
+            return new PrivacyPasswordManager(requireContext()).getState(UserHandle.myUserId())
+                    .getBoolean(PrivacyPasswordManager.KEY_CONFIGURED);
+        } catch (RuntimeException error) { return false; }
     }
 
     private void authenticate() {
@@ -179,6 +192,22 @@ public final class AppLockSettings extends SettingsPreferenceFragment {
                 return;
             }
             mCancellation = new CancellationSignal();
+            if (info.getInt(AppLockManager.KEY_AUTH_METHOD) == AppLockManager.AUTH_PRIVACY_PASSWORD) {
+                final IBinder privacyChallenge = mChallenge;
+                mDialog = PrivacyPasswordDialog.show(requireContext(),
+                        info.getInt(PrivacyPasswordManager.KEY_TYPE),
+                        password -> mManager.verifyPrivacyPassword(privacyChallenge, password),
+                        response -> {
+                            mCancellation = null;
+                            mDialog = null;
+                            redeemManagement();
+                        }, () -> {
+                            mCancellation = null;
+                            cancelChallenge();
+                            if (isAdded()) finish();
+                        });
+                return;
+            }
             new BiometricPrompt.Builder(requireContext())
                     .setTitle(getString(R.string.arkui_app_lock_auth_title))
                     .setSubtitle(getString(R.string.arkui_app_lock_manage_subtitle))
@@ -190,20 +219,7 @@ public final class AppLockSettings extends SettingsPreferenceFragment {
                                 @Override public void onAuthenticationSucceeded(
                                         BiometricPrompt.AuthenticationResult result) {
                                     mCancellation = null;
-                                    if (!isAdded() || mChallenge == null) return;
-                                    try {
-                                        mToken = mManager.completeAuthentication(mChallenge);
-                                        mChallenge = null;
-                                        if (mToken == null) throw new SecurityException("No session");
-                                        if (mVisible) refresh();
-                                        // onResume will read and validate this newly issued token
-                                        // after the system credential screen returns to the page.
-                                    } catch (RuntimeException e) {
-                                        Log.w(TAG, "Management authentication expired", e);
-                                        endSession();
-                                        renderUnauthenticated();
-                                        toast(R.string.arkui_app_lock_session_expired);
-                                    }
+                                    redeemManagement();
                                 }
 
                                 @Override public void onAuthenticationError(int errorCode,
@@ -218,6 +234,21 @@ public final class AppLockSettings extends SettingsPreferenceFragment {
             cancelChallenge();
             mCancellation = null;
             toast(R.string.arkui_app_lock_failed);
+        }
+    }
+
+    private void redeemManagement() {
+        if (!isAdded() || mChallenge == null) return;
+        try {
+            mToken = mManager.completeAuthentication(mChallenge);
+            mChallenge = null;
+            if (mToken == null) throw new SecurityException("No session");
+            if (mVisible) refresh();
+        } catch (RuntimeException e) {
+            Log.w(TAG, "Management authentication expired", e);
+            endSession();
+            renderUnauthenticated();
+            toast(R.string.arkui_app_lock_session_expired);
         }
     }
 
@@ -248,6 +279,8 @@ public final class AppLockSettings extends SettingsPreferenceFragment {
             row("app_lock_setup", R.string.arkui_app_lock_set_credential, null, () ->
                     startActivity(new Intent(DevicePolicyManager.ACTION_SET_NEW_PASSWORD)
                             .setPackage(requireContext().getPackageName())));
+            row("app_lock_privacy_setup", R.string.arkui_privacy_password_create, null,
+                    this::openPrivacyPassword);
         } else {
             row("app_lock_authenticate", R.string.arkui_app_lock_auth_retry,
                     getString(R.string.arkui_app_lock_auth_description), this::authenticate);
@@ -289,6 +322,13 @@ public final class AppLockSettings extends SettingsPreferenceFragment {
             update(AppLockManager.KEY_ENABLED, checked);
         });
         getPreferenceScreen().addPreference(main);
+        int method = mSettings.getInt(AppLockManager.KEY_AUTH_METHOD);
+        row("app_lock_auth_method", R.string.arkui_app_lock_auth_method,
+                getString(method == AppLockManager.AUTH_PRIVACY_PASSWORD
+                        ? R.string.arkui_app_lock_auth_privacy : R.string.arkui_app_lock_auth_screen),
+                this::chooseAuthMethod);
+        row("app_lock_privacy_password", R.string.arkui_privacy_password_title,
+                getString(R.string.arkui_privacy_password_summary), this::openPrivacyPassword);
         row("app_lock_apps", R.string.arkui_app_lock_apps,
                 getString(R.string.arkui_app_lock_apps_count, selectedPackages().size()),
                 this::chooseApps);
@@ -339,6 +379,34 @@ public final class AppLockSettings extends SettingsPreferenceFragment {
         });
         relock.addPreference(lockNow);
         mUpdating = false;
+    }
+
+    private void openPrivacyPassword() {
+        startActivity(new Intent(PrivacyPasswordManager.ACTION_SETTINGS)
+                .setPackage(requireContext().getPackageName()));
+    }
+
+    private void chooseAuthMethod() {
+        if (mSettings == null || mToken == null) return;
+        mDialog = new MaterialAlertDialogBuilder(requireContext())
+                .setTitle(R.string.arkui_app_lock_auth_method)
+                .setSingleChoiceItems(new String[] {getString(R.string.arkui_app_lock_auth_screen),
+                        getString(R.string.arkui_app_lock_auth_privacy)},
+                        mSettings.getInt(AppLockManager.KEY_AUTH_METHOD), (dialog, method) -> {
+                            dialog.dismiss();
+                            if (method == mSettings.getInt(AppLockManager.KEY_AUTH_METHOD)) return;
+                            if (method == AppLockManager.AUTH_PRIVACY_PASSWORD && !hasPrivacyCredential()) {
+                                toast(R.string.arkui_app_lock_privacy_needed);
+                                openPrivacyPassword();
+                            } else if (method == AppLockManager.AUTH_SCREEN_LOCK && !hasScreenCredential()) {
+                                startActivity(new Intent(DevicePolicyManager.ACTION_SET_NEW_PASSWORD)
+                                        .setPackage(requireContext().getPackageName()));
+                            } else {
+                                update(AppLockManager.KEY_AUTH_METHOD, method);
+                            }
+                        }).setNegativeButton(android.R.string.cancel, null).show();
+        mDialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
+        mDialog.getWindow().setHideOverlayWindows(true);
     }
 
     private SwitchPreferenceCompat addSwitch(PreferenceCategory parent, String key, int title,
