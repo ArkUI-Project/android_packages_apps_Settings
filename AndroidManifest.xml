@@ -22,6 +22,10 @@
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_WALLPAPER_INTERNAL" />
+    <uses-permission android:name="com.android.settings.permission.DEPTH_WALLPAPER" />
+    <permission android:name="com.android.settings.permission.DEPTH_WALLPAPER"
+        android:protectionLevel="signature" />
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
@@ -171,6 +175,10 @@
             android:enableOnBackInvokedCallback="true">
 
         <uses-library android:name="org.apache.http.legacy" />
+        <provider android:name=".arkui.depth.DepthWallpaperProvider"
+            android:authorities="com.android.settings.arkui.depthwallpaper"
+            android:permission="com.android.settings.permission.DEPTH_WALLPAPER"
+            android:exported="true" android:directBootAware="true" />
 
 
         <property
@@ -1677,6 +1685,17 @@
             <meta-data android:name="com.android.settings.HIGHLIGHT_MENU_KEY"
                 android:value="@string/menu_key_privacy" />
         </activity>
+
+        <activity android:name="Settings$ArkuiDepthWallpaperSettingsActivity"
+            android:label="@string/arkui_depth_title" android:exported="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.arkui.depth.ArkuiDepthWallpaperSettings" />
+            <meta-data android:name="com.android.settings.HIGHLIGHT_MENU_KEY"
+                android:value="@string/menu_key_wallpaper" />
+        </activity>
+        <activity android:name=".arkui.depth.DepthWallpaperEditorActivity"
+            android:label="@string/arkui_depth_edit" android:exported="false"
+            android:theme="@style/Theme.Arkui.DepthWallpaperEditor" />
 
         <activity
             android:name="Settings$ArkuiDesktopSettingsActivity"

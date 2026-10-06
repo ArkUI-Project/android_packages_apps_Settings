@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/arkui_depth_title">
+    <com.android.settings.widget.SettingsMainSwitchPreference
+        android:key="arkui_depth_wallpaper_enabled" android:title="@string/arkui_depth_enable"
+        android:persistent="false" />
+    <com.android.settings.arkui.depth.DepthWallpaperPreviewPreference
+        android:key="depth_preview" android:title="@string/arkui_depth_preview" />
+    <PreferenceCategory android:title="@string/arkui_depth_wallpaper_category">
+        <Preference android:key="depth_edit" android:title="@string/arkui_depth_edit"
+            android:summary="@string/arkui_depth_edit_summary" android:icon="@drawable/ic_edit_24dp" />
+        <Preference android:key="depth_generate" android:title="@string/arkui_depth_generate" />
+        <com.android.settingslib.widget.AppSwitchPreference
+            android:key="arkui_depth_wallpaper_auto_refresh" android:title="@string/arkui_depth_auto"
+            android:summary="@string/arkui_depth_auto_summary" android:persistent="false" />
+        <ListPreference android:key="arkui_depth_wallpaper_subject"
+            android:title="@string/arkui_depth_subject" android:entries="@array/arkui_depth_subjects"
+            android:entryValues="@array/arkui_depth_subject_values" android:persistent="false" />
+        <com.android.settingslib.widget.SliderPreference
+            android:key="arkui_depth_wallpaper_confidence" android:title="@string/arkui_depth_confidence"
+            android:persistent="false" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/arkui_depth_effects_category">
+        <Preference android:key="depth_effects" android:title="@string/arkui_depth_effects"
+            android:summary="@string/arkui_depth_effects_summary" />
+        <Preference android:key="depth_reset" android:title="@string/arkui_depth_reset" />
+    </PreferenceCategory>
+    <com.android.settingslib.widget.FooterPreference android:key="depth_license"
+        android:title="@string/arkui_depth_license" />
+</PreferenceScreen>

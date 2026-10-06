@@ -1,4 +1,13 @@
 
+ArkUI depth wallpaper
+Offline DeepLab v3 model: Copyright 2020 The TensorFlow Authors. All rights reserved.
+Source: tensorflow/tflite-support, revision 522a02b47444e6016d5a0d4d1388b522bc2529f2
+tensorflow_lite_support/cc/test/testdata/task/vision/deeplabv3.tflite
+https://github.com/tensorflow/tflite-support
+Licensed under Apache License, Version 2.0, reproduced below.
+TensorFlow Lite runtime attribution remains in external/tensorflow/LICENSE.
+Copyright (C) 2026 The ArkUI Project (offline processor, settings and editor)
+
    Copyright (c) 2005-2008, The Android Open Source Project
 
    Licensed under the Apache License, Version 2.0 (the "License");

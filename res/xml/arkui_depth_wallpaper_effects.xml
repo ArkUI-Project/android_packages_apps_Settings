@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/arkui_depth_effects">
+    <com.android.settingslib.widget.TopIntroPreference android:title="@string/arkui_depth_effects_intro" />
+    <PreferenceCategory android:title="@string/arkui_depth_clock_category">
+        <com.android.settingslib.widget.SliderPreference android:key="arkui_depth_wallpaper_opacity"
+            android:title="@string/arkui_depth_opacity" android:persistent="false" />
+        <com.android.settingslib.widget.SliderPreference android:key="arkui_depth_wallpaper_coverage"
+            android:title="@string/arkui_depth_coverage" android:persistent="false" />
+        <com.android.settingslib.widget.SliderPreference android:key="arkui_depth_wallpaper_feather"
+            android:title="@string/arkui_depth_feather" android:persistent="false" />
+        <com.android.settingslib.widget.AppSwitchPreference android:key="arkui_depth_wallpaper_large_only"
+            android:title="@string/arkui_depth_large_only" android:summary="@string/arkui_depth_large_only_summary"
+            android:persistent="false" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/arkui_depth_alignment_category">
+        <com.android.settingslib.widget.SliderPreference android:key="arkui_depth_wallpaper_scale"
+            android:title="@string/arkui_depth_scale" android:persistent="false" />
+        <com.android.settingslib.widget.SliderPreference android:key="arkui_depth_wallpaper_offset_x"
+            android:title="@string/arkui_depth_offset_x" android:persistent="false" />
+        <com.android.settingslib.widget.SliderPreference android:key="arkui_depth_wallpaper_offset_y"
+            android:title="@string/arkui_depth_offset_y" android:persistent="false" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/arkui_depth_behavior_category">
+        <com.android.settingslib.widget.AppSwitchPreference android:key="arkui_depth_wallpaper_animate"
+            android:title="@string/arkui_depth_animate" android:summary="@string/arkui_depth_animate_summary"
+            android:persistent="false" />
+        <com.android.settingslib.widget.SliderPreference android:key="arkui_depth_wallpaper_duration"
+            android:title="@string/arkui_depth_duration" android:persistent="false" />
+        <com.android.settingslib.widget.AppSwitchPreference android:key="arkui_depth_wallpaper_aod"
+            android:title="@string/arkui_depth_aod" android:summary="@string/arkui_depth_aod_summary"
+            android:persistent="false" />
+        <com.android.settingslib.widget.SliderPreference android:key="arkui_depth_wallpaper_aod_opacity"
+            android:title="@string/arkui_depth_aod_opacity" android:persistent="false" />
+        <com.android.settingslib.widget.AppSwitchPreference android:key="arkui_depth_wallpaper_battery_saver"
+            android:title="@string/arkui_depth_battery" android:summary="@string/arkui_depth_battery_summary"
+            android:persistent="false" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -91,6 +91,13 @@
             settings:controller="com.android.settings.display.TopLevelWallpaperPreferenceController"/>
 
         <com.android.settings.widget.HomepagePreference
+            android:key="top_level_depth_wallpaper" android:order="-49"
+            android:fragment="com.android.settings.arkui.depth.ArkuiDepthWallpaperSettings"
+            android:title="@string/arkui_depth_title" android:summary="@string/arkui_depth_summary"
+            android:icon="@drawable/ic_settings_wallpaper_filled"
+            settings:highlightableMenuKey="@string/menu_key_wallpaper" />
+
+        <com.android.settings.widget.HomepagePreference
             android:fragment="com.android.settings.DisplaySettings"
             android:icon="@drawable/ic_settings_display_filled"
             android:key="top_level_display"

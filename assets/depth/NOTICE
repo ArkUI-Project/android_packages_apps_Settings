@@ -1,0 +1,14 @@
+DeepLab v3 semantic segmentation model
+Copyright 2020 The TensorFlow Authors. All rights reserved.
+Licensed under the Apache License, Version 2.0. The full license is reproduced in
+the Settings NOTICE included in this distribution.
+
+Unmodified model from the Apache-2.0 tensorflow/tflite-support repository:
+https://github.com/tensorflow/tflite-support/blob/522a02b47444e6016d5a0d4d1388b522bc2529f2/tensorflow_lite_support/cc/test/testdata/task/vision/deeplabv3.tflite
+License: https://github.com/tensorflow/tflite-support/blob/522a02b47444e6016d5a0d4d1388b522bc2529f2/LICENSE
+Model input normalization: RGB, mean 127.5, standard deviation 127.5.
+Output categories: Pascal VOC (21 categories, including background).
+SHA-256: 9711334db2b01d5894feb8ed0f5cb3e97d125b8d229f8d8692f625801818f5ef
+
+The model runs offline. ArkUI's integration and mask editor are original code
+Copyright (C) 2026 The ArkUI Project, licensed under Apache-2.0.

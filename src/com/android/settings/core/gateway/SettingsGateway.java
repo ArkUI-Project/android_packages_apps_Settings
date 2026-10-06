@@ -370,6 +370,7 @@ public class SettingsGateway {
             com.android.settings.arkui.applock.AppLockSettings.class.getName(),
             com.android.settings.arkui.ArkuiDesktopSettings.class.getName(),
             com.android.settings.arkui.ArkuiMotionSensorSettings.class.getName(),
+            com.android.settings.arkui.depth.ArkuiDepthWallpaperSettings.class.getName(),
             com.android.settings.arkui.ArkuiDesktopAdvancedSettings.class.getName(),
             com.android.settings.arkui.ArkuiSecurityPrivacySettings.class.getName(),
             com.android.settings.arkui.ArkuiSmallWindowSettings.class.getName(),

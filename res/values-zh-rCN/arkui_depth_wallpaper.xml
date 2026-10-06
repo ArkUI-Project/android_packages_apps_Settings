@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_depth_title">景深壁纸</string>
+    <string name="arkui_depth_summary">让壁纸主体位于锁屏时钟前方</string>
+    <string name="arkui_depth_enable">使用景深壁纸</string>
+    <string name="arkui_depth_preview">效果预览</string>
+    <string name="arkui_depth_preview_tap">点击预览以编辑</string>
+    <string name="arkui_depth_wallpaper_category">壁纸与主体</string>
+    <string name="arkui_depth_edit">编辑景深壁纸</string>
+    <string name="arkui_depth_edit_summary">更换照片、识别主体或手动修补轮廓</string>
+    <string name="arkui_depth_generate">重新识别当前壁纸</string>
+    <string name="arkui_depth_auto">更换壁纸后自动识别</string>
+    <string name="arkui_depth_auto_summary">在设备上处理静态壁纸，照片不会上传。</string>
+    <string name="arkui_depth_subject">识别对象</string>
+    <string name="arkui_depth_confidence">识别置信度</string>
+    <string name="arkui_depth_effects">调整景深效果</string>
+    <string name="arkui_depth_effects_summary">遮挡强度、对齐、亮屏动画与省电行为</string>
+    <string name="arkui_depth_effects_category">个性化</string>
+    <string name="arkui_depth_reset">恢复默认设置</string>
+    <string name="arkui_depth_license">景深渲染基于 AviumUI © 2025–2026（Apache 2.0）。离线识别使用 TensorFlow DeepLab v3 © The TensorFlow Authors（Apache 2.0）。系统接入与编辑器 © 2026 The ArkUI Project。</string>
+    <string name="arkui_depth_effects_intro">调整后会直接作用于锁屏。景深只遮挡时钟，通知和解锁控件保持可读。</string>
+    <string name="arkui_depth_clock_category">时钟遮挡</string>
+    <string name="arkui_depth_opacity">遮挡强度</string>
+    <string name="arkui_depth_coverage">时钟最大遮挡比例</string>
+    <string name="arkui_depth_feather">轮廓柔化</string>
+    <string name="arkui_depth_large_only">仅大时钟使用景深</string>
+    <string name="arkui_depth_large_only_summary">通知出现时，紧凑时钟保持完整显示。</string>
+    <string name="arkui_depth_alignment_category">遮挡对齐</string>
+    <string name="arkui_depth_scale">对齐缩放</string>
+    <string name="arkui_depth_offset_x">水平对齐偏移</string>
+    <string name="arkui_depth_offset_y">垂直对齐偏移</string>
+    <string name="arkui_depth_behavior_category">动画与功耗</string>
+    <string name="arkui_depth_animate">亮屏景深动画</string>
+    <string name="arkui_depth_animate_summary">亮屏时使用柔和的 Expressive 曲线呈现景深。</string>
+    <string name="arkui_depth_duration">亮屏动画时长</string>
+    <string name="arkui_depth_aod">息屏显示保留遮挡</string>
+    <string name="arkui_depth_aod_summary">以较低强度遮挡息屏时钟，仅适用于静态壁纸。</string>
+    <string name="arkui_depth_aod_opacity">息屏遮挡强度</string>
+    <string name="arkui_depth_battery">省电模式暂停景深</string>
+    <string name="arkui_depth_battery_summary">显示完整时钟并暂停景深动画。</string>
+    <string name="arkui_depth_value_percent">%1$d%%</string>
+    <string name="arkui_depth_value_dp">%1$d dp</string>
+    <string name="arkui_depth_value_ms">%1$d 毫秒</string>
+    <string name="arkui_depth_ready">景深轮廓已就绪</string>
+    <string name="arkui_depth_processing">正在设备上识别…</string>
+    <string name="arkui_depth_no_subject">未找到清晰主体，可手动描绘或导入蒙版。</string>
+    <string name="arkui_depth_live">景深目前支持静态壁纸，可选择照片开始。</string>
+    <string name="arkui_depth_error">识别失败，可重试或手动编辑轮廓。</string>
+    <string name="arkui_depth_empty">识别主体或编辑当前壁纸以开始。</string>
+    <string name="arkui_depth_back">返回</string>
+    <string name="arkui_depth_apply">应用</string>
+    <string name="arkui_depth_photo">选择照片</string>
+    <string name="arkui_depth_recognize">自动识别</string>
+    <string name="arkui_depth_draw">涂抹</string>
+    <string name="arkui_depth_erase">擦除</string>
+    <string name="arkui_depth_view">预览</string>
+    <string name="arkui_depth_undo">撤销</string>
+    <string name="arkui_depth_invert">反选</string>
+    <string name="arkui_depth_clear">清空轮廓</string>
+    <string name="arkui_depth_brush">画笔大小</string>
+    <string name="arkui_depth_import">导入轮廓</string>
+    <string name="arkui_depth_choose_image">选择壁纸照片</string>
+    <string name="arkui_depth_choose_mask">选择透明主体 PNG 或灰度蒙版</string>
+    <string name="arkui_depth_applied">景深壁纸已应用</string>
+    <string name="arkui_depth_editor_intro">先识别主体，再用涂抹与擦除修补。也可导入与壁纸构图一致的透明主体 PNG 或灰度蒙版。</string>
+    <string name="arkui_depth_photo_error">无法读取这张图片</string>
+    <string name="arkui_depth_mask_error">请选择透明 PNG，或黑色背景、白色主体的灰度蒙版。</string>
+    <string name="arkui_depth_changed">编辑期间壁纸已改变，请重新打开编辑器。</string>
+    <string name="arkui_depth_save_error">无法应用景深壁纸</string>
+    <string name="arkui_depth_loading">正在加载壁纸…</string>
+    <string-array name="arkui_depth_subjects">
+        <item>人物、宠物与物体</item>
+        <item>仅人物</item>
+    </string-array>
+</resources>

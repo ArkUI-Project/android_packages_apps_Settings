@@ -13,6 +13,7 @@ license {
     ],
     license_text: [
         "NOTICE",
+        "assets/depth/NOTICE",
     ],
 }
 
@@ -66,6 +67,7 @@ android_library {
         "res-export", // for external usage
         "res-product",
     ],
+    asset_dirs: ["assets"],
     optional_uses_libs: ["com.android.extensions.appfunctions"],
     static_libs: [
         // External dependencies
@@ -78,6 +80,7 @@ android_library {
         "androidx.window_window-java",
         "gson",
         "guava",
+        "tensorflowlite_java",
 
         // Android internal dependencies
         "ArkuiStartupAnimation",
@@ -184,6 +187,9 @@ android_app {
         "settings-platform-compat-config",
     ],
     static_libs: ["Settings-core"],
+    jni_libs: ["libtensorflowlite_jni"],
+    compile_multilib: "first",
+    use_embedded_native_libs: true,
     uses_libs: ["org.apache.http.legacy"],
     use_resource_processor: true,
     resource_dirs: [],

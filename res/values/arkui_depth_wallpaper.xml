@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <style name="Theme.Arkui.DepthWallpaperEditor"
+        parent="Theme.Material3Expressive.DynamicColors.DayNight.NoActionBar">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+    <string name="arkui_depth_title">Depth wallpaper</string>
+    <string name="arkui_depth_summary">Place wallpaper subjects in front of the lock screen clock</string>
+    <string name="arkui_depth_enable">Use depth wallpaper</string>
+    <string name="arkui_depth_preview">Effect preview</string>
+    <string name="arkui_depth_preview_tap">Tap to edit</string>
+    <string name="arkui_depth_wallpaper_category">Wallpaper and subject</string>
+    <string name="arkui_depth_edit">Edit depth wallpaper</string>
+    <string name="arkui_depth_edit_summary">Choose a photo, recognize a subject or refine its outline</string>
+    <string name="arkui_depth_generate">Recognize current wallpaper again</string>
+    <string name="arkui_depth_auto">Recognize when wallpaper changes</string>
+    <string name="arkui_depth_auto_summary">Process static wallpapers on this device. Photos stay offline.</string>
+    <string name="arkui_depth_subject">Recognition target</string>
+    <string name="arkui_depth_confidence">Recognition confidence</string>
+    <string name="arkui_depth_effects">Adjust depth effect</string>
+    <string name="arkui_depth_effects_summary">Occlusion, alignment, wake animation and power behavior</string>
+    <string name="arkui_depth_effects_category">Personalize</string>
+    <string name="arkui_depth_reset">Restore default settings</string>
+    <string name="arkui_depth_license">Rendering derived from AviumUI © 2025–2026 (Apache 2.0). Offline recognition uses TensorFlow DeepLab v3 © The TensorFlow Authors (Apache 2.0). ArkUI integration and editor © 2026 The ArkUI Project.</string>
+    <string name="arkui_depth_effects_intro">Changes appear on the lock screen. Depth affects only the clock; notifications and unlock controls stay readable.</string>
+    <string name="arkui_depth_clock_category">Clock occlusion</string>
+    <string name="arkui_depth_opacity">Occlusion strength</string>
+    <string name="arkui_depth_coverage">Maximum clock occlusion</string>
+    <string name="arkui_depth_feather">Outline softness</string>
+    <string name="arkui_depth_large_only">Use only with large clocks</string>
+    <string name="arkui_depth_large_only_summary">Keep the compact clock fully visible when notifications appear.</string>
+    <string name="arkui_depth_alignment_category">Mask alignment</string>
+    <string name="arkui_depth_scale">Alignment scale</string>
+    <string name="arkui_depth_offset_x">Horizontal alignment</string>
+    <string name="arkui_depth_offset_y">Vertical alignment</string>
+    <string name="arkui_depth_behavior_category">Animation and power</string>
+    <string name="arkui_depth_animate">Animate on wake</string>
+    <string name="arkui_depth_animate_summary">Reveal depth with a smooth expressive easing curve.</string>
+    <string name="arkui_depth_duration">Wake animation duration</string>
+    <string name="arkui_depth_aod">Keep occlusion on always-on display</string>
+    <string name="arkui_depth_aod_summary">Use subtle clock occlusion; a static wallpaper is required.</string>
+    <string name="arkui_depth_aod_opacity">Always-on occlusion strength</string>
+    <string name="arkui_depth_battery">Pause in Battery Saver</string>
+    <string name="arkui_depth_battery_summary">Show the complete clock and stop depth animations.</string>
+    <string name="arkui_depth_value_percent">%1$d%%</string>
+    <string name="arkui_depth_value_dp">%1$d dp</string>
+    <string name="arkui_depth_value_ms">%1$d ms</string>
+    <string name="arkui_depth_ready">Depth outline ready</string>
+    <string name="arkui_depth_processing">Recognizing on this device…</string>
+    <string name="arkui_depth_no_subject">No clear subject found. You can draw an outline or import a mask.</string>
+    <string name="arkui_depth_live">Depth currently supports static wallpapers. Choose a photo to begin.</string>
+    <string name="arkui_depth_error">Recognition failed. Try again or refine the outline manually.</string>
+    <string name="arkui_depth_empty">Recognize a subject or edit the current wallpaper to begin.</string>
+    <string name="arkui_depth_back">Back</string>
+    <string name="arkui_depth_apply">Apply</string>
+    <string name="arkui_depth_photo">Choose photo</string>
+    <string name="arkui_depth_recognize">Recognize</string>
+    <string name="arkui_depth_draw">Draw</string>
+    <string name="arkui_depth_erase">Erase</string>
+    <string name="arkui_depth_view">Preview</string>
+    <string name="arkui_depth_undo">Undo</string>
+    <string name="arkui_depth_invert">Invert</string>
+    <string name="arkui_depth_clear">Clear outline</string>
+    <string name="arkui_depth_brush">Brush size</string>
+    <string name="arkui_depth_import">Import outline</string>
+    <string name="arkui_depth_choose_image">Choose a wallpaper photo</string>
+    <string name="arkui_depth_choose_mask">Choose a transparent subject PNG or grayscale mask</string>
+    <string name="arkui_depth_applied">Depth wallpaper applied</string>
+    <string name="arkui_depth_editor_intro">Recognize a subject, then refine it with Draw and Erase. Import accepts a transparent subject PNG or a grayscale mask aligned with the wallpaper.</string>
+    <string name="arkui_depth_photo_error">Couldn’t read this image</string>
+    <string name="arkui_depth_mask_error">Use a transparent PNG or a grayscale mask with a black background and white subject.</string>
+    <string name="arkui_depth_changed">The wallpaper changed while editing. Reopen the editor to continue.</string>
+    <string name="arkui_depth_save_error">Couldn’t apply the depth wallpaper</string>
+    <string name="arkui_depth_loading">Loading wallpaper…</string>
+    <string-array name="arkui_depth_subjects">
+        <item>People, pets and objects</item>
+        <item>People only</item>
+    </string-array>
+    <string-array name="arkui_depth_subject_values" translatable="false">
+        <item>0</item><item>1</item>
+    </string-array>
+</resources>
