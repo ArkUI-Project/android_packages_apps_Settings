@@ -26,7 +26,6 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
 import android.os.storage.StorageManager;
-import android.text.TextUtils;
 import android.text.format.Formatter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -70,11 +69,6 @@ final class ArkuiHomepageSummary implements DefaultLifecycleObserver {
 
     ArkuiHomepageSummary(SettingsHomepageActivity activity) {
         mActivity = activity;
-        String brand = Build.MANUFACTURER;
-        if (TextUtils.isEmpty(brand) || Build.UNKNOWN.equals(brand)) {
-            brand = Build.BRAND;
-        }
-        ((TextView) activity.findViewById(R.id.arkui_home_device_brand)).setText(brand);
         ((TextView) activity.findViewById(R.id.arkui_home_device_model)).setText(Build.MODEL);
         ((TextView) activity.findViewById(R.id.arkui_home_android_version))
                 .setText(Build.VERSION.RELEASE);

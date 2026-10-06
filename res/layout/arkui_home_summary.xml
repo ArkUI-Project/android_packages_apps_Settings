@@ -28,12 +28,13 @@
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true">
-            <TextView
-                android:id="@+id/arkui_home_device_brand"
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:textColor="@color/settingslib_materialColorOnSecondaryContainer"/>
+                android:layout_height="24dp"
+                android:src="@drawable/arkui_logo"
+                android:scaleType="fitStart"
+                android:tint="@color/settingslib_materialColorOnSecondaryContainer"
+                android:contentDescription="@string/arkui_about_brand"/>
             <TextView
                 android:id="@+id/arkui_home_device_model"
                 android:layout_width="match_parent"

@@ -38,14 +38,21 @@
                 android:textSize="14sp"
                 android:textColor="@color/settingslib_materialColorOnPrimaryContainer"/>
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/arkui_logo"
+                android:scaleType="fitStart"
+                android:tint="@color/settingslib_materialColorOnPrimaryContainer"
+                android:contentDescription="@string/arkui_about_brand"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/arkui_about_brand"
-                android:textSize="56sp"
-                android:fontFamily="sans-serif-medium"
-                android:letterSpacing="-0.04"
+                android:text="@string/arkui_version_name"
+                android:textSize="24sp"
                 android:textColor="@color/settingslib_materialColorOnPrimaryContainer"/>
 
             <TextView

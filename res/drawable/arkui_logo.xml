@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project
+     SPDX-License-Identifier: Apache-2.0
+     Vector version of vendor/lineage/branding/arkui-logo.svg. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="250dp"
+    android:height="82dp"
+    android:viewportWidth="250"
+    android:viewportHeight="82">
+    <path android:fillColor="#FF000000"
+        android:pathData="M0 80 L41 10 C45 3 50 0 56 0 H74 V80 H59 V62 H34 L42 48 H59 V15 H52 L18 80 Z"/>
+    <path android:fillColor="#FF000000"
+        android:pathData="M82 80 V43 C82 25 94 18 111 18 V33 C100 33 97 38 97 47 V80 Z"/>
+    <path android:fillColor="#FF000000"
+        android:pathData="M118 0 H133 V47 L157 18 H177 L151 49 L178 80 H158 L133 52 V80 H118 Z"/>
+    <path android:fillColor="#FF000000"
+        android:pathData="M164 0 H179 V18 H164 Z"/>
+    <path android:fillColor="#FF000000"
+        android:pathData="M179 20 V51 C179 63 185 68 195 68 C206 68 213 61 213 50 V0 H228 V52 C228 71 215 82 195 82 C176 82 164 71 164 53 V42 Z"/>
+    <path android:fillColor="#FF000000"
+        android:pathData="M235 0 H250 V80 H235 Z"/>
+</vector>
