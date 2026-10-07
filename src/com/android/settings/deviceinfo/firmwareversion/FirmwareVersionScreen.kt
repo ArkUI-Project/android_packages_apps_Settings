@@ -71,7 +71,6 @@ open class FirmwareVersionScreen : PreferenceScreenMixin, PreferenceSummaryProvi
     override fun getPreferenceHierarchy(context: Context, coroutineScope: CoroutineScope) =
         preferenceHierarchy(context) {
             +FirmwareVersionDetailPreference()
-            +ArkuiVersionPreference()
             +LineageVersionDetailPreference()
             +SecurityPatchLevelPreference()
             +LineageVendorSecurityPatchLevelPreference()

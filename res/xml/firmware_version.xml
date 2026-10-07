@@ -33,17 +33,8 @@
 
     <!-- ArkUI version -->
     <Preference
-        android:key="arkui_version"
-        android:title="@string/arkui_version_title"
-        android:summary="@string/arkui_version_name"
-        android:selectable="false"
-        settings:enableCopying="true"
-        settings:searchable="false"/>
-
-    <!-- Lineage version -->
-    <Preference
         android:key="lineage_version"
-        android:title="@*lineageos.platform:string/lineage_version"
+        android:title="@string/arkui_version_title"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
         settings:searchable="false"
