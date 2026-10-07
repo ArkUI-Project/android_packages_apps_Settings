@@ -10,10 +10,15 @@
     android:paddingBottom="0dp">
 
     <FrameLayout
+        android:id="@+id/arkui_about_system_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/arkui_about_hero"
         android:clipToOutline="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="@string/system_update_settings_list_item_title"
         android:screenReaderFocusable="true">
 
         <ImageView

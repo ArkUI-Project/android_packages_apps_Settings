@@ -17,8 +17,10 @@
 package com.android.settings.deviceinfo.aboutphone;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.SystemProperties;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,6 +57,11 @@ public class ArkuiAboutOverviewPreference extends LayoutPreference implements No
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
         super.onBindViewHolder(holder);
+        final Intent updateIntent = new Intent(Settings.ACTION_SYSTEM_UPDATE_SETTINGS)
+                .setPackage("org.lineageos.updater");
+        final View systemCard = findViewById(R.id.arkui_about_system_card);
+        systemCard.setEnabled(updateIntent.resolveActivity(getContext().getPackageManager()) != null);
+        systemCard.setOnClickListener(view -> getContext().startActivity(updateIntent));
         bindCard(R.id.arkui_about_android_card, "firmware_version");
         bindCard(R.id.arkui_about_model_card, "device_model");
     }
