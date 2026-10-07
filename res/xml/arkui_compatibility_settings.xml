@@ -14,6 +14,9 @@
         <SwitchPreferenceCompat android:key="arkui_disable_update_signature_check" android:title="@string/arkui_disable_signature_title"
             android:summary="@string/arkui_disable_signature_summary" android:persistent="false" />
 
+        <SwitchPreferenceCompat android:key="arkui_disable_apk_signature_verification" android:title="@string/arkui_disable_apk_signature_title"
+            android:summary="@string/arkui_disable_apk_signature_summary" android:persistent="false" />
+
         <SwitchPreferenceCompat android:key="arkui_allow_app_downgrade" android:title="@string/arkui_downgrade_title"
             android:summary="@string/arkui_downgrade_summary" android:persistent="false" />
     </PreferenceCategory>

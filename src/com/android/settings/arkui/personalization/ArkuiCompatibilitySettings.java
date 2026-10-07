@@ -14,12 +14,14 @@ public final class ArkuiCompatibilitySettings extends PersonalizationPreferenceF
         bind(IGNORE_SECURE_FLAG, Table.SECURE, 0);
         bind(BLOCK_SCREENSHOT_DETECTION, Table.SECURE, 0);
         bind(DISABLE_UPDATE_SIGNATURE_CHECK, Table.GLOBAL, 0);
+        bind(DISABLE_APK_SIGNATURE_VERIFICATION, Table.GLOBAL, 0);
         bind(ALLOW_APP_DOWNGRADE, Table.GLOBAL, 0);
     }
     @Override protected void afterRefresh() {
         final boolean owner = requireContext().getUserId() == 0
                 && requireContext().getSystemService(UserManager.class).isAdminUser();
         findPreference(DISABLE_UPDATE_SIGNATURE_CHECK).setEnabled(owner);
+        findPreference(DISABLE_APK_SIGNATURE_VERIFICATION).setEnabled(owner);
         findPreference(ALLOW_APP_DOWNGRADE).setEnabled(owner);
         findPreference("arkui_compatibility_owner_note").setVisible(!owner);
     }
