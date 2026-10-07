@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2026 The ArkUI Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -271,11 +272,12 @@ public class PowerUsageAdvanced extends PowerUsageBase {
         final String accessibilitySlotInformation =
                 mBatteryChartPreferenceController.getSlotInformation(
                         /* isAccessibilityText= */ true);
-        final BatteryDiffData slotUsageData = mBatteryUsageMap.get(dailyIndex).get(hourlyIndex);
-        mScreenOnTimeController.handleScreenOnTimeUpdated(
-                slotUsageData != null ? slotUsageData.getScreenOnTime() : 0L,
-                slotInformation,
-                accessibilitySlotInformation);
+        final Map<Integer, BatteryDiffData> dayData = mBatteryUsageMap.get(dailyIndex);
+        final BatteryDiffData slotUsageData = dayData == null ? null : dayData.get(hourlyIndex);
+        if (mHistPref != null) {
+            mHistPref.setUsageData(slotUsageData, slotInformation,
+                    hourlyIndex != BatteryChartViewModel.SELECTED_INDEX_ALL);
+        }
         // Hide card tips if the related highlight slot was clicked.
         if (isAppsAnomalyEventFocused()) {
             mBatteryTipsController.acceptTipsCard();

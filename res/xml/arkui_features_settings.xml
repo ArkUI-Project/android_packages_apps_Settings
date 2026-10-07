@@ -7,105 +7,119 @@
     android:key="arkui_features_settings"
     android:title="@string/arkui_features_title">
 
-    <Preference android:key="arkui_personalization"
-        android:title="@string/arkui_personalization_title"
-        android:summary="@string/arkui_personalization_summary"
-        android:icon="@drawable/ic_color_and_motion"
-        android:fragment="com.android.settings.arkui.personalization.ArkuiPersonalizationSettings" />
+    <PreferenceCategory android:key="arkui_features_personalization"
+        android:title="@string/arkui_features_personalization_group">
+        <Preference android:key="arkui_personalization"
+            android:title="@string/arkui_personalization_title"
+            android:summary="@string/arkui_personalization_summary"
+            android:icon="@drawable/ic_color_and_motion"
+            android:fragment="com.android.settings.arkui.personalization.ArkuiPersonalizationSettings" />
+    </PreferenceCategory>
 
-    <Preference android:key="arkui_compatibility"
-        android:title="@string/arkui_compatibility_title"
-        android:summary="@string/arkui_compatibility_summary"
-        android:icon="@drawable/ic_settings_security_filled"
-        android:fragment="com.android.settings.arkui.personalization.ArkuiCompatibilitySettings" />
+    <PreferenceCategory android:key="arkui_features_intelligence"
+        android:title="@string/arkui_features_intelligence_group">
+        <Preference android:key="arkui_intelligence"
+            android:title="@string/arkui_intelligence_title"
+            android:summary="@string/arkui_intelligence_summary"
+            android:icon="@drawable/ic_settings_arkui_features"
+            android:fragment="com.android.settings.arkui.intelligence.ArkuiIntelligenceSettings" />
+        <Preference android:key="arkui_lyrics"
+            android:title="@string/arkui_lyrics_title"
+            android:summary="@string/arkui_lyrics_summary"
+            android:icon="@drawable/ic_settings_system_bar_motion"
+            android:fragment="com.android.settings.arkui.intelligence.ArkuiLyricsSettings" />
+    </PreferenceCategory>
 
-    <Preference android:key="arkui_intelligence"
-        android:title="@string/arkui_intelligence_title" android:summary="@string/arkui_intelligence_summary"
-        android:icon="@drawable/ic_settings_arkui_features"
-        android:fragment="com.android.settings.arkui.intelligence.ArkuiIntelligenceSettings" />
-    <Preference android:key="arkui_lyrics"
-        android:title="@string/arkui_lyrics_title" android:summary="@string/arkui_lyrics_summary"
-        android:icon="@drawable/ic_settings_system_bar_motion"
-        android:fragment="com.android.settings.arkui.intelligence.ArkuiLyricsSettings" />
+    <PreferenceCategory android:key="arkui_features_privacy"
+        android:title="@string/arkui_features_privacy_group">
+        <Preference android:key="arkui_compatibility"
+            android:title="@string/arkui_compatibility_title"
+            android:summary="@string/arkui_compatibility_summary"
+            android:icon="@drawable/ic_settings_security_filled"
+            android:fragment="com.android.settings.arkui.personalization.ArkuiCompatibilitySettings" />
+        <Preference android:key="arkui_privacy_password"
+            android:title="@string/arkui_privacy_password_title"
+            android:summary="@string/arkui_privacy_password_summary"
+            android:icon="@drawable/ic_settings_privacy_filled"
+            settings:controller="com.android.settings.arkui.privacy.PrivacyPasswordPreferenceController">
+            <intent android:action="org.arkui.settings.PRIVACY_PASSWORD"
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.arkui.privacy.PrivacyPasswordActivity" />
+        </Preference>
+        <Preference
+            android:key="arkui_app_lock"
+            android:title="@string/arkui_app_lock_title"
+            android:summary="@string/arkui_app_lock_summary"
+            android:icon="@drawable/ic_settings_security_filled"
+            android:fragment="com.android.settings.arkui.applock.AppLockSettings"
+            settings:controller="com.android.settings.arkui.applock.AppLockPreferenceController" />
+    </PreferenceCategory>
 
-    <Preference android:key="arkui_privacy_password"
-        android:title="@string/arkui_privacy_password_title"
-        android:summary="@string/arkui_privacy_password_summary"
-        android:icon="@drawable/ic_settings_privacy_filled"
-        settings:controller="com.android.settings.arkui.privacy.PrivacyPasswordPreferenceController">
-        <intent android:action="org.arkui.settings.PRIVACY_PASSWORD"
-            android:targetPackage="com.android.settings"
-            android:targetClass="com.android.settings.arkui.privacy.PrivacyPasswordActivity" />
-    </Preference>
+    <PreferenceCategory android:key="arkui_features_tools"
+        android:title="@string/arkui_features_tools_group">
+        <Preference
+            android:key="arkui_sidebar_settings"
+            android:title="@string/arkui_sidebar_title"
+            android:summary="@string/arkui_sidebar_summary"
+            android:icon="@drawable/ic_settings_sidebar"
+            settings:controller="com.android.settings.arkui.SidebarPreferenceController">
+            <intent android:action="org.arkui.sidebar.SETTINGS"
+                android:targetPackage="org.arkui.sidebar"
+                android:targetClass="org.arkui.sidebar.SidebarSettingsActivity" />
+        </Preference>
+        <Preference
+            android:key="arkui_wheel_settings"
+            android:title="@string/arkui_wheel_title"
+            android:summary="@string/arkui_wheel_summary"
+            android:icon="@drawable/ic_settings_wheel"
+            settings:controller="com.android.settings.arkui.WheelPreferenceController">
+            <intent android:action="org.arkui.wheel.SETTINGS"
+                android:targetPackage="org.arkui.wheel"
+                android:targetClass="org.arkui.wheel.WheelSettingsActivity" />
+        </Preference>
+    </PreferenceCategory>
 
-    <Preference
-        android:key="arkui_app_lock"
-        android:title="@string/arkui_app_lock_title"
-        android:summary="@string/arkui_app_lock_summary"
-        android:icon="@drawable/ic_settings_security_filled"
-        android:fragment="com.android.settings.arkui.applock.AppLockSettings"
-        settings:controller="com.android.settings.arkui.applock.AppLockPreferenceController" />
+    <PreferenceCategory android:key="arkui_features_apps"
+        android:title="@string/arkui_features_apps_group">
+        <Preference
+            android:key="arkui_game_settings"
+            android:title="@string/arkui_game_title"
+            android:summary="@string/arkui_game_summary"
+            android:icon="@drawable/ic_settings_game"
+            settings:controller="com.android.settings.arkui.GamePreferenceController">
+            <intent android:action="org.arkui.game.SETTINGS"
+                android:targetPackage="org.arkui.game"
+                android:targetClass="org.arkui.game.GameActivity" />
+        </Preference>
+        <Preference
+            android:key="arkui_app_twins"
+            android:title="@string/app_twins_title"
+            android:summary="@string/app_twins_summary"
+            android:icon="@drawable/ic_settings_app_twins"
+            android:fragment="com.android.settings.arkui.twins.AppTwinsSettings"
+            settings:controller="com.android.settings.arkui.twins.AppTwinsPreferenceController" />
+    </PreferenceCategory>
 
-    <Preference
-        android:key="arkui_sidebar_settings"
-        android:title="@string/arkui_sidebar_title"
-        android:summary="@string/arkui_sidebar_summary"
-        android:icon="@drawable/ic_settings_sidebar"
-        settings:controller="com.android.settings.arkui.SidebarPreferenceController">
-        <intent android:action="org.arkui.sidebar.SETTINGS"
-            android:targetPackage="org.arkui.sidebar"
-            android:targetClass="org.arkui.sidebar.SidebarSettingsActivity" />
-    </Preference>
-
-    <Preference
-        android:key="arkui_wheel_settings"
-        android:title="@string/arkui_wheel_title"
-        android:summary="@string/arkui_wheel_summary"
-        android:icon="@drawable/ic_settings_wheel"
-        settings:controller="com.android.settings.arkui.WheelPreferenceController">
-        <intent android:action="org.arkui.wheel.SETTINGS"
-            android:targetPackage="org.arkui.wheel"
-            android:targetClass="org.arkui.wheel.WheelSettingsActivity" />
-    </Preference>
-
-    <Preference
-        android:key="arkui_game_settings"
-        android:title="@string/arkui_game_title"
-        android:summary="@string/arkui_game_summary"
-        android:icon="@drawable/ic_settings_game"
-        settings:controller="com.android.settings.arkui.GamePreferenceController">
-        <intent android:action="org.arkui.game.SETTINGS"
-            android:targetPackage="org.arkui.game"
-            android:targetClass="org.arkui.game.GameActivity" />
-    </Preference>
-
-    <Preference
-        android:key="arkui_app_twins"
-        android:title="@string/app_twins_title"
-        android:summary="@string/app_twins_summary"
-        android:icon="@drawable/ic_settings_app_twins"
-        android:fragment="com.android.settings.arkui.twins.AppTwinsSettings"
-        settings:controller="com.android.settings.arkui.twins.AppTwinsPreferenceController" />
-
-    <Preference
-        android:key="arkui_system_bar_motion"
-        android:title="@string/arkui_system_bar_motion_title"
-        android:summary="@string/arkui_system_bar_motion_summary"
-        android:icon="@drawable/ic_settings_system_bar_motion"
-        android:fragment="com.android.settings.arkui.ArkuiSystemBarMotionSettings" />
-
-    <Preference
-        android:key="shade_panels_settings"
-        android:title="@string/shade_panels_title"
-        android:icon="@drawable/ic_settings_shade_panels"
-        android:fragment="com.android.settings.system.ShadePanelsFragment"
-        settings:controller="com.android.settings.system.ShadePanelsPreferenceController" />
-
-    <Preference
-        android:key="arkui_small_window_settings"
-        android:title="@string/arkui_small_window_title"
-        android:summary="@string/arkui_small_window_summary"
-        android:icon="@drawable/ic_settings_small_window"
-        android:fragment="com.android.settings.arkui.ArkuiSmallWindowSettings"
-        settings:controller="com.android.settings.arkui.SmallWindowPreferenceController"/>
+    <PreferenceCategory android:key="arkui_features_multitasking"
+        android:title="@string/arkui_features_multitasking_group">
+        <Preference
+            android:key="arkui_system_bar_motion"
+            android:title="@string/arkui_system_bar_motion_title"
+            android:summary="@string/arkui_system_bar_motion_summary"
+            android:icon="@drawable/ic_settings_system_bar_motion"
+            android:fragment="com.android.settings.arkui.ArkuiSystemBarMotionSettings" />
+        <Preference
+            android:key="shade_panels_settings"
+            android:title="@string/shade_panels_title"
+            android:icon="@drawable/ic_settings_shade_panels"
+            android:fragment="com.android.settings.system.ShadePanelsFragment"
+            settings:controller="com.android.settings.system.ShadePanelsPreferenceController" />
+        <Preference
+            android:key="arkui_small_window_settings"
+            android:title="@string/arkui_small_window_title"
+            android:summary="@string/arkui_small_window_summary"
+            android:icon="@drawable/ic_settings_small_window"
+            android:fragment="com.android.settings.arkui.ArkuiSmallWindowSettings"
+            settings:controller="com.android.settings.arkui.SmallWindowPreferenceController"/>
+    </PreferenceCategory>
 </PreferenceScreen>

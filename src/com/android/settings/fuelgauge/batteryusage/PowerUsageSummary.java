@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2026 The ArkUI Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +34,7 @@ import androidx.annotation.VisibleForTesting;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceGroup;
 
 import com.android.settings.R;
 import com.android.settings.Utils;
@@ -161,6 +163,14 @@ public class PowerUsageSummary extends PowerUsageBase
     @Override
     public void onResume() {
         super.onResume();
+        final PreferenceGroup charging = findPreference("charging_category");
+        if (charging != null) {
+            boolean hasChargingSettings = false;
+            for (int index = 0; index < charging.getPreferenceCount(); index++) {
+                hasChargingSettings |= charging.getPreference(index).isVisible();
+            }
+            charging.setVisible(hasChargingSettings);
+        }
         getContentResolver()
                 .registerContentObserver(
                         Global.getUriFor(Global.BATTERY_ESTIMATES_LAST_UPDATE_TIME),

@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2026 The ArkUI Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -1635,7 +1636,7 @@ public final class DataProcessor {
                 startTimestamp = batteryDiffData.getStartTimestamp();
                 startBatteryLevel = batteryDiffData.getStartBatteryLevel();
             }
-            if (endTimestamp > batteryDiffData.getEndTimestamp()) {
+            if (endTimestamp < batteryDiffData.getEndTimestamp()) {
                 endTimestamp = batteryDiffData.getEndTimestamp();
                 endBatteryLevel = batteryDiffData.getEndBatteryLevel();
             }

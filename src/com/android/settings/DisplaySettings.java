@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2010 The Android Open Source Project
+ * Copyright (C) 2026 The ArkUI Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,13 +27,13 @@ import androidx.annotation.Nullable;
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.display.BrightnessLevelPreferenceController;
 import com.android.settings.display.CameraGesturePreferenceController;
-import com.android.settings.display.DisplayScreen;
 import com.android.settings.display.LiftToWakePreferenceController;
 import com.android.settings.display.ShowOperatorNamePreferenceController;
 import com.android.settings.display.TapToWakePreferenceController;
 import com.android.settings.display.ThemePreferenceController;
 import com.android.settings.display.VrDisplayPreferenceController;
 import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.widget.PreferenceCategoryController;
 import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.core.lifecycle.Lifecycle;
 import com.android.settingslib.search.SearchIndexable;
@@ -68,6 +69,7 @@ public class DisplaySettings extends DashboardFragment {
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        getActivity().setTitle(R.string.arkui_display_brightness_title);
     }
 
     @Override
@@ -86,9 +88,13 @@ public class DisplaySettings extends DashboardFragment {
         controllers.add(new CameraGesturePreferenceController(context));
         controllers.add(new LiftToWakePreferenceController(context));
         controllers.add(new TapToWakePreferenceController(context));
-        controllers.add(new VrDisplayPreferenceController(context));
+        final VrDisplayPreferenceController vrController = new VrDisplayPreferenceController(context);
+        controllers.add(vrController);
         controllers.add(new ShowOperatorNamePreferenceController(context));
-        controllers.add(new ThemePreferenceController(context));
+        final ThemePreferenceController themeController = new ThemePreferenceController(context);
+        controllers.add(themeController);
+        controllers.add(new PreferenceCategoryController(context, "category_display_advanced")
+                .setChildren(List.of(vrController, themeController)));
         controllers.add(new BrightnessLevelPreferenceController(context, lifecycle));
         return controllers;
     }
@@ -124,6 +130,8 @@ public class DisplaySettings extends DashboardFragment {
 
     @Override
     public @Nullable String getPreferenceScreenBindingKey(@NonNull Context context) {
-        return DisplayScreen.KEY;
+        // ArkUI's preview cards and inline slider are defined by the XML hierarchy. The partial
+        // Catalyst hierarchy otherwise replaces these controls with the stock preference widgets.
+        return null;
     }
 }

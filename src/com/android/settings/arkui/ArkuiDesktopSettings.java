@@ -205,6 +205,7 @@ public class ArkuiDesktopSettings extends DashboardFragment
     private void setLauncherPreferencesEnabled(boolean enabled) {
         findPreference("pref_standard_desktop").setEnabled(enabled);
         findPreference("desktop_layout").setEnabled(enabled);
+        findPreference("desktop_content").setEnabled(enabled);
         findPreference("desktop_drawer").setEnabled(enabled);
         findPreference("pref_sleep_gesture").setEnabled(enabled);
         findPreference("pref_landscape_app_animation").setEnabled(enabled);

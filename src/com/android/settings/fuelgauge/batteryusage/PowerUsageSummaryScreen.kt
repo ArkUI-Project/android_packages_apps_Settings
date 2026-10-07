@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2024 The Android Open Source Project
+ * Copyright (C) 2026 The ArkUI Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,12 +27,12 @@ import com.android.settings.flags.Flags
 import com.android.settings.fuelgauge.BatteryHeaderPreference
 import com.android.settings.utils.makeLaunchIntent
 import com.android.settingslib.metadata.PreferenceAvailabilityProvider
+import com.android.settingslib.metadata.PreferenceCategory
 import com.android.settingslib.metadata.PreferenceIconProvider
 import com.android.settingslib.metadata.PreferenceMetadata
 import com.android.settingslib.metadata.ProvidePreferenceScreen
 import com.android.settingslib.metadata.preferenceHierarchy
 import com.android.settingslib.widget.SettingsThemeHelper.isExpressiveTheme
-import com.android.settingslib.widget.UntitledPreferenceCategoryMetadata
 import kotlinx.coroutines.CoroutineScope
 
 @ProvidePreferenceScreen(PowerUsageSummaryScreen.KEY)
@@ -73,11 +74,15 @@ open class PowerUsageSummaryScreen :
         preferenceHierarchy(context) {
             +BatteryHeaderPreference()
             if (Flags.deeplinkBattery25q4()) {
-                +UntitledPreferenceCategoryMetadata("power_usage_summary_category") += {
+                +PreferenceCategory(
+                    "power_usage_summary_category", R.string.arkui_battery_usage_group
+                ) += {
                     +PowerUsageAdvancedScreen.KEY
                 }
             }
-            +UntitledPreferenceCategoryMetadata("percentage_category") += {
+            +PreferenceCategory(
+                "percentage_category", R.string.arkui_battery_display_group
+            ) += {
                 +BatteryPercentageSwitchPreference()
             }
         }

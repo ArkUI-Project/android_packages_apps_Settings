@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2026 The ArkUI Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,9 +17,12 @@
 
 package com.android.settings.fuelgauge.batteryusage;
 
+import static com.android.settingslib.fuelgauge.BatteryStatus.BATTERY_LEVEL_UNKNOWN;
+
 import androidx.annotation.NonNull;
 import androidx.core.util.Preconditions;
 
+import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -61,6 +65,7 @@ class BatteryChartViewModel {
     private final String[] mFullTexts;
     private final String[] mContentDescription;
     private final String[] mBatteryLevelTexts;
+    private List<Integer> mConsumptionValues;
 
     private int mSelectedIndex = SELECTED_INDEX_ALL;
     private int mHighlightSlotIndex = SELECTED_INDEX_INVALID;
@@ -96,6 +101,48 @@ class BatteryChartViewModel {
         return mLevels.get(index);
     }
 
+    void setConsumptionValues(List<Integer> values) {
+        Preconditions.checkArgument(values.size() == size() - 1);
+        mConsumptionValues = values;
+        Arrays.fill(mBatteryLevelTexts, null);
+    }
+
+    boolean isConsumptionChart() {
+        return mConsumptionValues != null;
+    }
+
+    int getConsumption(int index) {
+        if (mConsumptionValues == null) {
+            return BATTERY_LEVEL_UNKNOWN;
+        }
+        if (index != SELECTED_INDEX_ALL) {
+            return mConsumptionValues.get(index);
+        }
+        int total = 0;
+        boolean hasValue = false;
+        for (int value : mConsumptionValues) {
+            if (value != BATTERY_LEVEL_UNKNOWN) {
+                total += value;
+                hasValue = true;
+            }
+        }
+        return hasValue ? total : BATTERY_LEVEL_UNKNOWN;
+    }
+
+    int getChartMaximum() {
+        int maximum = 100;
+        if (mConsumptionValues != null) {
+            for (int value : mConsumptionValues) {
+                maximum = Math.max(maximum, ((value + 99) / 100) * 100);
+            }
+        }
+        return maximum;
+    }
+
+    long getTimestamp(int index) {
+        return mTimestamps.get(index);
+    }
+
     public String getText(int index) {
         if (mTexts[index] == null) {
             mTexts[index] = mLabelTextGenerator.generateText(mTimestamps, index);
@@ -121,8 +168,14 @@ class BatteryChartViewModel {
     public String getSlotBatteryLevelText(int index) {
         final int textIndex = index != SELECTED_INDEX_ALL ? index : size();
         if (mBatteryLevelTexts[textIndex] == null) {
-            mBatteryLevelTexts[textIndex] =
-                    mLabelTextGenerator.generateSlotBatteryLevelText(mLevels, index);
+            if (isConsumptionChart()) {
+                final int consumption = getConsumption(index);
+                mBatteryLevelTexts[textIndex] = consumption == BATTERY_LEVEL_UNKNOWN ? "—"
+                        : NumberFormat.getPercentInstance().format(consumption / 100d);
+            } else {
+                mBatteryLevelTexts[textIndex] =
+                        mLabelTextGenerator.generateSlotBatteryLevelText(mLevels, index);
+            }
         }
         return mBatteryLevelTexts[textIndex];
     }
@@ -149,7 +202,8 @@ class BatteryChartViewModel {
 
     @Override
     public int hashCode() {
-        return Objects.hash(mLevels, mTimestamps, mSelectedIndex, mAxisLabelPosition);
+        return Objects.hash(mLevels, mTimestamps, mSelectedIndex, mAxisLabelPosition,
+                mConsumptionValues);
     }
 
     @Override
@@ -162,6 +216,7 @@ class BatteryChartViewModel {
         final BatteryChartViewModel batteryChartViewModel = (BatteryChartViewModel) other;
         return Objects.equals(mLevels, batteryChartViewModel.mLevels)
                 && Objects.equals(mTimestamps, batteryChartViewModel.mTimestamps)
+                && Objects.equals(mConsumptionValues, batteryChartViewModel.mConsumptionValues)
                 && mAxisLabelPosition == batteryChartViewModel.mAxisLabelPosition
                 && mSelectedIndex == batteryChartViewModel.mSelectedIndex;
     }

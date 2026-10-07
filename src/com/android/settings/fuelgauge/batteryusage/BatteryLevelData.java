@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2026 The ArkUI Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -110,6 +111,7 @@ public final class BatteryLevelData {
 
     // The size of hourly data must be the size of daily data - 1.
     private final List<PeriodBatteryLevelData> mHourlyBatteryLevelsPerDay;
+    private final List<Integer> mDailyDischargePercentages;
 
     public BatteryLevelData(@NonNull Map<Long, Integer> batteryLevelMap) {
         final int mapSize = batteryLevelMap.size();
@@ -126,6 +128,8 @@ public final class BatteryLevelData {
 
         mDailyBatteryLevels =
                 new PeriodBatteryLevelData(batteryLevelMap, dailyTimestamps, isStartTimestamp);
+        mDailyDischargePercentages =
+                calculateDailyDischarge(batteryLevelMap, timestampList, dailyTimestamps);
         mHourlyBatteryLevelsPerDay = new ArrayList<>(hourlyTimestamps.size());
         for (int i = 0; i < hourlyTimestamps.size(); i++) {
             final List<Long> hourlyTimestampsPerDay = hourlyTimestamps.get(i);
@@ -154,6 +158,39 @@ public final class BatteryLevelData {
 
     public List<PeriodBatteryLevelData> getHourlyBatteryLevelsPerDay() {
         return mHourlyBatteryLevelsPerDay;
+    }
+
+    /** Battery percentage discharged during each day, including multiple charge cycles. */
+    public List<Integer> getDailyDischargePercentages() {
+        return mDailyDischargePercentages;
+    }
+
+    private static List<Integer> calculateDailyDischarge(
+            Map<Long, Integer> levels, List<Long> timestamps, List<Long> dayBoundaries) {
+        final List<Integer> result = new ArrayList<>(dayBoundaries.size() - 1);
+        for (int day = 0; day < dayBoundaries.size() - 1; day++) {
+            double discharged = 0;
+            boolean hasHistory = false;
+            final long dayStart = dayBoundaries.get(day);
+            final long dayEnd = dayBoundaries.get(day + 1);
+            for (int index = 0; index < timestamps.size() - 1; index++) {
+                final long start = timestamps.get(index);
+                final long end = timestamps.get(index + 1);
+                final long overlap = Math.min(dayEnd, end) - Math.max(dayStart, start);
+                final Integer startLevel = levels.get(start);
+                final Integer endLevel = levels.get(end);
+                if (overlap <= 0 || end <= start || startLevel == null || endLevel == null
+                        || startLevel < 0 || endLevel < 0) {
+                    continue;
+                }
+                hasHistory = true;
+                // Only discharge counts as usage. Split a sample crossing midnight by duration.
+                // The card labels this as an estimate: charging between samples is unobservable.
+                discharged += Math.max(0, startLevel - endLevel) * (double) overlap / (end - start);
+            }
+            result.add(hasHistory ? (int) Math.round(discharged) : BATTERY_LEVEL_UNKNOWN);
+        }
+        return result;
     }
 
     @Override

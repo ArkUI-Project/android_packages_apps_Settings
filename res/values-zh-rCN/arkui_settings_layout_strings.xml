@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_display_brightness_title">显示与亮度</string>
+    <string name="arkui_display_light_mode">浅色模式</string>
+    <string name="arkui_display_dark_mode">深色模式</string>
+    <string name="arkui_display_dark_settings">深色模式设置</string>
+    <string name="arkui_display_content_group">显示内容</string>
+    <string name="arkui_display_wake_group">唤醒与交互</string>
+    <string name="arkui_display_advanced_group">高级显示</string>
+    <string name="arkui_features_personalization_group">个性化</string>
+    <string name="arkui_features_intelligence_group">主动智能</string>
+    <string name="arkui_features_privacy_group">隐私与兼容</string>
+    <string name="arkui_features_tools_group">便捷工具</string>
+    <string name="arkui_features_apps_group">应用与游戏</string>
+    <string name="arkui_features_multitasking_group">界面与多任务</string>
+    <string name="arkui_desktop_content_group">桌面内容与建议</string>
+    <string name="arkui_battery_usage_group">用量与续航</string>
+    <string name="arkui_battery_charging_group">充电</string>
+    <string name="arkui_battery_display_group">电量显示</string>
+    <string name="arkui_battery_daily_usage">每日用量</string>
+    <string name="arkui_battery_usage_estimate" formatted="false">用量根据电量记录估算，多次充电后可能超过 100%。</string>
+    <string name="arkui_battery_all_days">全部记录日期</string>
+    <string name="arkui_battery_level_history">电量变化</string>
+    <string name="arkui_battery_screen_on">亮屏时长</string>
+    <string name="arkui_battery_screen_off">灭屏时长</string>
+    <string name="arkui_battery_level_legend">电量</string>
+    <string name="arkui_battery_low_legend">低电量</string>
+    <string name="arkui_battery_recovery_legend">电量回升</string>
+    <string name="arkui_battery_usage_unavailable">暂无用量记录</string>
+</resources>

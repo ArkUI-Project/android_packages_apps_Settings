@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_display_brightness_title">Display &amp; brightness</string>
+    <string name="arkui_display_light_mode">Light mode</string>
+    <string name="arkui_display_dark_mode">Dark mode</string>
+    <string name="arkui_display_dark_settings">Dark theme settings</string>
+    <string name="arkui_display_content_group">Display content</string>
+    <string name="arkui_display_wake_group">Wake &amp; interaction</string>
+    <string name="arkui_display_advanced_group">Advanced display</string>
+    <string name="arkui_features_personalization_group">Personalization</string>
+    <string name="arkui_features_intelligence_group">Intelligence</string>
+    <string name="arkui_features_privacy_group">Privacy &amp; compatibility</string>
+    <string name="arkui_features_tools_group">Convenience tools</string>
+    <string name="arkui_features_apps_group">Apps &amp; games</string>
+    <string name="arkui_features_multitasking_group">Interface &amp; multitasking</string>
+    <string name="arkui_desktop_content_group">Home content &amp; suggestions</string>
+    <string name="arkui_battery_usage_group">Usage &amp; battery life</string>
+    <string name="arkui_battery_charging_group">Charging</string>
+    <string name="arkui_battery_display_group">Battery display</string>
+    <string name="arkui_battery_daily_usage">Daily usage</string>
+    <string name="arkui_battery_usage_estimate" formatted="false">Estimated from recorded battery levels. Usage can exceed 100% when the battery is recharged.</string>
+    <string name="arkui_battery_all_days">All recorded days</string>
+    <string name="arkui_battery_level_history">Battery level</string>
+    <string name="arkui_battery_screen_on">Screen on</string>
+    <string name="arkui_battery_screen_off">Screen off</string>
+    <string name="arkui_battery_level_legend">Level</string>
+    <string name="arkui_battery_low_legend">Low battery</string>
+    <string name="arkui_battery_recovery_legend">Level rising</string>
+    <string name="arkui_battery_usage_unavailable">No usage history yet</string>
+</resources>

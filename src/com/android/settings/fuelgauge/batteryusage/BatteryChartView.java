@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2026 The ArkUI Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +24,6 @@ import static com.android.settingslib.fuelgauge.BatteryStatus.BATTERY_LEVEL_UNKN
 
 import static java.lang.Math.abs;
 import static java.lang.Math.round;
-import static java.util.Objects.requireNonNull;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -31,7 +31,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.CornerPathEffect;
 import android.graphics.Paint;
-import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -65,7 +64,6 @@ import java.util.Set;
 public class BatteryChartView extends AppCompatImageView implements View.OnClickListener {
     private static final String TAG = "BatteryChartView";
 
-    private static final int DIVIDER_COLOR = Color.parseColor("#CDCCC5");
     private static final int HORIZONTAL_DIVIDER_COUNT = 5;
 
     /** A callback listener for selected group index is updated. */
@@ -91,6 +89,9 @@ public class BatteryChartView extends AppCompatImageView implements View.OnClick
     private int mTrapezoidColor;
     private int mTrapezoidSolidColor;
     private int mTrapezoidHoverColor;
+    private int mDividerColor;
+    private int mLowBatteryColor;
+    private int mRecoveryColor;
     private int mDefaultTextColor;
     private int mTextPadding;
     private int mTransomIconSize;
@@ -141,6 +142,9 @@ public class BatteryChartView extends AppCompatImageView implements View.OnClick
                         viewModel.selectedIndex(),
                         viewModel.getHighlightSlotIndex()));
         mViewModel = viewModel;
+        final int maximum = viewModel.getChartMaximum();
+        mPercentages[0] = formatPercentage(maximum, /* round= */ true);
+        mPercentages[1] = formatPercentage(maximum / 2, /* round= */ true);
         initializeAxisLabelsBounds();
         initializeTrapezoidSlots(viewModel.size() - 1);
         setClickable(hasAnyValidTrapezoid(viewModel));
@@ -179,7 +183,9 @@ public class BatteryChartView extends AppCompatImageView implements View.OnClick
                         mPercentageBounds[index]);
             }
             // Updates the indent configurations.
-            mIndent.top = mPercentageBounds[0].height() + mTransomViewHeight;
+            mIndent.top = mPercentageBounds[0].height() + (isHighlightSlotValid()
+                    ? mTransomViewHeight
+                    : Math.round(8 * getResources().getDisplayMetrics().density));
             final int textWidth = mPercentageBounds[0].width() + mTextPadding;
             if (isRTL()) {
                 mIndent.left = textWidth;
@@ -334,13 +340,16 @@ public class BatteryChartView extends AppCompatImageView implements View.OnClick
         mTrapezoidColor = Utils.getDisabled(context, mTrapezoidSolidColor);
         mTrapezoidHoverColor =
                 context.getColor(com.android.internal.R.color.materialColorSecondaryContainer);
+        mDividerColor = context.getColor(com.android.internal.R.color.materialColorOutlineVariant);
+        mLowBatteryColor = context.getColor(com.android.internal.R.color.materialColorTertiary);
+        mRecoveryColor = context.getColor(com.android.internal.R.color.materialColorSecondary);
         // Initializes the divider line paint.
         final Resources resources = getContext().getResources();
         mDividerWidth = resources.getDimensionPixelSize(R.dimen.chartview_divider_width);
         mDividerHeight = resources.getDimensionPixelSize(R.dimen.chartview_divider_height);
         mDividerPaint = new Paint();
         mDividerPaint.setAntiAlias(true);
-        mDividerPaint.setColor(DIVIDER_COLOR);
+        mDividerPaint.setColor(mDividerColor);
         mDividerPaint.setStyle(Paint.Style.STROKE);
         mDividerPaint.setStrokeWidth(mDividerWidth);
         Log.i(TAG, "mDividerWidth:" + mDividerWidth);
@@ -375,7 +384,7 @@ public class BatteryChartView extends AppCompatImageView implements View.OnClick
         final int transomRadius = resources.getDimensionPixelSize(R.dimen.chartview_transom_radius);
         mTransomPadding = transomRadius * .5f;
         mTransomTop = resources.getDimensionPixelSize(R.dimen.chartview_transom_padding_top);
-        mTransomLineDefaultColor = Utils.getDisabled(mContext, DIVIDER_COLOR);
+        mTransomLineDefaultColor = Utils.getDisabled(mContext, mDividerColor);
         mTransomLineSelectedColor =
                 resources.getColor(
                         com.android.settingslib.widget.preference.banner.R.color
@@ -403,16 +412,15 @@ public class BatteryChartView extends AppCompatImageView implements View.OnClick
         final float bottomOffsetY = mIndent.top + (height - mDividerHeight - mDividerWidth * .5f);
         final float availableSpace = bottomOffsetY - topOffsetY;
 
-        mDividerPaint.setColor(DIVIDER_COLOR);
+        mDividerPaint.setColor(mDividerColor);
         final float dividerOffsetUnit = availableSpace / (float) (HORIZONTAL_DIVIDER_COUNT - 1);
 
         // Draws 5 divider lines.
         for (int index = 0; index < HORIZONTAL_DIVIDER_COUNT; index++) {
             float offsetY = topOffsetY + dividerOffsetUnit * index;
-            canvas.drawLine(mIndent.left, offsetY, mIndent.left + width, offsetY, mDividerPaint);
-
-            //  Draws percentage text only for 100% / 50% / 0%
+            // Keep the grid quiet, with the same three marks as the percentage axis.
             if (index % 2 == 0) {
+                canvas.drawLine(mIndent.left, offsetY, mIndent.left + width, offsetY, mDividerPaint);
                 drawPercentage(canvas, /* index= */ (index + 1) / 2, offsetY);
             }
         }
@@ -476,7 +484,7 @@ public class BatteryChartView extends AppCompatImageView implements View.OnClick
                 mDividerPaint.setColor(mTrapezoidSolidColor);
                 dividerY += mDividerHeight / 4f;
             } else {
-                mDividerPaint.setColor(DIVIDER_COLOR);
+                mDividerPaint.setColor(mDividerColor);
             }
             canvas.drawLine(startX, startY, startX, dividerY, mDividerPaint);
             final float nextX = startX + mDividerWidth + unitWidth;
@@ -611,49 +619,33 @@ public class BatteryChartView extends AppCompatImageView implements View.OnClick
                 getHeight() - mIndent.bottom - mDividerHeight - mDividerWidth - mTrapezoidVOffset;
         final float availableSpace =
                 trapezoidBottom - mDividerWidth * .5f - mIndent.top - mTrapezoidVOffset;
-        final float unitHeight = availableSpace / 100f;
-        // Draws all trapezoid shapes into the canvas.
-        final Path trapezoidPath = new Path();
-        Path trapezoidCurvePath = null;
+        final float unitHeight = availableSpace / mViewModel.getChartMaximum();
+        final float density = getResources().getDisplayMetrics().density;
+        final boolean daily = mViewModel.isConsumptionChart();
         for (int index = 0; index < mTrapezoidSlots.length; index++) {
-            // Not draws the trapezoid for corner or not initialization cases.
             if (!isValidToDraw(mViewModel, index)) {
                 continue;
             }
-            // Configures the trapezoid paint color.
-            final int trapezoidColor =
-                    (mViewModel.selectedIndex() == index
-                                    || mViewModel.selectedIndex() == SELECTED_INDEX_ALL)
-                            ? mTrapezoidSolidColor
-                            : mTrapezoidColor;
+            final float value = daily ? mViewModel.getConsumption(index)
+                    : (mViewModel.getLevel(index) + mViewModel.getLevel(index + 1)) / 2f;
+            final boolean rising = !daily
+                    && mViewModel.getLevel(index + 1) > mViewModel.getLevel(index);
+            final boolean selected = mViewModel.selectedIndex() == index
+                    || mViewModel.selectedIndex() == SELECTED_INDEX_ALL;
+            final int solidColor = !daily && value <= 20 ? mLowBatteryColor
+                    : rising ? mRecoveryColor : mTrapezoidSolidColor;
+            final int barColor = selected ? solidColor : Utils.getDisabled(mContext, solidColor);
             final boolean isHoverState =
                     mHoveredIndex == index && isValidToDraw(mViewModel, mHoveredIndex);
-            mTrapezoidPaint.setColor(isHoverState ? mTrapezoidHoverColor : trapezoidColor);
-
-            float leftTop =
-                    round(
-                            trapezoidBottom
-                                    - requireNonNull(mViewModel.getLevel(index)) * unitHeight);
-            float rightTop =
-                    round(
-                            trapezoidBottom
-                                    - requireNonNull(mViewModel.getLevel(index + 1)) * unitHeight);
-            // Mirror the shape of the trapezoid for RTL
-            if (isRTL()) {
-                float temp = leftTop;
-                leftTop = rightTop;
-                rightTop = temp;
-            }
-            trapezoidPath.reset();
-            trapezoidPath.moveTo(mTrapezoidSlots[index].mLeft, trapezoidBottom);
-            trapezoidPath.lineTo(mTrapezoidSlots[index].mLeft, leftTop);
-            trapezoidPath.lineTo(mTrapezoidSlots[index].mRight, rightTop);
-            trapezoidPath.lineTo(mTrapezoidSlots[index].mRight, trapezoidBottom);
-            // A tricky way to make the trapezoid shape drawing the rounded corner.
-            trapezoidPath.lineTo(mTrapezoidSlots[index].mLeft, trapezoidBottom);
-            trapezoidPath.lineTo(mTrapezoidSlots[index].mLeft, leftTop);
-            // Draws the trapezoid shape into canvas.
-            canvas.drawPath(trapezoidPath, mTrapezoidPaint);
+            mTrapezoidPaint.setColor(isHoverState ? mTrapezoidHoverColor : barColor);
+            final TrapezoidSlot slot = mTrapezoidSlots[index];
+            final float width = Math.max(density,
+                    Math.min((daily ? 28 : 14) * density, slot.mRight - slot.mLeft - 3 * density));
+            final float center = (slot.mLeft + slot.mRight) / 2f;
+            final float top = trapezoidBottom - Math.max(2 * density, value * unitHeight);
+            final float radius = Math.min(width / 2, 6 * density);
+            canvas.drawRoundRect(center - width / 2, top, center + width / 2,
+                    trapezoidBottom, radius, radius, mTrapezoidPaint);
         }
     }
 
@@ -732,6 +724,9 @@ public class BatteryChartView extends AppCompatImageView implements View.OnClick
 
     private static boolean isTrapezoidValid(
             @NonNull BatteryChartViewModel viewModel, int trapezoidIndex) {
+        if (viewModel.isConsumptionChart()) {
+            return viewModel.getConsumption(trapezoidIndex) != BATTERY_LEVEL_UNKNOWN;
+        }
         return viewModel.getLevel(trapezoidIndex) != BATTERY_LEVEL_UNKNOWN
                 && viewModel.getLevel(trapezoidIndex + 1) != BATTERY_LEVEL_UNKNOWN;
     }

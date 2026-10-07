@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2024 The Android Open Source Project
+     Copyright (C) 2026 The ArkUI Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -44,8 +45,9 @@
         android:title="@string/summary_placeholder"
         settings:controller="com.android.settings.fuelgauge.batterytip.BatteryTipPreferenceController" />
 
-    <com.android.settingslib.widget.UntitledPreferenceCategory
-        android:key="power_usage_summary_category">
+    <PreferenceCategory
+        android:key="power_usage_summary_category"
+        android:title="@string/arkui_battery_usage_group">
         <Preference
             android:fragment="com.android.settings.fuelgauge.batteryusage.PowerUsageAdvanced"
             android:key="battery_usage_summary"
@@ -72,10 +74,11 @@
             android:key="battery_lights"
             settings:requiresConfig="@*lineageos.platform:integer/config_deviceLightCapabilities"
             settings:requiresConfigMask="64" />
-    </com.android.settingslib.widget.UntitledPreferenceCategory>
+    </PreferenceCategory>
 
-    <com.android.settingslib.widget.UntitledPreferenceCategory
-        android:key="charging_category">
+    <PreferenceCategory
+        android:key="charging_category"
+        android:title="@string/arkui_battery_charging_group">
         <!-- Charging control -->
         <lineageos.preference.LineagePartsPreference
             android:key="charging_control"
@@ -90,16 +93,17 @@
             android:title="@*lineageos.platform:string/charging_speed"
             settings:controller="com.android.settings.fuelgauge.ChargingSpeedPreferenceController"
             settings:requiresService="lineagehealth" />
-    </com.android.settingslib.widget.UntitledPreferenceCategory>
+    </PreferenceCategory>
 
-    <com.android.settingslib.widget.UntitledPreferenceCategory
-        android:key="percentage_category">
+    <PreferenceCategory
+        android:key="percentage_category"
+        android:title="@string/arkui_battery_display_group">
         <SwitchPreferenceCompat
             android:key="status_bar_show_battery_percent"
             android:title="@string/battery_percentage"
             android:summary="@string/battery_percentage_description"
             settings:controller="com.android.settings.display.BatteryPercentagePreferenceController" />
-    </com.android.settingslib.widget.UntitledPreferenceCategory>
+    </PreferenceCategory>
 
     <Preference
         android:key="battery_info"

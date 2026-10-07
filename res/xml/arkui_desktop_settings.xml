@@ -28,6 +28,10 @@
         <SwitchPreferenceCompat android:key="pref_desktop_show_labels"
             android:title="@string/arkui_desktop_labels"
             android:persistent="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="desktop_content"
+        android:title="@string/arkui_desktop_content_group">
         <Preference android:key="pref_icon_badging"
             android:title="@string/arkui_desktop_notification_dots" />
         <SwitchPreferenceCompat android:key="pref_enable_minus_one"
