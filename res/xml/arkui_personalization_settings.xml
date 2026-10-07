@@ -9,7 +9,7 @@
 
     <Preference android:key="arkui_fonts" android:title="@string/arkui_fonts_title"
         android:summary="@string/arkui_fonts_summary"
-        android:icon="@drawable/ic_font_download"
+        android:icon="@drawable/ic_text_fields_alt"
         android:fragment="com.android.settings.arkui.personalization.ArkuiFontsSettings" />
 
     <Preference android:key="arkui_quick_settings" android:title="@string/arkui_quick_title"

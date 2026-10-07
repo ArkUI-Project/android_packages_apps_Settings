@@ -5,7 +5,7 @@
     <PreferenceCategory android:key="arkui_font_choices" android:title="@string/arkui_font_family" />
 
     <Preference android:key="arkui_font_size" android:title="@string/arkui_font_size_title"
-        android:summary="@string/arkui_font_size_summary" android:icon="@drawable/ic_font_download">
+        android:summary="@string/arkui_font_size_summary" android:icon="@drawable/ic_text_fields_alt">
         <intent android:action="android.settings.TEXT_READING_SETTINGS" />
     </Preference>
 
