@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:title="@string/arkui_fonts_title">
+    <PreferenceCategory android:key="arkui_font_choices" android:title="@string/arkui_font_family" />
+
+    <Preference android:key="arkui_font_size" android:title="@string/arkui_font_size_title"
+        android:summary="@string/arkui_font_size_summary" android:icon="@drawable/ic_font_download">
+        <intent android:action="android.settings.TEXT_READING_SETTINGS" />
+    </Preference>
+
+    <com.android.settingslib.widget.FooterPreference android:key="arkui_font_note"
+        android:title="@string/arkui_font_note" android:selectable="false" />
+</PreferenceScreen>

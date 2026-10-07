@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_personalization_title">Personalization</string>
+    <string name="arkui_personalization_summary">Status bar, fonts, quick settings and system style</string>
+    <string name="arkui_status_bar_title">Status bar</string>
+    <string name="arkui_status_bar_summary">Clock, battery, network speed and system icons</string>
+    <string name="arkui_fonts_title">Fonts</string>
+    <string name="arkui_fonts_summary">Preview and choose the system font</string>
+    <string name="arkui_quick_title">Quick settings</string>
+    <string name="arkui_quick_summary">Pull-down gesture and brightness controls</string>
+    <string name="arkui_status_icons_title">System icons</string>
+    <string name="arkui_status_icons_summary">Choose which status icons are visible</string>
+    <string name="arkui_clock_category">Clock</string>
+    <string name="arkui_clock_position">Clock position</string>
+    <string name="arkui_clock_seconds">Show seconds</string>
+    <string name="arkui_clock_seconds_summary">Update the clock every second while the screen is on</string>
+    <string name="arkui_clock_date">Date beside the clock</string>
+    <string name="arkui_clock_auto_hide">Hide clock on the home screen</string>
+    <string name="arkui_clock_auto_hide_summary">Keep the clock visible inside apps</string>
+    <string name="arkui_clock_ampm">AM and PM style</string>
+    <string name="arkui_battery_category">Battery</string>
+    <string name="arkui_battery_style">Battery style</string>
+    <string name="arkui_battery_percent">Battery percentage</string>
+    <string name="arkui_traffic_category">Network speed</string>
+    <string name="arkui_traffic_mode">Traffic display</string>
+    <string name="arkui_traffic_position">Network speed position</string>
+    <string name="arkui_traffic_auto_hide">Hide when idle</string>
+    <string name="arkui_traffic_auto_hide_summary">Only show network speed while data is being transferred</string>
+    <string name="arkui_traffic_hide_arrows">Hide direction arrows</string>
+    <string name="arkui_traffic_units">Speed units</string>
+    <string name="arkui_status_bar_note">Changes apply immediately. A centered clock and centered network speed share the same space; use a side position for one of them. A centered display cutout also reserves this space.</string>
+    <string name="arkui_quick_gesture_category">Pull-down gesture</string>
+    <string name="arkui_quick_brightness_category">Brightness controls</string>
+    <string name="arkui_quick_pulldown">Open quick settings directly</string>
+    <string name="arkui_quick_brightness">Show brightness slider</string>
+    <string name="arkui_quick_brightness_position">Brightness slider position</string>
+    <string name="arkui_quick_auto_brightness">Automatic brightness button</string>
+    <string name="arkui_quick_auto_brightness_summary">Show an automatic brightness shortcut beside the slider</string>
+    <string name="arkui_font_family">System font</string>
+    <string name="arkui_font_sample">Aa · 0123456789\nThe quick brown fox</string>
+    <string name="arkui_font_size_title">Text size and weight</string>
+    <string name="arkui_font_size_summary">Adjust font size, display size and bold text with a preview</string>
+    <string name="arkui_font_note">Google Sans Flex remains the default. The selection changes system interface fonts immediately; apps with their own fonts may keep them. Unsupported characters, including Chinese in Latin-only fonts, use system fallback fonts. Font licenses are available in the system open-source licenses.</string>
+    <string name="arkui_personalization_save_error">Could not save the selection</string>
+    <string name="arkui_compatibility_title">Advanced compatibility</string>
+    <string name="arkui_compatibility_summary">Screenshot restrictions, app update signatures and downgrades</string>
+    <string name="arkui_capture_category">Screen capture</string>
+    <string name="arkui_install_category">App installation</string>
+    <string name="arkui_ignore_secure_title">Ignore secure screenshot flag</string>
+    <string name="arkui_ignore_secure_summary">Ignore app window FLAG_SECURE for screenshots and recordings. Device policy and sensitive content protection still apply. Protected DRM video may remain black.</string>
+    <string name="arkui_block_capture_detection_title">Block screenshot detection</string>
+    <string name="arkui_block_capture_detection_summary">Do not deliver Android screenshot callbacks to apps. Apps may use other detection methods.</string>
+    <string name="arkui_disable_signature_title">Disable signature verification</string>
+    <string name="arkui_disable_signature_summary">Allow a differently signed APK to replace an ordinary app and retain its data. This applies to all users. System apps, shared UIDs, APK integrity and signature permissions still use normal verification.</string>
+    <string name="arkui_downgrade_title">Allow app downgrades</string>
+    <string name="arkui_downgrade_summary">Install an older version of an ordinary app without uninstalling it. Applies to all users. Older versions may not understand data created by newer versions.</string>
+    <string name="arkui_compatibility_owner_note">Only the device owner user can change installation compatibility, because installed APKs are shared across users.</string>
+    <string name="arkui_compatibility_note">All options are off by default and take effect without a restart. Ignoring capture restrictions can expose private screen content; allowing another signing key lets a replacement app read the previous app data. Enable an option only when you need it.</string>
+    <string name="arkui_icon_clock">Clock</string>
+    <string name="arkui_icon_wifi">Wi-Fi</string>
+    <string name="arkui_icon_mobile">Mobile network</string>
+    <string name="arkui_icon_bluetooth">Bluetooth</string>
+    <string name="arkui_icon_alarm">Alarm</string>
+    <string name="arkui_icon_volume">Sound mode</string>
+    <string name="arkui_icon_zen">Do Not Disturb</string>
+    <string name="arkui_icon_airplane">Airplane mode</string>
+    <string name="arkui_icon_location">Location</string>
+    <string name="arkui_icon_rotate">Rotation lock</string>
+    <string name="arkui_icon_headset">Headphones</string>
+    <string name="arkui_status_icon_note">These switches control icon visibility and do not change the feature itself. Privacy indicators for the camera, microphone and screen sharing remain visible.</string>
+
+    <string-array name="arkui_three_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="arkui_four_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="arkui_five_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="arkui_two_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="arkui_clock_values" translatable="false">
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="arkui_clock_side_values" translatable="false">
+        <item>2</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="arkui_traffic_position_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="arkui_traffic_side_values" translatable="false">
+        <item>0</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="arkui_battery_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>3</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="arkui_clock_entries">
+        <item>Start</item>
+        <item>Center</item>
+        <item>End</item>
+    </string-array>
+    <string-array name="arkui_clock_side_entries">
+        <item>Start</item>
+        <item>End</item>
+    </string-array>
+    <string-array name="arkui_traffic_position_entries">
+        <item>Start</item>
+        <item>Center</item>
+        <item>End</item>
+    </string-array>
+    <string-array name="arkui_traffic_side_entries">
+        <item>Start</item>
+        <item>End</item>
+    </string-array>
+    <string-array name="arkui_date_entries">
+        <item>Hidden</item>
+        <item>Day of week</item>
+        <item>Short date</item>
+    </string-array>
+    <string-array name="arkui_ampm_entries">
+        <item>Normal</item>
+        <item>Small</item>
+        <item>Hidden</item>
+    </string-array>
+    <string-array name="arkui_battery_entries">
+        <item>Landscape</item>
+        <item>Circle</item>
+        <item>Dotted circle</item>
+        <item>Percentage only</item>
+    </string-array>
+    <string-array name="arkui_battery_percent_entries">
+        <item>Hidden</item>
+        <item>Inside the icon</item>
+        <item>Beside the icon</item>
+    </string-array>
+    <string-array name="arkui_traffic_mode_entries">
+        <item>Off</item>
+        <item>Upload</item>
+        <item>Download</item>
+        <item>Upload and download</item>
+    </string-array>
+    <string-array name="arkui_traffic_units_entries">
+        <item>kb/s</item>
+        <item>Mb/s</item>
+        <item>KB/s</item>
+        <item>MB/s</item>
+        <item>Automatic</item>
+    </string-array>
+    <string-array name="arkui_pulldown_entries">
+        <item>Off</item>
+        <item>End edge</item>
+        <item>Start edge</item>
+    </string-array>
+    <string-array name="arkui_brightness_entries">
+        <item>Never</item>
+        <item>When expanded</item>
+        <item>Always</item>
+    </string-array>
+    <string-array name="arkui_brightness_position_entries">
+        <item>Top</item>
+        <item>Bottom</item>
+    </string-array>
+</resources>

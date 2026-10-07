@@ -1,4 +1,14 @@
 
+ArkUI personalization and compatibility controls
+Feature references: RisingOS Revived Personalizations and LineageOS status bar settings.
+https://github.com/RisingOS-Revived/android_packages_apps_Personalizations
+https://github.com/LineageOS/android_packages_apps_LineageParts
+Copyright (C) 2023-2024 The risingOS Android Project (upstream feature references)
+Copyright (C) The LineageOS Project (existing status bar and theme engines)
+Copyright (C) 2026 The ArkUI Project (native settings and integration)
+ArkUI settings implementation: Apache License, Version 2.0, reproduced below.
+Font assets retain their original licenses in their source packages and system notices.
+
 ArkUI native intelligence, SMS suggestion and lyrics controls
 Feature reference: AviumUseful and AviumLyricBarCore (AviumUI, avium-16.2).
 https://github.com/AviumUI/android_packages_apps_AviumUseful

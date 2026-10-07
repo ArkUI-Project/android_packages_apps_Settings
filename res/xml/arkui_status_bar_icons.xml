@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:title="@string/arkui_status_icons_title">
+        <SwitchPreferenceCompat android:key="icon_clock" android:title="@string/arkui_icon_clock" android:persistent="false" />
+
+        <SwitchPreferenceCompat android:key="icon_wifi" android:title="@string/arkui_icon_wifi" android:persistent="false" />
+
+        <SwitchPreferenceCompat android:key="icon_mobile" android:title="@string/arkui_icon_mobile" android:persistent="false" />
+
+        <SwitchPreferenceCompat android:key="icon_bluetooth" android:title="@string/arkui_icon_bluetooth" android:persistent="false" />
+
+        <SwitchPreferenceCompat android:key="icon_alarm_clock" android:title="@string/arkui_icon_alarm" android:persistent="false" />
+
+        <SwitchPreferenceCompat android:key="icon_volume" android:title="@string/arkui_icon_volume" android:persistent="false" />
+
+        <SwitchPreferenceCompat android:key="icon_zen" android:title="@string/arkui_icon_zen" android:persistent="false" />
+
+        <SwitchPreferenceCompat android:key="icon_airplane" android:title="@string/arkui_icon_airplane" android:persistent="false" />
+
+        <SwitchPreferenceCompat android:key="icon_location" android:title="@string/arkui_icon_location" android:persistent="false" />
+
+        <SwitchPreferenceCompat android:key="icon_rotate" android:title="@string/arkui_icon_rotate" android:persistent="false" />
+
+        <SwitchPreferenceCompat android:key="icon_headset" android:title="@string/arkui_icon_headset" android:persistent="false" />
+
+    <com.android.settingslib.widget.FooterPreference android:key="arkui_status_icon_note"
+        android:title="@string/arkui_status_icon_note" android:selectable="false" />
+</PreferenceScreen>

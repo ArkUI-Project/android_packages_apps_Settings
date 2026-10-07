@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:title="@string/arkui_personalization_title">
+    <Preference android:key="arkui_status_bar" android:title="@string/arkui_status_bar_title"
+        android:summary="@string/arkui_status_bar_summary"
+        android:icon="@drawable/ic_settings_system_bar_motion"
+        android:fragment="com.android.settings.arkui.personalization.ArkuiStatusBarSettings" />
+
+    <Preference android:key="arkui_fonts" android:title="@string/arkui_fonts_title"
+        android:summary="@string/arkui_fonts_summary"
+        android:icon="@drawable/ic_font_download"
+        android:fragment="com.android.settings.arkui.personalization.ArkuiFontsSettings" />
+
+    <Preference android:key="arkui_quick_settings" android:title="@string/arkui_quick_title"
+        android:summary="@string/arkui_quick_summary"
+        android:icon="@drawable/ic_settings_shade_panels"
+        android:fragment="com.android.settings.arkui.personalization.ArkuiQuickSettings" />
+
+    <Preference android:key="arkui_personalization_depth" android:title="@string/arkui_depth_title"
+        android:summary="@string/arkui_depth_summary"
+        android:icon="@drawable/ic_settings_wallpaper_filled"
+        android:fragment="com.android.settings.arkui.depth.ArkuiDepthWallpaperSettings" />
+
+</PreferenceScreen>

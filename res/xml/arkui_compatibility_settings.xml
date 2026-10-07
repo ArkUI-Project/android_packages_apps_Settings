@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:title="@string/arkui_compatibility_title">
+    <PreferenceCategory android:title="@string/arkui_capture_category">
+        <SwitchPreferenceCompat android:key="arkui_ignore_secure_flag" android:title="@string/arkui_ignore_secure_title"
+            android:summary="@string/arkui_ignore_secure_summary" android:persistent="false" />
+
+        <SwitchPreferenceCompat android:key="arkui_block_screenshot_detection" android:title="@string/arkui_block_capture_detection_title"
+            android:summary="@string/arkui_block_capture_detection_summary" android:persistent="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/arkui_install_category">
+        <SwitchPreferenceCompat android:key="arkui_disable_update_signature_check" android:title="@string/arkui_disable_signature_title"
+            android:summary="@string/arkui_disable_signature_summary" android:persistent="false" />
+
+        <SwitchPreferenceCompat android:key="arkui_allow_app_downgrade" android:title="@string/arkui_downgrade_title"
+            android:summary="@string/arkui_downgrade_summary" android:persistent="false" />
+    </PreferenceCategory>
+
+    <com.android.settingslib.widget.FooterPreference android:key="arkui_compatibility_owner_note"
+        android:title="@string/arkui_compatibility_owner_note" android:selectable="false" />
+
+    <com.android.settingslib.widget.FooterPreference android:key="arkui_compatibility_note"
+        android:title="@string/arkui_compatibility_note" android:selectable="false" />
+</PreferenceScreen>

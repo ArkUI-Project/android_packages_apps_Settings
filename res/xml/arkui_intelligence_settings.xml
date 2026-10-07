@@ -3,6 +3,10 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:title="@string/arkui_intelligence_title">
     <com.android.settings.widget.SettingsMainSwitchPreference android:key="arkui_intelligence_enabled" android:title="@string/arkui_intelligence_enable" android:persistent="false" />
     <com.android.settingslib.widget.TopIntroPreference android:title="@string/arkui_intelligence_intro" />
+    <Preference android:key="arkui_sms_codes"
+        android:title="@string/arkui_sms_code_title" android:summary="@string/arkui_sms_code_summary"
+        android:icon="@drawable/ic_settings_security_filled"
+        android:fragment="com.android.settings.arkui.intelligence.ArkuiSmsCodeSettings" />
     <PreferenceCategory android:title="@string/arkui_intelligence_clipboard">
         <com.android.settingslib.widget.AppSwitchPreference android:key="arkui_intelligence_app_links" android:title="@string/arkui_intelligence_app_links" android:summary="@string/arkui_intelligence_app_links_summary" android:persistent="false" />
         <com.android.settingslib.widget.AppSwitchPreference android:key="arkui_intelligence_web_links" android:title="@string/arkui_intelligence_web_links" android:summary="@string/arkui_intelligence_web_links_summary" android:persistent="false" />

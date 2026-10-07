@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_personalization_title">个性化</string>
+    <string name="arkui_personalization_summary">状态栏、字体、快捷设置与系统风格</string>
+    <string name="arkui_status_bar_title">状态栏</string>
+    <string name="arkui_status_bar_summary">时钟、电池、实时网速与系统图标</string>
+    <string name="arkui_fonts_title">字体</string>
+    <string name="arkui_fonts_summary">预览并选择系统字体</string>
+    <string name="arkui_quick_title">快捷设置</string>
+    <string name="arkui_quick_summary">下拉手势与亮度控制</string>
+    <string name="arkui_status_icons_title">系统图标</string>
+    <string name="arkui_status_icons_summary">选择显示哪些状态图标</string>
+    <string name="arkui_clock_category">时钟</string>
+    <string name="arkui_clock_position">时钟位置</string>
+    <string name="arkui_clock_seconds">显示秒数</string>
+    <string name="arkui_clock_seconds_summary">亮屏时每秒刷新时钟</string>
+    <string name="arkui_clock_date">时钟旁的日期</string>
+    <string name="arkui_clock_auto_hide">在桌面隐藏时钟</string>
+    <string name="arkui_clock_auto_hide_summary">进入应用后显示时钟</string>
+    <string name="arkui_clock_ampm">上午与下午标记</string>
+    <string name="arkui_battery_category">电池</string>
+    <string name="arkui_battery_style">电池样式</string>
+    <string name="arkui_battery_percent">电池百分比</string>
+    <string name="arkui_traffic_category">实时网速</string>
+    <string name="arkui_traffic_mode">显示内容</string>
+    <string name="arkui_traffic_position">网速位置</string>
+    <string name="arkui_traffic_auto_hide">空闲时隐藏</string>
+    <string name="arkui_traffic_auto_hide_summary">仅在传输数据时显示网速</string>
+    <string name="arkui_traffic_hide_arrows">隐藏方向箭头</string>
+    <string name="arkui_traffic_units">网速单位</string>
+    <string name="arkui_status_bar_note">修改即时生效。居中时钟与居中网速共用同一位置，请将其中一项放在侧边；屏幕中央的挖孔也会占用此区域。</string>
+    <string name="arkui_quick_gesture_category">下拉手势</string>
+    <string name="arkui_quick_brightness_category">亮度控制</string>
+    <string name="arkui_quick_pulldown">直接展开快捷设置</string>
+    <string name="arkui_quick_brightness">显示亮度条</string>
+    <string name="arkui_quick_brightness_position">亮度条位置</string>
+    <string name="arkui_quick_auto_brightness">自动亮度按钮</string>
+    <string name="arkui_quick_auto_brightness_summary">在亮度条旁显示自动亮度快捷按钮</string>
+    <string name="arkui_font_family">系统字体</string>
+    <string name="arkui_font_sample">Aa · 0123456789\n清晰呈现每一个字</string>
+    <string name="arkui_font_size_title">文字大小与字重</string>
+    <string name="arkui_font_size_summary">结合预览调节字体大小、显示大小与粗体文字</string>
+    <string name="arkui_font_note">默认字体仍为 Google Sans Flex。选择后即时更新系统界面字体；应用自带字体可能保持原样。字体未覆盖的字符（如部分字体中的中文）会使用系统回退字体。字体许可可在系统开源许可中查看。</string>
+    <string name="arkui_personalization_save_error">无法保存此选择</string>
+    <string name="arkui_compatibility_title">高级兼容性</string>
+    <string name="arkui_compatibility_summary">截图限制、应用更新签名与版本降级</string>
+    <string name="arkui_capture_category">屏幕截取</string>
+    <string name="arkui_install_category">应用安装</string>
+    <string name="arkui_ignore_secure_title">忽略禁止截图标识符</string>
+    <string name="arkui_ignore_secure_summary">截图与录屏时忽略应用窗口的 FLAG_SECURE。设备管理策略与敏感内容保护仍生效，受 DRM 保护的视频可能仍显示黑屏。</string>
+    <string name="arkui_block_capture_detection_title">屏蔽截图检测</string>
+    <string name="arkui_block_capture_detection_summary">不向应用发送 Android 系统截图回调。应用仍可能采用其他检测方式。</string>
+    <string name="arkui_disable_signature_title">关闭签名校验</string>
+    <string name="arkui_disable_signature_summary">允许不同签名的 APK 覆盖普通应用并保留数据，对所有用户生效。系统应用、共享 UID、APK 完整性与签名权限仍按正常规则校验。</string>
+    <string name="arkui_downgrade_title">允许应用降级</string>
+    <string name="arkui_downgrade_summary">无需卸载即可覆盖安装普通应用的旧版本，对所有用户生效。旧版本可能无法读取新版本创建的数据。</string>
+    <string name="arkui_compatibility_owner_note">安装的 APK 由所有用户共用，因此仅设备主用户可以修改安装兼容性。</string>
+    <string name="arkui_compatibility_note">所有选项默认关闭，无需重启即可生效。忽略截图限制会允许截取私密界面；允许不同签名覆盖会让替换后的应用读取原应用数据。按实际需要启用。</string>
+    <string name="arkui_icon_clock">时钟</string>
+    <string name="arkui_icon_wifi">Wi-Fi</string>
+    <string name="arkui_icon_mobile">移动网络</string>
+    <string name="arkui_icon_bluetooth">蓝牙</string>
+    <string name="arkui_icon_alarm">闹钟</string>
+    <string name="arkui_icon_volume">声音模式</string>
+    <string name="arkui_icon_zen">勿扰模式</string>
+    <string name="arkui_icon_airplane">飞行模式</string>
+    <string name="arkui_icon_location">位置信息</string>
+    <string name="arkui_icon_rotate">旋转锁定</string>
+    <string name="arkui_icon_headset">耳机</string>
+    <string name="arkui_status_icon_note">这些开关仅控制图标显示，不会关闭对应功能。相机、麦克风与屏幕共享的隐私提示继续显示。</string>
+
+    <string-array name="arkui_clock_entries">
+        <item>起始侧</item>
+        <item>居中</item>
+        <item>末尾侧</item>
+    </string-array>
+    <string-array name="arkui_clock_side_entries">
+        <item>起始侧</item>
+        <item>末尾侧</item>
+    </string-array>
+    <string-array name="arkui_traffic_position_entries">
+        <item>起始侧</item>
+        <item>居中</item>
+        <item>末尾侧</item>
+    </string-array>
+    <string-array name="arkui_traffic_side_entries">
+        <item>起始侧</item>
+        <item>末尾侧</item>
+    </string-array>
+    <string-array name="arkui_date_entries">
+        <item>不显示</item>
+        <item>星期</item>
+        <item>简短日期</item>
+    </string-array>
+    <string-array name="arkui_ampm_entries">
+        <item>正常</item>
+        <item>缩小</item>
+        <item>隐藏</item>
+    </string-array>
+    <string-array name="arkui_battery_entries">
+        <item>横向电池</item>
+        <item>圆环</item>
+        <item>虚线圆环</item>
+        <item>仅百分比</item>
+    </string-array>
+    <string-array name="arkui_battery_percent_entries">
+        <item>不显示</item>
+        <item>图标内</item>
+        <item>图标旁</item>
+    </string-array>
+    <string-array name="arkui_traffic_mode_entries">
+        <item>关闭</item>
+        <item>上传</item>
+        <item>下载</item>
+        <item>上传与下载</item>
+    </string-array>
+    <string-array name="arkui_traffic_units_entries">
+        <item>kb/s</item>
+        <item>Mb/s</item>
+        <item>KB/s</item>
+        <item>MB/s</item>
+        <item>自动</item>
+    </string-array>
+    <string-array name="arkui_pulldown_entries">
+        <item>关闭</item>
+        <item>末尾侧边缘</item>
+        <item>起始侧边缘</item>
+    </string-array>
+    <string-array name="arkui_brightness_entries">
+        <item>不显示</item>
+        <item>展开后显示</item>
+        <item>始终显示</item>
+    </string-array>
+    <string-array name="arkui_brightness_position_entries">
+        <item>顶部</item>
+        <item>底部</item>
+    </string-array>
+</resources>

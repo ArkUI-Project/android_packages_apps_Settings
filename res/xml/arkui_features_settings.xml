@@ -7,14 +7,22 @@
     android:key="arkui_features_settings"
     android:title="@string/arkui_features_title">
 
+    <Preference android:key="arkui_personalization"
+        android:title="@string/arkui_personalization_title"
+        android:summary="@string/arkui_personalization_summary"
+        android:icon="@drawable/ic_color_and_motion"
+        android:fragment="com.android.settings.arkui.personalization.ArkuiPersonalizationSettings" />
+
+    <Preference android:key="arkui_compatibility"
+        android:title="@string/arkui_compatibility_title"
+        android:summary="@string/arkui_compatibility_summary"
+        android:icon="@drawable/ic_settings_security_filled"
+        android:fragment="com.android.settings.arkui.personalization.ArkuiCompatibilitySettings" />
+
     <Preference android:key="arkui_intelligence"
         android:title="@string/arkui_intelligence_title" android:summary="@string/arkui_intelligence_summary"
         android:icon="@drawable/ic_settings_arkui_features"
         android:fragment="com.android.settings.arkui.intelligence.ArkuiIntelligenceSettings" />
-    <Preference android:key="arkui_sms_codes"
-        android:title="@string/arkui_sms_code_title" android:summary="@string/arkui_sms_code_summary"
-        android:icon="@drawable/ic_settings_security_filled"
-        android:fragment="com.android.settings.arkui.intelligence.ArkuiSmsCodeSettings" />
     <Preference android:key="arkui_lyrics"
         android:title="@string/arkui_lyrics_title" android:summary="@string/arkui_lyrics_summary"
         android:icon="@drawable/ic_settings_system_bar_motion"

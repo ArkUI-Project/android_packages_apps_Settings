@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:title="@string/arkui_quick_title">
+    <PreferenceCategory android:title="@string/arkui_quick_gesture_category">
+        <ListPreference android:key="qs_quick_pulldown" android:title="@string/arkui_quick_pulldown"
+            android:entries="@array/arkui_pulldown_entries" android:entryValues="@array/arkui_three_values" android:persistent="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/arkui_quick_brightness_category">
+        <ListPreference android:key="qs_show_brightness_slider" android:title="@string/arkui_quick_brightness"
+            android:entries="@array/arkui_brightness_entries" android:entryValues="@array/arkui_three_values" android:persistent="false" />
+
+        <ListPreference android:key="qs_brightness_slider_position" android:title="@string/arkui_quick_brightness_position"
+            android:entries="@array/arkui_brightness_position_entries" android:entryValues="@array/arkui_two_values" android:persistent="false" />
+
+        <SwitchPreferenceCompat android:key="qs_show_auto_brightness" android:title="@string/arkui_quick_auto_brightness"
+            android:summary="@string/arkui_quick_auto_brightness_summary" android:persistent="false" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 
+// Modified by the ArkUI Project in 2026 for native personalization entry points.
 package com.android.settings.core.gateway;
 
 import com.android.settings.DisplaySettings;
@@ -366,6 +367,12 @@ public class SettingsGateway {
             StorageDashboardFragment.class.getName(),
             SystemDashboardFragment.class.getName(),
             com.android.settings.arkui.ArkuiFeaturesSettings.class.getName(),
+            com.android.settings.arkui.personalization.ArkuiPersonalizationSettings.class.getName(),
+            com.android.settings.arkui.personalization.ArkuiStatusBarSettings.class.getName(),
+            com.android.settings.arkui.personalization.ArkuiStatusBarIconsSettings.class.getName(),
+            com.android.settings.arkui.personalization.ArkuiFontsSettings.class.getName(),
+            com.android.settings.arkui.personalization.ArkuiQuickSettings.class.getName(),
+            com.android.settings.arkui.personalization.ArkuiCompatibilitySettings.class.getName(),
             com.android.settings.arkui.twins.AppTwinsSettings.class.getName(),
             com.android.settings.arkui.applock.AppLockSettings.class.getName(),
             com.android.settings.arkui.ArkuiDesktopSettings.class.getName(),
