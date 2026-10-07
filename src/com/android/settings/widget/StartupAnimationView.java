@@ -8,16 +8,18 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.Choreographer;
 import android.view.View;
 import android.view.accessibility.AccessibilityManager;
 
-import org.arkui.animation.StartupAnimation;
-
-/** Runs the setup opening scene while Android is waiting for the user's home app. */
+/** Loops the two orbiting dots while Android is waiting for the user's home app. */
 public final class StartupAnimationView extends View implements Choreographer.FrameCallback {
-    private final StartupAnimation mAnimation;
+    private static final int ORBIT_DURATION_MILLIS = 2400;
+    private final Paint mDotPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private final float mDotRadius;
+    private final float mOrbitRadius;
     private final AccessibilityManager mAccessibility;
     private final ValueAnimator.DurationScaleChangeListener mDurationListener =
             scale -> updateAnimationState();
@@ -30,8 +32,10 @@ public final class StartupAnimationView extends View implements Choreographer.Fr
 
     public StartupAnimationView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        mAnimation = new StartupAnimation(getResources().getDisplayMetrics().density,
-                context.getColor(com.android.internal.R.color.materialColorPrimary));
+        final float density = getResources().getDisplayMetrics().density;
+        mDotRadius = 15f * density;
+        mOrbitRadius = 33f * density;
+        mDotPaint.setColor(Color.WHITE);
         mAccessibility = context.getSystemService(AccessibilityManager.class);
     }
 
@@ -93,7 +97,7 @@ public final class StartupAnimationView extends View implements Choreographer.Fr
         if (mLastFrameNanos != 0) {
             mElapsedMillis = (mElapsedMillis + (frameTimeNanos - mLastFrameNanos) / 1000000.0
                     / Math.max(.01f, ValueAnimator.getDurationScale()))
-                    % StartupAnimation.DURATION_MILLIS;
+                    % ORBIT_DURATION_MILLIS;
         }
         mLastFrameNanos = frameTimeNanos;
         invalidate();
@@ -104,7 +108,13 @@ public final class StartupAnimationView extends View implements Choreographer.Fr
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.drawColor(Color.BLACK);
-        mAnimation.draw(canvas, getWidth(), getHeight(),
-                motionEnabled() ? (long) mElapsedMillis : 3850);
+        final double angle = motionEnabled()
+                ? mElapsedMillis * Math.PI * 2 / ORBIT_DURATION_MILLIS : 0;
+        final float dx = (float) Math.cos(angle) * mOrbitRadius;
+        final float dy = (float) Math.sin(angle) * mOrbitRadius;
+        final float cx = getWidth() / 2f;
+        final float cy = getHeight() / 2f;
+        canvas.drawCircle(cx + dx, cy + dy, mDotRadius, mDotPaint);
+        canvas.drawCircle(cx - dx, cy - dy, mDotRadius, mDotPaint);
     }
 }
