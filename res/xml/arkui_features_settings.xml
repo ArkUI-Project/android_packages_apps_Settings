@@ -64,6 +64,16 @@
     <PreferenceCategory android:key="arkui_features_tools"
         android:title="@string/arkui_features_tools_group">
         <Preference
+            android:key="arkui_recognition_settings"
+            android:title="@string/arkui_recognition_title"
+            android:summary="@string/arkui_recognition_summary"
+            android:icon="@drawable/ic_settings_recognition"
+            settings:controller="com.android.settings.arkui.RecognitionPreferenceController">
+            <intent android:action="org.arkui.recognition.SETTINGS"
+                android:targetPackage="org.arkui.recognition"
+                android:targetClass="org.arkui.recognition.RecognitionSettingsActivity" />
+        </Preference>
+        <Preference
             android:key="arkui_sidebar_settings"
             android:title="@string/arkui_sidebar_title"
             android:summary="@string/arkui_sidebar_summary"
