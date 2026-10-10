@@ -17,7 +17,6 @@
     <string name="app_twin_choose">Choose an app</string>
     <string name="app_twin_search">Search apps or packages</string>
     <string name="app_twin_search_count">Search %1$d apps</string>
-    <string name="app_twin_help">About app twins</string>
     <string name="app_twin_recommended">Recommended apps</string>
     <string name="app_twin_available_apps">Available apps</string>
     <string name="app_twin_not_enabled">Not enabled</string>

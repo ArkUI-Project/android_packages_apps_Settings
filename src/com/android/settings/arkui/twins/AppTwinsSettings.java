@@ -10,9 +10,6 @@ import android.os.UserHandle;
 import android.provider.Settings;
 import android.text.InputFilter;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
@@ -44,7 +41,6 @@ public final class AppTwinsSettings extends SettingsPreferenceFragment {
     private String mPackage;
     private String mQuery = "";
     private SearchView mSearch;
-    private static final int MENU_HELP = R.id.app_twin_search;
     private static final Set<String> RECOMMENDED = Set.of("com.tencent.mm", "com.tencent.mobileqq",
             "com.whatsapp", "com.whatsapp.w4b", "org.telegram.messenger", "com.facebook.katana",
             "com.instagram.android", "com.sina.weibo", "jp.naver.line.android");
@@ -90,22 +86,6 @@ public final class AppTwinsSettings extends SettingsPreferenceFragment {
     @Override public void onDestroyView() {
         mSearch = null;
         super.onDestroyView();
-    }
-
-    @Override public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        menu.add(Menu.NONE, MENU_HELP, Menu.NONE, R.string.app_twin_help)
-                .setIcon(R.drawable.ic_info_outline_24)
-                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-    }
-
-    @Override public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() != MENU_HELP) return super.onOptionsItemSelected(item);
-        new MaterialAlertDialogBuilder(requireContext()).setTitle(R.string.app_twins_title)
-                .setMessage(getString(R.string.app_twins_intro) + "\n\n"
-                        + getString(R.string.app_twin_count, mModel.twins.size(), AppTwinStore.LIMIT))
-                .setPositiveButton(android.R.string.ok, null).show();
-        return true;
     }
 
     @Override public void onResume() {

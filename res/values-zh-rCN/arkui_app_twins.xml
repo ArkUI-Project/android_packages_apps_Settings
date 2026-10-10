@@ -17,7 +17,6 @@
     <string name="app_twin_choose">选择应用</string>
     <string name="app_twin_search">搜索应用或包名</string>
     <string name="app_twin_search_count">搜索 %1$d 个应用</string>
-    <string name="app_twin_help">关于应用分身</string>
     <string name="app_twin_recommended">推荐分身</string>
     <string name="app_twin_available_apps">可用应用</string>
     <string name="app_twin_not_enabled">未开启分身</string>
