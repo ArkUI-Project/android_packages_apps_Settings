@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   Copyright (C) 2018 The Android Open Source Project
+  Copyright (C) 2026 The ArkUI Project
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -55,12 +56,6 @@
         android:title="@string/app_permissions"
         android:summary="@string/runtime_permissions_summary_control_app_access"
         settings:controller="com.android.settings.privacy.ManagePermissionsPreferenceController"/>
-
-    <!-- Device motion and orientation -->
-    <Preference android:key="arkui_motion_sensor"
-        android:title="@string/arkui_motion_sensor_title"
-        android:summary="@string/arkui_motion_sensor_summary"
-        android:fragment="com.android.settings.arkui.ArkuiMotionSensorSettings" />
 
     <!-- App Function access -->
     <Preference

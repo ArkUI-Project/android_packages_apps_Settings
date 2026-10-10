@@ -14,7 +14,8 @@
 
     <PreferenceCategory
         android:key="arkui_security_app_protection"
-        android:title="@string/arkui_security_app_protection_group">
+        android:title="@string/arkui_security_app_protection_group"
+        settings:controller="com.android.settings.widget.PreferenceCategoryController">
 
         <Preference
             android:key="arkui_privacy_password"
@@ -31,13 +32,6 @@
             android:icon="@drawable/ic_settings_security_filled"
             android:fragment="com.android.settings.arkui.applock.AppLockSettings"
             settings:controller="com.android.settings.arkui.applock.AppLockPreferenceController" />
-
-        <Preference
-            android:key="arkui_motion_sensor"
-            android:title="@string/arkui_motion_sensor_title"
-            android:summary="@string/arkui_motion_sensor_summary"
-            android:icon="@drawable/ic_arkui_motion_sensor"
-            android:fragment="com.android.settings.arkui.ArkuiMotionSensorSettings" />
     </PreferenceCategory>
 
     <PreferenceCategory

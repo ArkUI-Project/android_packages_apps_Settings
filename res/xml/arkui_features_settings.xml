@@ -41,6 +41,12 @@
 
     <PreferenceCategory android:key="arkui_features_privacy"
         android:title="@string/arkui_features_privacy_group">
+        <Preference
+            android:key="arkui_motion_sensor"
+            android:title="@string/arkui_motion_sensor_title"
+            android:summary="@string/arkui_motion_sensor_summary"
+            android:icon="@drawable/ic_arkui_motion_sensor"
+            android:fragment="com.android.settings.arkui.ArkuiMotionSensorSettings" />
         <Preference android:key="arkui_compatibility"
             android:title="@string/arkui_compatibility_title"
             android:summary="@string/arkui_compatibility_summary"

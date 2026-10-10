@@ -8,14 +8,27 @@ import android.app.settings.SettingsEnums;
 import android.content.Context;
 
 import com.android.settings.R;
+import com.android.settings.arkui.applock.AppLockPreferenceController;
+import com.android.settings.arkui.privacy.PrivacyPasswordPreferenceController;
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.safetycenter.SafetyCenterManagerWrapper;
 import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.widget.PreferenceCategoryController;
 import com.android.settingslib.search.SearchIndexable;
+
+import java.util.List;
 
 /** Keeps security and privacy accessible together when Safety Center is disabled. */
 @SearchIndexable
 public class ArkuiSecurityPrivacySettings extends DashboardFragment {
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        use(PreferenceCategoryController.class).setChildren(List.of(
+                use(PrivacyPasswordPreferenceController.class),
+                use(AppLockPreferenceController.class)));
+    }
+
     @Override
     public int getMetricsCategory() {
         return SettingsEnums.SECURITY;
