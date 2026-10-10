@@ -1,4 +1,5 @@
 /*
+ * Modified by the ArkUI Project in 2026 to default to separate shade panels.
  * Copyright (C) 2025 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -60,7 +61,7 @@ class ShadePanelsPreferenceController(
 
         /** Retrieve the preference value from secure settings. */
         fun ContentResolver.isDualShadeEnabled(): Boolean {
-            return Settings.Secure.getInt(this, Settings.Secure.DUAL_SHADE, OFF) == ON
+            return Settings.Secure.getInt(this, Settings.Secure.DUAL_SHADE, ON) == ON
         }
 
         /** Persist the preference value to secure settings. */
