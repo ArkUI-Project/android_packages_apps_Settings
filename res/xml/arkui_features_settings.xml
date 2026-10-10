@@ -12,7 +12,7 @@
         <Preference android:key="arkui_personalization"
             android:title="@string/arkui_personalization_title"
             android:summary="@string/arkui_personalization_summary"
-            android:icon="@drawable/ic_color_and_motion"
+            android:icon="@drawable/ic_settings_personalization"
             android:fragment="com.android.settings.arkui.personalization.ArkuiPersonalizationSettings" />
     </PreferenceCategory>
 

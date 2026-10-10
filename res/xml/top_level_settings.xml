@@ -86,7 +86,7 @@
             android:fragment="com.android.settings.arkui.personalization.ArkuiPersonalizationSettings"
             android:title="@string/arkui_personalization_title"
             android:summary="@string/arkui_personalization_summary"
-            android:icon="@drawable/ic_color_and_motion"
+            android:icon="@drawable/ic_settings_personalization"
             settings:highlightableMenuKey="@string/menu_key_display" />
 
         <com.android.settings.widget.RestrictedHomepagePreference
