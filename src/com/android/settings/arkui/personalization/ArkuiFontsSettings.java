@@ -30,6 +30,7 @@ import com.android.settingslib.widget.SelectorWithWidgetPreference;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +51,7 @@ public final class ArkuiFontsSettings extends SettingsPreferenceFragment {
         super.onCreate(state);
         addPreferencesFromResource(R.xml.arkui_fonts_settings);
         final PreferenceCategory group = findPreference("arkui_font_choices");
-        addChoice(group, "", "Google Sans Flex", "google-sans-flex");
+        addChoice("", "Google Sans Flex", "google-sans-flex");
         final OverlayManager manager = requireContext().getSystemService(OverlayManager.class);
         if (manager != null) for (OverlayInfo info : manager.getOverlayInfosForTarget(
                 "android", UserHandle.of(requireContext().getUserId()))) {
@@ -62,17 +63,29 @@ public final class ArkuiFontsSettings extends SettingsPreferenceFragment {
                 if (id == 0) continue;
                 final String family = resources.getString(id);
                 if (!Typeface.getSystemFontMap().containsKey(family)) continue;
-                addChoice(group, info.packageName,
+                addChoice(info.packageName,
                         pm.getApplicationInfo(info.packageName, 0).loadLabel(pm), family);
             } catch (android.content.pm.PackageManager.NameNotFoundException
                     | android.content.res.Resources.NotFoundException ignored) {
                 // An overlay removed while entering this page is not a selectable font.
             }
         }
+
+        // Enabling an overlay changes its priority, so use a stable display order instead.
+        final Collator collator = Collator.getInstance();
+        mChoices.subList(1, mChoices.size()).sort((left, right) -> {
+            final int byLabel = collator.compare(
+                    left.getTitle().toString(), right.getTitle().toString());
+            return byLabel != 0 ? byLabel : left.packageName.compareTo(right.packageName);
+        });
+        for (int i = 0; i < mChoices.size(); i++) {
+            final FontChoicePreference row = mChoices.get(i);
+            row.setOrder(i);
+            group.addPreference(row);
+        }
     }
 
-    private void addChoice(PreferenceCategory group, String packageName,
-            CharSequence label, String family) {
+    private void addChoice(String packageName, CharSequence label, String family) {
         final FontChoicePreference row = new FontChoicePreference(requireContext(), packageName, family);
         row.setKey("font_" + (packageName.isEmpty() ? "default" : packageName));
         row.setTitle(label);
@@ -80,7 +93,6 @@ public final class ArkuiFontsSettings extends SettingsPreferenceFragment {
         row.setPersistent(false);
         row.setOnClickListener(preference -> select(packageName));
         mChoices.add(row);
-        group.addPreference(row);
     }
 
     private void select(String packageName) {
