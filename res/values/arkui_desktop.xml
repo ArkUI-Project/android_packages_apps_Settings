@@ -2,6 +2,16 @@
 <!-- Copyright (C) 2026 The ArkUI Project
      SPDX-License-Identifier: Apache-2.0 -->
 <resources>
+    <string name="arkui_motion_style">App animation style</string>
+    <string name="arkui_motion_ios_hint">iOS uses coordinated app, icon and home screen motion. Select Custom to adjust your saved animation settings.</string>
+    <string-array name="arkui_motion_styles">
+        <item>Custom</item>
+        <item>iOS</item>
+    </string-array>
+    <string-array name="arkui_motion_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
     <string name="arkui_desktop_title">Home screen</string>
     <string name="arkui_desktop_mode">Home screen mode</string>
     <string name="arkui_desktop_standard">Standard</string>

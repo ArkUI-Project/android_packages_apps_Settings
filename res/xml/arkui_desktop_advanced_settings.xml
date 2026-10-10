@@ -4,6 +4,13 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/arkui_desktop_advanced_title">
     <Preference android:key="motion_status" android:title="@string/arkui_desktop_loading" />
+    <ListPreference android:key="pref_motion_style"
+        android:title="@string/arkui_motion_style"
+        android:entries="@array/arkui_motion_styles"
+        android:entryValues="@array/arkui_motion_style_values"
+        android:persistent="false" />
+    <Preference android:key="motion_style_hint"
+        android:summary="@string/arkui_motion_ios_hint" android:selectable="false" />
     <PreferenceCategory android:key="motion_timing" android:title="@string/arkui_motion_timing">
         <com.android.settings.arkui.ArkuiMotionPreference android:key="pref_motion_open_duration"
             android:title="@string/arkui_motion_open_duration"

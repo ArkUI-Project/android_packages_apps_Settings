@@ -66,6 +66,11 @@
 
     <PreferenceCategory android:key="desktop_gestures"
         android:title="@string/arkui_desktop_gestures">
+        <ListPreference android:key="pref_motion_style"
+            android:title="@string/arkui_motion_style"
+            android:entries="@array/arkui_motion_styles"
+            android:entryValues="@array/arkui_motion_style_values"
+            android:persistent="false" />
         <SwitchPreferenceCompat android:key="pref_sleep_gesture"
             android:title="@string/arkui_desktop_sleep"
             android:summary="@string/arkui_desktop_sleep_summary"

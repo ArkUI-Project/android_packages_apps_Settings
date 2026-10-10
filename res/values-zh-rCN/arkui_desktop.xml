@@ -2,6 +2,12 @@
 <!-- Copyright (C) 2026 The ArkUI Project
      SPDX-License-Identifier: Apache-2.0 -->
 <resources>
+    <string name="arkui_motion_style">应用动画样式</string>
+    <string name="arkui_motion_ios_hint">iOS 样式统一协调应用、图标和桌面的动效。切换为“自定义”后，可调整已保存的动画参数。</string>
+    <string-array name="arkui_motion_styles">
+        <item>自定义</item>
+        <item>iOS</item>
+    </string-array>
     <string name="arkui_desktop_title">桌面</string>
     <string name="arkui_desktop_mode">桌面模式</string>
     <string name="arkui_desktop_standard">标准模式</string>

@@ -22,6 +22,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import androidx.preference.Preference;
+import androidx.preference.ListPreference;
 import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.arkui.SmallWindowSettings;
@@ -42,6 +43,7 @@ public class ArkuiDesktopSettings extends DashboardFragment
     private static final Uri PREFERENCES_URI =
             Uri.parse("content://" + LAUNCHER_PACKAGE + ".desktop_settings");
     private static final String SWIPE_UP = Settings.System.ARKUI_SMALL_WINDOW_SWIPE_UP;
+    private static final String MOTION_STYLE = "pref_motion_style";
     private static final String[] LAUNCHER_SWITCHES = {
             "pref_workspace_lock", "pref_add_icon_to_home", "pref_allowRotation",
             "pref_desktop_show_labels", "pref_enable_minus_one", "pref_drawer_open_keyboard",
@@ -94,6 +96,9 @@ public class ArkuiDesktopSettings extends DashboardFragment
         super.onCreate(savedInstanceState);
         mResolver = requireContext().getContentResolver();
         findPreference("pref_standard_desktop").setOnPreferenceChangeListener(this);
+        final ListPreference motionStyle = findPreference(MOTION_STYLE);
+        motionStyle.setSummaryProvider(ListPreference.SimpleSummaryProvider.getInstance());
+        motionStyle.setOnPreferenceChangeListener(this);
         for (String key : LAUNCHER_SWITCHES) {
             findPreference(key).setOnPreferenceChangeListener(this);
         }
@@ -132,6 +137,12 @@ public class ArkuiDesktopSettings extends DashboardFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (MOTION_STYLE.equals(preference.getKey())) {
+            if ("0".equals(newValue) || "1".equals(newValue)) {
+                requestPreferences(MOTION_STYLE, Integer.parseInt((String) newValue));
+            }
+            return false;
+        }
         if (!(newValue instanceof Boolean)) {
             return false;
         }
@@ -148,7 +159,7 @@ public class ArkuiDesktopSettings extends DashboardFragment
         return false;
     }
 
-    private void requestPreferences(String key, boolean value) {
+    private void requestPreferences(String key, Object value) {
         final int generation = ++mGeneration;
         final ContentResolver resolver = mResolver;
         setLauncherPreferencesEnabled(false);
@@ -160,7 +171,11 @@ public class ArkuiDesktopSettings extends DashboardFragment
             Bundle response = null;
             try {
                 final Bundle extras = new Bundle();
-                extras.putBoolean("value", value);
+                if (value instanceof Integer number) {
+                    extras.putInt("value", number);
+                } else if (value instanceof Boolean checked) {
+                    extras.putBoolean("value", checked);
+                }
                 response = resolver.call(PREFERENCES_URI,
                         key == null ? "get_preferences" : "set_preference", key, extras);
             } catch (RuntimeException e) {
@@ -190,6 +205,11 @@ public class ArkuiDesktopSettings extends DashboardFragment
                     findPreference(optionalKey).setVisible(available.getBoolean(optionalKey));
                 }
                 final boolean standard = values.getBoolean("pref_standard_desktop");
+                final Bundle motion = result.getBundle("motion");
+                final Bundle style = motion == null ? null : motion.getBundle(MOTION_STYLE);
+                final ListPreference motionStyle = findPreference(MOTION_STYLE);
+                motionStyle.setVisible(style != null);
+                if (style != null) motionStyle.setValue(Integer.toString(style.getInt("value")));
                 final ArkuiDesktopModePreference mode = findPreference("pref_standard_desktop");
                 mode.setStandard(standard);
                 findPreference("desktop_drawer").setVisible(!standard);
@@ -204,6 +224,7 @@ public class ArkuiDesktopSettings extends DashboardFragment
 
     private void setLauncherPreferencesEnabled(boolean enabled) {
         findPreference("pref_standard_desktop").setEnabled(enabled);
+        findPreference(MOTION_STYLE).setEnabled(enabled);
         findPreference("desktop_layout").setEnabled(enabled);
         findPreference("desktop_content").setEnabled(enabled);
         findPreference("desktop_drawer").setEnabled(enabled);

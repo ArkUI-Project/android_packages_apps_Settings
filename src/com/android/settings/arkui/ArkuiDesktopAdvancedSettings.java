@@ -13,6 +13,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import androidx.preference.Preference;
+import androidx.preference.ListPreference;
 import androidx.preference.PreferenceGroup;
 
 import com.android.settings.R;
@@ -32,6 +33,7 @@ public class ArkuiDesktopAdvancedSettings extends DashboardFragment {
     private final Map<String, CharSequence> mDescriptions = new LinkedHashMap<>();
     private int mGeneration;
     private boolean mLoaded;
+    private boolean mIosStyle;
 
     @Override
     public int getMetricsCategory() { return SettingsEnums.SETTINGS_SYSTEM_CATEGORY; }
@@ -45,6 +47,14 @@ public class ArkuiDesktopAdvancedSettings extends DashboardFragment {
     @Override
     public void onCreate(Bundle state) {
         super.onCreate(state);
+        final ListPreference style = findPreference("pref_motion_style");
+        style.setSummaryProvider(ListPreference.SimpleSummaryProvider.getInstance());
+        style.setOnPreferenceChangeListener((preference, value) -> {
+            if ("0".equals(value) || "1".equals(value)) {
+                request("set_preference", preference.getKey(), Integer.parseInt((String) value));
+            }
+            return false;
+        });
         bindSliders(getPreferenceScreen());
         findPreference("motion_status").setOnPreferenceClickListener(preference -> {
             request("get_preferences", null, 0);
@@ -56,6 +66,7 @@ public class ArkuiDesktopAdvancedSettings extends DashboardFragment {
         });
         setControlsEnabled(false);
         setControlsVisible(false);
+        findPreference("motion_style_hint").setVisible(false);
     }
 
     private void bindSliders(PreferenceGroup group) {
@@ -93,8 +104,11 @@ public class ArkuiDesktopAdvancedSettings extends DashboardFragment {
     }
 
     private void setControlsEnabled(boolean enabled) {
-        for (String key : mDescriptions.keySet()) findPreference(key).setEnabled(enabled);
-        findPreference("motion_reset").setEnabled(enabled);
+        for (String key : mDescriptions.keySet()) {
+            findPreference(key).setEnabled(enabled && !mIosStyle);
+        }
+        findPreference("pref_motion_style").setEnabled(enabled);
+        findPreference("motion_reset").setEnabled(enabled && !mIosStyle);
     }
 
     private void setControlsVisible(boolean visible) {
@@ -137,6 +151,12 @@ public class ArkuiDesktopAdvancedSettings extends DashboardFragment {
                     }
                     return;
                 }
+                final Bundle styleSpec = motion.getBundle("pref_motion_style");
+                final ListPreference style = findPreference("pref_motion_style");
+                style.setVisible(styleSpec != null);
+                mIosStyle = styleSpec != null && styleSpec.getInt("value") == 1;
+                if (styleSpec != null) style.setValue(Integer.toString(styleSpec.getInt("value")));
+                findPreference("motion_style_hint").setVisible(mIosStyle);
                 for (Map.Entry<String, CharSequence> entry : mDescriptions.entrySet()) {
                     ArkuiMotionPreference slider = findPreference(entry.getKey());
                     Bundle spec = motion.getBundle(entry.getKey());
@@ -160,7 +180,8 @@ public class ArkuiDesktopAdvancedSettings extends DashboardFragment {
                             current, unit, spec.getInt("default"), entry.getValue()));
                 }
                 mLoaded = true;
-                setControlsVisible(true);
+                setControlsVisible(!mIosStyle);
+                findPreference("motion_reset").setVisible(!mIosStyle);
                 status.setVisible(false);
                 setControlsEnabled(true);
                 if ("reset_animation_preferences".equals(method)) {
