@@ -238,7 +238,7 @@ public class ArkuiDesktopSettings extends DashboardFragment
         swipe.setVisible(ArkuiSmallWindowSettings.isAvailable(requireContext()));
         final boolean smallWindowsEnabled = SmallWindowSettings.isEnabled(requireContext());
         swipe.setEnabled(smallWindowsEnabled);
-        swipe.setChecked(Settings.System.getInt(mResolver, SWIPE_UP, 0) != 0);
+        swipe.setChecked(Settings.System.getInt(mResolver, SWIPE_UP, 1) != 0);
         swipe.setSummary(smallWindowsEnabled ? R.string.arkui_small_window_swipe_up_summary
                 : R.string.arkui_desktop_swipe_unavailable);
 
