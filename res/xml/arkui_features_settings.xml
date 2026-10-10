@@ -21,7 +21,7 @@
         <Preference android:key="arkui_assistant"
             android:title="@string/arkui_assistant_title"
             android:summary="@string/arkui_assistant_summary"
-            android:icon="@drawable/ic_settings_arkui_features"
+            android:icon="@drawable/ic_settings_arkai"
             settings:controller="com.android.settings.arkui.AssistantPreferenceController">
             <intent android:action="org.arkui.assistant.SETTINGS"
                 android:targetPackage="org.arkui.assistant"
@@ -30,7 +30,7 @@
         <Preference android:key="arkui_intelligence"
             android:title="@string/arkui_intelligence_title"
             android:summary="@string/arkui_intelligence_summary"
-            android:icon="@drawable/ic_settings_arkui_features"
+            android:icon="@drawable/ic_settings_intelligence"
             android:fragment="com.android.settings.arkui.intelligence.ArkuiIntelligenceSettings" />
         <Preference android:key="arkui_lyrics"
             android:title="@string/arkui_lyrics_title"
