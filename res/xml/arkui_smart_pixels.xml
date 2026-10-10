@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/arkui_smart_pixels_title">
+    <com.android.settings.widget.SettingsMainSwitchPreference
+        android:key="arkui_smart_pixels_enabled" android:title="@string/arkui_smart_pixels_enable"
+        android:persistent="false" />
+    <com.android.settingslib.widget.TopIntroPreference
+        android:title="@string/arkui_smart_pixels_intro" />
+    <PreferenceCategory android:title="@string/arkui_smart_pixels_options">
+        <com.android.settingslib.widget.SliderPreference
+            android:key="arkui_smart_pixels_percent" android:title="@string/arkui_smart_pixels_percent"
+            android:persistent="false" />
+        <com.android.settingslib.widget.AppSwitchPreference
+            android:key="arkui_smart_pixels_power_save_only"
+            android:title="@string/arkui_smart_pixels_saver_only"
+            android:summary="@string/arkui_smart_pixels_saver_only_summary"
+            android:persistent="false" />
+    </PreferenceCategory>
+    <com.android.settingslib.widget.FooterPreference android:title="@string/arkui_smart_pixels_note" />
+</PreferenceScreen>

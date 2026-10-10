@@ -69,6 +69,11 @@
 
     <PreferenceCategory android:key="arkui_features_tools"
         android:title="@string/arkui_features_tools_group">
+        <Preference android:key="arkui_smart_pixels"
+            android:title="@string/arkui_smart_pixels_title"
+            android:summary="@string/arkui_smart_pixels_summary"
+            android:icon="@drawable/ic_settings_smart_pixels"
+            android:fragment="com.android.settings.arkui.SmartPixelsSettingsFragment" />
         <Preference android:key="arkui_ad_skip"
             android:title="@string/arkui_ad_skip_title"
             android:summary="@string/arkui_ad_skip_summary"

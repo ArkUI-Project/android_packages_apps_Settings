@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_smart_pixels_title">像素省电</string>
+    <string name="arkui_smart_pixels_summary">关闭部分 OLED 像素，降低屏幕功耗</string>
+    <string name="arkui_smart_pixels_enable">使用像素省电</string>
+    <string name="arkui_smart_pixels_intro">在屏幕上显示细密的黑色像素图案，降低 OLED 屏幕功耗。</string>
+    <string name="arkui_smart_pixels_options">像素设置</string>
+    <string name="arkui_smart_pixels_percent">关闭像素比例</string>
+    <string name="arkui_smart_pixels_percent_value">约 %1$d%%</string>
+    <string name="arkui_smart_pixels_saver_only">仅在省电模式下启用</string>
+    <string name="arkui_smart_pixels_saver_only_summary">随系统省电模式自动应用像素图案</string>
+    <string name="arkui_smart_pixels_note">适用于 OLED 屏幕，LCD 屏幕无法获得同等省电效果。启用后画面会变暗，细节会减少；关闭像素的比例不代表实际省电比例。图案每分钟移位，息屏、锁屏和生物识别验证期间自动暂停。截图和录屏保持清晰。</string>
+</resources>

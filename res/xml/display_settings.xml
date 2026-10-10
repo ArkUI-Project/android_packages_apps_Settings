@@ -161,6 +161,11 @@
         android:title="@string/category_name_display_controls"
         android:order="-170">
 
+        <Preference android:key="arkui_smart_pixels"
+            android:title="@string/arkui_smart_pixels_title"
+            android:summary="@string/arkui_smart_pixels_summary"
+            android:fragment="com.android.settings.arkui.SmartPixelsSettingsFragment" />
+
         <com.android.settingslib.RestrictedPreference
             android:key="screen_timeout"
             android:title="@string/screen_timeout"

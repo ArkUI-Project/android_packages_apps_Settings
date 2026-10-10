@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_smart_pixels_title">Pixel power saving</string>
+    <string name="arkui_smart_pixels_summary">Turn off some OLED pixels to save display power</string>
+    <string name="arkui_smart_pixels_enable">Use pixel power saving</string>
+    <string name="arkui_smart_pixels_intro">Display a fine black pixel pattern to reduce OLED screen power use.</string>
+    <string name="arkui_smart_pixels_options">Pixel settings</string>
+    <string name="arkui_smart_pixels_percent">Pixels turned off</string>
+    <string name="arkui_smart_pixels_percent_value">Approximately %1$d%%</string>
+    <string name="arkui_smart_pixels_saver_only">Only with Battery Saver</string>
+    <string name="arkui_smart_pixels_saver_only_summary">Automatically apply the pattern while Battery Saver is on</string>
+    <string name="arkui_smart_pixels_note">Intended for OLED screens. LCD screens will not gain the same power savings. The screen will look darker and less detailed; the pixel percentage is not a battery saving percentage. The pattern shifts every minute and pauses while the screen is off, locked, or showing biometric authentication. Screenshots and recordings stay clear.</string>
+</resources>
