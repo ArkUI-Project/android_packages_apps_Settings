@@ -77,6 +77,18 @@
         settings:controller="com.android.settings.inputmethod.MouseSettingsController"/>
 
     <Preference
+        android:key="arkui_voice_input"
+        android:title="@string/arkui_voice_input_title"
+        android:summary="@string/arkui_voice_input_summary"
+        android:icon="@drawable/ic_settings_voice_input"
+        android:order="-251"
+        settings:controller="com.android.settings.arkui.VoiceInputPreferenceController">
+        <intent android:action="org.arkui.assistant.VOICE_INPUT_SETTINGS"
+            android:targetPackage="org.arkui.assistant"
+            android:targetClass="org.arkui.assistant.VoiceInputSettingsActivity" />
+    </Preference>
+
+    <Preference
         android:key="gesture_settings"
         android:title="@string/gesture_preference_title"
         android:icon="@drawable/ic_settings_gestures"

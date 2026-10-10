@@ -3,4 +3,6 @@
 <resources>
     <string name="arkui_assistant_title">ArkAI</string>
     <string name="arkui_assistant_summary">AI service, screen assistance and phone operations</string>
+    <string name="arkui_voice_input_title">Voice input</string>
+    <string name="arkui_voice_input_summary">Speech recognition, keyboard dictation and transcription service</string>
 </resources>

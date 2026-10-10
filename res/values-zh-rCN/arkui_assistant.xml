@@ -3,4 +3,6 @@
 <resources>
     <string name="arkui_assistant_title">ArkAI</string>
     <string name="arkui_assistant_summary">AI 服务、屏幕问答与手机操作</string>
+    <string name="arkui_voice_input_title">语音输入</string>
+    <string name="arkui_voice_input_summary">语音识别、键盘听写与转写服务</string>
 </resources>
