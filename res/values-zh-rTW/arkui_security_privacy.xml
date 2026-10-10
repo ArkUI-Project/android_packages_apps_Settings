@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_security_overview_title">守護裝置與個人隱私</string>
+    <string name="arkui_security_overview_summary">管理裝置安全、保護應用程式內容，自主掌控應用程式的存取權限。</string>
+    <string name="arkui_security_app_protection_group">應用程式保護</string>
+    <string name="arkui_security_system_controls_group">系統安全與權限</string>
+</resources>

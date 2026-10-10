@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_security_overview_title">Your security, your control</string>
+    <string name="arkui_security_overview_summary">Manage device security, protect your apps and choose what they can access.</string>
+    <string name="arkui_security_app_protection_group">App protection</string>
+    <string name="arkui_security_system_controls_group">System security &amp; permissions</string>
+</resources>

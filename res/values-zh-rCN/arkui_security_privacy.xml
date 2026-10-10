@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_security_overview_title">守护设备与个人隐私</string>
+    <string name="arkui_security_overview_summary">管理设备安全、保护应用内容，自主掌控应用的访问权限。</string>
+    <string name="arkui_security_app_protection_group">应用保护</string>
+    <string name="arkui_security_system_controls_group">系统安全与权限</string>
+</resources>

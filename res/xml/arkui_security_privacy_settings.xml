@@ -7,40 +7,57 @@
     android:key="arkui_security_privacy_settings"
     android:title="@string/arkui_security_privacy_title">
 
-    <Preference android:key="arkui_motion_sensor"
-        android:title="@string/arkui_motion_sensor_title"
-        android:summary="@string/arkui_motion_sensor_summary"
-        android:icon="@drawable/ic_arkui_motion_sensor"
-        android:fragment="com.android.settings.arkui.ArkuiMotionSensorSettings" />
+    <com.android.settings.arkui.ArkuiSecurityOverviewPreference
+        android:key="arkui_security_overview"
+        android:layout="@layout/arkui_security_overview"
+        android:selectable="false" />
 
-    <Preference android:key="arkui_privacy_password"
-        android:title="@string/arkui_privacy_password_title"
-        android:summary="@string/arkui_privacy_password_summary"
-        android:icon="@drawable/ic_settings_privacy_filled"
-        android:fragment="com.android.settings.arkui.privacy.PrivacyPasswordSettings"
-        settings:controller="com.android.settings.arkui.privacy.PrivacyPasswordPreferenceController" />
+    <PreferenceCategory
+        android:key="arkui_security_app_protection"
+        android:title="@string/arkui_security_app_protection_group">
 
-    <Preference
-        android:key="arkui_app_lock"
-        android:title="@string/arkui_app_lock_title"
-        android:summary="@string/arkui_app_lock_summary"
-        android:icon="@drawable/ic_settings_security_filled"
-        android:fragment="com.android.settings.arkui.applock.AppLockSettings"
-        settings:controller="com.android.settings.arkui.applock.AppLockPreferenceController" />
+        <Preference
+            android:key="arkui_privacy_password"
+            android:title="@string/arkui_privacy_password_title"
+            android:summary="@string/arkui_privacy_password_summary"
+            android:icon="@drawable/ic_settings_privacy_filled"
+            android:fragment="com.android.settings.arkui.privacy.PrivacyPasswordSettings"
+            settings:controller="com.android.settings.arkui.privacy.PrivacyPasswordPreferenceController" />
 
-    <Preference
-        android:key="top_level_security"
-        android:title="@string/security_settings_title"
-        android:summary="@string/security_dashboard_summary"
-        android:icon="@drawable/ic_settings_security_filled"
-        android:fragment="com.android.settings.security.SecuritySettings"
-        settings:controller="com.android.settings.security.TopLevelSecurityEntryPreferenceController"/>
+        <Preference
+            android:key="arkui_app_lock"
+            android:title="@string/arkui_app_lock_title"
+            android:summary="@string/arkui_app_lock_summary"
+            android:icon="@drawable/ic_settings_security_filled"
+            android:fragment="com.android.settings.arkui.applock.AppLockSettings"
+            settings:controller="com.android.settings.arkui.applock.AppLockPreferenceController" />
 
-    <Preference
-        android:key="top_level_privacy"
-        android:title="@string/privacy_dashboard_title"
-        android:summary="@string/privacy_dashboard_summary"
-        android:icon="@drawable/ic_settings_privacy_filled"
-        android:fragment="com.android.settings.privacy.PrivacyDashboardFragment"
-        settings:controller="com.android.settings.privacy.TopLevelPrivacyEntryPreferenceController"/>
+        <Preference
+            android:key="arkui_motion_sensor"
+            android:title="@string/arkui_motion_sensor_title"
+            android:summary="@string/arkui_motion_sensor_summary"
+            android:icon="@drawable/ic_arkui_motion_sensor"
+            android:fragment="com.android.settings.arkui.ArkuiMotionSensorSettings" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="arkui_security_system_controls"
+        android:title="@string/arkui_security_system_controls_group">
+
+        <Preference
+            android:key="top_level_security"
+            android:title="@string/security_settings_title"
+            android:summary="@string/security_dashboard_summary"
+            android:icon="@drawable/ic_settings_security_filled"
+            android:fragment="com.android.settings.security.SecuritySettings"
+            settings:controller="com.android.settings.security.TopLevelSecurityEntryPreferenceController" />
+
+        <Preference
+            android:key="top_level_privacy"
+            android:title="@string/privacy_dashboard_title"
+            android:summary="@string/privacy_dashboard_summary"
+            android:icon="@drawable/ic_settings_privacy_filled"
+            android:fragment="com.android.settings.privacy.PrivacyDashboardFragment"
+            settings:controller="com.android.settings.privacy.TopLevelPrivacyEntryPreferenceController" />
+    </PreferenceCategory>
 </PreferenceScreen>
