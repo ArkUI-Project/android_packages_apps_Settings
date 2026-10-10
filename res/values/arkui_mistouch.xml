@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_mistouch_title">Accidental touch protection</string>
+    <string name="arkui_mistouch_enable">Use accidental touch protection</string>
+    <string name="arkui_mistouch_summary">Prevent pocket touches on the lock screen</string>
+    <string name="arkui_mistouch_intro">Block touch input while the lock screen is on and the top sensor is covered or the phone is upside down in your pocket. Taking the phone out restores touch input.</string>
+    <string name="arkui_mistouch_exit">Press volume up to exit protection until the next screen wake.</string>
+    <string name="arkui_mistouch_unsupported">This device has no proximity sensor or accelerometer.</string>
+</resources>

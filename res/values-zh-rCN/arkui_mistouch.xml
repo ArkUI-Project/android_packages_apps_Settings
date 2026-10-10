@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_mistouch_title">误触保护</string>
+    <string name="arkui_mistouch_enable">使用误触保护</string>
+    <string name="arkui_mistouch_summary">防止手机在口袋中误触锁屏</string>
+    <string name="arkui_mistouch_intro">锁屏亮屏时，若顶部传感器被遮挡或手机倒置在口袋中，将暂时屏蔽触摸。取出手机并移开遮挡后自动恢复。</string>
+    <string name="arkui_mistouch_exit">按音量加键可临时退出保护，下次亮屏时重新检测。</string>
+    <string name="arkui_mistouch_unsupported">此设备没有接近传感器或加速度传感器，无法使用误触保护。</string>
+</resources>

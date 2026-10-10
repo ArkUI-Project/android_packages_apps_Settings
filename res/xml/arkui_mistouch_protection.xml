@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/arkui_mistouch_title">
+    <com.android.settings.widget.SettingsMainSwitchPreference
+        android:key="arkui_mistouch_protection" android:title="@string/arkui_mistouch_enable"
+        android:persistent="false" />
+    <com.android.settingslib.widget.TopIntroPreference android:title="@string/arkui_mistouch_intro" />
+    <com.android.settingslib.widget.FooterPreference android:title="@string/arkui_mistouch_exit" />
+    <com.android.settingslib.widget.FooterPreference android:key="arkui_feature_hardware_note"
+        android:title="@string/arkui_mistouch_unsupported" />
+</PreferenceScreen>

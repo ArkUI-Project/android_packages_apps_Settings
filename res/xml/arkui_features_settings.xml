@@ -41,6 +41,11 @@
 
     <PreferenceCategory android:key="arkui_features_privacy"
         android:title="@string/arkui_features_privacy_group">
+        <Preference android:key="arkui_mistouch_protection"
+            android:title="@string/arkui_mistouch_title"
+            android:summary="@string/arkui_mistouch_summary"
+            android:icon="@drawable/ic_settings_security_filled"
+            android:fragment="com.android.settings.arkui.MistouchProtectionSettings" />
         <Preference
             android:key="arkui_motion_sensor"
             android:title="@string/arkui_motion_sensor_title"
