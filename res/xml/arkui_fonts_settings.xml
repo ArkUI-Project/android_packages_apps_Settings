@@ -4,10 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto" android:title="@string/arkui_fonts_title">
     <PreferenceCategory android:key="arkui_font_choices" android:title="@string/arkui_font_family" />
 
-    <Preference android:key="arkui_font_size" android:title="@string/arkui_font_size_title"
-        android:summary="@string/arkui_font_size_summary" android:icon="@drawable/ic_text_fields_alt">
-        <intent android:action="android.settings.TEXT_READING_SETTINGS" />
-    </Preference>
+    <PreferenceCategory android:key="arkui_font_display_controls"
+        android:layout="@layout/settingslib_expressive_untitled_preference_category">
+        <Preference android:key="arkui_font_size" android:title="@string/arkui_font_size_title"
+            android:summary="@string/arkui_font_size_summary" android:icon="@drawable/ic_text_fields_alt">
+            <intent android:action="android.settings.TEXT_READING_SETTINGS" />
+        </Preference>
+    </PreferenceCategory>
 
     <com.android.settingslib.widget.FooterPreference android:key="arkui_font_note"
         android:title="@string/arkui_font_note" android:selectable="false" />
