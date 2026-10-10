@@ -380,6 +380,7 @@ public class SettingsGateway {
             com.android.settings.arkui.ArkuiMotionSensorSettings.class.getName(),
             com.android.settings.arkui.SmartPixelsSettingsFragment.class.getName(),
             com.android.settings.arkui.MistouchProtectionSettings.class.getName(),
+            com.android.settings.arkui.ContactlessPaymentSettings.class.getName(),
             com.android.settings.arkui.adskip.AdSkipSettingsFragment.class.getName(),
             com.android.settings.arkui.adskip.AdSkipExcludedAppsFragment.class.getName(),
             com.android.settings.arkui.depth.ArkuiDepthWallpaperSettings.class.getName(),

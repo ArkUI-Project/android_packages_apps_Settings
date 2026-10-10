@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_nfc_payment_title">Contactless NFC payments</string>
+    <string name="arkui_nfc_payment_enable">Use contactless NFC payments</string>
+    <string name="arkui_nfc_payment_summary">Open Alipay or UnionPay for compatible payment tags</string>
+    <string name="arkui_nfc_payment_intro">Recognize compatible Alipay and UnionPay payment tags and open the matching payment app directly.</string>
+    <string name="arkui_nfc_payment_note">Turn on NFC and install the corresponding payment app first. Touch a payment tag while the screen is unlocked; the payment app handles payment confirmation. Other NFC tags continue to work normally.</string>
+    <string name="arkui_nfc_payment_unsupported">This device does not support NFC.</string>
+</resources>

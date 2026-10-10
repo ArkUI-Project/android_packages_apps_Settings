@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_nfc_payment_title">NFC 无感支付</string>
+    <string name="arkui_nfc_payment_enable">使用 NFC 无感支付</string>
+    <string name="arkui_nfc_payment_summary">碰触兼容支付标签时直接打开支付宝或云闪付</string>
+    <string name="arkui_nfc_payment_intro">识别兼容的支付宝和云闪付支付标签，直接打开对应支付应用。</string>
+    <string name="arkui_nfc_payment_note">请先开启 NFC 并安装对应支付应用。解锁屏幕后碰触商家支付标签，付款由支付应用确认。其他 NFC 标签仍按原有方式处理。</string>
+    <string name="arkui_nfc_payment_unsupported">此设备不支持 NFC。</string>
+</resources>
