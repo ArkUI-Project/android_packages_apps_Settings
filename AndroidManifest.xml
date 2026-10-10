@@ -5186,12 +5186,23 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".arkui.privacy.PrivacyPasswordActivity"
-            android:label="@string/arkui_privacy_password_title" android:exported="true"
-            android:theme="@style/Theme.Settings.Expressive.NoActionBar"
-            android:excludeFromRecents="true">
+        <activity android:name=".Settings$PrivacyPasswordSettingsActivity"
+            android:label="@string/arkui_privacy_password_title" android:exported="true">
             <intent-filter>
                 <action android:name="org.arkui.settings.PRIVACY_PASSWORD" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.arkui.privacy.PrivacyPasswordSettings" />
+            <meta-data android:name="com.android.settings.HIGHLIGHT_MENU_KEY"
+                android:value="@string/menu_key_security" />
+        </activity>
+        <activity android:name=".arkui.privacy.PrivacyPasswordActivity"
+            android:label="@string/arkui_privacy_password_title" android:exported="true"
+            android:theme="@style/GlifV4Theme.DayNight"
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:excludeFromRecents="true">
+            <intent-filter>
                 <action android:name="org.arkui.settings.CONFIRM_PRIVACY_PASSWORD" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

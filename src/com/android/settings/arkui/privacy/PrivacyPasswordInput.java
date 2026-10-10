@@ -16,21 +16,31 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.nio.charset.StandardCharsets;
 
-/** Unsaved, obscured-touch-filtered MD3 credential entry shared by the two privacy flows. */
-public final class PrivacyPasswordInput extends TextInputLayout {
+/** Unsaved credential entry shared by screen-lock layouts and privacy verification dialogs. */
+public final class PrivacyPasswordInput {
+    private final TextInputLayout mLayout;
     private final TextInputEditText mInput;
     private int mType;
 
     public PrivacyPasswordInput(Context context, int type, Runnable submit) {
-        super(new ContextThemeWrapper(context, R.style.Theme_ArkUI_PrivacyPassword_Input));
-        setBoxBackgroundMode(BOX_BACKGROUND_FILLED);
-        float radius = 28 * getResources().getDisplayMetrics().density;
-        setBoxCornerRadii(radius, radius, radius, radius);
-        setEndIconMode(END_ICON_PASSWORD_TOGGLE);
-        setSaveEnabled(false);
-        setFilterTouchesWhenObscured(true);
-        mInput = new TextInputEditText(getContext());
-        mInput.setId(R.id.privacy_password_entry);
+        this(new TextInputLayout(new ContextThemeWrapper(context,
+                R.style.Theme_ArkUI_PrivacyPassword_Input)), null, type, submit);
+        mLayout.setBoxBackgroundMode(TextInputLayout.BOX_BACKGROUND_FILLED);
+        float radius = 28 * context.getResources().getDisplayMetrics().density;
+        mLayout.setBoxCornerRadii(radius, radius, radius, radius);
+    }
+
+    public PrivacyPasswordInput(TextInputLayout layout, TextInputEditText input, int type,
+            Runnable submit) {
+        mLayout = layout;
+        mLayout.setEndIconMode(TextInputLayout.END_ICON_PASSWORD_TOGGLE);
+        mLayout.setSaveEnabled(false);
+        mLayout.setFilterTouchesWhenObscured(true);
+        mInput = input != null ? input : new TextInputEditText(layout.getContext());
+        if (input == null) {
+            mInput.setId(R.id.privacy_password_entry);
+            mLayout.addView(mInput, new TextInputLayout.LayoutParams(-1, -2));
+        }
         mInput.setSingleLine(true);
         mInput.setSaveEnabled(false);
         mInput.setImportantForAutofill(View.IMPORTANT_FOR_AUTOFILL_NO_EXCLUDE_DESCENDANTS);
@@ -42,9 +52,12 @@ public final class PrivacyPasswordInput extends TextInputLayout {
             submit.run();
             return true;
         });
-        addView(mInput, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
         setType(type);
     }
+
+    public View getView() { return mLayout; }
+
+    public void setError(CharSequence error) { mLayout.setError(error); }
 
     public void setType(int type) {
         mType = type;
@@ -52,7 +65,7 @@ public final class PrivacyPasswordInput extends TextInputLayout {
         mInput.setInputType(pin ? InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD
                 : InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         mInput.setFilters(new InputFilter[] {new InputFilter.LengthFilter(pin ? 6 : 64)});
-        setHint(pin ? R.string.arkui_privacy_password_pin_hint
+        mLayout.setHint(pin ? R.string.arkui_privacy_password_pin_hint
                 : R.string.arkui_privacy_password_custom_hint);
         clear();
     }
@@ -65,11 +78,8 @@ public final class PrivacyPasswordInput extends TextInputLayout {
 
     public boolean isValidNewPassword() {
         String text = mInput.getText().toString();
-        boolean valid = mType == PrivacyPasswordManager.TYPE_PIN ? text.matches("[0-9]{6}")
-                : text.length() >= 8 && text.length() <= 64;
-        if (!valid) setError(getContext().getString(mType == PrivacyPasswordManager.TYPE_PIN
-                ? R.string.arkui_privacy_password_pin_error
-                : R.string.arkui_privacy_password_custom_error));
+        boolean valid = mType == PrivacyPasswordManager.TYPE_PIN && text.matches("[0-9]{6}");
+        if (!valid) setError(mLayout.getContext().getString(R.string.arkui_privacy_password_pin_error));
         return valid;
     }
 
@@ -77,19 +87,19 @@ public final class PrivacyPasswordInput extends TextInputLayout {
 
     public void showKeyboard() {
         mInput.requestFocus();
-        mInput.post(() -> getContext().getSystemService(InputMethodManager.class)
+        mInput.post(() -> mLayout.getContext().getSystemService(InputMethodManager.class)
                 .showSoftInput(mInput, InputMethodManager.SHOW_IMPLICIT));
     }
 
     public void hideKeyboard() {
-        getContext().getSystemService(InputMethodManager.class)
+        mLayout.getContext().getSystemService(InputMethodManager.class)
                 .hideSoftInputFromWindow(mInput.getWindowToken(), 0);
     }
 
-    public void setBusy(boolean busy) { mInput.setEnabled(!busy); setEndIconVisible(!busy); }
+    public void setBusy(boolean busy) { mInput.setEnabled(!busy); mLayout.setEndIconVisible(!busy); }
 
     public void showFailure(long retryMillis) {
-        setError(getContext().getString(retryMillis > 0 ? R.string.arkui_privacy_password_retry
+        setError(mLayout.getContext().getString(retryMillis > 0 ? R.string.arkui_privacy_password_retry
                         : R.string.arkui_privacy_password_wrong,
                 Math.max(1, (retryMillis + 999) / 1000)));
     }

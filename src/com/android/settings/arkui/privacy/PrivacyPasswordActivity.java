@@ -8,50 +8,40 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.ResultReceiver;
 import android.os.UserHandle;
-import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentActivity;
-import androidx.transition.TransitionManager;
 
 import com.android.settings.R;
-import com.android.settings.Utils;
+import com.android.settings.Settings;
 import com.android.settingslib.utils.ThreadUtils;
-import com.google.android.material.button.MaterialButton;
-import com.google.android.material.button.MaterialButtonToggleGroup;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.google.android.material.transition.MaterialSharedAxis;
+import com.google.android.setupcompat.template.FooterBarMixin;
+import com.google.android.setupcompat.template.FooterButton;
+import com.google.android.setupdesign.GlifLayout;
+import com.google.android.setupdesign.util.ThemeHelper;
 
 import java.security.MessageDigest;
 import java.util.Arrays;
 
-/** MD3E setup, verification and management for the system's independent privacy credential. */
+/** Uses the screen-lock credential layout to set or verify the independent privacy PIN. */
 public final class PrivacyPasswordActivity extends FragmentActivity {
+    public static final String ACTION_SET_PASSWORD = "org.arkui.settings.SET_PRIVACY_PASSWORD";
     private static final int VERIFY = 0;
     private static final int NEW = 1;
     private static final int CONFIRM = 2;
-    private static final int MANAGE = 3;
     private final IBinder mOwner = new Binder();
     private PrivacyPasswordManager mManager;
     private IBinder mAuthorization;
     private ResultReceiver mCallback;
     private PrivacyPasswordInput mInput;
-    private FrameLayout mInputContainer;
-    private ViewGroup mContent;
-    private TextView mTitle;
+    private GlifLayout mLayout;
     private TextView mDescription;
-    private MaterialButtonToggleGroup mTypes;
-    private MaterialButton mPrimary;
-    private MaterialButton mApps;
-    private MaterialButton mDisable;
-    private AlertDialog mDialog;
+    private FooterButton mPrimary;
+    private FooterButton mCancel;
     private byte[] mNewPassword;
     private int mType = PrivacyPasswordManager.TYPE_PIN;
     private int mStage;
@@ -63,53 +53,58 @@ public final class PrivacyPasswordActivity extends FragmentActivity {
     private boolean mNeedsRefresh = true;
 
     @Override public void onCreate(Bundle state) {
-        setTheme(R.style.Theme_Settings_Expressive_NoActionBar);
+        setTheme(R.style.GlifV4Theme_DayNight);
+        ThemeHelper.trySetDynamicColor(this);
+        if (ThemeHelper.shouldApplyGlifExpressiveStyle(getApplicationContext())) {
+            ThemeHelper.trySetSuwTheme(this);
+        }
         super.onCreate(state);
-        getTheme().applyStyle(R.style.SettingsPreferenceTheme_Expressive, false);
+        mConfirmOnly = PrivacyPasswordManager.ACTION_CONFIRM.equals(getIntent().getAction());
+        if (!mConfirmOnly && !ACTION_SET_PASSWORD.equals(getIntent().getAction())) {
+            // Keep existing explicit links compatible while using the standard Settings host.
+            startActivity(new Intent(this, Settings.PrivacyPasswordSettingsActivity.class));
+            finish();
+            return;
+        }
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
         getWindow().setHideOverlayWindows(true);
-        Utils.setupEdgeToEdge(this);
-        setContentView(R.layout.arkui_privacy_password);
+        setContentView(R.layout.choose_lock_password_expressive);
         setTitle(R.string.arkui_privacy_password_title);
         mManager = new PrivacyPasswordManager(this);
-        mConfirmOnly = PrivacyPasswordManager.ACTION_CONFIRM.equals(getIntent().getAction());
-        mCallback = getIntent().getParcelableExtra(PrivacyPasswordManager.EXTRA_CALLBACK,
-                ResultReceiver.class);
-        mContent = findViewById(R.id.credential_content);
-        mTitle = findViewById(R.id.app_lock_message);
-        mDescription = findViewById(R.id.app_lock_subtitle);
-        ((ImageView) findViewById(R.id.app_lock_icon))
-                .setImageResource(R.drawable.ic_settings_privacy_filled);
-        mTypes = findViewById(R.id.privacy_type_group);
-        mPrimary = findViewById(R.id.app_lock_verify);
-        mPrimary.setId(R.id.privacy_primary);
-        mApps = findViewById(R.id.privacy_apps);
-        mDisable = findViewById(R.id.privacy_disable);
-        mInput = new PrivacyPasswordInput(this, mType, this::submit);
-        mInputContainer = findViewById(R.id.app_lock_password_container);
-        mInputContainer.addView(mInput, new FrameLayout.LayoutParams(-1, -2));
-        mPrimary.setOnClickListener(view -> submit());
-        mApps.setOnClickListener(view -> startActivity(new Intent("org.arkui.settings.APP_LOCK")
-                .setPackage(getPackageName())));
-        mDisable.setOnClickListener(view -> confirmDisable());
-        View cancel = findViewById(R.id.app_lock_cancel);
-        cancel.setId(R.id.privacy_cancel);
-        cancel.setOnClickListener(view -> cancelOrBack());
-        mTypes.addOnButtonCheckedListener((group, checked, selected) -> {
-            if (!selected || mStage != NEW || mBusy) return;
-            mType = checked == R.id.privacy_pin_type ? PrivacyPasswordManager.TYPE_PIN
-                    : PrivacyPasswordManager.TYPE_PASSWORD;
-            mInput.setType(mType);
-        });
+        if (mConfirmOnly) {
+            mCallback = getIntent().getParcelableExtra(PrivacyPasswordManager.EXTRA_CALLBACK,
+                    ResultReceiver.class);
+        }
+        mLayout = findViewById(R.id.setup_wizard_layout);
+        mLayout.setIcon(getDrawable(R.drawable.ic_settings_privacy_filled));
+        mLayout.setFilterTouchesWhenObscured(true);
+        mDescription = findViewById(R.id.sud_layout_description);
+        ((ViewGroup) findViewById(R.id.password_container))
+                .setOpticalInsets(android.graphics.Insets.NONE);
+        mInput = new PrivacyPasswordInput(findViewById(R.id.password_entry_layout),
+                findViewById(R.id.password_entry), mType, this::submit);
+        FooterBarMixin footer = mLayout.getMixin(FooterBarMixin.class);
+        footer.setPrimaryButton(new FooterButton.Builder(this)
+                .setText(R.string.arkui_privacy_password_continue)
+                .setListener(view -> submit())
+                .setButtonType(FooterButton.ButtonType.NEXT)
+                .setTheme(com.google.android.setupdesign.R.style.SudGlifButton_Primary).build());
+        footer.setSecondaryButton(new FooterButton.Builder(this)
+                .setText(android.R.string.cancel)
+                .setListener(view -> complete(false))
+                .setButtonType(FooterButton.ButtonType.CANCEL)
+                .setTheme(com.google.android.setupdesign.R.style.SudGlifButton_Secondary).build());
+        mPrimary = footer.getPrimaryButton();
+        mCancel = footer.getSecondaryButton();
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
-            @Override public void handleOnBackPressed() { cancelOrBack(); }
+            @Override public void handleOnBackPressed() { complete(false); }
         });
     }
 
     @Override protected void onResume() {
         super.onResume();
         mVisible = true;
-        if (mNeedsRefresh && !mCompleted) {
+        if (mInput != null && mNeedsRefresh && !mCompleted) {
             mNeedsRefresh = false;
             refresh();
         }
@@ -119,10 +114,9 @@ public final class PrivacyPasswordActivity extends FragmentActivity {
         mVisible = false;
         ++mOperation;
         mBusy = false;
-        mInput.clear();
+        if (mInput != null) mInput.clear();
         wipeNewPassword();
         endAuthorization();
-        if (mDialog != null) { mDialog.dismiss(); mDialog = null; }
         mNeedsRefresh = true;
         if (mConfirmOnly && !mCompleted) complete(false);
         super.onPause();
@@ -152,20 +146,11 @@ public final class PrivacyPasswordActivity extends FragmentActivity {
     }
 
     private void render(int stage) {
-        if (mContent.isLaidOut()) {
-            var transition = new MaterialSharedAxis(MaterialSharedAxis.X, stage != NEW);
-            transition.setDuration(300);
-            TransitionManager.beginDelayedTransition(mContent, transition);
-        }
         mStage = stage;
-        mTypes.setVisibility(stage == NEW ? View.VISIBLE : View.GONE);
-        mTypes.check(mType == PrivacyPasswordManager.TYPE_PIN
-                ? R.id.privacy_pin_type : R.id.privacy_custom_type);
-        mInputContainer.setVisibility(stage == MANAGE ? View.GONE : View.VISIBLE);
+        // A legacy custom password can still be verified, but every new credential is a PIN.
+        if (stage != VERIFY) mType = PrivacyPasswordManager.TYPE_PIN;
         mInput.setType(mType);
         setBusy(false);
-        mApps.setVisibility(stage == MANAGE ? View.VISIBLE : View.GONE);
-        mDisable.setVisibility(stage == MANAGE ? View.VISIBLE : View.GONE);
         int title, description, primary;
         if (stage == VERIFY) {
             title = R.string.arkui_privacy_password_enter;
@@ -175,27 +160,21 @@ public final class PrivacyPasswordActivity extends FragmentActivity {
             title = R.string.arkui_privacy_password_confirm;
             description = R.string.arkui_privacy_password_confirm_summary;
             primary = R.string.arkui_privacy_password_save;
-        } else if (stage == MANAGE) {
-            title = R.string.arkui_privacy_password_enabled;
-            description = R.string.arkui_privacy_password_enabled_summary;
-            primary = R.string.arkui_privacy_password_change;
         } else {
             title = R.string.arkui_privacy_password_create;
             description = R.string.arkui_privacy_password_intro;
             primary = R.string.arkui_privacy_password_continue;
         }
-        mTitle.setText(title);
+        mLayout.setHeaderText(title);
         mDescription.setText(description);
-        mPrimary.setText(primary);
-        if (stage == MANAGE) mInput.hideKeyboard();
-        else mInput.post(() -> {
-            if (mVisible && !mCompleted && mStage != MANAGE) mInput.showKeyboard();
+        mPrimary.setText(this, primary);
+        mInput.getView().post(() -> {
+            if (mVisible && !mCompleted) mInput.showKeyboard();
         });
     }
 
     private void submit() {
         if (mBusy || !mVisible || mCompleted) return;
-        if (mStage == MANAGE) { render(NEW); mInput.showKeyboard(); return; }
         if (mStage == NEW) {
             if (!mInput.isValidNewPassword()) return;
             wipeNewPassword();
@@ -249,44 +228,17 @@ public final class PrivacyPasswordActivity extends FragmentActivity {
                     mAuthorization = session;
                     toast(R.string.arkui_privacy_password_saved);
                 } else { unavailable(); return; }
-                if (mConfirmOnly) complete(true);
-                else render(MANAGE);
+                if (verifying && !mConfirmOnly) render(NEW);
+                else complete(true);
             });
         });
-    }
-
-    private void confirmDisable() {
-        if (mBusy || mStage != MANAGE || mAuthorization == null) return;
-        mDialog = new MaterialAlertDialogBuilder(this)
-                .setTitle(R.string.arkui_privacy_password_disable)
-                .setMessage(R.string.arkui_privacy_password_disable_summary)
-                .setNegativeButton(android.R.string.cancel, null)
-                .setPositiveButton(R.string.arkui_privacy_password_disable, (dialog, button) -> {
-                    try {
-                        mManager.clearPassword(UserHandle.myUserId(), mAuthorization);
-                        mAuthorization = null;
-                        toast(R.string.arkui_privacy_password_disabled);
-                        render(NEW);
-                    } catch (RuntimeException error) { unavailable(); }
-                }).show();
-        mDialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
-        mDialog.getWindow().setHideOverlayWindows(true);
     }
 
     private void setBusy(boolean busy) {
         mBusy = busy;
         mInput.setBusy(busy);
         mPrimary.setEnabled(!busy);
-        mTypes.setEnabled(!busy);
-        for (int i = 0; i < mTypes.getChildCount(); i++) mTypes.getChildAt(i).setEnabled(!busy);
-    }
-
-    private void cancelOrBack() {
-        if (mBusy) { complete(false); return; }
-        if (!mConfirmOnly && mAuthorization != null && mStage != VERIFY && mStage != MANAGE) {
-            wipeNewPassword(); render(MANAGE); return;
-        }
-        complete(false);
+        mCancel.setEnabled(!busy);
     }
 
     private void complete(boolean success) {

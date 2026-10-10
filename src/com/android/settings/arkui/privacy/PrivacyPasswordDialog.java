@@ -62,7 +62,7 @@ public final class PrivacyPasswordDialog {
         LinearLayout container = new LinearLayout(context);
         int padding = Math.round(24 * context.getResources().getDisplayMetrics().density);
         container.setPadding(padding, padding / 2, padding, 0);
-        container.addView(input[0], new LinearLayout.LayoutParams(-1, -2));
+        container.addView(input[0].getView(), new LinearLayout.LayoutParams(-1, -2));
         dialog[0] = new MaterialAlertDialogBuilder(context)
                 .setTitle(R.string.arkui_privacy_password_enter)
                 .setMessage(R.string.arkui_privacy_password_verify_summary)

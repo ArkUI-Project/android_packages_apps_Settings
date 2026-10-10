@@ -80,6 +80,7 @@ public class Settings extends SettingsActivity {
     public static class ArkuiLyricsSettingsActivity extends SettingsActivity { /* empty */ }
     public static class AppTwinsActivity extends SettingsActivity { /* empty */ }
     public static class AppLockSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class PrivacyPasswordSettingsActivity extends SettingsActivity { /* empty */ }
     public static class BluetoothSettingsActivity extends SettingsActivity { /* empty */ }
     public static class BluetoothDashboardActivity extends SettingsActivity { /* empty */ }
     public static class CreateShortcutActivity extends SettingsActivity { /* empty */ }

@@ -129,8 +129,8 @@ public final class AppLockConfirmActivity extends FragmentActivity {
                 container.setVisibility(View.VISIBLE);
                 mPasswordInput = new PrivacyPasswordInput(this,
                         info.getInt(PrivacyPasswordManager.KEY_TYPE), this::authenticate);
-                container.addView(mPasswordInput, new FrameLayout.LayoutParams(-1, -2));
-                mPasswordInput.post(mPasswordInput::showKeyboard);
+                container.addView(mPasswordInput.getView(), new FrameLayout.LayoutParams(-1, -2));
+                mPasswordInput.getView().post(mPasswordInput::showKeyboard);
             } else {
                 mPasswordInput = null;
                 findViewById(R.id.app_lock_verify).post(this::authenticate);
