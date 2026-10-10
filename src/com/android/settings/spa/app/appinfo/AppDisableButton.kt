@@ -47,7 +47,7 @@ class AppDisableButton(
 
     @Composable
     fun getActionButton(app: ApplicationInfo): ActionButton? {
-        if (!app.isSystemApp) return null
+        if (!app.isSystemApp || app.packageName == "org.arkui.assistant") return null
 
         return when {
             app.enabled && !app.isDisabledUntilUsed -> {

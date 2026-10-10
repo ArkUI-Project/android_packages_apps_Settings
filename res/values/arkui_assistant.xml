@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_assistant_title">ArkAI</string>
+    <string name="arkui_assistant_summary">AI service, screen assistance and phone operations</string>
+</resources>

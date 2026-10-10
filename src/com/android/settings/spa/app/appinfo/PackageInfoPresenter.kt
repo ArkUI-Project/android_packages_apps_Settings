@@ -154,7 +154,12 @@ class PackageInfoPresenter(
     fun startUninstallActivity(forAllUsers: Boolean = false) {
         logAction(SettingsEnums.ACTION_SETTINGS_UNINSTALL_APP)
         requireAuthAndExecute {
-            context.startUninstallActivity(packageName, userHandle, forAllUsers)
+            if (packageName == "org.arkui.assistant" && !forAllUsers) {
+                context.startActivityAsUser(Intent("org.arkui.assistant.REMOVE")
+                    .setPackage(packageName), userHandle)
+            } else {
+                context.startUninstallActivity(packageName, userHandle, forAllUsers)
+            }
         }
     }
 

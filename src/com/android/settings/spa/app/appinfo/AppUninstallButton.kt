@@ -42,7 +42,7 @@ class AppUninstallButton(private val packageInfoPresenter: PackageInfoPresenter)
 
     @Composable
     fun getActionButton(app: ApplicationInfo): ActionButton? {
-        if (app.isSystemApp || app.isInstantApp) return null
+        if ((app.isSystemApp && app.packageName != "org.arkui.assistant") || app.isInstantApp) return null
         return uninstallButton(app)
     }
 

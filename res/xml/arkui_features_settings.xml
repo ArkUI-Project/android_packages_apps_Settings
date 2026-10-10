@@ -18,6 +18,15 @@
 
     <PreferenceCategory android:key="arkui_features_intelligence"
         android:title="@string/arkui_features_intelligence_group">
+        <Preference android:key="arkui_assistant"
+            android:title="@string/arkui_assistant_title"
+            android:summary="@string/arkui_assistant_summary"
+            android:icon="@drawable/ic_settings_arkui_features"
+            settings:controller="com.android.settings.arkui.AssistantPreferenceController">
+            <intent android:action="org.arkui.assistant.SETTINGS"
+                android:targetPackage="org.arkui.assistant"
+                android:targetClass="org.arkui.assistant.AssistantSettingsActivity" />
+        </Preference>
         <Preference android:key="arkui_intelligence"
             android:title="@string/arkui_intelligence_title"
             android:summary="@string/arkui_intelligence_summary"

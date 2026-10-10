@@ -237,6 +237,10 @@ public class AppButtonsPreferenceController extends BasePreferenceController imp
                             mUserId);
             if (admin != null && !uninstallBlockedBySystem) {
                 RestrictedLockUtils.sendShowAdminSupportDetailsIntent(mActivity, admin);
+            } else if ("org.arkui.assistant".equals(packageName) && !uninstallBlockedBySystem) {
+                requireAuthAndExecute(() -> mActivity.startActivityAsUser(
+                        new Intent("org.arkui.assistant.REMOVE").setPackage(packageName),
+                        android.os.UserHandle.of(mUserId)));
             } else if ((mAppEntry.info.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
                 if (mAppEntry.info.enabled && !isDisabledUntilUsed()) {
                     showDialogInner(ButtonActionDialogFragment.DialogType.DISABLE);
@@ -402,7 +406,7 @@ public class AppButtonsPreferenceController extends BasePreferenceController imp
     void updateUninstallButton() {
         final boolean isBundled = (mAppEntry.info.flags & ApplicationInfo.FLAG_SYSTEM) != 0;
         boolean enabled = true;
-        if (isBundled) {
+        if (isBundled && !"org.arkui.assistant".equals(mPackageName)) {
             enabled = handleDisableable();
         } else {
             if ((mPackageInfo.applicationInfo.flags & ApplicationInfo.FLAG_INSTALLED) == 0
