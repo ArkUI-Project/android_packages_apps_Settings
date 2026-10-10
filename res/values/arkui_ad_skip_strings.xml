@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_ad_skip_title">Ad skipper</string>
+    <string name="arkui_ad_skip_summary">Automatically skip opening ads in apps</string>
+    <string name="arkui_ad_skip_enable">Use ad skipper</string>
+    <string name="arkui_ad_skip_intro">Find and tap ad skip buttons when you open an app.</string>
+    <string name="arkui_ad_skip_count">Ads skipped</string>
+    <string name="arkui_ad_skip_count_value">%1$d successful skip actions</string>
+    <string name="arkui_ad_skip_excluded">Excluded apps</string>
+    <string name="arkui_ad_skip_excluded_count">%1$d apps excluded</string>
+    <string name="arkui_ad_skip_excluded_intro">Turn on an app below to leave its ads untouched.</string>
+    <string name="arkui_ad_skip_service_description">ArkUI reads on-screen controls to find and tap opening-ad skip buttons. Processing stays on this device. Enable or disable it in Settings → Special features → Ad skipper.</string>
+    <string name="arkui_ad_skip_note">Only checks the first 10 seconds after an app enters the foreground. Built-in rules look for Chinese and English ad skip buttons in the upper corners. Ads without accessible skip buttons may need to be skipped manually. No screen contents are saved or uploaded.</string>
+</resources>

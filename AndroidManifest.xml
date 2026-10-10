@@ -6182,6 +6182,17 @@
                    android:value="true" />
         </activity>
 
+        <service android:name=".arkui.adskip.AdSkipService"
+            android:label="@string/arkui_ad_skip_title"
+            android:process=":adskip" android:exported="true"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data android:name="android.accessibilityservice"
+                android:resource="@xml/arkui_ad_skip_service" />
+        </service>
+
         <!-- This is the longest AndroidManifest.xml ever. -->
 
     </application>

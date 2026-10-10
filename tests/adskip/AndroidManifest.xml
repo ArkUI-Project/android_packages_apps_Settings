@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.arkui.adskip.fixture">
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+    <application android:label="Ad skip test" android:theme="@android:style/Theme.Material.Light.NoActionBar">
+        <activity android:name=".AdActivity" android:exported="true" />
+    </application>
+    <instrumentation android:name=".AdSkipInstrumentation"
+        android:targetPackage="org.arkui.adskip.fixture" />
+</manifest>

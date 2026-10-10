@@ -69,6 +69,11 @@
 
     <PreferenceCategory android:key="arkui_features_tools"
         android:title="@string/arkui_features_tools_group">
+        <Preference android:key="arkui_ad_skip"
+            android:title="@string/arkui_ad_skip_title"
+            android:summary="@string/arkui_ad_skip_summary"
+            android:icon="@drawable/ic_settings_ad_skip"
+            android:fragment="com.android.settings.arkui.adskip.AdSkipSettingsFragment" />
         <Preference
             android:key="arkui_recognition_settings"
             android:title="@string/arkui_recognition_title"

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_ad_skip_title">广告跳过</string>
+    <string name="arkui_ad_skip_summary">自动跳过应用开屏广告</string>
+    <string name="arkui_ad_skip_enable">使用广告跳过</string>
+    <string name="arkui_ad_skip_intro">打开应用时，自动识别并点击广告的跳过按钮。</string>
+    <string name="arkui_ad_skip_count">已跳过广告</string>
+    <string name="arkui_ad_skip_count_value">成功执行 %1$d 次跳过操作</string>
+    <string name="arkui_ad_skip_excluded">排除的应用</string>
+    <string name="arkui_ad_skip_excluded_count">已排除 %1$d 个应用</string>
+    <string name="arkui_ad_skip_excluded_intro">开启下方应用的开关后，不再自动跳过该应用的广告。</string>
+    <string name="arkui_ad_skip_service_description">ArkUI 读取屏幕上的控件，识别并点击开屏广告的跳过按钮。所有处理均在本机完成。可在设置 → 特色功能 → 广告跳过中开启或关闭。</string>
+    <string name="arkui_ad_skip_note">仅在应用进入前台后的前 10 秒内识别，内置规则支持屏幕上方角落的中文和英文广告跳过按钮。没有可读取跳过按钮的广告可能需要手动跳过。不保存或上传屏幕内容。</string>
+</resources>

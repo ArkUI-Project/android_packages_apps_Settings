@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/arkui_ad_skip_title">
+    <com.android.settings.widget.SettingsMainSwitchPreference
+        android:key="ad_skip_enabled" android:title="@string/arkui_ad_skip_enable"
+        android:persistent="false" />
+    <com.android.settingslib.widget.TopIntroPreference
+        android:title="@string/arkui_ad_skip_intro" />
+    <Preference android:key="ad_skip_count" android:title="@string/arkui_ad_skip_count"
+        android:selectable="false" android:icon="@drawable/ic_settings_ad_skip" />
+    <Preference android:key="ad_skip_excluded" android:title="@string/arkui_ad_skip_excluded"
+        android:fragment="com.android.settings.arkui.adskip.AdSkipExcludedAppsFragment" />
+    <com.android.settingslib.widget.FooterPreference
+        android:title="@string/arkui_ad_skip_note" />
+</PreferenceScreen>

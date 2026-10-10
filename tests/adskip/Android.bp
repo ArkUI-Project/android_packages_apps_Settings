@@ -1,0 +1,13 @@
+// Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0
+package {
+    default_applicable_licenses: ["packages_apps_Settings_license"],
+}
+
+android_test {
+    name: "ArkAdSkipTest",
+    srcs: ["src/**/*.java"],
+    manifest: "AndroidManifest.xml",
+    platform_apis: true,
+    certificate: "platform",
+    test_suites: ["device-tests"],
+}
