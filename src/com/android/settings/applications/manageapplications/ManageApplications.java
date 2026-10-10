@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2006 The Android Open Source Project
+ * Copyright (C) 2026 The ArkUI Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -476,6 +477,9 @@ public class ManageApplications extends InstrumentedFragment
         mRecyclerView.setLayoutManager(new LinearLayoutManager(
                 getContext(), RecyclerView.VERTICAL, false /* reverseLayout */));
         mRecyclerView.setAdapter(mApplications);
+        if (StorageAppListStyle.isEnabled(requireContext(), mListType)) {
+            StorageAppListStyle.applyListStyle(mRecyclerView);
+        }
 
         // We have to do this now because PreferenceFrameLayout looks at it
         // only when the view is added.
@@ -497,8 +501,10 @@ public class ManageApplications extends InstrumentedFragment
     void createHeader() {
         final Activity activity = getActivity();
         final FrameLayout pinnedHeader = mRootView.findViewById(R.id.pinned_header);
+        final int layout = StorageAppListStyle.isEnabled(requireContext(), mListType)
+                ? R.layout.arkui_storage_filter_spinner : R.layout.manage_apps_filter_spinner;
         mSpinnerHeader = activity.getLayoutInflater()
-                .inflate(R.layout.manage_apps_filter_spinner, pinnedHeader, false);
+                .inflate(layout, pinnedHeader, false);
         mFilterSpinner = mSpinnerHeader.findViewById(R.id.filter_spinner);
         mFilterAdapter = new FilterSpinnerAdapter(this);
         mFilterSpinner.setAdapter(mFilterAdapter);
@@ -1802,6 +1808,9 @@ public class ManageApplications extends InstrumentedFragment
                 holder.updateDisableView(entry.info);
             }
             holder.setEnabled(isEnabled(position));
+            if (mManageApplications.mListType == LIST_TYPE_STORAGE) {
+                StorageAppListStyle.bindItem(holder.itemView, position, getItemCount());
+            }
 
             holder.itemView.setOnClickListener(mManageApplications);
         }

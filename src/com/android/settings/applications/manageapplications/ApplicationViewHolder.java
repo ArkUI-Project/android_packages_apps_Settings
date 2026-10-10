@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2017 The Android Open Source Project
+ * Copyright (C) 2026 The ArkUI Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -90,8 +91,11 @@ public class ApplicationViewHolder extends RecyclerView.ViewHolder {
     }
 
     static View newView(ViewGroup parent, boolean twoTarget, int listType) {
+        final int layout = StorageAppListStyle.isEnabled(parent.getContext(), listType)
+                ? R.layout.arkui_storage_app_item
+                : com.android.settingslib.widget.preference.app.R.layout.preference_app;
         ViewGroup view = (ViewGroup) LayoutInflater.from(parent.getContext())
-                .inflate(com.android.settingslib.widget.preference.app.R.layout.preference_app, parent, false);
+                .inflate(layout, parent, false);
         ViewGroup widgetFrame = view.findViewById(android.R.id.widget_frame);
         if (twoTarget) {
             if (widgetFrame != null) {

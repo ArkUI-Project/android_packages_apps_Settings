@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="8dp">
+
+    <Spinner
+        android:id="@+id/filter_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="56dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="48dp"
+        android:paddingVertical="8dp"
+        android:background="@drawable/settingslib_expressive_spinner_background"
+        android:popupBackground="@drawable/settingslib_expressive_spinner_dropdown_background"
+        android:spinnerMode="dropdown"
+        android:theme="@style/Widget.PopupWindow.Settings" />
+</FrameLayout>
