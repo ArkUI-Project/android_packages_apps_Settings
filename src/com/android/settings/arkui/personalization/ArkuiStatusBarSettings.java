@@ -13,6 +13,7 @@ import lineageos.providers.LineageSettings;
 public final class ArkuiStatusBarSettings extends PersonalizationPreferenceFragment {
     @Override protected int resource() { return R.xml.arkui_status_bar_settings; }
     @Override protected void configure() {
+        bind("arkui_status_bar_app_icons", Table.SECURE, 0);
         bind("status_bar_clock", Table.LINEAGE_SYSTEM, 2);
         bind("clock_seconds", Table.SECURE, 0);
         bind("arkui_clock_date_style", Table.SECURE, 0);

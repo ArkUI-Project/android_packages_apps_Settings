@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_status_bar_app_icons_title">在状态栏上显示应用原始图标</string>
+    <string name="arkui_status_bar_app_icons_summary">将通知图标显示为应用原本的彩色图标</string>
+</resources>

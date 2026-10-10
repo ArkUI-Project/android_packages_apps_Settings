@@ -6,6 +6,9 @@
         android:summary="@string/arkui_status_icons_summary"
         android:icon="@drawable/ic_settings_system_bar_motion"
         android:fragment="com.android.settings.arkui.personalization.ArkuiStatusBarIconsSettings" />
+    <SwitchPreferenceCompat android:key="arkui_status_bar_app_icons"
+        android:title="@string/arkui_status_bar_app_icons_title"
+        android:summary="@string/arkui_status_bar_app_icons_summary" android:persistent="false" />
 
     <PreferenceCategory android:title="@string/arkui_clock_category">
         <ListPreference android:key="status_bar_clock" android:title="@string/arkui_clock_position"

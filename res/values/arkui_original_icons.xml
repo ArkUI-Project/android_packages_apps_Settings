@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_status_bar_app_icons_title">Original app icons in status bar</string>
+    <string name="arkui_status_bar_app_icons_summary">Show notification icons using the app’s original full-color icon</string>
+</resources>
