@@ -14,6 +14,8 @@
     <string name="arkui_motion_sensor_note">Applies to acceleration, gyroscope, compass and related motion sensors. Switching pages within the app does not restart the timer. Screen rotation, light and proximity sensors remain available.</string>
     <string name="arkui_motion_sensor_shared_uid">Apps sharing this app’s system identity use the same access setting.</string>
     <string name="arkui_motion_sensor_apps">Apps</string>
+    <string name="arkui_motion_sensor_block_all">Block all apps for the first 6 seconds</string>
+    <string name="arkui_motion_sensor_block_all_done">All apps set to block for 6 seconds after opening</string>
     <string name="arkui_motion_sensor_empty">No apps available</string>
     <string name="arkui_motion_sensor_save_error">Couldn’t save device motion access</string>
 </resources>

@@ -21,6 +21,7 @@ import com.android.settings.core.SubSettingLauncher;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 import com.android.settingslib.utils.ThreadUtils;
+import com.android.settingslib.widget.ButtonPreference;
 import com.android.settingslib.widget.FooterPreference;
 import com.android.settingslib.widget.SelectorWithWidgetPreference;
 
@@ -41,6 +42,7 @@ public final class ArkuiMotionSensorSettings extends SettingsPreferenceFragment 
     private final List<SelectorWithWidgetPreference> mChoices = new ArrayList<>();
     private ApplicationInfo mApp;
     private int mGeneration;
+    private boolean mSavingAll;
 
     @Override public int getMetricsCategory() { return SettingsEnums.TOP_LEVEL_PRIVACY; }
 
@@ -94,6 +96,14 @@ public final class ArkuiMotionSensorSettings extends SettingsPreferenceFragment 
                 if (!isAdded() || generation != mGeneration) return;
                 getPreferenceScreen().removeAll();
                 addExplanation();
+                final ButtonPreference blockAll = new ButtonPreference(context);
+                blockAll.setKey("motion_block_all");
+                blockAll.setTitle(R.string.arkui_motion_sensor_block_all);
+                blockAll.setIcon(R.drawable.ic_arkui_motion_sensor);
+                blockAll.setButtonStyle(ButtonPreference.TYPE_FILLED, ButtonPreference.SIZE_NORMAL);
+                blockAll.setEnabled(!mSavingAll);
+                blockAll.setOnClickListener(view -> blockAllApps(blockAll));
+                getPreferenceScreen().addPreference(blockAll);
                 final PreferenceCategory group = new PreferenceCategory(context);
                 group.setTitle(R.string.arkui_motion_sensor_apps);
                 getPreferenceScreen().addPreference(group);
@@ -122,6 +132,31 @@ public final class ArkuiMotionSensorSettings extends SettingsPreferenceFragment 
                     empty.setSelectable(false);
                     group.addPreference(empty);
                 }
+            });
+        });
+    }
+
+    private void blockAllApps(ButtonPreference button) {
+        if (mSavingAll) return;
+        final Context context = requireContext();
+        mSavingAll = true;
+        button.setEnabled(false);
+        ThreadUtils.postOnBackgroundThread(() -> {
+            final List<String> packages = new ArrayList<>();
+            // Include disabled and non-launchable apps so shared UIDs get a consistent mode.
+            for (ApplicationInfo info : context.getPackageManager().getInstalledApplications(0)) {
+                if (UserHandle.getAppId(info.uid) >= Process.FIRST_APPLICATION_UID) {
+                    packages.add(info.packageName);
+                }
+            }
+            final boolean saved = MotionSensorSettings.setMode(context.getContentResolver(),
+                    packages, context.getUserId(), MotionSensorSettings.BLOCK_ON_OPEN);
+            ThreadUtils.postOnMainThread(() -> {
+                mSavingAll = false;
+                if (!isAdded()) return;
+                Toast.makeText(context, saved ? R.string.arkui_motion_sensor_block_all_done
+                        : R.string.arkui_motion_sensor_save_error, Toast.LENGTH_SHORT).show();
+                if (isResumed()) loadApps();
             });
         });
     }

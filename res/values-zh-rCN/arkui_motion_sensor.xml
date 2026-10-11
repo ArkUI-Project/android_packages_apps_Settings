@@ -14,6 +14,8 @@
     <string name="arkui_motion_sensor_note">作用于加速度、陀螺仪、指南针及相关动作传感器。应用内切换页面不会重新计时，不影响系统屏幕旋转、光线和距离传感器。</string>
     <string name="arkui_motion_sensor_shared_uid">与此应用共用系统身份的应用，将使用相同的权限设置。</string>
     <string name="arkui_motion_sensor_apps">应用</string>
+    <string name="arkui_motion_sensor_block_all">一键设为开屏后 6 秒内禁止</string>
+    <string name="arkui_motion_sensor_block_all_done">已将所有应用设为开屏后 6 秒内禁止</string>
     <string name="arkui_motion_sensor_empty">暂无可管理的应用</string>
     <string name="arkui_motion_sensor_save_error">无法保存设备动作权限设置</string>
 </resources>
