@@ -14,9 +14,9 @@ import android.view.Choreographer;
 import android.view.View;
 import android.view.accessibility.AccessibilityManager;
 
-/** Loops the two orbiting dots while Android is waiting for the user's home app. */
+/** Two softly breathing lights orbit while Android waits for the user's home app. */
 public final class StartupAnimationView extends View implements Choreographer.FrameCallback {
-    private static final int ORBIT_DURATION_MILLIS = 2400;
+    private static final int ORBIT_DURATION_MILLIS = 3200;
     private final Paint mDotPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private final float mDotRadius;
     private final float mOrbitRadius;
@@ -29,6 +29,7 @@ public final class StartupAnimationView extends View implements Choreographer.Fr
     private boolean mActive = true;
     private long mLastFrameNanos;
     private double mElapsedMillis;
+    private double mEntranceMillis;
 
     public StartupAnimationView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -74,6 +75,12 @@ public final class StartupAnimationView extends View implements Choreographer.Fr
         updateAnimationState();
     }
 
+    @Override
+    public void onWindowFocusChanged(boolean hasWindowFocus) {
+        super.onWindowFocusChanged(hasWindowFocus);
+        updateAnimationState();
+    }
+
     private boolean motionEnabled() {
         return ValueAnimator.areAnimatorsEnabled()
                 && (mAccessibility == null || !mAccessibility.isTouchExplorationEnabled());
@@ -82,7 +89,7 @@ public final class StartupAnimationView extends View implements Choreographer.Fr
     private void updateAnimationState() {
         Choreographer.getInstance().removeFrameCallback(this);
         mLastFrameNanos = 0;
-        mRunning = mAttached && mVisible && mActive && motionEnabled();
+        mRunning = mAttached && mVisible && mActive && hasWindowFocus() && motionEnabled();
         if (mRunning) Choreographer.getInstance().postFrameCallback(this);
         invalidate();
     }
@@ -95,9 +102,10 @@ public final class StartupAnimationView extends View implements Choreographer.Fr
             return;
         }
         if (mLastFrameNanos != 0) {
-            mElapsedMillis = (mElapsedMillis + (frameTimeNanos - mLastFrameNanos) / 1000000.0
-                    / Math.max(.01f, ValueAnimator.getDurationScale()))
-                    % ORBIT_DURATION_MILLIS;
+            double delta = (frameTimeNanos - mLastFrameNanos) / 1000000.0
+                    / Math.max(.01f, ValueAnimator.getDurationScale());
+            mElapsedMillis = (mElapsedMillis + delta) % ORBIT_DURATION_MILLIS;
+            mEntranceMillis = Math.min(400, mEntranceMillis + delta);
         }
         mLastFrameNanos = frameTimeNanos;
         invalidate();
@@ -110,11 +118,19 @@ public final class StartupAnimationView extends View implements Choreographer.Fr
         canvas.drawColor(Color.BLACK);
         final double angle = motionEnabled()
                 ? mElapsedMillis * Math.PI * 2 / ORBIT_DURATION_MILLIS : 0;
-        final float dx = (float) Math.cos(angle) * mOrbitRadius;
-        final float dy = (float) Math.sin(angle) * mOrbitRadius;
+        final float progress = motionEnabled() ? (float) (mEntranceMillis / 400) : 1;
+        final float entrance = 1 - (float) Math.pow(1 - progress, 3);
+        final float breath = motionEnabled() ? (float) Math.sin(angle * 2) : 0;
+        final float radius = mOrbitRadius * (1 + .12f * breath);
+        final float dx = (float) Math.cos(angle) * radius;
+        final float dy = (float) Math.sin(angle) * radius;
         final float cx = getWidth() / 2f;
         final float cy = getHeight() / 2f;
-        canvas.drawCircle(cx + dx, cy + dy, mDotRadius, mDotPaint);
-        canvas.drawCircle(cx - dx, cy - dy, mDotRadius, mDotPaint);
+        final float size = mDotRadius * (.85f + .15f * entrance);
+        final float opacity = .4f + .6f * entrance;
+        mDotPaint.setAlpha(Math.round((235 + 20 * breath) * opacity));
+        canvas.drawCircle(cx + dx, cy + dy, size * (1 + .08f * breath), mDotPaint);
+        mDotPaint.setAlpha(Math.round((235 - 20 * breath) * opacity));
+        canvas.drawCircle(cx - dx, cy - dy, size * (1 - .08f * breath), mDotPaint);
     }
 }

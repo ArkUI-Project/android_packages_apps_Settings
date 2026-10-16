@@ -83,6 +83,7 @@ android_library {
         "tensorflowlite_java",
 
         // Android internal dependencies
+        "ArkuiStartupAnimation",
         "BiometricsSharedLib",
         "SystemUIUnfoldLib",
         "WifiTrackerLib",

@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2021 The Android Open Source Project
+ * Copyright (C) 2026 The ArkUI Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,6 +56,8 @@ import com.android.settingslib.spa.framework.common.SpaEnvironmentFactory;
 
 import com.google.android.setupcompat.util.WizardManagerHelper;
 
+import org.arkui.animation.ScreenWakeAnimation;
+
 import java.lang.ref.WeakReference;
 
 /** Settings application which sets up activity embedding rules for the large screen device. */
@@ -76,6 +79,8 @@ public class SettingsApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        ScreenWakeAnimation.register(this, activity -> activity instanceof FallbackHome
+                || WizardManagerHelper.isAnySetupWizard(activity.getIntent()));
 
         // Force all loadLabel() calls to sanitize package labels
         PackageItemInfo.forceSafeLabels();
