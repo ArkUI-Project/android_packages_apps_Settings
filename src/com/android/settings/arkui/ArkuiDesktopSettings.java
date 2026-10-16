@@ -44,6 +44,7 @@ public class ArkuiDesktopSettings extends DashboardFragment
             Uri.parse("content://" + LAUNCHER_PACKAGE + ".desktop_settings");
     private static final String SWIPE_UP = Settings.System.ARKUI_SMALL_WINDOW_SWIPE_UP;
     private static final String MOTION_STYLE = "pref_motion_style";
+    private static final String DESKTOP_GRID = "pref_desktop_grid";
     private static final String[] LAUNCHER_SWITCHES = {
             "pref_workspace_lock", "pref_add_icon_to_home", "pref_allowRotation",
             "pref_enable_minus_one", "pref_drawer_open_keyboard",
@@ -55,6 +56,7 @@ public class ArkuiDesktopSettings extends DashboardFragment
     private static final String[] OPTIONAL_PREFERENCES = {
             "pref_allowRotation", "pref_enable_minus_one", "pref_icon_badging", "pref_suggestions",
             "pref_show_ask_ai",
+            DESKTOP_GRID,
     };
 
     private ContentResolver mResolver;
@@ -101,6 +103,9 @@ public class ArkuiDesktopSettings extends DashboardFragment
         final ListPreference motionStyle = findPreference(MOTION_STYLE);
         motionStyle.setSummaryProvider(ListPreference.SimpleSummaryProvider.getInstance());
         motionStyle.setOnPreferenceChangeListener(this);
+        final ListPreference grid = findPreference(DESKTOP_GRID);
+        grid.setSummaryProvider(ListPreference.SimpleSummaryProvider.getInstance());
+        grid.setOnPreferenceChangeListener(this);
         for (String key : LAUNCHER_SWITCHES) {
             findPreference(key).setOnPreferenceChangeListener(this);
         }
@@ -139,6 +144,10 @@ public class ArkuiDesktopSettings extends DashboardFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (DESKTOP_GRID.equals(preference.getKey()) && newValue instanceof String) {
+            requestPreferences(DESKTOP_GRID, newValue);
+            return false;
+        }
         if (MOTION_STYLE.equals(preference.getKey())) {
             if ("0".equals(newValue) || "1".equals(newValue)) {
                 requestPreferences(MOTION_STYLE, Integer.parseInt((String) newValue));
@@ -207,6 +216,13 @@ public class ArkuiDesktopSettings extends DashboardFragment
                 }
                 for (String optionalKey : OPTIONAL_PREFERENCES) {
                     findPreference(optionalKey).setVisible(available.getBoolean(optionalKey));
+                }
+                final ListPreference grid = findPreference(DESKTOP_GRID);
+                final Bundle gridOptions = result.getBundle("grid_options");
+                if (gridOptions != null) {
+                    grid.setEntries(gridOptions.getStringArray("labels"));
+                    grid.setEntryValues(gridOptions.getStringArray("values"));
+                    grid.setValue(values.getString(DESKTOP_GRID));
                 }
                 final boolean standard = values.getBoolean("pref_standard_desktop");
                 final Bundle motion = result.getBundle("motion");

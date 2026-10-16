@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_desktop_grid_title">桌面网格</string>
+    <string name="arkui_desktop_grid_dialog_title">选择列数 × 行数</string>
+</resources>

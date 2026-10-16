@@ -15,6 +15,10 @@
 
     <PreferenceCategory android:key="desktop_layout"
         android:title="@string/arkui_desktop_layout">
+        <ListPreference android:key="pref_desktop_grid"
+            android:title="@string/arkui_desktop_grid_title"
+            android:dialogTitle="@string/arkui_desktop_grid_dialog_title"
+            android:persistent="false" />
         <Preference android:key="desktop_icons"
             android:title="@string/arkui_desktop_icons_title"
             android:summary="@string/arkui_desktop_icons_summary"
