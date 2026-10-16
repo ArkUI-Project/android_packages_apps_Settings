@@ -15,9 +15,10 @@
 
     <PreferenceCategory android:key="desktop_layout"
         android:title="@string/arkui_desktop_layout">
-        <ListPreference android:key="icon_shape_model"
-            android:title="@string/arkui_desktop_icon_shape"
-            android:persistent="false" />
+        <Preference android:key="desktop_icons"
+            android:title="@string/arkui_desktop_icons_title"
+            android:summary="@string/arkui_desktop_icons_summary"
+            android:fragment="com.android.settings.arkui.ArkuiDesktopIconSettings" />
         <SwitchPreferenceCompat android:key="pref_workspace_lock"
             android:title="@string/arkui_desktop_lock"
             android:summary="@string/arkui_desktop_lock_summary"
@@ -27,9 +28,6 @@
             android:persistent="false" />
         <SwitchPreferenceCompat android:key="pref_allowRotation"
             android:title="@string/arkui_desktop_rotation"
-            android:persistent="false" />
-        <SwitchPreferenceCompat android:key="pref_desktop_show_labels"
-            android:title="@string/arkui_desktop_labels"
             android:persistent="false" />
     </PreferenceCategory>
 

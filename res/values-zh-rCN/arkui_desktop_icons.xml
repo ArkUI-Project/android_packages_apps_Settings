@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_desktop_icons_title">图标</string>
+    <string name="arkui_desktop_icons_summary">大小、形状和名称显示</string>
+    <string name="arkui_desktop_icon_preview">实时预览</string>
+    <string name="arkui_desktop_icon_size">图标大小</string>
+    <string name="arkui_desktop_icon_size_summary">调整桌面、Dock 和文件夹内的图标大小，更改自动保存。</string>
+    <string name="arkui_desktop_icon_reset">恢复默认图标设置</string>
+    <string name="arkui_desktop_icon_reset_summary">重置大小、形状和名称显示</string>
+</resources>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/arkui_desktop_icons_title">
+
+    <Preference android:key="icon_status"
+        android:title="@string/arkui_desktop_loading" />
+
+    <com.android.settings.arkui.ArkuiIconPreviewPreference
+        android:key="icon_preview"
+        android:title="@string/arkui_desktop_icon_preview"
+        android:selectable="false" />
+
+    <PreferenceCategory android:key="icon_controls">
+        <com.android.settings.arkui.ArkuiMotionPreference
+            android:key="pref_desktop_icon_size"
+            android:title="@string/arkui_desktop_icon_size"
+            android:summary="@string/arkui_desktop_icon_size_summary"
+            android:persistent="false" />
+        <ListPreference android:key="icon_shape_model"
+            android:title="@string/arkui_desktop_icon_shape"
+            android:persistent="false" />
+        <SwitchPreferenceCompat android:key="pref_desktop_show_labels"
+            android:title="@string/arkui_desktop_labels"
+            android:persistent="false" />
+    </PreferenceCategory>
+
+    <com.android.settingslib.widget.UntitledPreferenceCategory
+        android:key="icon_reset_category">
+        <Preference android:key="icon_reset"
+            android:title="@string/arkui_desktop_icon_reset"
+            android:summary="@string/arkui_desktop_icon_reset_summary" />
+    </com.android.settingslib.widget.UntitledPreferenceCategory>
+</PreferenceScreen>

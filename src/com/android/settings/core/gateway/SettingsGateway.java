@@ -378,6 +378,7 @@ public class SettingsGateway {
             com.android.settings.arkui.privacy.PrivacyPasswordSettings.class.getName(),
             com.android.settings.arkui.security.DuressPasswordSettings.class.getName(),
             com.android.settings.arkui.ArkuiDesktopSettings.class.getName(),
+            com.android.settings.arkui.ArkuiDesktopIconSettings.class.getName(),
             com.android.settings.arkui.ArkuiMotionSensorSettings.class.getName(),
             com.android.settings.arkui.SmartPixelsSettingsFragment.class.getName(),
             com.android.settings.arkui.MistouchProtectionSettings.class.getName(),

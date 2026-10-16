@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_desktop_icons_title">Icons</string>
+    <string name="arkui_desktop_icons_summary">Size, shape and labels</string>
+    <string name="arkui_desktop_icon_preview">Live preview</string>
+    <string name="arkui_desktop_icon_size">Icon size</string>
+    <string name="arkui_desktop_icon_size_summary">Adjust icons on the home screen, in the dock and in folders. Changes save automatically.</string>
+    <string name="arkui_desktop_icon_reset">Restore default icons</string>
+    <string name="arkui_desktop_icon_reset_summary">Reset size, shape and label visibility</string>
+</resources>

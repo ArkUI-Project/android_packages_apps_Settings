@@ -44,10 +44,9 @@ public class ArkuiDesktopSettings extends DashboardFragment
             Uri.parse("content://" + LAUNCHER_PACKAGE + ".desktop_settings");
     private static final String SWIPE_UP = Settings.System.ARKUI_SMALL_WINDOW_SWIPE_UP;
     private static final String MOTION_STYLE = "pref_motion_style";
-    private static final String ICON_SHAPE = "icon_shape_model";
     private static final String[] LAUNCHER_SWITCHES = {
             "pref_workspace_lock", "pref_add_icon_to_home", "pref_allowRotation",
-            "pref_desktop_show_labels", "pref_enable_minus_one", "pref_drawer_open_keyboard",
+            "pref_enable_minus_one", "pref_drawer_open_keyboard",
             "pref_show_ask_ai",
             "pref_allapps_themed_icons", "pref_drawer_show_labels", "pref_sleep_gesture",
             "pref_landscape_app_animation",
@@ -55,7 +54,7 @@ public class ArkuiDesktopSettings extends DashboardFragment
     };
     private static final String[] OPTIONAL_PREFERENCES = {
             "pref_allowRotation", "pref_enable_minus_one", "pref_icon_badging", "pref_suggestions",
-            "pref_show_ask_ai", ICON_SHAPE,
+            "pref_show_ask_ai",
     };
 
     private ContentResolver mResolver;
@@ -102,9 +101,6 @@ public class ArkuiDesktopSettings extends DashboardFragment
         final ListPreference motionStyle = findPreference(MOTION_STYLE);
         motionStyle.setSummaryProvider(ListPreference.SimpleSummaryProvider.getInstance());
         motionStyle.setOnPreferenceChangeListener(this);
-        final ListPreference iconShape = findPreference(ICON_SHAPE);
-        iconShape.setSummaryProvider(ListPreference.SimpleSummaryProvider.getInstance());
-        iconShape.setOnPreferenceChangeListener(this);
         for (String key : LAUNCHER_SWITCHES) {
             findPreference(key).setOnPreferenceChangeListener(this);
         }
@@ -143,13 +139,6 @@ public class ArkuiDesktopSettings extends DashboardFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (ICON_SHAPE.equals(preference.getKey())) {
-            if (newValue instanceof String shape
-                    && ((ListPreference) preference).findIndexOfValue(shape) >= 0) {
-                requestPreferences(ICON_SHAPE, shape);
-            }
-            return false;
-        }
         if (MOTION_STYLE.equals(preference.getKey())) {
             if ("0".equals(newValue) || "1".equals(newValue)) {
                 requestPreferences(MOTION_STYLE, Integer.parseInt((String) newValue));
@@ -218,21 +207,6 @@ public class ArkuiDesktopSettings extends DashboardFragment
                 }
                 for (String optionalKey : OPTIONAL_PREFERENCES) {
                     findPreference(optionalKey).setVisible(available.getBoolean(optionalKey));
-                }
-                final ListPreference iconShape = findPreference(ICON_SHAPE);
-                final Bundle shapes = result.getBundle("icon_shapes");
-                final String[] shapeValues = shapes == null ? null
-                        : shapes.getStringArray("values");
-                final String[] shapeLabels = shapes == null ? null
-                        : shapes.getStringArray("labels");
-                final boolean hasShapes = available.getBoolean(ICON_SHAPE)
-                        && shapeValues != null && shapeLabels != null
-                        && shapeValues.length > 0 && shapeValues.length == shapeLabels.length;
-                iconShape.setVisible(hasShapes);
-                if (hasShapes) {
-                    iconShape.setEntries(shapeLabels);
-                    iconShape.setEntryValues(shapeValues);
-                    iconShape.setValue(values.getString(ICON_SHAPE));
                 }
                 final boolean standard = values.getBoolean("pref_standard_desktop");
                 final Bundle motion = result.getBundle("motion");
