@@ -41,7 +41,7 @@ public class ArkuiAboutOverviewPreference extends LayoutPreference implements No
     public ArkuiAboutOverviewPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setSelectable(false);
-        final String baseVersion = SystemProperties.get("ro.lineage.build.version",
+        final String baseVersion = SystemProperties.get("org.arkui.build.version",
                 context.getString(R.string.unknown));
         ((TextView) findViewById(R.id.arkui_about_base_version)).setText(context.getString(
                 R.string.arkui_about_lineage_base, baseVersion));
