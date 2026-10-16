@@ -24,7 +24,7 @@ public class ArkuiDesktopModePreference extends Preference {
         setLayoutResource(R.layout.arkui_desktop_mode_preference);
         setPersistent(false);
         setSelectable(false);
-        setStandard(false);
+        setStandard(true);
     }
 
     public void setStandard(boolean standard) {

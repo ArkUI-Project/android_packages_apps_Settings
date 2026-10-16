@@ -17,6 +17,7 @@
     <string name="arkui_desktop_summary">桌面布局、应用抽屉、手势与动画</string>
     <string name="arkui_features_summary">侧边栏、快捷轮盘、小窗</string>
     <string name="arkui_desktop_layout">桌面布局</string>
+    <string name="arkui_desktop_icon_shape">图标形状</string>
     <string name="arkui_desktop_drawer">应用抽屉</string>
     <string name="arkui_desktop_gestures">手势与动画</string>
     <string name="arkui_desktop_lock">锁定布局</string>
