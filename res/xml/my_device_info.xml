@@ -126,9 +126,10 @@
             android:key="arkui_version"
             android:order="43"
             android:title="@string/arkui_version_title"
-            android:summary="@string/arkui_version_name"
+            android:summary="@string/summary_placeholder"
             android:selectable="false"
-            settings:enableCopying="true"/>
+            settings:enableCopying="true"
+            settings:controller="com.android.settings.deviceinfo.firmwareversion.ArkuiVersionPreferenceController"/>
 
         <!-- Lineage version -->
         <Preference

@@ -31,6 +31,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
 
 import com.android.settings.R;
+import com.android.settings.deviceinfo.ArkuiVersionInfo;
 import com.android.settingslib.widget.LayoutPreference;
 import com.android.settingslib.widget.NormalPaddingMixin;
 
@@ -41,6 +42,8 @@ public class ArkuiAboutOverviewPreference extends LayoutPreference implements No
     public ArkuiAboutOverviewPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setSelectable(false);
+        ((TextView) findViewById(R.id.arkui_about_version)).setText(
+                ArkuiVersionInfo.getVersionSummary(context));
         final String baseVersion = SystemProperties.get("org.arkui.build.version",
                 context.getString(R.string.unknown));
         ((TextView) findViewById(R.id.arkui_about_base_version)).setText(context.getString(

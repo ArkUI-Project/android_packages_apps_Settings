@@ -21,7 +21,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.SystemClock;
-import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.text.TextUtils;
@@ -33,6 +32,7 @@ import androidx.preference.Preference;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.core.BasePreferenceController;
+import com.android.settings.deviceinfo.ArkuiVersionInfo;
 import com.android.settingslib.RestrictedLockUtils;
 import com.android.settingslib.RestrictedLockUtilsInternal;
 
@@ -42,9 +42,6 @@ public class LineageVersionDetailPreferenceController extends BasePreferenceCont
     private static final String TAG = "lineageVersionDialogCtrl";
     private static final int DELAY_TIMER_MILLIS = 500;
     private static final int ACTIVITY_TRIGGER_COUNT = 3;
-
-    private static final String KEY_LINEAGE_VERSION_PROP = "ro.lineage.version";
-    private static final String KEY_ARKUI_VERSION_PROP = "ro.arkui.version";
 
     private static final String PLATLOGO_PACKAGE_NAME = "org.lineageos.lineageparts";
     private static final String PLATLOGO_ACTIVITY_CLASS =
@@ -79,9 +76,7 @@ public class LineageVersionDetailPreferenceController extends BasePreferenceCont
 
     @Override
     public CharSequence getSummary() {
-        return SystemProperties.get(KEY_ARKUI_VERSION_PROP,
-                SystemProperties.get(KEY_LINEAGE_VERSION_PROP,
-                        mContext.getString(R.string.unknown)));
+        return ArkuiVersionInfo.getBuildName(mContext);
     }
 
     @Override

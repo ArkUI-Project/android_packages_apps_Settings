@@ -21,13 +21,13 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.SystemClock
-import android.os.SystemProperties
 import android.os.UserHandle
 import android.os.UserManager
 import androidx.preference.Preference
 import com.android.settings.R
 import com.android.settings.Utils
 import com.android.settings.contract.TAG_DEVICE_STATE_PREFERENCE
+import com.android.settings.deviceinfo.ArkuiVersionInfo
 import com.android.settingslib.RestrictedLockUtils
 import com.android.settingslib.RestrictedLockUtilsInternal
 import com.android.settingslib.metadata.PreferenceMetadata
@@ -64,10 +64,7 @@ class LineageVersionDetailPreference :
     }
 
     override fun getSummary(context: Context): CharSequence =
-        SystemProperties.get(
-            ARKUI_VERSION_PROPERTY,
-            SystemProperties.get(LINEAGE_VERSION_PROPERTY, context.getString(R.string.unknown)),
-        )
+        ArkuiVersionInfo.getBuildName(context)
 
     // return true swallows the click event, while return false will start the intent
     override fun onPreferenceClick(preference: Preference): Boolean {
@@ -105,9 +102,6 @@ class LineageVersionDetailPreference :
     companion object {
         const val ACTIVITY_TRIGGER_COUNT = 3
         const val DELAY_TIMER_MILLIS = 500L
-
-        const val LINEAGE_VERSION_PROPERTY: String = "ro.lineage.version"
-        const val ARKUI_VERSION_PROPERTY: String = "ro.arkui.version"
 
         const val PLATLOGO_PACKAGE_NAME: String = "org.lineageos.lineageparts"
         const val PLATLOGO_ACTIVITY_CLASS: String = PLATLOGO_PACKAGE_NAME + ".logo.PlatLogoActivity"

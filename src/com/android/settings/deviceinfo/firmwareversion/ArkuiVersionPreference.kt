@@ -20,10 +20,12 @@ import android.content.Context
 import androidx.preference.Preference
 import com.android.settings.R
 import com.android.settings.contract.TAG_DEVICE_STATE_PREFERENCE
+import com.android.settings.deviceinfo.ArkuiVersionInfo
 import com.android.settingslib.metadata.PreferenceMetadata
+import com.android.settingslib.metadata.PreferenceSummaryProvider
 import com.android.settingslib.preference.PreferenceBinding
 
-class ArkuiVersionPreference : PreferenceMetadata, PreferenceBinding {
+class ArkuiVersionPreference : PreferenceMetadata, PreferenceSummaryProvider, PreferenceBinding {
 
     override val key: String
         get() = "arkui_version"
@@ -31,8 +33,7 @@ class ArkuiVersionPreference : PreferenceMetadata, PreferenceBinding {
     override val title: Int
         get() = R.string.arkui_version_title
 
-    override val summary: Int
-        get() = R.string.arkui_version_name
+    override fun getSummary(context: Context): CharSequence = ArkuiVersionInfo.getBuildName(context)
 
     override val indexable
         get() = false
