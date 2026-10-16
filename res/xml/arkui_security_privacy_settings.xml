@@ -38,6 +38,13 @@
         android:key="arkui_security_system_controls"
         android:title="@string/arkui_security_system_controls_group">
 
+        <Preference android:key="arkui_duress_password"
+            android:title="@string/arkui_duress_title"
+            android:summary="@string/arkui_duress_summary"
+            android:icon="@drawable/ic_settings_security_filled"
+            android:fragment="com.android.settings.arkui.security.DuressPasswordSettings"
+            settings:controller="com.android.settings.arkui.security.DuressPasswordPreferenceController" />
+
         <Preference
             android:key="top_level_security"
             android:title="@string/security_settings_title"

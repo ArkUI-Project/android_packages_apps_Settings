@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_duress_title">Duress password</string>
+    <string name="arkui_duress_summary">Erase encrypted device data with a separate PIN or password</string>
+    <string name="arkui_duress_encryption_required">Duress protection is only available when /data has file-based encryption enabled.</string>
+    <string name="arkui_duress_warning">Entering the duress PIN or password on the lock screen or a system device-credential prompt destroys encryption keys for all users and shuts down the device. This cannot be undone. Erasing eSIMs is also attempted, but depends on device support. A factory reset may be needed to use the device again.\n\nThe duress PIN works in PIN prompts, and the duress password works in password prompts. SIM PINs and independent app or privacy passwords do not trigger this feature. A matching normal screen lock takes priority. Do not enter a duress credential to test it on a device with data you need.</string>
+    <string name="arkui_duress_lock_required">First set a screen lock PIN or password for the device owner. Switching to a pattern or removing the screen lock disables duress protection.</string>
+    <string name="arkui_duress_enabled">Duress protection enabled</string>
+    <string name="arkui_duress_disabled">Duress protection disabled</string>
+    <string name="arkui_duress_configure">Set duress PIN and password</string>
+    <string name="arkui_duress_change">Change duress PIN and password</string>
+    <string name="arkui_duress_configure_summary">Requires your current screen lock. Both credentials must be entered twice. PIN auto-confirm is suspended while duress protection is enabled.</string>
+    <string name="arkui_duress_confirm_owner">Confirm your screen lock</string>
+    <string name="arkui_duress_enter_pin">Enter duress PIN</string>
+    <string name="arkui_duress_repeat_pin">Confirm duress PIN</string>
+    <string name="arkui_duress_enter_password">Enter duress password</string>
+    <string name="arkui_duress_repeat_password">Confirm duress password</string>
+    <string name="arkui_duress_input_help">Use 4–128 digits for the PIN, or 4–128 printable English characters for the password. Use values different from your normal screen lock.</string>
+    <string name="arkui_duress_same_as_lock">Use a credential different from your normal screen lock.</string>
+    <string name="arkui_duress_mismatch">The entries do not match. Try again.</string>
+    <string name="arkui_duress_continue">Continue</string>
+    <string name="arkui_duress_enable">Enable duress protection</string>
+    <string name="arkui_duress_saved">Duress PIN and password saved</string>
+    <string name="arkui_duress_disable">Disable duress protection</string>
+    <string name="arkui_duress_disable_message">Remove both duress credentials? Your normal screen lock and device data will be kept.</string>
+    <string name="arkui_duress_error">Could not update duress protection. Confirm your current screen lock and try again.</string>
+</resources>

@@ -1,4 +1,10 @@
 
+ArkUI duress password settings
+Feature reference: GrapheneOS duress PIN/password.
+https://grapheneos.org/features#duress
+Copyright (C) 2026 The ArkUI Project (native settings and integration)
+Apache License, Version 2.0, reproduced below.
+
 ArkUI personalization and compatibility controls
 Feature references: RisingOS Revived Personalizations and LineageOS status bar settings.
 https://github.com/RisingOS-Revived/android_packages_apps_Personalizations
