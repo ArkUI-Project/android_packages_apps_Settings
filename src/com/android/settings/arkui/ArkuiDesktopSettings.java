@@ -47,12 +47,14 @@ public class ArkuiDesktopSettings extends DashboardFragment
     private static final String[] LAUNCHER_SWITCHES = {
             "pref_workspace_lock", "pref_add_icon_to_home", "pref_allowRotation",
             "pref_desktop_show_labels", "pref_enable_minus_one", "pref_drawer_open_keyboard",
+            "pref_show_ask_ai",
             "pref_allapps_themed_icons", "pref_drawer_show_labels", "pref_sleep_gesture",
             "pref_landscape_app_animation",
             "pref_stacked_recents",
     };
     private static final String[] OPTIONAL_PREFERENCES = {
             "pref_allowRotation", "pref_enable_minus_one", "pref_icon_badging", "pref_suggestions",
+            "pref_show_ask_ai",
     };
 
     private ContentResolver mResolver;

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_desktop_ask_ai">顯示「問 AI」</string>
+    <string name="arkui_desktop_ask_ai_summary">在底部 Dock 上方顯示按鈕，點選開啟 ArkAI</string>
+</resources>

@@ -32,6 +32,10 @@
 
     <PreferenceCategory android:key="desktop_content"
         android:title="@string/arkui_desktop_content_group">
+        <SwitchPreferenceCompat android:key="pref_show_ask_ai"
+            android:title="@string/arkui_desktop_ask_ai"
+            android:summary="@string/arkui_desktop_ask_ai_summary"
+            android:persistent="false" />
         <Preference android:key="pref_icon_badging"
             android:title="@string/arkui_desktop_notification_dots" />
         <SwitchPreferenceCompat android:key="pref_enable_minus_one"
