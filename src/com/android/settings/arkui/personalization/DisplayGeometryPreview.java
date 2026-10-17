@@ -10,7 +10,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.google.android.material.color.MaterialColors;
+import com.android.settingslib.Utils;
 
 /** A scaled portrait preview using the same natural-display coordinates as the overlay. */
 public final class DisplayGeometryPreview extends View {
@@ -48,9 +48,13 @@ public final class DisplayGeometryPreview extends View {
         float density = mModel.physicalDensity;
         float radius = mValues[DisplayGeometrySettings.RADIUS] < 0 ? mModel.nativeRadius
                 : mValues[DisplayGeometrySettings.RADIUS] * density;
-        int surface = MaterialColors.getColor(this, com.google.android.material.R.attr.colorSurface);
-        int primary = MaterialColors.getColor(this, androidx.appcompat.R.attr.colorPrimary);
-        int ink = MaterialColors.getColor(this, com.google.android.material.R.attr.colorOnSurface);
+        // Both Settings themes define platform colors; Material attributes are optional.
+        int surface = Utils.getColorAttrDefaultColor(getContext(),
+                android.R.attr.colorBackground, Color.WHITE);
+        int ink = Utils.getColorAttrDefaultColor(getContext(),
+                android.R.attr.textColorPrimary, Color.BLACK);
+        int primary = Utils.getColorAttrDefaultColor(getContext(),
+                android.R.attr.colorAccent, ink);
         mPaint.setColor(ink);
         canvas.drawRoundRect(-4 / scale, -4 / scale, width + 4 / scale, height + 4 / scale,
                 radius + 4 / scale, radius + 4 / scale, mPaint);
