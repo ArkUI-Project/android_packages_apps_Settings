@@ -26,6 +26,7 @@ import static org.mockito.Mockito.when;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.provider.Settings;
 
 import androidx.test.core.app.ApplicationProvider;
@@ -47,12 +48,17 @@ public class NavigationSettingsContextualSearchControllerTest {
     private NavigationSettingsContextualSearchController mController;
     private Context mContext;
     private PackageManager mPackageManager;
+    private Resources mResources;
 
     @Before
     public void setUp() {
         mContext = spy(ApplicationProvider.getApplicationContext());
         mPackageManager = mock(PackageManager.class);
         when(mContext.getPackageManager()).thenReturn(mPackageManager);
+        mResources = spy(mContext.getResources());
+        when(mContext.getResources()).thenReturn(mResources);
+        when(mResources.getString(com.android.internal.R.string
+                .config_defaultContextualSearchPackageName)).thenReturn("test.search.provider");
         mController = new NavigationSettingsContextualSearchController(
                 mContext, KEY_PRESS_HOLD_FOR_SEARCH);
     }
@@ -61,6 +67,14 @@ public class NavigationSettingsContextualSearchControllerTest {
     public void isAvailable_hasContextualSearchSystemFeature_shouldReturnTrue() {
         when(mPackageManager.hasSystemFeature(FEATURE_CONTEXTUAL_SEARCH)).thenReturn(true);
         assertThat(mController.isAvailable()).isTrue();
+    }
+
+    @Test
+    public void isAvailable_hasFeatureButNoProvider_shouldReturnFalse() {
+        when(mPackageManager.hasSystemFeature(FEATURE_CONTEXTUAL_SEARCH)).thenReturn(true);
+        when(mResources.getString(com.android.internal.R.string
+                .config_defaultContextualSearchPackageName)).thenReturn("");
+        assertThat(mController.isAvailable()).isFalse();
     }
 
     @Test
