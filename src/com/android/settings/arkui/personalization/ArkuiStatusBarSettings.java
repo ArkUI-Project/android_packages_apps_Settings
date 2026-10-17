@@ -2,6 +2,7 @@
 package com.android.settings.arkui.personalization;
 
 import android.text.format.DateFormat;
+import android.os.Bundle;
 import androidx.preference.ListPreference;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -11,6 +12,15 @@ import lineageos.providers.LineageSettings;
 
 @SearchIndexable
 public final class ArkuiStatusBarSettings extends PersonalizationPreferenceFragment {
+    private DisplayGeometryEditor mGeometryEditor;
+    @Override public void onCreate(Bundle state) {
+        super.onCreate(state);
+        mGeometryEditor = new DisplayGeometryEditor(this, false, state);
+    }
+    @Override public void onSaveInstanceState(Bundle state) {
+        super.onSaveInstanceState(state);
+        if (mGeometryEditor != null) mGeometryEditor.save(state);
+    }
     @Override protected int resource() { return R.xml.arkui_status_bar_settings; }
     @Override protected void configure() {
         bind("arkui_status_bar_app_icons", Table.SECURE, 0);

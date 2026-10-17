@@ -10,6 +10,8 @@
         android:title="@string/arkui_status_bar_app_icons_title"
         android:summary="@string/arkui_status_bar_app_icons_summary" android:persistent="false" />
 
+    <PreferenceCategory android:key="arkui_geometry" android:title="@string/arkui_geometry_status_title" />
+
     <PreferenceCategory android:title="@string/arkui_clock_category">
         <ListPreference android:key="status_bar_clock" android:title="@string/arkui_clock_position"
             android:entries="@array/arkui_clock_entries" android:entryValues="@array/arkui_clock_values" android:persistent="false" />

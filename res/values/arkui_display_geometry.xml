@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_geometry_shape_title">Screen corners and cutout</string>
+    <string name="arkui_geometry_shape_summary">Preview the corner radius and camera cutout position</string>
+    <string name="arkui_geometry_status_title">Margins and height</string>
+    <string name="arkui_geometry_preview">Screen geometry preview</string>
+    <string name="arkui_geometry_left">Left margin</string>
+    <string name="arkui_geometry_right">Right margin</string>
+    <string name="arkui_geometry_top">Top margin</string>
+    <string name="arkui_geometry_height">Status bar height</string>
+    <string name="arkui_geometry_radius">Screen corner radius</string>
+    <string name="arkui_geometry_cutout">Custom camera cutout</string>
+    <string name="arkui_geometry_cutout_x">Horizontal position</string>
+    <string name="arkui_geometry_cutout_y">Distance from top edge</string>
+    <string name="arkui_geometry_cutout_width">Cutout width</string>
+    <string name="arkui_geometry_cutout_height">Cutout height</string>
+    <string name="arkui_geometry_default">Device default</string>
+    <string name="arkui_geometry_dp">%1$d dp</string>
+    <string name="arkui_geometry_percent">%1$d%%</string>
+    <string name="arkui_geometry_apply">Apply changes</string>
+    <string name="arkui_geometry_applied">Display calibration applied</string>
+    <string name="arkui_geometry_reset">Restore device defaults</string>
+    <string name="arkui_geometry_reset_summary">Preview the defaults, then tap Apply changes</string>
+    <string name="arkui_geometry_status_note">Drag to preview, then apply. Left and right refer to physical screen edges. The status bar keeps enough space for its icons, privacy indicators and camera cutout.</string>
+    <string name="arkui_geometry_shape_note">Drag to preview, then apply. Changes affect the system mask and app content insets on the built-in display. They cannot move the physical camera or change the panel. Turn off Custom camera cutout to restore the original shape.</string>
+    <string name="arkui_geometry_owner_only">Only the device owner can change screen calibration because display geometry is shared by all users.</string>
+</resources>

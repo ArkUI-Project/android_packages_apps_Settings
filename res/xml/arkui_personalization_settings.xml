@@ -7,6 +7,11 @@
         android:icon="@drawable/ic_settings_system_bar_motion"
         android:fragment="com.android.settings.arkui.personalization.ArkuiStatusBarSettings" />
 
+    <Preference android:key="arkui_display_shape" android:title="@string/arkui_geometry_shape_title"
+        android:summary="@string/arkui_geometry_shape_summary"
+        android:icon="@drawable/ic_settings_system_bar_motion"
+        android:fragment="com.android.settings.arkui.personalization.ArkuiDisplayShapeSettings" />
+
     <Preference android:key="arkui_fonts" android:title="@string/arkui_fonts_title"
         android:summary="@string/arkui_fonts_summary"
         android:icon="@drawable/ic_text_fields_alt"

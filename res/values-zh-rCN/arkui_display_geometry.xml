@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="arkui_geometry_shape_title">屏幕圆角与挖孔</string>
+    <string name="arkui_geometry_shape_summary">预览并调整屏幕圆角、摄像头挖孔位置</string>
+    <string name="arkui_geometry_status_title">边界与高度</string>
+    <string name="arkui_geometry_preview">屏幕效果预览</string>
+    <string name="arkui_geometry_left">左边界</string>
+    <string name="arkui_geometry_right">右边界</string>
+    <string name="arkui_geometry_top">上边界</string>
+    <string name="arkui_geometry_height">状态栏高度</string>
+    <string name="arkui_geometry_radius">屏幕圆角半径</string>
+    <string name="arkui_geometry_cutout">自定义摄像头挖孔</string>
+    <string name="arkui_geometry_cutout_x">水平位置</string>
+    <string name="arkui_geometry_cutout_y">距屏幕顶部</string>
+    <string name="arkui_geometry_cutout_width">挖孔宽度</string>
+    <string name="arkui_geometry_cutout_height">挖孔高度</string>
+    <string name="arkui_geometry_default">设备默认</string>
+    <string name="arkui_geometry_dp">%1$d dp</string>
+    <string name="arkui_geometry_percent">%1$d%%</string>
+    <string name="arkui_geometry_apply">应用修改</string>
+    <string name="arkui_geometry_applied">屏幕参数已应用</string>
+    <string name="arkui_geometry_reset">恢复设备默认值</string>
+    <string name="arkui_geometry_reset_summary">先预览默认效果，再点击“应用修改”</string>
+    <string name="arkui_geometry_status_note">拖动滑块预览，点击后应用。左右边界对应屏幕实际左右两侧。状态栏会为图标、隐私指示器和摄像头挖孔保留必要空间。</string>
+    <string name="arkui_geometry_shape_note">拖动滑块预览，点击后应用。修改作用于内置屏幕的系统遮罩和应用避让区域，不能移动实体摄像头或改变面板。关闭“自定义摄像头挖孔”即可恢复原始挖孔形状。</string>
+    <string name="arkui_geometry_owner_only">屏幕参数由所有用户共用，仅设备所有者可以修改。</string>
+</resources>

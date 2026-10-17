@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The ArkUI Project; SPDX-License-Identifier: Apache-2.0 -->
+<com.android.settings.arkui.personalization.DisplayGeometryPreview
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/geometry_preview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:contentDescription="@string/arkui_geometry_preview" />

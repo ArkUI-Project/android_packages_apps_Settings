@@ -369,6 +369,7 @@ public class SettingsGateway {
             com.android.settings.arkui.ArkuiFeaturesSettings.class.getName(),
             com.android.settings.arkui.personalization.ArkuiPersonalizationSettings.class.getName(),
             com.android.settings.arkui.personalization.ArkuiStatusBarSettings.class.getName(),
+            com.android.settings.arkui.personalization.ArkuiDisplayShapeSettings.class.getName(),
             com.android.settings.arkui.personalization.ArkuiStatusBarIconsSettings.class.getName(),
             com.android.settings.arkui.personalization.ArkuiFontsSettings.class.getName(),
             com.android.settings.arkui.personalization.ArkuiQuickSettings.class.getName(),
