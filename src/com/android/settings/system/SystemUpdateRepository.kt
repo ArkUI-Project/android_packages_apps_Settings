@@ -25,10 +25,11 @@ class SystemUpdateRepository(context: Context) {
     private val packageManager = context.packageManager
 
     /**
-     * Finds a matching activity for the system update intent.
+     * Finds the ArkUI updater without falling back to another system update provider.
      */
     fun getSystemUpdateIntent(): Intent? {
         val intent = Intent(Settings.ACTION_SYSTEM_UPDATE_SETTINGS)
+            .setPackage("org.lineageos.updater")
         return packageManager.resolveActivity(intent, PackageManager.MATCH_SYSTEM_ONLY)
             ?.activityInfo
             ?.let { activityInfo ->

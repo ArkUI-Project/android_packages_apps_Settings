@@ -140,7 +140,9 @@
         android:order="-58"
         settings:keywords="@string/keywords_system_update_settings"
         settings:controller="com.android.settings.system.SystemUpdatePreferenceController">
-        <intent android:action="android.settings.SYSTEM_UPDATE_SETTINGS"/>
+        <intent android:action="android.settings.SYSTEM_UPDATE_SETTINGS"
+            android:targetPackage="org.lineageos.updater"
+            android:targetClass="org.lineageos.updater.UpdatesActivity"/>
     </Preference>
 
     <Preference

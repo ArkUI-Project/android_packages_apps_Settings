@@ -51,11 +51,42 @@ class SystemUpdateRepositoryTest {
     }
 
     @Test
-    fun getSystemUpdateIntent_hasResolveActivity_returnIntent() {
+    fun getSystemUpdateIntent_onlyGoogleUpdaterInstalled_returnNull() {
         mockPackageManager.stub {
             on {
                 resolveActivity(
-                    argThat { action == Settings.ACTION_SYSTEM_UPDATE_SETTINGS },
+                    argThat {
+                        action == Settings.ACTION_SYSTEM_UPDATE_SETTINGS &&
+                            getPackage() != PACKAGE_NAME
+                    },
+                    eq(PackageManager.MATCH_SYSTEM_ONLY),
+                )
+            } doReturn GOOGLE_RESOLVE_INFO
+        }
+
+        val intent = repository.getSystemUpdateIntent()
+
+        assertThat(intent).isNull()
+    }
+
+    @Test
+    fun getSystemUpdateIntent_bothUpdatersInstalled_returnArkuiIntent() {
+        mockPackageManager.stub {
+            on {
+                resolveActivity(
+                    argThat {
+                        action == Settings.ACTION_SYSTEM_UPDATE_SETTINGS &&
+                            getPackage() != PACKAGE_NAME
+                    },
+                    eq(PackageManager.MATCH_SYSTEM_ONLY),
+                )
+            } doReturn GOOGLE_RESOLVE_INFO
+            on {
+                resolveActivity(
+                    argThat {
+                        action == Settings.ACTION_SYSTEM_UPDATE_SETTINGS &&
+                            getPackage() == PACKAGE_NAME
+                    },
                     eq(PackageManager.MATCH_SYSTEM_ONLY),
                 )
             } doReturn RESOLVE_INFO
@@ -68,12 +99,18 @@ class SystemUpdateRepositoryTest {
     }
 
     private companion object {
-        const val PACKAGE_NAME = "package.name"
+        const val PACKAGE_NAME = "org.lineageos.updater"
         const val ACTIVITY_NAME = "ActivityName"
         val RESOLVE_INFO = ResolveInfo().apply {
             activityInfo = ActivityInfo().apply {
                 packageName = PACKAGE_NAME
                 name = ACTIVITY_NAME
+            }
+        }
+        val GOOGLE_RESOLVE_INFO = ResolveInfo().apply {
+            activityInfo = ActivityInfo().apply {
+                packageName = "com.google.android.gms"
+                name = "com.google.android.gms.update.SystemUpdateActivity"
             }
         }
     }
