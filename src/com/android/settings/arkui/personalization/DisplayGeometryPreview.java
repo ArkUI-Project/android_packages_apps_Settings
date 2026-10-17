@@ -49,7 +49,7 @@ public final class DisplayGeometryPreview extends View {
         float radius = mValues[DisplayGeometrySettings.RADIUS] < 0 ? mModel.nativeRadius
                 : mValues[DisplayGeometrySettings.RADIUS] * density;
         int surface = MaterialColors.getColor(this, com.google.android.material.R.attr.colorSurface);
-        int primary = MaterialColors.getColor(this, com.google.android.material.R.attr.colorPrimary);
+        int primary = MaterialColors.getColor(this, androidx.appcompat.R.attr.colorPrimary);
         int ink = MaterialColors.getColor(this, com.google.android.material.R.attr.colorOnSurface);
         mPaint.setColor(ink);
         canvas.drawRoundRect(-4 / scale, -4 / scale, width + 4 / scale, height + 4 / scale,
