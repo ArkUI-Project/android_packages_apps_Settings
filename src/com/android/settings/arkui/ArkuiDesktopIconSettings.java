@@ -234,7 +234,7 @@ public class ArkuiDesktopIconSettings extends DashboardFragment
         if (mShape.findIndexOfValue(mShapeValue) < 0) mShapeValue = mDefaultShape;
         mShape.setValue(mShapeValue);
         mShape.setVisible(keys.length > 1);
-        mDefaultSize = size.getInt("default", 115);
+        mDefaultSize = size.getInt("default", 110);
         mSizeValue = values.getInt(SIZE, mDefaultSize);
         int min = size.getInt("min", 80);
         int max = size.getInt("max", 120);

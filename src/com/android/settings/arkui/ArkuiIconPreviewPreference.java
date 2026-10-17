@@ -45,7 +45,7 @@ public class ArkuiIconPreviewPreference extends Preference {
 
     private List<AppIcon> mIcons = Collections.emptyList();
     private Path mMask = new Path();
-    private int mSizePercent = 115;
+    private int mSizePercent = 110;
     private float mBaseSizeDp = 56f;
     private boolean mShowLabels = true;
     private IconPreviewView mView;
