@@ -33,8 +33,18 @@
 
     <!-- ArkUI version -->
     <Preference
-        android:key="lineage_version"
+        android:key="arkui_version"
         android:title="@string/arkui_version_title"
+        android:summary="@string/summary_placeholder"
+        android:selectable="false"
+        settings:enableCopying="true"
+        settings:searchable="false"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.ArkuiVersionPreferenceController"/>
+
+    <!-- LineageOS base version -->
+    <Preference
+        android:key="lineage_version"
+        android:title="@*lineageos.platform:string/lineage_version"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
         settings:searchable="false"

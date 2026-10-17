@@ -19,7 +19,6 @@ package com.android.settings.deviceinfo.aboutphone;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.os.SystemProperties;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,10 +43,9 @@ public class ArkuiAboutOverviewPreference extends LayoutPreference implements No
         setSelectable(false);
         ((TextView) findViewById(R.id.arkui_about_version)).setText(
                 ArkuiVersionInfo.getVersionSummary(context));
-        final String baseVersion = SystemProperties.get("org.arkui.build.version",
-                context.getString(R.string.unknown));
         ((TextView) findViewById(R.id.arkui_about_base_version)).setText(context.getString(
-                R.string.arkui_about_lineage_base, baseVersion));
+                R.string.arkui_about_lineage_base,
+                ArkuiVersionInfo.getLineageBaseVersion(context)));
         ((TextView) findViewById(R.id.arkui_about_android_version)).setText(Build.VERSION.RELEASE);
         ((TextView) findViewById(R.id.arkui_about_model)).setText(Build.MODEL);
 

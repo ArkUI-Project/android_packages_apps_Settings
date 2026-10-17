@@ -19,12 +19,10 @@ package com.android.settings.deviceinfo.firmwareversion
 
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.SystemClock
 import android.os.UserHandle
 import android.os.UserManager
 import androidx.preference.Preference
-import com.android.settings.R
 import com.android.settings.Utils
 import com.android.settings.contract.TAG_DEVICE_STATE_PREFERENCE
 import com.android.settings.deviceinfo.ArkuiVersionInfo
@@ -45,7 +43,7 @@ class LineageVersionDetailPreference :
         get() = "lineage_version"
 
     override val title: Int
-        get() = R.string.arkui_version_title
+        get() = org.lineageos.platform.internal.R.string.lineage_version
 
     override val indexable
         get() = false
@@ -64,7 +62,7 @@ class LineageVersionDetailPreference :
     }
 
     override fun getSummary(context: Context): CharSequence =
-        ArkuiVersionInfo.getBuildName(context)
+        ArkuiVersionInfo.getLineageBaseVersion(context)
 
     // return true swallows the click event, while return false will start the intent
     override fun onPreferenceClick(preference: Preference): Boolean {

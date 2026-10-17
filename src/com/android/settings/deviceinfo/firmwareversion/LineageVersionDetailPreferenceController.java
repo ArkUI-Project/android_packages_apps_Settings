@@ -19,7 +19,6 @@ package com.android.settings.deviceinfo.firmwareversion;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.SystemClock;
 import android.os.UserHandle;
 import android.os.UserManager;
@@ -29,7 +28,6 @@ import android.util.Log;
 import androidx.annotation.VisibleForTesting;
 import androidx.preference.Preference;
 
-import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.core.BasePreferenceController;
 import com.android.settings.deviceinfo.ArkuiVersionInfo;
@@ -76,7 +74,7 @@ public class LineageVersionDetailPreferenceController extends BasePreferenceCont
 
     @Override
     public CharSequence getSummary() {
-        return ArkuiVersionInfo.getBuildName(mContext);
+        return ArkuiVersionInfo.getLineageBaseVersion(mContext);
     }
 
     @Override

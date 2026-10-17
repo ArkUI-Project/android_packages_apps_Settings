@@ -18,6 +18,11 @@ public final class ArkuiVersionInfo {
         return SystemProperties.get("ro.lineage.version", context.getString(R.string.unknown));
     }
 
+    public static String getLineageBaseVersion(Context context) {
+        return SystemProperties.get("ro.lineage.build.version",
+                context.getString(R.string.unknown));
+    }
+
     public static String getVersionSummary(Context context) {
         final String unknown = context.getString(R.string.unknown);
         final String version = SystemProperties.get("ro.arkui.version", unknown);
